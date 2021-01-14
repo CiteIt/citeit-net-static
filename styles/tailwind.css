@@ -1,0 +1,52 @@
+@tailwind base;
+
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/Open_Sans/OpenSans-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("/assets/fonts/Open_Sans/OpenSans-Bold.ttf");
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter/Inter-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter/Inter-SemiBold.ttf");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/Inter/Inter-Bold.ttf");
+  font-style: bold;
+  font-weight: 700;
+  font-display: swap;
+}
+
+
+
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .change {
+    color: black;
+  }
+}

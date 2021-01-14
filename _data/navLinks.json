@@ -1,0 +1,22 @@
+[
+    {
+        "href": "/home",
+        "label": "Home"
+    },
+    {
+        "href": "/demos",
+        "label": "Demos"
+    },
+    {
+        "href": "/code",
+        "label": "Code"
+    },
+    {
+        "href": "/faq",
+        "label": "FAQ"
+    },
+    {
+        "href": "/about",
+        "label": "About"
+    }
+]

@@ -1,0 +1,71 @@
+    <nav class="bg-white"  x-data="{ open: false }">
+      <div class="max-w-7xl m-auto flex justify-between items-center">
+        <div class="py-4">
+          <div class="ml-2 sm:ml-4 md:ml-8">
+              <a class="" href="/">
+
+                <!--
+                <img class="w-20"
+                    src="/assets/images/CiteItLogo-concept.png"
+                    alt="CiteIt"
+                />-->
+                <div class="flex">
+                  <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="">
+                  <span class="mt-2 ml-4 text-md font-bold font-header text-gray-900">CiteIt - Building trust in media</span>
+                </div>
+              </a>
+          </div>
+        </div>
+        <ul class="hidden md:flex justify-between items-center space-x-10 mr-8">
+          {% for link in navLinks %}
+            <li>
+              <a href="{{ link.href }}" class="font-medium font-header text-gray-500 hover:text-gray-900 whitespace-no-wrap">
+                {{ link.label }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="flex md:hidden mr-2 sm:mr-4">
+          <!-- Mobile menu button -->
+          <button x-on:click="open = !open"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-blue-400 hover:bg-gray-700 focus:outline-none" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!-- Icon when menu is closed. -->
+            <!--
+              Heroicon name: menu
+
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <svg class="h-6 w-6" :class="{ 'hidden': open, 'block': !open }"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- Icon when menu is open. -->
+            <!--
+              Heroicon name: x
+
+              Menu open: "block", Menu closed: "hidden"
+            -->
+            <svg class="h-6 w-6" :class="{ 'hidden': !open, 'block': open }"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="lg:hidden" :class="{ 'hidden': !open, 'block': open }">
+        <div class="pt-2 pb-3 space-y-1">
+        {% for link in navLinks %}
+            <!--
+            <a href="{{ link.href }}" class="bg-gray-900 font-header border-blue-400 text-blue-400 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                {{ link.label }}
+            </a>
+            -->
+
+            <a href="{{ link.href }}" class="border-transparent font-header text-gray-900 hover:bg-gray-900 hover:border-blue-400 hover:text-blue-400 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                {{ link.label }}
+            </a>
+        {% endfor %}
+        </div>
+      </div>
+    </nav>
