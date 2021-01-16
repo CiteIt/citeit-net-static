@@ -14,7 +14,7 @@ Static site for citeit.net
   - [Eleventy](https://www.11ty.dev/): static site generator
   - [TailwindCSS](https://tailwindcss.com/): CSS framework
   - [Alpine.js](https://github.com/alpinejs/alpine): lightweight JS framework (no virtual DOM)
-  - [Nunjucks](https://mozilla.github.io/nunjucks/): templating language for JavaScript
+  - [Nunjucks](https://mozilla.github.io/nunjucks/): templating language for JavaScript (inspired by [jinja2](https://jinja.palletsprojects.com/en/2.11.x/)
 
 
 ### Install 
