@@ -12,6 +12,10 @@
         "label": "Code"
     },
     {
+        "href": "/blog",
+        "label": "Blog"
+    },
+    {
         "href": "/faq",
         "label": "FAQ"
     },
