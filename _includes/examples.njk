@@ -1,6 +1,5 @@
 
 <div class="mt-16 mx-auto max-w-7xl px-4 sm:px-6 ">
-
     <div class="lg:text-center">
       <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Demos</h2>
       <p class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">
@@ -12,15 +11,7 @@
     </div>
 
 <div>
-  <div class="sm:hidden">
-    <label for="tabs" class="sr-only">Select a tab</label>
-    <select id="tabs" name="tabs" class="block w-full focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md">
-      <option selected>Writting</option>
-      <option>Video</option>
-      <option>Audio</option>
-    </select>
-  </div>
-  <div class="hidden sm:block">
+  <div class="">
     <div class="border-b border-gray-200">
       <nav class="-mb-px flex space-x-8" aria-label="Tabs">
         <a href="#"
@@ -49,16 +40,15 @@
   </div>
 </div>
 
-<!-- This example requires Tailwind CSS v2.0+ -->
 <section class="bg-white overflow-hidden">
-  <div class="relative max-w-7xl mx-auto pt-20 pb-12 px-4 sm:px-6 lg:px-8 lg:py-20">
-
+  <div class="relative max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 lg:mt-16">
     <div class="relative lg:flex lg:items-center">
-      <div class="lg:block lg:flex-shrink-0">
-        <img class="mx-auto w-80 sm:w-96" src="/assets/images/jefferson-memorial-statue-1-2048x1078.jpg" alt="">
+      <div id="callout-quote-1"
+        class="border bg-yellow-200 mt-10 p-4 lg:absolute lg:right-24 lg:-top-20 animate-pulse"
+      >
+        Click on blue box below to see the quote in context.
       </div>
-
-      <div class="relative mt-10 lg:ml-10">
+      <div class="relative mt-16 lg:ml-10 lg:order-2">
         <svg class="absolute top-0 left-0 transform -translate-x-4 -translate-y-8 h-12 w-12 text-blue-200 opacity-100" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
           <path stroke-width="4" d="M41.485 15C17.753 31.753 1 59.208 1 89.455c0 24.664 14.891 39.09 32.109 39.09 16.287 0 28.386-13.03 28.386-28.387 0-15.356-10.703-26.524-24.663-26.524-2.792 0-6.515.465-7.446.93 2.327-15.821 17.218-34.435 32.11-43.742L41.485 15zm80.04 0c-23.268 16.753-40.02 44.208-40.02 74.455 0 24.664 14.891 39.09 32.109 39.09 15.822 0 28.386-13.03 28.386-28.387 0-15.356-11.168-26.524-25.129-26.524-2.792 0-6.049.465-6.98.93 2.327-15.821 16.753-34.435 31.644-43.742L121.525 15z" />
         </svg>
@@ -81,6 +71,9 @@
           </footer>
         </blockquote>
       </div>
+      <div class="lg:block lg:flex-shrink-0 lg:order-1">
+        <img class="mx-auto w-80 sm:w-96" src="/assets/images/jefferson-memorial-statue-1-2048x1078.jpg" alt="">
+      </div>
     </div>
   </div>
 </section>
@@ -88,7 +81,7 @@
 </div>
 
 <div x-data="quoteContext()" id="quote-context-1" class="hidden absolute bg-gray-100 border border-gray-400 z-10 opacity-0 transition-opacity duration-2000">
-    <div class="hidden sm:block absolute top-0 right-0 pt-4 pr-4">
+    <div class="sm:block absolute top-0 right-0 pt-4 pr-4">
       <button type="button" x-on:click="closeQuoteContext"
         class="text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
         <span class="sr-only">Close</span>
@@ -134,6 +127,10 @@
                 console.log(contextRect);
                 quoteContextElement.style.top = quoteRect.top - contextRect.height/2 + quoteRect.height + 'px';
                 quoteContextElement.style.opacity = 1;
+
+                let calloutElement = document.getElementById('callout-quote-1');
+                calloutElement.classList.remove('animate-pulse');
+
             }
         }
     }
