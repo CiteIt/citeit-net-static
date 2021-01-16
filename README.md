@@ -4,7 +4,11 @@ Static site for citeit.net
 ### Requirements
 
 * npm
-
+    - Download node.js and npm
+      * https://www.npmjs.com/get-npm
+    - Install package on Mac: 14.15.4
+    - Test: node -v
+      * v14.15.4
 
 ### Install 
 
@@ -24,6 +28,7 @@ cd citeit-net-static
 
 ```
 npm install
+npm install -g npm
 ```
 
 #### 4. Update the dependencies
