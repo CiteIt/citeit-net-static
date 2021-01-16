@@ -40,6 +40,23 @@
   font-display: swap;
 }
 
+ol.num {
+  list-style: decimal;
+  margin-left: 10%;
+}
+
+ol.num li {
+  margin-bottom: 10px;
+
+}
+
+a.footnote {
+  display: none;
+}
+
+.grey-888 {
+  color: #888; 
+}
 
 
 @tailwind components;
