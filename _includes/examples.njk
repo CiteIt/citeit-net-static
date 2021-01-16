@@ -54,9 +54,9 @@
         </svg>
         <blockquote class="relative">
           <div x-data="citation()"
-            class="text-lg leading-9 font-medium text-gray-900">
+            class="text-lg leading-9 font-medium text-gray-900 lg:text-xl">
             <div x-on:click="showQuoteContext">
-              <p class="bg-blue-100 p-4 border bg-opacity-60 cursor-pointer hover:bg-blue-200">
+              <p class="bg-blue-100 p-4 border bg-opacity-60 cursor-pointer hover:bg-blue-200 lg:p-8">
                 Nothing is more certainly written in the book of fate than that these people are to be free.
               </p>
               </div>
@@ -113,21 +113,16 @@
     function citation() {
         return {
             showQuoteContext(event) {
-                console.log('open quote');
-
                 let quoteRect = event.target.getBoundingClientRect();
                 let quoteContextElement = document.getElementById('quote-context-1');
-                console.log(event.target);
-                console.log(quoteRect);
-                quoteContextElement.style.top = quoteRect.top + 'px';
+                quoteContextElement.style.top = '0px';
                 quoteContextElement.style.left = quoteRect.left + 'px';
                 quoteContextElement.style.width = quoteRect.width + 'px';
                 quoteContextElement.style.display = "block";
                 let contextRect = quoteContextElement.getBoundingClientRect();
-                console.log(contextRect);
-                quoteContextElement.style.top = quoteRect.top - contextRect.height/2 + quoteRect.height + 'px';
+                quoteContextElement.style.top = (quoteRect.top + window.scrollY - contextRect.height/2 + quoteRect.height/2) + 'px';
                 quoteContextElement.style.opacity = 1;
-
+                let newContextRect = quoteContextElement.getBoundingClientRect();
                 let calloutElement = document.getElementById('callout-quote-1');
                 calloutElement.classList.remove('animate-pulse');
 
