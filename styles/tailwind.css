@@ -81,7 +81,7 @@ ul#footer {
 
 #nav_footer {
   background-color: #eee; 
-  padding-top: 25px; 
+  padding-top: 25 px; 
   padding-bottom: 50px;   
   display: block;
   height: auto;
@@ -99,32 +99,6 @@ ul#footer {
   margin: 0 20px;
   height: auto;
 }
-
-
-/* 
- * CSS to Solution #4.
- */.containing-div {
-  background-color: #d2b48c;
-  display: block;
-  height: auto;
-}
-.floating-div {
-  float: left;
-  width: 50%;
-}
-.floating-div ul {
-  display: inline-block;
-  height: auto;
-}
-/*Added*/.clearfix {
-  clear: both;
-}
-.clearfix:after {
-  clear: both; 
-  content: "";
-  display: table; 
-}
-
 
 
 
