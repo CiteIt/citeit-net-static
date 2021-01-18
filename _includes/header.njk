@@ -27,7 +27,11 @@
           <div class="relative mx-auto w-full shadow-lg lg:max-w-md">
             <button type="button" class="relative block w-full bg-white overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
               <span class="sr-only">Watch our video to learn more</span>
-              <img class="w-full" src="/assets/images/jefferson-memorial-statue-panorama-1-512x270.webp" alt="Jefferson Memorial Panoroma, Washington, DC">
+              <picture>
+                <source srcset="/assets/images/jefferson-memorial-statue-panorama-1-512x270.webp" type="image/webp">
+                <source srcset="/assets/images/jefferson-memorial-statue-panorama-1-512x270.jpg" type="image/jpeg"> 
+                <img src="img/creakyOldJPEG.jpg" alt="Jefferson Memorial Statue Panoroma, Washington, DC">
+              </picture>
               <span class="text-base text-gray-500">There is a <span class="text-red-300 font-extrabold">cherry-picked quote</span> on the Jefferson Memorial</span> 
                 <div class="absolute inset-0 w-full h-full flex items-center justify-center" aria-hidden="true">
                 <svg class="h-20 w-20 text-blue-500" fill="currentColor" viewBox="0 0 84 84">
