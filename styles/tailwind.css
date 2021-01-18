@@ -40,6 +40,7 @@
   font-display: swap;
 }
 
+
 ol.num {
   list-style: decimal;
   margin-left: 10%;
@@ -57,6 +58,74 @@ a.footnote {
 .grey-888 {
   color: #888; 
 }
+
+.submit {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+
+ul#footer {
+  margin-bottom: 30;
+  padding-top: 25px;
+  height: auto;
+  overflow: auto; 
+}
+
+#nav_footer {
+  background-color: #eee; 
+  padding-top: 25px; 
+  padding-bottom: 50px;   
+  display: block;
+  height: auto;
+  overflow: auto;
+}
+
+.nav ul li {
+  margin-left: 20px;
+
+  height: auto;
+}
+
+.nav .section {
+  float: left;
+  margin: 0 20px;
+  height: auto;
+}
+
+
+/* 
+ * CSS to Solution #4.
+ */.containing-div {
+  background-color: #d2b48c;
+  display: block;
+  height: auto;
+}
+.floating-div {
+  float: left;
+  width: 50%;
+}
+.floating-div ul {
+  display: inline-block;
+  height: auto;
+}
+/*Added*/.clearfix {
+  clear: both;
+}
+.clearfix:after {
+  clear: both; 
+  content: "";
+  display: table; 
+}
+
+
 
 
 @tailwind components;

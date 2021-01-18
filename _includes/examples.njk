@@ -129,10 +129,11 @@
 
 
 
-<h2>Demo: Use CiteIt</h2>
+<h2 style="font-size: 1.7em; font-weight: bold;">Demo: Use CiteIt</h2>
 
 <form method="post">
-  <textarea id="demo_textarea"><h3>There is a cherry-picked quotation from the Jefferson Memorial:</h3>
+<textarea id="demo_textarea" rows="30" cols="50">
+<h3>There is a cherry-picked quotation from the Jefferson Memorial:</h3>
 <p><a href="https://www.citeit.net/2018/01/06/cherry-picked-quotations-on-the-jefferson-memorial/">Panel 3 is actually comprised of 6 separate excerpts</a>. Click on each quote to see its context:</p>
 <ol>
 <li>The god who gave us life, gave us liberty (<a href="https://founders.archives.gov/documents/Jefferson/01-01-02-0090">link</a>)</li>
@@ -148,13 +149,15 @@
 </ul>
 <p>&nbsp;</p>
 <h4>Add Contextual Arrows to Quote</h4>
-<p>If you <strong>highlight</strong> the quote below and click the <strong>"CiteIt blockquote" button</strong>, you can enter in the URL for Yale library:</p>
+<p>If you <strong>highlight</strong> the quote below and click the <strong>"CiteIt blockquote" button</strong>, it will prompt you to enter the URL for Yale library:</p>
+<p>&nbsp;</p>
 <p>Nothing is more certainly written in the book of fate than that these people are to be free.</p>
+<p>&nbsp;</p>
 <p>After you <strong>"save"</strong> this document, contextual arrows should appear underneath the quote.</p>
  </textarea>
 
   <br />
-  <input type="submit" value="Save" />
+  <input type="submit" class="submit " value="Save" />
 </form>
 
 <br />
@@ -165,9 +168,8 @@
 <br />
 
 
-
-
 <script>
+/* $(document).ready(function(){  */
     tinymce.init({
       selector: 'textarea',
       height: 500,
@@ -234,6 +236,7 @@
 
     });
 
+/*  });   document.ready() */
 </script>
 
 
