@@ -45,7 +45,6 @@ ol.disc {
   margin: 10px 0 0 50px;
 }
 
-
 ol.num {
   list-style: decimal;
   margin: 10px 0 0 50px;
@@ -67,7 +66,7 @@ a.footnote {
 .panel-3 {
   background-color: #eee;
   border: 1px solid #ddd;
-  padding: 30px 40px;
+  padding: 30px 30px 30px 10px;
 }
 
 .submit {
@@ -89,6 +88,9 @@ a.footnote {
   text-decoration: underline;
 }
 
+.panel-width {
+  width: 500px
+}
 
 ul#footer {
   margin-bottom: 30;
