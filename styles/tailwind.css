@@ -40,7 +40,7 @@
   font-display: swap;
 }
 
-ol.disc {
+ul.disc {
   list-style: disc;
   margin: 10px 0 0 50px;
 }
@@ -89,7 +89,7 @@ a.footnote {
 }
 
 .panel-width {
-  width: 500px
+  width: 350px
 }
 
 ul#footer {
