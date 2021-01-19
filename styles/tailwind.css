@@ -40,10 +40,15 @@
   font-display: swap;
 }
 
+ol.disc {
+  list-style: disc;
+  margin: 10px 0 0 50px;
+}
+
 
 ol.num {
   list-style: decimal;
-  margin-left: 10%;
+  margin: 10px 0 0 50px;
 }
 
 ol.num li {
@@ -76,6 +81,13 @@ a.footnote {
   font-size: 16px;
 }
 
+.level-2 {
+  margin-left: 50px;
+}
+
+.level-2 a {
+  text-decoration: underline;
+}
 
 
 ul#footer {
@@ -102,11 +114,9 @@ ul#footer {
 
 .nav .section {
   float: left;
-  margin: 0 20px;
+  margin: 20px 20px;
   height: auto;
 }
-
-
 
 
 @tailwind components;
