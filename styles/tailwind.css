@@ -59,6 +59,12 @@ a.footnote {
   color: #888; 
 }
 
+.panel-3 {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  padding: 30px 40px;
+}
+
 .submit {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -81,7 +87,7 @@ ul#footer {
 
 #nav_footer {
   background-color: #eee; 
-  padding-top: 25 px; 
+  padding-top: 25px; 
   padding-bottom: 50px;   
   display: block;
   height: auto;
@@ -99,6 +105,7 @@ ul#footer {
   margin: 0 20px;
   height: auto;
 }
+
 
 
 
