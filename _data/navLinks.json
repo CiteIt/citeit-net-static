@@ -1,23 +1,23 @@
 [
     {
-        "href": "/home",
+        "href": "/",
         "label": "Home"
     },
     {
-        "href": "/demos",
+        "href": "/demo",
         "label": "Demos"
+    },
+    {
+        "href": "/try",
+        "label": "Try Live Editor"
     },
     {
         "href": "/code",
         "label": "Code"
     },
     {
-        "href": "/blog",
+        "href": "https://www.citeit.net/blog/",
         "label": "Blog"
-    },
-    {
-        "href": "/faq",
-        "label": "FAQ"
     },
     {
         "href": "/about",

@@ -28,10 +28,13 @@
             <span>Video</span>
         </a>
         <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 group inline-flex items-center py-4 px-1 border-b-2 font-medium text-lg">
-            <svg class="text-gray-500 group-hover:text-gray-500 -ml-0.5 mr-2 h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            </svg>
-          <span>Audio</span>
+            <!--svg class="text-blue-600 group-hover:text-blue-600 -ml-0.5 mr-2 h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg-->
+
+            <img height="40" width="40" src="/assets/images/Wikipedia-logo-v2.svg" alt="Wikipedia logo" />&nbsp;&nbsp;
+
+          <span>Wikipedia</span>
         </a>
       </nav>
     </div>
@@ -104,6 +107,10 @@
 </section>
 
 
+
+
+
+
 <div x-data="quoteContext()" id="quote-context-1" class="hidden absolute bg-gray-100 border border-gray-400 z-10 opacity-0 transition-opacity duration-2000">
     <div class="sm:block absolute top-0 right-0 pt-4 pr-4">
       <button type="button" x-on:click="closeQuoteContext"
@@ -132,3 +139,37 @@
 </div>
 
 
+<script>
+    function citation() {
+        return {
+            showQuoteContext(event) {
+                let quoteRect = event.target.getBoundingClientRect();
+                let quoteContextElement = document.getElementById('quote-context-1');
+                quoteContextElement.style.top = '0px';
+                quoteContextElement.style.left = quoteRect.left + 'px';
+                quoteContextElement.style.width = quoteRect.width + 'px';
+                quoteContextElement.style.display = "block";
+                let contextRect = quoteContextElement.getBoundingClientRect();
+                quoteContextElement.style.top = (quoteRect.top + window.scrollY - contextRect.height/2 + quoteRect.height/2) + 'px';
+                quoteContextElement.style.opacity = 1;
+                let newContextRect = quoteContextElement.getBoundingClientRect();
+                let calloutElement = document.getElementById('callout-quote-1');
+                calloutElement.classList.remove('animate-pulse');
+
+            }
+        }
+    }
+
+    function quoteContext() {
+      return {
+          closeQuoteContext(event) {
+            let quoteContextElement = document.getElementById('quote-context-1');
+            quoteContextElement.style.opacity = 0
+            setTimeout(function () {
+              quoteContextElement.style.display = "none";
+            }, 2000);
+          }
+      }
+    }
+
+</script>
