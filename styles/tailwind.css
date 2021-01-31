@@ -50,6 +50,12 @@ ol.num {
   margin: 10px 0 0 50px;
 }
 
+ol.num li.highlight {
+  background-color: yellow;
+  color: #000;
+  font-weight: 800;
+}
+
 ol.num li {
   margin-bottom: 10px;
 
@@ -69,6 +75,10 @@ a.footnote {
   padding: 30px 30px 30px 10px;
 }
 
+.green {
+  background-color: #4CAF50; /* Green */
+}
+
 .submit {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -80,6 +90,19 @@ a.footnote {
   font-size: 16px;
 }
 
+.w-900 {
+  width: 85%;
+  max-width: 900;
+}
+
+.alignright {
+  float: right;
+  display: inline;
+  margin-right: 30px;
+
+}
+
+
 .level-2 {
   margin-left: 50px;
 }
@@ -87,9 +110,15 @@ a.footnote {
 .level-2 a {
   text-decoration: underline;
 }
-
+.panel-intro {
+  margin-top: 20px;
+}
+.panel-intro p {
+  font-size: 110%;
+  margin-bottom: 5px;
+}
 .panel-width {
-  width: 350px
+  width: 100%;
 }
 
 ul#footer {
