@@ -4,7 +4,7 @@ title: Hello
 
 {% extends "_includes/default.njk" %}
 
-{% block title %}About CiteIt - Building trust in media{% endblock %}
+{% block title %}About CiteIt.net - Building trust in media{% endblock %}
 
 
 {% block content %}
@@ -70,68 +70,34 @@ title: Hello
   </div>
 </div>
 
-<section class="bg-white overflow-hidden">
+<section class="mr-10 bg-white overflow-hidden">
   <div class="relative max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 lg:mt-16">
-    <div class="relative lg:flex lg:items-center">
-      <div class="mt-8 lg:block lg:flex-shrink-0 lg:order-1">
+    <div class="relative lg:items-center">
+      <div class="mt-2 lg:block lg:flex-shrink-0 lg:order-1">
 
-<h3 style="font-size: 1.3em; font-weight: bold;">Why CiteIt.net?</h3>
-<p>Often when I’m reading a story in print, I come across a quote that makes me wonder: What was said in the sentences preceding or following the quote?  In other words: What is the Context?  Is this quote cherry-picked and can I really get a full sense for what happened from just the quoted selection?</p>
+<h3 class="mb-2" style="font-size: 1.6em; font-weight: bold;">Install WordPress plugin</h3>
+<p>The CiteIt Wordpress plugin is the <strong>easiest way to start</strong> experimenting with CiteIt <strong>on your website</strong>.<p>
 
-<h3 style="font-size: 1.3em; font-weight: bold;">What is CiteIt.net?</h3>
-<p>CiteIt.net is the name I chose for a web service that allows writers to augment their writing with greater context about the quotations they make.  The concept behind CiteIt.net is part of the tradition that started with footnotes, became hypercharged with <a href="http://www.w3.org/WhatIs.html">hypertext links</a>, and now has evolved to enable the words of the original sources to flow into the citing document, without requiring the reader to interrupt their reading experience by leaving the original document.</p>
+<iframe class="mt-5" width="560" height="315" src="https://www.youtube.com/embed/eIwlo7nQr0g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>CiteIt.net was inspired by the work of <a href="https://en.wikipedia.org/wiki/Ted_Nelson">Ted Nelson</a> &mdash; who coined the term &ldquo;<a href="https://en.wikipedia.org/wiki/Hypertext" target="_blank" rel="noopener noreferrer">hypertext</a>&rdquo; in 1962 and had the vision for a universal hypertext network, long before Bill Gates and Steve Jobs had even assembled their first personal computers.</p>
-<p>While writing a <a href="https://www.openpolitics.com/articles/ted-nelson-philosophy-of-hypertext.html">review of Ted Nelson&rsquo;s 2002 Ph.D. thesis</a>, I was inspired to develop a way to write in a way more similar to what Nelson advocates.&nbsp; Ted&rsquo;s design &mdash; <a href="http://www.xanadu.net/">Xanadu</a> &mdash; features <strong>parallel texts</strong> that provide the full context of their sources. My design is a crude semblance of Xanadu, displaying only one pane of text in which the text surrounding a citation is &ldquo;injected&rdquo;.&nbsp; Because I do <strong>not have the technical ability to implement Ted&rsquo;s vision</strong> and so much existing writing is available on the web as Html, I thought I could pursue Ted&rsquo;s vision best by <strong>creating a quick-and-dirty extension to Html</strong> that would allow writers to start to create a collection of citation data.&nbsp; There is a saying from the 1989 movie &ldquo;Field of Dreams &mdash; <q cite="https://en.wikiquote.org/wiki/Field_of_Dreams" data-citeit-citing-url="https://www.citeit.net/about/">If you build it &ndash;</q> &ndash; he will come. My goal is to <strong>prioritize the collection of citation data</strong> as a data-centric approach.&nbsp; As the system develops, and as authors get used to the concept of pulling their quote context from the original source, it is my hope that the compilation of a public data set of citation data will attract great programmers to gradually rebuild the design, <strong>replacing my current Html cludge</strong> with advanced front and backend features.</p>
-<p><img loading="lazy" class="alignnone size-medium wp-image-709" src="https://www.citeit.net/wp-content/uploads/2019/12/tim-photo-don-ziegler.jpg" alt="photo: Tim Langeman" width="227" height="300"><br>
-&ndash;<a href="http://www.openpolitics.com/tim">Tim Langeman</a><br>
-Akron, PA (USA)</p>
-<p>&nbsp;</p>
-<h3>Credits:</h3>
-<h4>Special thanks to the following contributors:</h4>
-<ul><li>Alanna Espenshade (Mock up demo Wikipedia pages)</li>
-<li><a href="https://github.com/amayer5125">Alex Mayer</a> (Help with Docker Build Script)</li>
-<li><a href="https://github.com/millerdev">Daniel Miller</a> (Programming Advice)</li>
-<li><a href="https://www.linkedin.com/in/lynn-schmidt-miller-4a06481a/">Lynn Schmidt Miller</a> suggested the name of &ldquo;CiteIt&rdquo; instead of &ldquo;Neotext&rdquo;.</li>
-<li><a href="https://github.com/mattlangeman">Matt Langeman</a> (Help with previous AWS SAM setup)</li>
-<li><a class="link-gray-dark no-underline flex-self-center" href="https://github.com/rajats98"><span class="text-gray">Rajat Sharma</span></a>: Help with UI: ( Javascript: reverse expanding arrows direction)</li>
-<li>Phil Zook (Mock up demo Wikipedia pages)</li>
-<li>Will Nissley (Mock up demo Wikipedia</li>
-</ul>
+<h4 class="mt-10 mb-2" style="font-size: 1.4em; font-weight: bold;">Installation</h4>
 
+<a href="" class="w-full mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
+Download WordPress plugin &nbsp;&nbsp; (alpha)
+</a>
 
-<h3>FAQ: Frequently Asked Questions</h3>
-<p><strong>When</strong> did you begin CiteIt?</p>
-<ul><li>The idea for CiteIt.net came while I was <a href="https://www.openpolitics.com/articles/ted-nelson-philosophy" class="broken_link">writing a profile of Ted Nelson</a>.</li>
-<li>I started writing an <strong>implementation</strong> in late 2014, with the <a href="https://github.com/timlangeman/quote-context/commits/master">first GitHub commit</a>&nbsp;on<strong> Jan 15, 2015</strong>.</li>
-</ul><p>What is <strong>Neotext</strong>?</p>
-<ul><li><a href="https://github.com/neotext/">Neotext</a> is the first name I gave to the project that became <strong>CiteIt</strong>.</li>
-<li><a href="https://www.linkedin.com/in/lynn-schmidt-miller-4a06481a/">Lynn Schmidt Miller</a> suggested the name of &ldquo;CiteIt&rdquo; as a way to relate the project to the well-understood concept of citation.</li>
-<li>You may see some stray references in the code to <em>Neotext</em>.</li>
-</ul><p>Why did you release this as <strong>open-source software</strong> under a free license like the <a href="https://en.wikipedia.org/wiki/MIT_License">MIT license</a>?</p>
-<ul><li>I want the type of citation I&rsquo;m doing with CiteIt.net to <strong>spread as widely as possible</strong>.</li>
-<li>I want to promote the <strong>norm</strong> that <strong>serious discussions are substantiated with citations.&nbsp; </strong>The question to ask is: <em>&ldquo;Can you CiteIt?&rdquo;</em></li>
-<li>By providing as few restrictions on implementations as possible, <strong>I hope others will extend my vision</strong>, taking it places I could not go on my own.</li>
-</ul><p>What do you use to create your <strong>footnotes</strong> on this website?</p>
-<ul><li>The footnotes on CiteIt are created with the <a href="https://wordpress.org/plugins/wp-bigfoot/">WP-Bigfoot</a> library <a href="#footnote-1-15" id="note-1-15" rel="footnote">1</a></li>
-</ul><p>Is there a <strong>simple code demonstration</strong> of CiteIt I can inspect that is stripped of all the WordPress boilerplate?</p>
-<ul><li>There is a basic <a href="https://www.citeit.net/sample-code/examples.html">Sample Code GitHub repository with examples of&nbsp; CiteIt.net being used with the web service</a>.</li>
-</ul><h2 style="clear: both;">Want to Get Involved?</h2>
-<ul><li>If you know how to program in <strong>python</strong> or <strong>javascript</strong> the most significant <a href="https://www.citeit.net/volunteer/">opportunities to contribute are found on the &ldquo;volunteer&rdquo; page</a>.</li>
-</ul><p>If you have ideas or think you can help, <a href="https://www.openpolitics.com/tim">send me an email</a>. (email address found on homepage)</p>
+(<a class="underline" target="_blank" href="https://www.citeit.net/2020/08/08/how-to-install-and-use-the-citeit-net-wordpress-plugin/">How to Install the plugin</a>)
 
+<h3 class="mt-12 mb-3" style="font-size: 1.6em; font-weight: bold;">Alpha Status</h3>
 
+<p class="mb-4">The WordPress plugin is <strong>not yet</strong> part of the WordPress <strong><a href="https://wordpress.org/plugins/">Plugin directory</a></strong> because it has not yet been widely <strong>tested</strong>.</p>
 
+<p class="mb-4">I don't want to get a bunch of negative reviews for <strong>bugs</strong>.  After you've tried it out, <a class="underline" href="https://www.openpolitics.com/tim">send me an email</a> with <strong>feeback</strong>.</p>
 
+<p>Once I get enough positive feedback, I hope to add it to the plugin directory.</p>
 
-<ol class="num">
-<li><strong>Copy</strong> the above URL to your clipboard.</li>
-<li><strong>Highlight</strong> the quote below #1: (<em>Nothing is more certainly written .."</em>)</li>
-<li>Click the <strong>"CiteIt blockquote" button </strong>(in the editor toolbar above)<strong>.</strong></li>
-<li>When prompted, <strong>Enter the URL</strong> for the Yale library that you have on your clipboard.</li>
-</ol>
-
-
+<br />
+<br />
 
       </div>
     </div>

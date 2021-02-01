@@ -40,6 +40,10 @@
   font-display: swap;
 }
 
+.tab-panel {
+  padding-right: 15%;
+}
+
 ul.disc {
   list-style: disc;
   margin: 10px 0 0 50px;
@@ -111,7 +115,7 @@ a.footnote {
   text-decoration: underline;
 }
 .panel-intro {
-  margin-top: 20px;
+  padding-top: 40px;
 }
 .panel-intro p {
   font-size: 110%;
