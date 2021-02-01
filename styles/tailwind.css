@@ -153,6 +153,14 @@ ul#footer {
   height: auto;
 }
 
+span#if-you-dont-cherry-pick {
+  margin-right: 10px;
+}
+
+.green-text {
+  color: #28a745;
+}
+
 .resp-container {
   position: relative;
   overflow: hidden;
