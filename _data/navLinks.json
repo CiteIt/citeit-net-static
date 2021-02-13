@@ -12,12 +12,12 @@
         "label": "Try Live Editor"
     },
     {
-        "href": "/code",
-        "label": "Code"
-    },
-    {
         "href": "https://www.citeit.net/blog/",
         "label": "Blog"
+    },
+    {
+        "href": "/code",
+        "label": "Code"
     },
     {
         "href": "/about",

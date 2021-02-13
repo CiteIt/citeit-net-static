@@ -65,6 +65,8 @@ ol.num li {
 
 }
 
+
+
 a.footnote {
   display: none;
 }
@@ -73,15 +75,20 @@ a.footnote {
   color: #888; 
 }
 
+.green {
+  background-color: #4CAF50; /* Green */
+}
+
+.text-blue {
+  color: blue !important;
+}
+
 .panel-3 {
   background-color: #eee;
   border: 1px solid #ddd;
   padding: 30px 30px 30px 10px;
 }
 
-.green {
-  background-color: #4CAF50; /* Green */
-}
 
 .submit {
   background-color: #4CAF50; /* Green */
