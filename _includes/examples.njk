@@ -1,4 +1,5 @@
 
+
 <div class="mt-16 mx-auto max-w-7xl px-4 sm:px-6 ">
     <div class="lg:text-center">
       <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Demos</h2>
@@ -51,7 +52,7 @@
 
 <h4 style="font-size: 1.3em; font-weight: bold;">1. Expanding blockquote</h4>
 
-<p><strong>Click on the arrows</strong> above and below the quote to <strong>expand the context</strong>:</p>
+<p><strong>Click on the blue arrows</strong> above and below the quote to <strong>expand the context</strong>:</p>
 
 <div class="wp-block-image"><figure class="alignright size-large is-resized">
 <img class="feature" src="/assets/images/rabbi-david-wolpe.jpg" alt="Rabbi David Wolpe" /><br />
@@ -75,7 +76,7 @@ I think that Judaism has the same problem ..<br />
 <h4 style="font-size: 1.3em; font-weight: bold;">2. Contextual Popup</h4>
 <p>Jane Austen&rsquo;s &ldquo;<a class="underline" href="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5">Pride and Prejudice</a>&rdquo; draws its title, in part from a line where the books&rsquo;s main character, Elizabeth says:&nbsp;<q cite="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5">&nbsp;I could easily forgive&nbsp;<i>his</i>&nbsp;pride, if he had not mortified&nbsp;<i>mine.</i></q>&nbsp; &nbsp;
 
-<br /><br /><p><span class="highlight">Click on quote above</span>: "I could easily forgive his pride .."</p>
+<br /><br /><p><span class="highlight">Click on blue-grey quote above:</span> ("I could easily forgive his pride ..")</p>
 
 <br />
 <span class="code">HTML code:</span> <div class="code">..  Elizabeth says:&nbsp;<strong>&lt;q cite</strong>="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5" data-citeit-citing-url="https://demo.citeit.net/"&gt;&nbsp;I could easily forgive&nbsp;&lt;i&gt;his&lt;/i&gt;&nbsp;pride, if he had not mortified&nbsp;&lt;i&gt;mine.&lt;/i&gt;<strong>&lt;/q&gt;</strong>&nbsp; &nbsp;</div>
@@ -96,7 +97,7 @@ Source: &nbsp; <a class="underline" href="https://dash.harvard.edu/bitstream/han
 <br />
 
 <p>Harvard Professor Laurel Thatcher Ulrich‘s comment that <q cite="https://dash.harvard.edu/bitstream/handle/1/14123819/Vertuous%20Women%20Found.pdf">Well-behaved women seldom make history</q> makes more sense if the reader has an easy way to inspect the context from her 1976 article from American Quarterly. 
-(click the blue-grey link)</p>
+(<span class="highlight">click the blue-grey link</span>)</p>
 <br />
 
 <span class="code">HTML code:</span>
@@ -121,14 +122,16 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 
 <p>Here’s a <strong>screenshot of the popup</strong> that appears on the Los Angeles Lakers article when a reader mouses over the link to the Los Angeles Sparks Basketball team.</p>
 <img class="thin-border" src="/assets/images/Wikipedia-article-popups-768x935.png" alt="Wikipedia: Article Popup" width="500" />
+Example: Current article popup
 <br />
 
 <h4 style="font-size: 1.3em; font-weight: bold;">Contextual Popup<h4>
 <p>Below is a <strong>screenshot</strong> of the <strong><a class="underline" target="_blank" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Ruth_Bader_Ginsburg#start">Ruth Bader Ginsburg article</a></strong> mockup which shows the <strong>CiteIt Contextual Popup</strong> that appears when a reader clicks on the light grey-blue text of a contextual quotation, in this case: “<strong>Ginsburg precedent</strong>“.</p>
 <img class="thin-border" src="/assets/images/Wikipedia-article-RBG-screenshot-1-1104x2048.png" alt="Wikipedia: Contextual Popup" width="650" />
+Example: Proposed CiteIt Contextual Popup
 
 <br />
-<h4 style="font-size: 1.6em; font-weight: bold;">Sample Articles</h4>
+<h4 style="font-size: 1.6em; font-weight: bold;">Sample Wikipedia Articles</h4>
 <p>Click on an image below to view <strong>sample Wikipedia articles</strong> that feature contextual quotations.</p>
 <br />
 <div class="feature">
@@ -192,11 +195,11 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 </figure></div>
 
 <h4 style="font-size: 1.3em; font-weight: bold;">Library of Alexandria Video</h4>
-feature<div class="css-83cqas-RichTextContainer e5tfeyi2">Consider the following quote from <a class="underline" href="https://en.wikipedia.org/wiki/James_Burke_(science_historian)">James Burke</a>'s "<a class="underline" href="https://en.wikipedia.org/wiki/Connections_(TV_series)">Connections</a>" series about a <strong>"crafty way" the Library of Alexandria assembled their collection:</strong>
-<div class="attention_grabbing center margin_bottom"><span class="highlight">↓ Click: "Expand: Show Video Clip" ↓</span></div>
+<p>Consider how adding the video's YouTube URL to the blockquote's cite tag allows the <a class="underline" href="/code/developers/">CiteIt.net javascript library</a> to 
+embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp;<span class="highlight">↓ Click: "Expand: Show Video Clip" ↓</span></p>
 <br />
 <blockquote cite="https://youtu.be/1NqRbBvujHY?t=398">Now, they got these scrolls, either because the local scholars wrote them or because they had a rather crafty law. See, if you came to Alexandria on a boat and you owned a book you had to lend it to the library to be copied. And sometimes the copies were so good the owners went off with the fakes and the library kept the original.</blockquote>
-</div>
+
 
 <br />
 <span class="code">HTML code:</span>
@@ -205,8 +208,8 @@ feature<div class="css-83cqas-RichTextContainer e5tfeyi2">Consider the following
 
 
 <br /><br />
-<h4 style="font-size: 1.3em; font-weight: bold;">Malcolm Gladwell Interview</h4>
-<p>HTML Formatting is allowed within a citation, so long as the plain-text version matches the original quote's plain-text version.</p>
+<h4 style="font-size: 1.3em; font-weight: bold;">Malcolm Gladwell Interview: "Westerns"</h4>
+<p><strong>HTML Formatting is allowed</strong> within a citation, so long as the <strong>plain-text version matches the original</strong> quote's plain-text version.</p>
 
 <p>Here is a quotation from Joe Rogan's interview with Malcolm Gladwell.</p>
 
@@ -242,10 +245,29 @@ feature<div class="css-83cqas-RichTextContainer e5tfeyi2">Consider the following
 <a name="twitter"></a>
 <br /><br />
 <h3 style="font-size: 1.8em; font-weight: bold;">Twitter</h3>
+<br /><p>Here are 2 examples of tweets whose quotations have been linked to their source so that a contextual popup could be added.</p>
+<br />
+
+<ol class="num">
+<li><blockquote class="twitter-tweetx"><p lang="en" dir="ltr">“<q cite="https://www.epsilontheory.com/hunger-games/">Last year, Citadel Securities, the largest market maker that executes retail trades, made $6.9 BILLION in net trading revenues. That’s more than twice their prior best year. They did this without taking ANY market risk. NONE.</q>”<a href="https://t.co/J2qEYm964C">https://t.co/J2qEYm964C</a> via <a href="https://twitter.com/EpsilonTheory?ref_src=twsrc%5Etfw">@EpsilonTheory</a></p>&mdash; Jack Hoogland (@jack_hoogland) <a href="https://twitter.com/jack_hoogland/status/1357646294882406400?ref_src=twsrc%5Etfw">February 5, 2021</a></blockquote> </li>
+
+
+<li><blockquote class="twitter-tweetx"><p lang="en" dir="ltr">Anyone else miss the time when our country used to have the mindset “<q cite="https://www.ourdocuments.gov/doc.php?doc=91&page=transcript">Ask not what your country can do for you, ask what you can do for your country</q>”<br><br>How far we have fallen. <a href="https://t.co/rL9OYkVMuT">pic.twitter.com/rL9OYkVMuT</a></p>&mdash; Ivan Bliminse (@sl33pwh3imd3ad) <a href="https://twitter.com/sl33pwh3imd3ad/status/1359531810028421130?ref_src=twsrc%5Etfw">February 10, 2021</a></blockquote></li>
+
+<li><blockquote class="twitter-tweetx"><p lang="en" dir="ltr">I graduated from the U.S. Naval Academy in 1988.<br><br>I took an oath to defend this country, <q cite="https://www.senate.gov/artandhistory/history/common/briefing/Oath_Office.htm">against all enemies.<br><br>Foreign.<br><br>And domestic.</q> <a href="https://t.co/HqOWfXqswY">https://t.co/HqOWfXqswY</a></p>&mdash; Christopher David (@Tazerface16) 
+
+<blockquote class="twitter-tweetx"><p lang="en" dir="ltr">Here’s the longer version of the protester being struck repeatedly by federal police tonight in Portland <a href="https://t.co/v9BljIkLK0">pic.twitter.com/v9BljIkLK0</a></p>&mdash; Zane Sparling (@PDXzane) <a href="https://twitter.com/PDXzane/status/1284733976582615040?ref_src=twsrc%5Etfw">July 19, 2020</a></blockquote> 
+</ol>
 
 <a name="audio"></a>
 <br /><br />
 <h3 style="font-size: 1.8em; font-weight: bold;">Audio</h3>
+<br /><p>I would like to build out audio-citation, especially for <strong>podcasts and radio</strong>.</p>
+
+<p><a class="underline" href="https://www.openpolitics.com/tim/">Contact me</a> if you are interested in contributing to this portion of the podcast.</p>
+
+
+
 <br /><br />
 
 </div>
@@ -307,7 +329,7 @@ feature<div class="css-83cqas-RichTextContainer e5tfeyi2">Consider the following
   div.code {
     background-color: #e7ebf2;
     border: 1px solid #b9cde8;
-    padding: 20px;
+    padding: 25px 25px 25px 30px;
     width: 70%;
   }
 
@@ -333,4 +355,3 @@ feature<div class="css-83cqas-RichTextContainer e5tfeyi2">Consider the following
     font-weight: 400;
   }
 
-</style>
