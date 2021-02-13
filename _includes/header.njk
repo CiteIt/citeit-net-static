@@ -42,8 +42,64 @@
             </button>
           </div>
         </div>
-
       </div>
+
+
+    <h3 id="example" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Example</h3>
+    <p class="mt-2 mb-4">On <a class="underline" href="https://www.citeit.net/2018/01/06/cherry-picked-quotations-on-the-jefferson-memorial/">Panel 3 of the Jefferson Memorial</a>, Thomas Jefferson is quoted as saying:</p>
+    <blockquote cite="http://avalon.law.yale.edu/19th_century/jeffauto.asp">Nothing is more certainly written in the book of fate than that these people are to be free.</blockquote>
+    
+
+    <h3 id="test-drive" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Test-drive CiteIt!</h3>
+    <p class="mt-2">Enter a quote below and the URL for the webpage where the quote is located.  (Use <a class-"underline" href="https://news.google.com/">Google News</a> as an example).</p>
+    <form class="test-submission" action="">
+
+        <h4>Quote:</h4>
+        <textarea name="quote" rows="5" cols="55"></textarea><br />
+        <h4>URL:</h4>
+        <input class="url" name="url" type="text" /><br /><br />
+        <input class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" value="Create Test Citation" />
+
+    </form>
+
+
+
     </main>
   </div>
 </div>
+
+<style>
+
+  #example {
+    margin-top: 100px;
+  }
+  #test-drive {
+    margin-top: 100px;
+  }
+
+  textarea, input.url {
+    border: 1px solid #95b7e5;
+    background-color: #e8f0f2;
+  }
+  input.url {
+    width: 460px;
+    height: 50px;
+  }
+  input[type=submit]{
+    width: 250px;
+  }
+  input[type=text]:focus {
+    border: 3px solid #555;
+  }
+
+  form.test-submission h4 {
+    color: #2666bb;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  form.test-submission {
+    margin-bottom: 80px;
+  }
+
+</style>
