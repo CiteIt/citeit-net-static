@@ -63,16 +63,15 @@
 
 <blockquote cite="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">I think that Judaism has the same problem that any thick civilization has in a world in which, as you say, context is stripped away. And not only is context stripped away, but attention to any one thing is scanter and less than it used to be. So, for example, a lot of Jewish commentary is based on your recognizing the reference that I make. Who recognizes references anymore? Because people don’t spend years studying books.</blockquote>
 
-<br />
 <span class="code">HTML code:</span> <div class="code"><strong>&lt;blockquote cite</strong>="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d"&gt;<br />
 I think that Judaism has the same problem ..<br /> 
 <strong>&lt;/blockquote&gt;</strong></div>
-<br />
 
 <div class="wp-block-image"><figure class="alignright size-large is-resized">
 <img class="feature" src="/assets/images/pride-and-prejudice.png" width="300" alt="Pride &amp; Prejudice" /><br />
 <a class="underline" href="https://en.wikipedia.org/wiki/Pride_and_Prejudice">Jane Austen's Pride &amp; Prejudice</a>
 </figure></div>
+
 <h4 style="font-size: 1.3em; font-weight: bold;">2. Contextual Popup</h4>
 <p>Jane Austen&rsquo;s &ldquo;<a class="underline" href="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5">Pride and Prejudice</a>&rdquo; draws its title, in part from a line where the books&rsquo;s main character, Elizabeth says:&nbsp;<q cite="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5">&nbsp;I could easily forgive&nbsp;<i>his</i>&nbsp;pride, if he had not mortified&nbsp;<i>mine.</i></q>&nbsp; &nbsp;
 
@@ -199,21 +198,17 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
 <br />
 <blockquote cite="https://youtu.be/1NqRbBvujHY?t=398">Now, they got these scrolls, either because the local scholars wrote them or because they had a rather crafty law. See, if you came to Alexandria on a boat and you owned a book you had to lend it to the library to be copied. And sometimes the copies were so good the owners went off with the fakes and the library kept the original.</blockquote>
 
-
-<br />
 <span class="code">HTML code:</span>
 <div class="code"><strong>&lt;blockquote cite="https://youtu.be/1NqRbBvujHY?t=398"&gt;</strong>Now, they got these scrolls, either because the local scholars wrote them or because they had a rather crafty law. See, if you came to Alexandria on a boat and you owned a book you had to lend it to the library to be copied. And sometimes the copies were so good the owners went off with the fakes and the library kept the original.<strong>&lt;/blockquote&gt;</strong></div>
 
-
-
-<br /><br />
+<br />
 <h4 style="font-size: 1.3em; font-weight: bold;">Malcolm Gladwell Interview: "Westerns"</h4>
 <p><strong>HTML Formatting is allowed</strong> within a citation, so long as the <strong>plain-text version matches the original</strong> quote's plain-text version.</p>
 
 <p>Here is a quotation from Joe Rogan's interview with Malcolm Gladwell.</p>
 
 <div class="wp-block-image">
-<figure class="alignright size-large is-resized"><a href="https://en.wikipedia.org/wiki/Malcolm_Gladwell"><img class="wp-image-1766 feature" src="/assets/images/Malcolm-Gladwell.jpg" alt="" width="214" height="268" /></a><a class="underline" href="https://en.wikipedia.org/wiki/Malcolm_Gladwell">Malcolm Gladwell</a></figure>
+<figure class="alignright size-large is-resized"><a href="https://en.wikipedia.org/wiki/Malcolm_Gladwell"><img class="wp-image-1766 feature" src="/assets/images/Malcolm-Gladwell.jpg" alt="" width="214" height="268" /></a><br /><a class="underline" href="https://en.wikipedia.org/wiki/Malcolm_Gladwell">Malcolm Gladwell</a></figure>
 </div>
 <blockquote cite="https://youtu.be/OnEjzmR9Hvw?t=231">
 <ol class="num">
@@ -226,8 +221,7 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
 </li>
 </ol>
 </blockquote>
-
-<br /><br />
+<br />
 <span class="code">HTML code:</span>
 <div class="code">
 <strong>&lt;blockquote cite="https://youtu.be/OnEjzmR9Hvw?t=231"&gt;</strong><br />
@@ -265,8 +259,6 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
 
 <p><a class="underline" href="https://www.openpolitics.com/tim/">Contact me</a> if you are interested in contributing to this portion of the podcast.</p>
 
-
-
 <br /><br />
 <br /><br />
 
@@ -274,43 +266,19 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
 </section>
 
 
-
-<script>
-    function citation() {
-        return {
-            showQuoteContext(event) {
-                let quoteRect = event.target.getBoundingClientRect();
-                let quoteContextElement = document.getElementById('quote-context-1');
-                quoteContextElement.style.top = '0px';
-                quoteContextElement.style.left = quoteRect.left + 'px';
-                quoteContextElement.style.width = quoteRect.width + 'px';
-                quoteContextElement.style.display = "block";
-                let contextRect = quoteContextElement.getBoundingClientRect();
-                quoteContextElement.style.top = (quoteRect.top + window.scrollY - contextRect.height/2 + quoteRect.height/2) + 'px';
-                quoteContextElement.style.opacity = 1;
-                let newContextRect = quoteContextElement.getBoundingClientRect();
-                let calloutElement = document.getElementById('callout-quote-1');
-                calloutElement.classList.remove('animate-pulse');
-
-            }
-        }
-    }
-
-    function quoteContext() {
-      return {
-          closeQuoteContext(event) {
-            let quoteContextElement = document.getElementById('quote-context-1');
-            quoteContextElement.style.opacity = 0
-            setTimeout(function () {
-              quoteContextElement.style.display = "none";
-            }, 2000);
-          }
-      }
-    }
-
-</script>
-
 <style>
+  blockquote {
+    width: 65%;
+  }
+
+  div.quote_arrows {
+    width: 65%;
+  }
+
+  div.citeit_source {
+    margin-right: 35%;
+  }
+
   div.feature {
     float: left;
     padding-bottom: 20px;  
@@ -354,4 +322,4 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
     color: #2666bb;
     font-weight: 400;
   }
-
+</style>

@@ -1,72 +1,44 @@
-
 <div id="nav_footer" class="nav">
-          
-<div class="section">  
-  <a href="/">Home</a>
-</div>  
+
+  <div class="section">  
+    <a href="/">Home</a>
+  </div>  
+
+    <div class="section">
+    <a href="/">Demos</a>
+    </div>
 
   <div class="section">
-  <a href="/">Demos</a>
-  <!--ul>
-    <li>Text</li>
-    <li>Audio</li>
-    <li>Video</li>
-    <li>Wikipedia</li>
-  </ul-->
+    <a href="/">Use It</a>
   </div>
 
-<div class="section">
-  <a href="/">Use It</a>
-  <!--ul>
-    <li>Test drive</li>
-    <li><a href="https://demo.citeit.net">WordPress plugin</a></li>
-  </ul-->
-</div>
+  <div class="section">
+    <a href="/code/">Code</a>
+  </div>  
 
-<div class="section">
-  <a href="/code/">Code</a>
-  <!--ul>
-    <li><a href="https://download.citeit.net/quote-context/wordpress-plugin/CiteIt.net.zip">WordPress Plugin</a></li>
-    <li><a href="https://github.com/CiteIt/citeit-sample-code">Developer Sample Code</a></li>
-    <li><a href="https://github.com/CiteIt/citeit-webservice">Webservice (Python)</a></li>
-    <li><a href="https://hub.docker.com/r/citeit/citeit_webservice">Webservice (Docker)</a></li>
-  </ul -->
-</div>  
+  <div class="section">
+    <a href="/blog/">Blog</a>
+  </div>
 
-<div class="section">
-  <a href="/blog/">Blog</a>
-  <!--ul>
-    <li><a href="https://github.com/CiteIt/citeit-sample-code">Cherry-Picked Quotes on the Jefferson Memorial</a></li>
-    <li><a href="https://www.citeit.net/2020/08/07/quoting-youtube-transcripts-with-citeit-net/">Quoting YouTube Transcripts with CiteIt.net</a></li>
-    <li><a href="https://hub.docker.com/r/citeit/citeit_webservice">Webservice (Docker)</a></li>
-<li><a href="https://download.citeit.net/quote-context/wordpress-plugin/CiteIt.net.zip">Ted Nelson’s “Philosophy of Hypertext”</a></li>
-  </ul -->
-</div>
+  <div class="section">
+    <a href="https://www.citeit.net/volunteer/">Volunteer</a>
+  </div>
 
-<div class="section">
-  <a href="https://www.citeit.net/volunteer/">Volunteer</a>
-</div>
+  <div class="section">
+    <a href="/faq/">FAQ</a>
+  </div>
 
-<div class="section">
-  <a href="/faq/">FAQ</a>
-</div>
-
-<div class="section">
-  <a href="/about/">About</a>
-</div>
+  <div class="section">
+    <a href="/about/">About</a>
+  </div>
 
 </div>
 
+<div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
 
-
-</style>
-
-  <div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
-  <script>
+<script>
 	// Call CiteIt.net plugin on all q-tags and blockquotes:
 	$( document ).ready(function() {
 		jQuery('q, blockquote').quoteContext();
 	});
-  </script>
-
-
+</script>
