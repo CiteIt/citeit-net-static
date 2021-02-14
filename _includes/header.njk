@@ -164,3 +164,41 @@
   }
 
 </style>
+
+
+
+<script>
+
+    function citation() {
+        return {
+            showQuoteContext(event) {
+                let quoteRect = event.target.getBoundingClientRect();
+                let quoteContextElement = document.getElementById('quote-context-1');
+                quoteContextElement.style.top = '0px';
+                quoteContextElement.style.left = quoteRect.left + 'px';
+                quoteContextElement.style.width = quoteRect.width + 'px';
+                quoteContextElement.style.display = "block";
+                let contextRect = quoteContextElement.getBoundingClientRect();
+                quoteContextElement.style.top = (quoteRect.top + window.scrollY - contextRect.height/2 + quoteRect.height/2) + 'px';
+                quoteContextElement.style.opacity = 1;
+                let newContextRect = quoteContextElement.getBoundingClientRect();
+                let calloutElement = document.getElementById('callout-quote-1');
+                calloutElement.classList.remove('animate-pulse');
+
+            }
+        }
+    }
+
+    function quoteContext() {
+      return {
+          closeQuoteContext(event) {
+            let quoteContextElement = document.getElementById('quote-context-1');
+            quoteContextElement.style.opacity = 0
+            setTimeout(function () {
+              quoteContextElement.style.display = "none";
+            }, 2000);
+          }
+      }
+    }
+
+</script>		

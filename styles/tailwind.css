@@ -141,10 +141,15 @@ ul#footer {
 
 #nav_footer {
   background-color: #eee; 
-  padding-top: 25px; 
-  padding-bottom: 50px;   
+  padding-top: 50px; 
+  padding-bottom: 250px;   
   display: block;
   height: auto;
+  padding-left: auto;
+  padding-right: auto;
+  
+  width: 100%;
+  text-align: center;
   overflow: auto;
 }
 
@@ -156,8 +161,9 @@ ul#footer {
 
 .nav .section {
   float: left;
-  margin: 20px 20px;
+  margin: 0px 0px;
   height: auto;
+  width: 12.5%;
 }
 
 span#if-you-dont-cherry-pick {
