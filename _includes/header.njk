@@ -45,25 +45,74 @@
       </div>
 
 
-    <h3 id="example" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Example</h3>
+        <section class="bg-white overflow-hidden">
+            <div class="relative max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 lg:mt-16">
+                <div class="relative lg:flex lg:items-center">
+                    <div id="callout-quote-1"
+                        class="mt-10 p-4 border bg-yellow-200 lg:absolute lg:right-24 lg:-top-20 animate-pulse"
+                    >
+                        Click on blue box below to see the quote in context.
+                    </div>
+                    <div class="relative mt-16 lg:ml-10 lg:order-2">
+                        <svg class="absolute top-0 left-0 transform -translate-x-4 -translate-y-8 h-12 w-12 text-blue-200 opacity-100" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
+                            <path stroke-width="4" d="M41.485 15C17.753 31.753 1 59.208 1 89.455c0 24.664 14.891 39.09 32.109 39.09 16.287 0 28.386-13.03 28.386-28.387 0-15.356-10.703-26.524-24.663-26.524-2.792 0-6.515.465-7.446.93 2.327-15.821 17.218-34.435 32.11-43.742L41.485 15zm80.04 0c-23.268 16.753-40.02 44.208-40.02 74.455 0 24.664 14.891 39.09 32.109 39.09 15.822 0 28.386-13.03 28.386-28.387 0-15.356-11.168-26.524-25.129-26.524-2.792 0-6.049.465-6.98.93 2.327-15.821 16.753-34.435 31.644-43.742L121.525 15z" />
+                        </svg>
+                        <blockquote class="relative">
+                            <div x-data="citation()"
+                                class="text-lg leading-9 font-medium text-gray-900 lg:text-xl">
+                                <div x-on:click="showQuoteContext">
+                                    <p class="bg-blue-300 p-4 border bg-opacity-60 cursor-pointer hover:bg-blue-300 lg:p-8 shadow">
+                                        Nothing is more certainly written in the book of fate than that these people are to be free.
+                                    </p>
+                                </div>
+                            </div>
+                            <footer class="mt-8">
+                                <div class="flex">
+                                    <div class="ml-10 lg:ml-10">
+                                        <div class="text-base font-semibold text-gray-900">Thomas Jefferson</div>
+                                        <div class="text-base font-medium text-gray-900">Founding Father of USA</div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+      
+
+
+    <!--h3 id="example" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Example</h3>
     <p class="mt-2 mb-4">On <a class="underline" href="https://www.citeit.net/2018/01/06/cherry-picked-quotations-on-the-jefferson-memorial/">Panel 3 of the Jefferson Memorial</a>, Thomas Jefferson is quoted as saying:</p>
     <blockquote cite="http://avalon.law.yale.edu/19th_century/jeffauto.asp">Nothing is more certainly written in the book of fate than that these people are to be free.</blockquote>
-    
+    -->
 
     <h3 id="test-drive" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Test-drive CiteIt!</h3>
-    <p class="mt-2">Enter a quote below and the URL for the webpage where the quote is located.  (Use <a class-"underline" href="https://news.google.com/">Google News</a> as an example).</p>
+    <p class="mt-2 mb-1"><strong>Enter a quote below</strong> and the URL for the webpage where the quote is located.<br />
+    <p>(If you need ideas: Use <strong><a class="underline" target="_target" href="https://news.google.com/">Google News</a></strong> as an source material).</p>
+
     <form class="test-submission" action="">
 
         <h4>Quote:</h4>
-        <textarea name="quote" rows="5" cols="55"></textarea><br />
+        <textarea name="quote" rows="5" cols="65"></textarea><br />
+        <span class="label">Example:</span>&nbsp; <span class="example">"I could easily forgive his pride, if he had not mortified mine."</span><br />
+
+
         <h4>URL:</h4>
-        <input class="url" name="url" type="text" /><br /><br />
-        <input class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" value="Create Test Citation" />
+        <input class="url" name="url" type="text" /><br />
+        <span class="label">Example:</span>&nbsp; <span class="example">https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5</span><br />
+        
+        
+        <br />
+        <input class="w-full mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" value="Create Test Citation" />
 
     </form>
 
-
-
+    <h4 style="font-size: 1.8em; font-weight: bold;">Submission Results</h4>
+    <p class="mb-6"><span class="highlight">Click the <strong>grey-blue link</strong> below</span> to <strong>view the contextual popup</strong>:</p>
+    <q class="test-results" cite="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5">I could easily forgive his pride, if he had not mortified mine.</q>
+    
+    <br /><br />
     </main>
   </div>
 </div>
@@ -74,7 +123,7 @@
     margin-top: 100px;
   }
   #test-drive {
-    margin-top: 100px;
+    margin-top: 15px;
   }
 
   textarea, input.url {
@@ -82,11 +131,11 @@
     background-color: #e8f0f2;
   }
   input.url {
-    width: 460px;
+    width: 540px;
     height: 50px;
   }
   input[type=submit]{
-    width: 250px;
+    width: 300px;
   }
   input[type=text]:focus {
     border: 3px solid #555;
@@ -95,11 +144,23 @@
   form.test-submission h4 {
     color: #2666bb;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin: 20px 0 5px 0;
+  }
+
+  form.test-submission span.label {
+    color: #545de9;
+  }
+
+  form.test-submission span.example {
+    color: #666;
   }
 
   form.test-submission {
     margin-bottom: 80px;
+  }
+
+  q.test-results { 
+    font-size: 145%;
   }
 
 </style>
