@@ -61,14 +61,14 @@
 
 <p><a class="underline mb-12" href="https://en.wikipedia.org/wiki/Tyler_Cowen">Tyler Cowen</a> interviewed <a class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> as part of his <a class="underline" href="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">Conversations with Tyler Series</a>.  Rabbi Wolpe said:</p>
 
-<blockquote cite="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">I think that Judaism has the same problem that any thick civilization has in a world in which, as you say, context is stripped away. And not only is context stripped away, but attention to any one thing is scanter and less than it used to be. So, for example, a lot of Jewish commentary is based on your recognizing the reference that I make. Who recognizes references anymore? Because people don’t spend years studying books.</blockquote>
+<blockquote cite="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">I think that Judaism has the same problem that any thick civilization has in a world in which, as you say, <strong>context is stripped away</strong>. And not only is context stripped away, but attention to any one thing is scanter and less than it used to be. So, for example, a lot of Jewish commentary is based on your recognizing the reference that I make. Who recognizes references anymore? Because people don’t spend years studying books.</blockquote>
 
 <span class="code">HTML code:</span> <div class="code"><strong>&lt;blockquote cite</strong>="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d"&gt;<br />
-I think that Judaism has the same problem ..<br /> 
+I think that Judaism has the same problem that any thick civilization has in a world in which, as you say, &lt;strong&gt;context is stripped away&lt;/strong&gt;. And not only is context stripped away, but attention to any one thing is scanter and less than it used to be. So, for example, a lot of Jewish commentary is based on your recognizing the reference that I make. Who recognizes references anymore? Because people don’t spend years studying books.<br /> 
 <strong>&lt;/blockquote&gt;</strong></div>
 
 <div class="wp-block-image"><figure class="alignright size-large is-resized">
-<img class="feature" src="/assets/images/pride-and-prejudice.png" width="300" alt="Pride &amp; Prejudice" /><br />
+<img class="feature" src="/assets/images/pride-and-prejudice.png" alt="Pride &amp; Prejudice" /><br />
 <a class="underline" href="https://en.wikipedia.org/wiki/Pride_and_Prejudice">Jane Austen's Pride &amp; Prejudice</a>
 </figure></div>
 
@@ -99,7 +99,7 @@ Source: &nbsp; <a class="underline" href="https://dash.harvard.edu/bitstream/han
 
 <span class="code">HTML code:</span>
 <div class="code">
-Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "https://dash.harvard.edu/bitstream/handle/1/14123819/Vertuous%20Women%20Found.pdf</strong>"&gt; Well-behaved women seldom make history<strong>&lt;/q&gt;</strong> makes more sense if the reader has an easy way to inspect the context from her 1976 article from American Quarterly. 
+Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "https://dash.harvard.edu/clip/Women%20Found.pdf</strong>"&gt; Well-behaved women seldom make history<strong>&lt;/q&gt;</strong> makes more sense if the reader has an easy way to inspect the context from her 1976 article from American Quarterly. 
 (click the blue-grey link)
 </div>
 
@@ -194,7 +194,7 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 
 <h4 style="font-size: 1.3em; font-weight: bold;">Library of Alexandria Video</h4>
 <p>Consider how adding the video's YouTube URL to the blockquote's cite tag allows the <a class="underline" href="/code/developers/">CiteIt.net javascript library</a> to 
-embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp;<span class="highlight">↓ Click: "Expand: Show Video Clip" ↓</span></p>
+embed the video and <strong>locate the surrounding transcript</strong> (if a <strong>matching transcript</strong> is found).  &nbsp;&nbsp;<br /><span class="highlight">↓ Click: "Expand: Show Video Clip" ↓</span></p>
 <br />
 <blockquote cite="https://youtu.be/1NqRbBvujHY?t=398">Now, they got these scrolls, either because the local scholars wrote them or because they had a rather crafty law. See, if you came to Alexandria on a boat and you owned a book you had to lend it to the library to be copied. And sometimes the copies were so good the owners went off with the fakes and the library kept the original.</blockquote>
 
@@ -255,9 +255,17 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
 <a name="audio"></a>
 <br /><br />
 <h3 style="font-size: 1.8em; font-weight: bold;">Audio</h3>
+
 <br /><p>I would like to add support for audio-citations, especially for <strong>podcasts and radio</strong>.</p>
 
 <p><a class="underline" href="https://www.openpolitics.com/tim/">Contact me</a> if you are interested in contributing to this portion of the podcast.</p>
+<br /><br /><br /><br />
+
+<h3  style="font-size: 1.8em; font-weight: bold;">Developer Guide</h3>
+<ul class="disc">
+  <li>Learn how to <a class="underline" href="https://www.citeit.net/sample-code/examples.html">add CiteIt's Contextual Citations to your website</a>.</li>
+</ul>
+
 
 <br /><br />
 <br /><br />
@@ -270,15 +278,33 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
   blockquote {
     width: 65%;
   }
-
-  div.quote_arrows {
+  div.down-arrow {
+    padding-left: 14.5%;
+    /* border: 3px solid purple; */
     width: 65%;
+  }
+  a.down_arrow {
+    text-align: center;
+    width: 65%;
+  }
+  div.quote_arrows {
+    width: 65%; 
+  }
+
+  div.quote_context {
+    /* border: 1px solid red; */
+    width: 90%;
   }
 
   div.citeit_source {
-    margin-right: 35%;
+    margin-right: 0%;
+    width:30%;
+    /* border: 1px solid green;  */
   }
-
+  span.source {
+    color: #999;
+    margin-right: 5px;
+  }
   div.feature {
     float: left;
     padding-bottom: 20px;  
@@ -295,10 +321,11 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
   }
 
   div.code {
-    background-color: #e8f0f2;
-    border: 1px solid #b9cde8;
+    background-color: #f9fbe5;
+    border: 1px solid #dae380;
     padding: 25px 25px 25px 30px;
     width: 70%;
+    max-width: 70%;
   }
 
   .highlight {
@@ -308,6 +335,7 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
   img.feature {
     float: right;
     padding: 25px 25px 5px 25px;
+    width: 280px;
   }
 
   div.wp-block-image {
@@ -322,4 +350,9 @@ embed the video and transcript (if a matching transcript is found).  &nbsp;&nbsp
     color: #2666bb;
     font-weight: 400;
   }
+
+  blockquote.quote_text {
+    padding: 25px 30px 25px 30px;
+  }
+
 </style>
