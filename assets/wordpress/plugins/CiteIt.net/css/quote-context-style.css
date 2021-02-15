@@ -74,8 +74,8 @@ div.highlight {
 
 div.citeit_source {
 	float: right;
-	margin-right: 10%;
-	margin-top: -40px;
+	margin-right: 2%;
+	margin-top: 0px;
 	font-size: 85%;
 }
 
@@ -156,7 +156,7 @@ blockquote.quote_text {
 	color: #333;
 	border: 1px solid #d8e7f2;
 	background-color: #d6e8ec;
-	padding: 25px 30px 5px 30px;
+	padding: 25px 30px 25px 30px;
 	margin: 0 0 15px 0;
 	quotes: "\201c" "\201d" "\2018" "\2019";
 }
@@ -291,7 +291,7 @@ span.context_header {
 @media only screen and (max-width: 768px) {
 
 div.quote_arrows a {
-	font-size: 150%;						/* make it larger: to select on phone screen */
+	font-size: 110%;						/* make it larger: to select on phone screen */
 	border: 0px;
 }
 span.view_on_youtube {

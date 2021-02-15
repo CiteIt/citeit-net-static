@@ -142,8 +142,6 @@ jQuery.fn.quoteContext = function() {
                               + "<br /><span class='context_header'>Context After:</span>" 
 	                          + "<div class='tooltip'><span class='tooltip_icon'>?</span><span class='tooltiptext'>CiteIt.net displays the 500 characters immediately before and after the quote</span></div>" 
                           + "</blockquote></div>" 
-                          + "<div class='citeit_source'><span class='citeit_source_label'>source: </span>"
-                          + "<a class='citeit_source_domain' href='" + json.cited_url + "'>" + extractDomain(json.cited_url) + "</a></div>"
                         );
 
                         var context_before = jQuery("#quote_before_" + json.sha256);
@@ -163,8 +161,10 @@ jQuery.fn.quoteContext = function() {
                             );
                         }
                         if (json.cited_context_after.length > 0) {
-                            context_after.after("<div class='quote_arrows' id='context_down_" + json.sha256 + "'> \
-                            <a id='quote_arrow_down_" + json.sha256 + "' \
+                            context_after.after("<div class='quote_arrows down-arrow' id='context_down_" + json.sha256 + "'> \
+                            <div class='citeit_source'><span class='source'>source: </span> \
+                            <a class='citeit_source_domain' href='" + json.cited_url + "'>" + extractDomain(json.cited_url) + "</a></div> \
+                            <a class='down_arrow' id='quote_arrow_down_" + json.sha256 + "' \
                             href=\"javascript:toggleQuote('quote_arrow_down', 'quote_after_" + json.sha256 + "');\">&#9660;</a></div>");
                         }
 
