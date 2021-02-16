@@ -154,7 +154,7 @@ jQuery.fn.quoteContext = function() {
                         context_after.hide();
 
                         if (json.cited_context_before.length > 0) {
-                            context_before.before("<div class='quote_arrows' id='context_up_" + json.sha256 + "'> \
+                            context_before.before("<div class='quote_arrows up-arrow' id='context_up_" + json.sha256 + "'> \
                             <a id='quote_arrow_up_" + json.sha256 + "' \
                                 href=\"javascript:toggleQuote('quote_arrow_up', 'quote_before_" + json.sha256 + "');\">&#9650;</a> " + trimDefault(embed_ui.icon) +
                                 "</div>"
