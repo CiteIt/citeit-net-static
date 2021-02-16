@@ -364,10 +364,26 @@ embed the video and <strong>locate the surrounding transcript</strong> (if a <st
     padding-top: 5px;
   }
 
-@media only screen and (max-width: 750px) {
+  iframe.youtube {
+    margin-bottom: 20px;
+  }
+
+@media only screen and (max-width: 1200px) {
+  iframe.youtube {
+    width: 320px !important;
+    height: 185px !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
 
   div#nothing_is-more_certainly p {
     width:100%;
+  }
+
+  iframe.youtube {
+    width: 320px !important;
+    height: 185px !important;
   }
 
 }
@@ -424,6 +440,7 @@ embed the video and <strong>locate the surrounding transcript</strong> (if a <st
   iframe.youtube {
     width: 260px !important;
     height: 150px !important;
+    margin-bottom: 20px;
   }
 
 }
