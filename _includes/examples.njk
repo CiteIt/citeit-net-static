@@ -56,10 +56,10 @@
 
 <div class="wp-block-image"><figure class="alignright size-large is-resized">
 <img class="feature" src="/assets/images/rabbi-david-wolpe.jpg" alt="Rabbi David Wolpe" /><br />
-<a class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> 
+<a id="rabbi-david-wolpe-caption" class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> 
 </figure></div>
 
-<p><a class="underline mb-12" href="https://en.wikipedia.org/wiki/Tyler_Cowen">Tyler Cowen</a> interviewed <a class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> as part of his <a class="underline" href="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">Conversations with Tyler Series</a>.  Rabbi Wolpe said:</p>
+<p id="rabbi-david-wolpe-intro"><a class="underline mb-12" href="https://en.wikipedia.org/wiki/Tyler_Cowen">Tyler Cowen</a> interviewed <a class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> as part of his <a class="underline" href="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">Conversations with Tyler Series</a>.  Rabbi Wolpe said:</p>
 
 <blockquote cite="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">I think that Judaism has the same problem that any thick civilization has in a world in which, as you say, <strong>context is stripped away</strong>. And not only is context stripped away, but attention to any one thing is scanter and less than it used to be. So, for example, a lot of Jewish commentary is based on your recognizing the reference that I make. Who recognizes references anymore? Because people don’t spend years studying books.</blockquote>
 
@@ -364,4 +364,47 @@ embed the video and <strong>locate the surrounding transcript</strong> (if a <st
     padding-top: 5px;
   }
 
+@media only screen and (max-width: 425px) {
+
+blockquote  {
+	width: 95% !important;
+}
+
+div.code {
+	width: 95% !important;
+	max-width: 95% !important;
+}
+
+div#nothing_is-more_certainly{
+	width:85% !important;
+}
+
+img.wiki-photo {
+	height: 175px !important;;
+}
+
+div.citeit_source {
+	width: 1%;
+
+}
+
+ul#footer > li {
+	display: inline-block;
+	margin-bottom: 30px;
+	width: auto;
+	*display: inline;
+	/* this fix is needed for IE7- */
+
+ }
+
+ nav#media_types {
+    display: none;
+  }
+
+ #rabbi-david-wolpe-intro {
+  padding-top: 15px;
+  clear: both;
+}
+
+}
 </style>

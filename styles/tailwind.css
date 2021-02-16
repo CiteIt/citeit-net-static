@@ -189,6 +189,10 @@ span#if-you-dont-cherry-pick {
   border: 0;
 }
 
+p { 
+  width: 65%;
+}
+
 
 @tailwind components;
 @tailwind utilities;
