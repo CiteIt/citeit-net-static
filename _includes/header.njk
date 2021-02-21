@@ -124,7 +124,6 @@
           /><br />
         <!--span class="label">Example:</span>&nbsp; <span class="example"><https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5</span><br /-->
         
-        
         <br />
         <input class="w-full mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" value="Create Test Citation" />
         <div id="todo" class="label mt-2" style="float:left">(Todo)</div>
@@ -226,36 +225,46 @@
 
 <script>
 
-    function citation() {
-        return {
-            showHomePageQuoteContext(event) {
-                let quoteRect = event.target.getBoundingClientRect();
-                let quoteContextElement = document.getElementById('quote-context-1');
-                quoteContextElement.style.top = '0px';
-                quoteContextElement.style.left = quoteRect.left + 'px';
-                quoteContextElement.style.width = quoteRect.width + 'px';
-                quoteContextElement.style.display = "block";
-                let contextRect = quoteContextElement.getBoundingClientRect();
-                quoteContextElement.style.top = (quoteRect.top + window.scrollY - contextRect.height/2 + quoteRect.height/2) + 'px';
-                quoteContextElement.style.opacity = 1;
-                let newContextRect = quoteContextElement.getBoundingClientRect();
-                let calloutElement = document.getElementById('callout-quote-1');
-                calloutElement.classList.remove('animate-pulse');
+  jQuery( document ).ready(function() {
 
-            }
-        }
-    }
+    jQuery.noConflict();
 
-    function homePageQuoteContext() {
+    $('#test-submssion').submit(function(){
+      alert("Submitted");
+    });
+
+  )(jQuery);
+
+  function citation() {
       return {
-          closeQuoteContext(event) {
-            let quoteContextElement = document.getElementById('quote-context-1');
-            quoteContextElement.style.opacity = 0
-            setTimeout(function () {
-              quoteContextElement.style.display = "none";
-            }, 2000);
+          showHomePageQuoteContext(event) {
+              let quoteRect = event.target.getBoundingClientRect();
+              let quoteContextElement = document.getElementById('quote-context-1');
+              quoteContextElement.style.top = '0px';
+              quoteContextElement.style.left = quoteRect.left + 'px';
+              quoteContextElement.style.width = quoteRect.width + 'px';
+              quoteContextElement.style.display = "block";
+              let contextRect = quoteContextElement.getBoundingClientRect();
+              quoteContextElement.style.top = (quoteRect.top + window.scrollY - contextRect.height/2 + quoteRect.height/2) + 'px';
+              quoteContextElement.style.opacity = 1;
+              let newContextRect = quoteContextElement.getBoundingClientRect();
+              let calloutElement = document.getElementById('callout-quote-1');
+              calloutElement.classList.remove('animate-pulse');
+
           }
       }
+  }
+
+  function homePageQuoteContext() {
+    return {
+        closeQuoteContext(event) {
+          let quoteContextElement = document.getElementById('quote-context-1');
+          quoteContextElement.style.opacity = 0
+          setTimeout(function () {
+            quoteContextElement.style.display = "none";
+          }, 2000);
+        }
     }
+  }
 
 </script>		
