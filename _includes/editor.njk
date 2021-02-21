@@ -1,4 +1,3 @@
-
 <div class="mt-10 mx-auto max-w-7xl px-4 sm:px-6 ">
     <div class="lg:text-center">
       <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Use CiteIt</h2>
@@ -6,91 +5,86 @@
         Use CiteIt's Contextual Citations: 
       </p>
     </div>
-
-<div>
-  <div class="">
-    <div class="border-b border-gray-200">
-      <nav class="-mb-px flex space-x-6" aria-label="Tabs">
-        <a href="#"
-            class="border-blue-500 text-blue-600 group inline-flex items-center py-4 px-1 border-b-2 font-medium text-lg" aria-current="page">
-            <svg class="text-blue-600 group-hover:text-blue-600 -ml-0.5 mr-2 h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-            </svg>
-            <strong><span>Try Live Editor</span></strong>
-        </a>
-        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 group inline-flex items-center py-4 px-1 border-b-2 font-medium text-lg">
-            <img src="/assets/images/Wordpress-Logo-40.png"
-            alt="Wordpress logo">&nbsp;
-            <strong><span>Try Live WordPress Plugin</span></strong>
-        </a>
-
-        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 group inline-flex items-center py-4 px-1 border-b-2 font-medium text-lg">
-            <img src="/assets/images/CiteIt-logo-C-50.png"
-            alt="CiteIt logo">&nbsp;
-            <strong><span>How to Add CiteIt to your Site</span></strong>
-        </a>
-      </nav>
-    </div>
-  </div>
 </div>
 
+<div id="page-tabs">
+  <ul class="nav">
+    <li class="nav-one"><a href="#live-editor" class="current">Try Live Editor</a></li>
+    <li class="nav-two"><a href="#wordpress">Try WordPress Plugin</a></li>
+    <li class="nav-three"><a href="#your-site">Add CiteIt to Your Site</a></li>
+  </ul>
+  <div class="list-wrap">
 
-<section class="bg-white mt-8 overflow-hidden">
-  <div class="relative max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 lg:mt-16">
-  <p><strong>Create</strong> Contextual Citations using the <strong>"CiteIt blockquote" button</strong>.</p>
+    <!-- Web Authors -->    
+  <div id="live-editor">
+
+    <p><strong>Create</strong> Contextual Citations using the <strong>"CiteIt blockquote" button</strong>.</p>
     <div class="relative lg:flex lg:items-center">
       <div class="mt-8 lg:block lg:flex-shrink-0 lg:order-1">
 
-<h3 style="font-size: 1.6em; font-weight: bold;">Instructions:</h3>
-<ol class="num">
-<li><strong>Find</strong> a Quotation Online.  (Try: <a class="underline" href="https://news.google.com/">google news</a>)</li>
-<li><strong>Paste</strong> the quote's text into the editor.</li>
-<li>Get the <strong>URL</strong> for the quote.</li>
-<li><strong>Select</strong> the quote text in the editor.</li>
-<li>Click the <strong>CiteIt blockquote button</strong> to link the <string>URL</string> to the quote.</li>
-<li>When prompted, <strong>Paste the URL</strong> into the prompt box.
-    <ul class="disc">
-      <li>(If you click the "<strong>&lt;&gt;</strong>" button, you can inspect the html source)</li>
-    </ul>
+      <div id="editor">
+          <h3 style="font-size: 1.6em; font-weight: bold;">Editor:</h3>
 
-</li>
-<li>Click the <strong><span class="green">"Save"</span></strong> button below:
-<ul class="disc">
-<li>(This will call the <strong>api.citeit.net</strong> webservice, ) 
-<li>Your newly <strong>contexified quote</strong> should appear <strong>below</strong> the <strong>"Save button"</strong>.</li>
-</ul>
-</li>
-</ol>
+          <!--Form: Demo Citations -->
+          <form id="citation_demo_form" method="post" action="http://localhost/demo_post"> <!--action="http://api.citeit.net/demo_post/" -->
+          <input type="hidden" id="post_url" name="post_url" value="https://www.citeit.net/" />
+          <input type="hidden" id="format" name="format" value="list" />
 
-<h3 style="font-size: 1.6em; font-weight: bold;">Editor:</h3>
+          <textarea id="post_body" name="post_body" rows="25" cols="40">
+          </textarea><br />
+          <input type="submit" class="submit " value="Save" />
+          </form><br />
+          <!--End Form -->
 
-<!--Form: Demo Citations -->
-<form id="citation_demo_form" method="post" action="http://localhost/demo_post"> <!--action="http://api.citeit.net/demo_post/" -->
-<input type="hidden" id="post_url" name="post_url" value="https://www.citeit.net/" />
-<input type="hidden" id="format" name="format" value="list" />
+          <div id="result"></div>
 
-<textarea id="post_body" name="post_body" rows="25" cols="70">
-</textarea><br />
-<input type="submit" class="submit " value="Save" />
-</form><br />
-<!--End Form -->
+        </div>
 
-<div id="result"></div>
+        <div id="instructions">
+          <h3 style="font-size: 1.6em; font-weight: bold;">Instructions:</h3>
+          <ol class="num">
+          <li><strong>Find</strong> a Quotation Online.  (Try: <a class="underline" href="https://news.google.com/">google news</a>)</li>
+          <li><strong>Paste</strong> the quote's text into the editor.</li>
+          <li>Get the <strong>URL</strong> for the quote.</li>
+          <li><strong>Select</strong> the quote text in the editor.</li>
+          <li>Click the <strong>CiteIt blockquote button</strong> to link the <strong>URL</strong> to the quote.</li>
+          <li>When prompted, <strong>Paste the URL</strong> into the prompt box.
+              <ul class="disc">
+                <li>(If you click the "<strong>&lt;&gt;</strong>" button, you can inspect the html source)</li>
+              </ul>
+          </li>
+          <li>Click the <strong><span class="green">"Save"</span></strong> button below:
+          <ul class="disc">
+          <li>(This will call the <strong>api.citeit.net</strong> webservice, ) 
+          <li>Your newly <strong>contexified quote</strong> should appear <strong>below</strong> the <strong>"Save button"</strong>.</li>
+          </ul>
+          </li>
+          </ol>
+        </div>
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+    </div>      
+  </div>
 
+  <!-- Try WordPress Plugin -->
+  <div id="wordpress" class="hide">
+    <h3 class="mb-3" style="font-size: 1.6em; font-weight: bold;">Try WordPress Plugin</h3>
+
+  </div>
+
+  <!-- Add CiteIt to Your -->
+  <div id="your-site" class="hide">
+    <h3 class="mb-3" style="font-size: 1.6em; font-weight: bold;">Add CiteIt to Your Site</h3>
+  </div>
+
+  </div> <!--list-wrap-->
+
+</div><!--example-one-->
 
 <script>
+    jQuery( document ).ready(function() {
+      jQuery("#page-tabs").organicTabs();
+
+    });
 
     /*  Convert TextArea into TinyMce Editor */
     tinymce.init({
@@ -182,11 +176,4 @@
     });
 
 </script>
-
-
-      </div>
-    </div>
-  </div>
-</section>
-
 
