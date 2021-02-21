@@ -4,8 +4,14 @@ title: Hello
 
 {% extends "_includes/default.njk" %}
 
-{% block title %}About CiteIt.net - Building trust in media{% endblock %}
+{% block title %}Install CiteIt.net Wordpress plugin{% endblock %}
 
+{% block head %}
+
+  <link rel='stylesheet' id='organictabs-css'  href='/assets/css/organictabs.css' type='text/css' media='all' />
+  <script type="text/javascript" src="/assets/js/OrganicTabs/js/organictabs.jquery.js"></script>
+
+{% endblock %}
 
 {% block content %}
 {% include "_includes/nav.njk" %}
@@ -29,88 +35,75 @@ title: Hello
   </div>
 </div>
 
+<h2 class="mt-2 mb-10 ml-5 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Code:</h2>
 
-<div class="mt-16 mx-auto max-w-7xl px-4 sm:px-6 ">
 
-      <h2 class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Code:</h2>
-      <!--p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-        Use <strong>"CiteIt blockquote" button</strong> for longer expanding citations.<br />Use <strong>"CiteIt inline popup"</strong> for shorter quotations.
-      </p-->
+<div id="page-tabs">
+  <ul class="nav">
+    <li class="nav-one"><a href="#web-authors" class="current">Web Authors</a></li>
+    <li class="nav-two"><a href="#developers">Developers</a></li>
+    <li class="nav-three"><a href="#volunteer">Volunteer</a></li>
+    <li class="nav-four last"><a href="#license">License: MIT</a></li>
+  </ul>
+  <div class="list-wrap">
 
-<div>
-  <div class="">
-    <div class="border-b border-gray-200">
-      <nav class="-mb-px flex space-x-8" aria-label="Tabs">
-        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 group inline-flex items-center py-4 px-1 border-b-2 font-medium text-lg">
-            <svg class="text-gray-500 group-hover:text-gray-500 -ml-0.5 mr-2 h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-            <span>Web Authors</span>
-        </a>
-        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 group inline-flex items-center py-4 px-1 border-b-2 font-medium text-lg">
-            <svg class="text-gray-500 group-hover:text-gray-500 -ml-0.5 mr-2 h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-            <span>Developers:</span>
-        </a>
-        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 group inline-flex items-center py-4 px-1 border-b-2 font-medium text-lg">
-            <svg class="text-gray-500 group-hover:text-gray-500 -ml-0.5 mr-2 h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-            <span>Volunteer</span>
-        </a>        
-        <a href="#" class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 group inline-flex items-center py-4 px-1 border-b-2 font-medium text-lg">
-            <svg class="text-gray-500 group-hover:text-gray-500 -ml-0.5 mr-2 h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-            <span>License: MIT</span>
-        </a>
-      </nav>
+    <!-- Web Authors -->    
+  <div id="web-authors">
+
+    <h3 class="mb-2" style="font-size: 1.8em; font-weight: bold;">Install WordPress plugin</h3>
+    <p>The CiteIt Wordpress plugin is the <strong>easiest way to start</strong> experimenting with CiteIt <strong>on your website</strong>.<p>
+
+    <div class="resp-container">
+    <iframe class="mt-5 resp-iframe" src="https://www.youtube.com/embed/eIwlo7nQr0g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+
+    <h4 class="mt-10 mb-2" style="font-size: 1.6em; font-weight: bold;">Installation</h4>
+
+    <a href="" class="w-full mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
+    Download WordPress plugin &nbsp;&nbsp; (alpha)
+    </a>
+
+    (<a class="underline" target="_blank" href="https://www.citeit.net/2020/08/08/how-to-install-and-use-the-citeit-net-wordpress-plugin/">How to Install the plugin</a>)
+
+    <h3 class="mt-12 mb-3" style="font-size: 1.4em; font-weight: bold;">Alpha Status</h3>
+
+    <p class="mb-4">The WordPress plugin is <strong>not yet</strong> part of the WordPress <strong><a href="https://wordpress.org/plugins/">Plugin directory</a></strong> because it has not yet been widely <strong>tested</strong>.</p>
+
+    <p class="mb-4">I don't want to get a bunch of negative reviews for <strong>bugs</strong>.  After you've tried it out, <a class="underline" href="https://www.openpolitics.com/tim">send me an email</a> with <strong>feeback</strong>.</p>
+
+    <p>Once I get enough positive feedback, I hope to add it to the plugin directory.</p>
+    
   </div>
-</div>
 
-<section class="mr-10 bg-white overflow-hidden">
-  <div class="relative max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 lg:mt-16">
-    <div class="relative lg:items-center">
-      <div class="mt-2 lg:block lg:flex-shrink-0 lg:order-1">
-
-<h3 class="mb-2" style="font-size: 1.8em; font-weight: bold;">Install WordPress plugin</h3>
-<p>The CiteIt Wordpress plugin is the <strong>easiest way to start</strong> experimenting with CiteIt <strong>on your website</strong>.<p>
-
-<div class="resp-container">
-<iframe class="mt-5 resp-iframe" src="https://www.youtube.com/embed/eIwlo7nQr0g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-<h4 class="mt-10 mb-2" style="font-size: 1.6em; font-weight: bold;">Installation</h4>
-
-<a href="" class="w-full mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
-Download WordPress plugin &nbsp;&nbsp; (alpha)
-</a>
-
-(<a class="underline" target="_blank" href="https://www.citeit.net/2020/08/08/how-to-install-and-use-the-citeit-net-wordpress-plugin/">How to Install the plugin</a>)
-
-<h3 class="mt-12 mb-3" style="font-size: 1.4em; font-weight: bold;">Alpha Status</h3>
-
-<p class="mb-4">The WordPress plugin is <strong>not yet</strong> part of the WordPress <strong><a href="https://wordpress.org/plugins/">Plugin directory</a></strong> because it has not yet been widely <strong>tested</strong>.</p>
-
-<p class="mb-4">I don't want to get a bunch of negative reviews for <strong>bugs</strong>.  After you've tried it out, <a class="underline" href="https://www.openpolitics.com/tim">send me an email</a> with <strong>feeback</strong>.</p>
-
-<p>Once I get enough positive feedback, I hope to add it to the plugin directory.</p>
-
-<br />
-<br />
-
-      </div>
-    </div>
+  <!-- Developers -->
+  <div id="developers" class="hide">
+    <h3 class="mt-8 mb-4" style="font-size: 1.6em; font-weight: bold;">Developers</h3>
+  
   </div>
-</section>
+
+  <!-- Volunteer -->
+  <div id="volunteer" class="hide">
+    <h3 class="mb-3" style="font-size: 1.6em; font-weight: bold;">Volunteer</h3>
+
+  
+  </div>
+
+  <!-- Future Plans -->
+  <div id="license" class="hide">
+    <h3 class="mb-3" style="font-size: 1.6em; font-weight: bold;">License: MIT</h3>
+  </div>
+
+  </div> <!--list-wrap-->
+
+</div><!--example-one-->
 
 
+  <script>
+    jQuery( document ).ready(function() {
+      jQuery("#page-tabs").organicTabs();
 
-
-
-
+    });
+  </script>
 
 {% include "_includes/footer.njk" %}
 
