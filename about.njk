@@ -1,10 +1,15 @@
----
-title: Hello
----
 
 {% extends "_includes/default.njk" %}
 
 {% block title %}About CiteIt - Building trust in media{% endblock %}
+
+{% block head %}
+
+  <link rel='stylesheet' id='organictabs-css'  href='/assets/css/organictabs.css' type='text/css' media='all' />
+  <script type="text/javascript" src="/assets/js/OrganicTabs/js/organictabs.jquery.js"></script>
+
+
+{% endblock %}
 
 
 {% block content %}
@@ -29,265 +34,8 @@ title: Hello
   </div>
 </div>
 
-<script>
 
-jQuery( document ).ready(function() {
-
-  jQuery.noConflict();
-
-
-(function($) {
-  $.organicTabs = function(el, options) {
-    var base = this;
-    base.$el = $(el);
-    base.$nav = base.$el.find(".nav");
-
-    base.init = function() {
-      base.options = $.extend({}, $.organicTabs.defaultOptions, options);
-
-      // Accessible hiding fix
-      $(".hide").css({
-        position: "relative",
-        top: 0,
-        left: 0,
-        display: "none"
-      });
-
-      base.$nav.on("click", "li > a", function() {
-        // Figure out current list via CSS class
-        var curList = base.$el
-            .find("a.current")
-            .attr("href")
-            .substring(1),
-          // List moving to
-          $newList = $(this),
-          // Figure out ID of new list
-          listID = $newList.attr("href").substring(1),
-          // Set outer wrapper height to (static) height of current inner list
-          $allListWrap = base.$el.find(".list-wrap"),
-          curListHeight = $allListWrap.height();
-        $allListWrap.height(curListHeight);
-
-        if (listID != curList && base.$el.find(":animated").length == 0) {
-          // Fade out current list
-          base.$el.find("#" + curList).fadeOut(base.options.speed, function() {
-            // Fade in new list on callback
-            base.$el.find("#" + listID).fadeIn(base.options.speed);
-
-            // Adjust outer wrapper to fit new list snuggly
-            var newHeight = base.$el.find("#" + listID).height();
-            $allListWrap.animate({
-              height: newHeight
-            });
-
-            // Remove highlighting - Add to just-clicked tab
-            base.$el.find(".nav li a").removeClass("current");
-            $newList.addClass("current");
-          });
-        }
-
-        // Don't behave like a regular link
-        // Stop propegation and bubbling
-        return false;
-      });
-    };
-    base.init();
-  };
-
-  $.organicTabs.defaultOptions = {
-    speed: 300
-  };
-
-  $.fn.organicTabs = function(options) {
-    return this.each(function() {
-      new $.organicTabs(this, options);
-    });
-  };
-})(jQuery);
-
-jQuery("#example-one").organicTabs();
-
-jQuery("#example-two").organicTabs({
-  speed: 200
-});
-
-
-
-});
-
-</script>
-
-<style>
-/* Specific to example one */
-
-#example-one {
-  background: #eee;
-  padding: 0% 3% 5% 3%;
-  margin: 1% 0 3% 0;
-  box-shadow: 0 0 5px #666;
-}
-
-#example-one .nav {
-  overflow: hidden;
-  margin: 0 0 25px 0;
-}
-#example-one .nav li {
-  width: 22%;
-  float: left;
-  margin: 0 10px 0 0;
-}
-#example-one .nav li.last {
-  margin-right: 0;
-}
-#example-one .nav li a {
-  display: block;
-  padding: 4%;
-  background: #959290;
-  color: white;
-  font-size: 140%;
-  text-align: center;
-  border: 0;
-}
-#example-one .nav li a:hover {
-  background-color: #111;
-}
-
-#example-one ul {
-  list-style: none;
-}
-#example-one ul li a {
-  display: block;
-  border-bottom: 1px solid #666;
-  padding: 4px;
-  color: #666;
-}
-#example-one ul li a:hover {
-  background: #fe4902;
-  color: white;
-}
-#example-one ul li:last-child a {
-  border: none;
-}
-
-#example-one ul li.nav-one a.current,
-#example-one ul.featured li a:hover {
-  background-color: #0575f4;
-  color: white;
-}
-#example-one ul li.nav-two a.current,
-#example-one ul.core li a:hover {
-  background-color: #d30000;
-  color: white;
-}
-#example-one ul li.nav-three a.current,
-#example-one ul.jquerytuts li a:hover {
-  background-color: #8d01b0;
-  color: white;
-}
-#example-one ul li.nav-four a.current,
-#example-one ul.classics li a:hover {
-  background-color: #fe4902;
-  color: white;
-}
-
-/* Specific to example two */
-
-#example-two .list-wrap {
-  background: #eee;
-  padding: 10px;
-  margin: 0 0 15px 0;
-}
-
-#example-two ul {
-  list-style: none;
-}
-#example-two ul li a {
-  display: block;
-  border-bottom: 1px solid #666;
-  padding: 4px;
-  color: #666;
-}
-#example-two ul li a:hover {
-  background: #333;
-  color: white;
-}
-#example-two ul li:last-child a {
-  border: none;
-}
-
-#example-two .nav {
-  overflow: hidden;
-}
-#example-two .nav li {
-  width: 97px;
-  float: left;
-  margin: 0 10px 0 0;
-}
-#example-two .nav li.last {
-  margin-right: 0;
-}
-#example-two .nav li a {
-  display: block;
-  padding: 5px;
-  background: #666;
-  color: white;
-  font-size: 125%;
-  text-align: center;
-  border: 0;
-}
-
-#example-two li a.current,
-#example-two li a.current:hover {
-  background-color: #eee !important;
-  color: black;
-}
-#example-two .nav li a:hover,
-#example-two .nav li a:focus {
-  background: #999;
-}
-
-/* Generic Utility */
-.hide {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
-body {
-  font: 12px Georgia, serif;
-  margin: 1rem;
-}
-html {
-  overflow-y: scroll;
-}
-a {
-  text-decoration: none;
-}
-a:focus {
-  outline: 0;
-}
-p {
-  font-size: 135%;
-  margin: 0 0 20px 0;
-  line-height: 1.75;
-}
-#page-wrap {
-  width: 440px;
-  margin: 80px auto;
-}
-h1 {
-  font: bold 40px Sans-Serif;
-  margin: 0 0 20px 0;
-}
-
-</style>
-
-
-
-<div id="example-one">
+<div id="page-tabs">
   <ul class="nav">
     <li class="nav-one"><a href="#why" class="current">Why CiteIt?</a></li>
     <li class="nav-two"><a href="#faq">Frequently Asked Questions</a></li>
@@ -376,6 +124,13 @@ h1 {
 
 </div><!--example-one-->
 
+
+  <script>
+    jQuery( document ).ready(function() {
+      jQuery("#page-tabs").organicTabs();
+
+    });
+  </script>
 
 {% include "_includes/footer.njk" %}
 
