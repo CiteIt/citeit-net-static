@@ -137,28 +137,18 @@
         <p class="mb-4"><span class="highlight">Click the <strong>quote in the blue box</strong> below</span> to <strong>view the contextual popup</strong>:</p>
         <div id="nothing_is-more_certainly" x-on:click="showHomePageQuoteContext">
             <p class="bg-blue-300 p-4 border bg-opacity-60 cursor-pointer hover:bg-blue-300 lg:p-8 shadow">
-              <q cite="https://thejeffreylord.com/rush-the-substance-and-music-of-conservatism/">Along the way Reagan became a thoroughly well-read conservative, all of which he was able to translate into his countless speeches, more radio shows and television broadcasts.</q>
+              <q id='sample-quote' cite="https://thejeffreylord.com/rush-the-substance-and-music-of-conservatism/">Along the way Reagan became a thoroughly well-read conservative, all of which he was able to translate into his countless speeches, more radio shows and television broadcasts.</q>
             </p>
         </div>
 
-        <h4 style="font-size: 1.2em"">View Type</h4>
-        <input type="radio" id="popup" name="citation_type" value="popup" checked>
+        <h4 style="font-size: 1.2em">View Type</h4>
+        <input onclick="replaceTag('sample-quote', '<q />');" type="radio" id="popup" name="citation_type" value="popup" checked>
         <label for="popup">Contextual Popup</label><br>
-        <input type="radio" id="expand" name="citation_type" value="expand">
+        <input onclick="replaceTag('sample-quote', '<blockquote />');" type="radio" id="expand" name="citation_type" value="expand">
         <label for="expand">Expanding blockquote</label><br>
 
     </form>
 
-
-
-  <div class="mt-7" id="submission results">
-    <h4 style="font-size: 1.8em; font-weight: bold;">Submission Results</h4>
-    <p class="mb-4"><span class="highlight">Click the <strong>quote in the blue box</strong> below</span> to <strong>view the contextual popup</strong>:</p>
-    <!--q id="test-results" class="test-results" cite="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5">I could easily forgive his pride, if he had not mortified mine.</q-->
-    <q id="test-results" class="bg-blue-300 p-4 border bg-opacity-60 cursor-pointer hover:bg-blue-300 lg:p-8 shadow" cite="https://avalon.law.yale.edu/19th_century/jeffauto.asp">Nothing is more certainly written in the book of fate than that these people are to be free.</q>
-  </div>
-
-    <br /><br />
     </main>
   </div>
   </div>
@@ -216,7 +206,7 @@
     margin-bottom: 40px;
   }
 
-  q#test-results { 
+  q#sample-quote { 
     font-size: 145%;
     width: 425px;
     display: block;
@@ -233,6 +223,20 @@
 </style>
 
 <script>
+
+//replaceTag('sample-quote', '<blockquote />')
+
+function replaceTag(tag_id, tag_type){
+
+  var url = jQuery('#' + tag_id).val('#' + tag_id).attr("cite");
+  var tag = jQuery(tag_type).attr('cite', url);
+  var text = jQuery('#' + tag_id + ' > a').contents();
+    
+  jQuery('#' + tag_id).replaceWith(function(){
+    return jQuery(tag_type).attr('cite', url ).append(text);
+  });
+  
+}
 
 function append_element(id, element_message, sleep_ms){
   setTimeout(function(){
