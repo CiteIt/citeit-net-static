@@ -126,16 +126,16 @@
         <!--span class="label">Example:</span>&nbsp; <span class="example"><https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5</span><br /-->
         <input id="submit_test_citation" class="w-full mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" onclick="process_test_citation(); return false;" value="Create Test Citation" />
 
-        <div class="loading">
+        <div id="loading">
           <div id="circle6"></div>
-          <h5>Loading ..</h5>
+          <div id="submission-progress"></div>
         </div>
 
         <!--div id="todo" class="label mt-2" style="float:left">(Todo)</div -->
              
       <br />
-      <div id="submission-progress"></div>
-      <div id="submission-results"></div>
+      
+      <div id="submission-results" class="hidden">
 
         <h4 style="font-size: 1.8em; font-weight: bold;">Submission Results</h4>
         <p class="mb-4"><span class="highlight">Click the <strong>quote in the blue box</strong> below</span> to <strong>view the contextual popup</strong>:</p>
@@ -149,6 +149,8 @@
         <input onclick="swap_citation_type('sample-quote', 'blockquote');" type="radio" id="expand" name="citation_type" value="expand">
         <label for="expand">Expanding blockquote</label><br>
 
+      </div>
+
     </form>
 
     </main>
@@ -158,6 +160,31 @@
 </div>
 
 <style>
+
+  div#loading {
+    visibility: hidden;
+  }
+
+  div#circle6.hidden {
+    visibility: hidden
+  }
+
+  div#submission-results.hidden {
+    display: none;
+  }
+
+  div#submission-results.visible {
+    display: visible;
+  }
+
+  div#loading.visible, div#submission-results.visible {
+    visibility: visible;
+    display: visible;
+  }
+
+  .hidden {
+    display: hidden;
+  }
 
   p#citeit-description {
     text-align: left;
@@ -278,6 +305,7 @@
 
 <script>
 
+
 function swap_citation_type(tag_id, tag_type){
   // Convert <blockquote> to <q> and vice versa
 
@@ -327,17 +355,49 @@ function append_element(id, element_message, sleep_ms){
 
 }
 
-function process_test_citation(){
-    element_id = "submission-progress";
+var message_cnt = 0;   
 
-    append_element(element_id, "<li><b>Looking up source</b> ..</li>", 1000);
-    append_element(element_id, "<li>Locating Quote position</li>", 1000);
-    append_element(element_id, "<li>Copying 500 characters before and after quotation.</li>", 1000);
-    append_element(element_id, "<li>Saving file in JSON format.</li>", 1000);
-    append_element(element_id, "<li>Loading JSON file into current page using javascript.</li>", 1000);
-    append_element(element_id, "<li>Submission Complete.</li>", 1000);
+function process_test_citation() {
 
+  // Display 'Loading circle'
+  jQuery('#loading').addClass('visible');
+
+  var submission_steps = [
+        "<li><b>Looking up source</b> ..</li>",
+        "<li>Copying 500 characters before and after quotation.</li>",
+        "<li>Saving file in JSON format.</li>",
+        "<li>Loading JSON file into current page using javascript.</li>",
+        "<li>Submission Complete...</li>"
+    ];
+
+  // Print first message immediately: don't wait:
+  if (message_cnt == 0) {
+    var message = submission_steps[message_cnt];
+    jQuery('#submission-progress').append(message);  
+    message_cnt++;
   }
+
+  // Pause for 2 seconds before printing other messages
+  setTimeout(function() {   
+    var message = submission_steps[message_cnt];
+    jQuery('#submission-progress').append(message);  
+
+    message_cnt++;
+    if (message_cnt < 5) {
+      process_test_citation() 
+    }
+    else {
+      jQuery('#submission-results').removeClass('hidden');
+      jQuery('#submission-results').addClass('visible');
+      //jQuery('#loading').removeClass('visible');
+
+      jQuery('#submission-results').addClass('visible');
+      //jQuery('#loading').addClass('hidden');
+      jQuery('#circle6').addClass('hidden');
+ 
+    }
+  }, 1500)
+}
 
   function citation() {
       return {
