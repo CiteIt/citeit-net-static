@@ -193,6 +193,10 @@ p {
   width: 65%;
 }
 
+iframe.iframe_video {
+  width: 80vw;
+  height: calc(80vw/1.77);
+}
 
 @tailwind components;
 @tailwind utilities;
