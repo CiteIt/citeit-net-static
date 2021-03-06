@@ -1,0 +1,74 @@
+---
+title: Hello
+---
+
+{% extends "_includes/default.njk" %}
+
+{% block title %}About CiteIt - Building trust in media{% endblock %}
+
+{% block head %}
+
+  <link rel='stylesheet' id='organictabs-css'  href='/assets/css/organictabs.css' type='text/css' media='all' />
+  <script type="text/javascript" src="/assets/js/OrganicTabs/js/organictabs.jquery.js"></script>
+
+  <style>
+    #page-tabs .nav li {
+        width: 32%;
+    }
+    div#instructions h3 {
+        padding-left: 5%;
+    }
+    div#instructions {
+        float: left;
+    }
+    div#editor {
+        float: left;
+
+        width: 655px;
+    }
+
+    @media only screen and (max-width: 1300px) {
+
+        div#editor {
+            width: 655px;
+        }
+        div#instructions {
+            width: 45%;
+        }
+
+    }
+
+    @media only screen and (max-width: 1020px) {
+
+        div#editor {
+            float: left;
+            width: 500px;
+        }
+
+        div#instructions {
+            width: 80%;
+        }
+    }
+
+
+  </style>
+
+{% endblock %}
+
+
+{% block content %}
+{% include "_includes/nav.njk" %}
+
+{% include "_includes/editor.njk" %}
+
+
+  <script>
+    jQuery( document ).ready(function() {
+      jQuery("#page-tabs").organicTabs();
+
+    });
+  </script>
+
+  {% include "_includes/footer.njk" %}
+
+{% endblock %}
