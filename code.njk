@@ -57,7 +57,7 @@ title: Hello
     
     <h4 class="mt-10 mb-2" style="font-size: 1.6em; font-weight: bold;">Installation</h4>
 
-    <a href="" class="w-full mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
+    <a href="https://download.citeit.net/quote-context/wordpress-plugin/CiteIt.net.zip" class="w-2/5 mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
     Download WordPress plugin &nbsp;&nbsp; (alpha)
     </a>
 
@@ -89,7 +89,8 @@ title: Hello
       <li>Php template: call web service to <a class="underline nonblock" href="https://www.citeit.net/sample-code/text-version.php">create a text version of page URL</a></li>
     </ul>
 
-      SAMPLE CODE ON GITHUB
+      <a href="https://github.com/CiteIt/citeit-sample-code" class="mt-6 w-1/3 mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
+      Get Sample Code on GitHub</a>
 
 
     <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">Python API Webservice</h4>
@@ -98,19 +99,21 @@ title: Hello
 
     <p>This program accepts a URL “POST” request</p>
     <ul class="disc">
-      <li>The program downloads the contents of the POSTED URL and looks for <blockquote cite=”URL1″> and <q cite=URL2″> tags.</li>
+      <li>The program downloads the contents of the POSTED URL and looks for &lt;blockquote cite="URL1"&gt; and &lt;q cite="URL2"&gt; tags.</li>
       <li>It then downloads the contents of each URL and calculates the context immediately prior and after the quote</li>
       <li>It saves the results to a SQL-lite or PostgreSQL database (todo)</li>
       <li>It saves a JSON file to the local filesystem</li>
       <li>It (optionally) uploads the JSON file up to a Cloud Service</li>
     </ul>
 
-    <h5 class="mt-10 mb-2" style="font-size: 1.25em; font-weight: bold;">2 Ways to run the webservice</h5>
+    <h5 class="mt-10 mb-2" style="font-size: 1.25em; font-weight: bold;">2 Ways to run the webservice:</h5>
 
     <h6 class="mt-10 mb-2 text-green-700" style="font-size: 1.5em; font-weight: bold;">Python</h6>
     <p>The webservice is written in Python, using the <a class="underline nonblock" href="https://flask.palletsprojects.com/">Flask framework</a>.</p>
      
-      PYTHON CODE ON GITHUB
+      <a href="https://github.com/CiteIt/citeit-webservice" target="_blank" class="w-1/3 mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
+      Get Python Code on GitHub
+      </a>
 
      
     <h6 class="mt-10 mb-2 text-green-700" style="font-size: 1.5em; font-weight: bold;">Docker</h6>
@@ -118,11 +121,17 @@ title: Hello
 
     <p>If you don’t want to configure the Python code, you can run the Docker image instead:</p>
     
-    <h7 class="mt-10 mb-2" style="font-size: 1.1em; font-weight: bold;">Note: Amazon S3 Dependency</h7>
-    <P>At this point the webservice <strong>uploads the JSON files to Amazon's S3</strong>.</p>
-    <p>If you want to abstract away this dependency on Amazon, I'd be happy for a <strong>contribution that provides altermatives</strong>.</p>
-    <p>(The python code involving Amazon S3 is part of the citation class's <a class="underline nonblock" href="https://github.com/CiteIt/citeit-webservice/blob/master/app/citation.py#LC189:~:text=def%20json_upload(self%2C%20debug%3DFalse)%3A,%23%20Upload%20json%20file%20to%20cloud">json_upload method</a>)</p>
+    <a href="https://hub.docker.com/r/citeit/citeit_webservice" target="_blank" class="mb-6 w-1/3 mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
+      Get Docker Hub Image
+    </a>
 
+    <h7 class="mt-10 mb-2" style="font-size: 1.1em; font-weight: bold;">Note: Amazon S3 Dependency</h7>
+    <p>At this point the webservice <strong>uploads the JSON files to <a class="underline nonblock" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html">Amazon's S3 service</a></strong>.</p>
+    <p>If you want to abstract away this dependency on Amazon, I'd be happy for a <strong>contribution that provides alternatives</strong>.</p>
+    <p>(The python code involving Amazon S3 is part of the citation class's <a class="underline nonblock" target="_blank" href="https://github.com/CiteIt/citeit-webservice/blob/master/app/citation.py#LC189:~:text=def%20json_upload(self%2C%20debug%3DFalse)%3A,%23%20Upload%20json%20file%20to%20cloud">json_upload method</a>)</p>
+
+
+    <h6 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">Webservice Calls</h6>
     <ul class="disc">
       <li><a class="underline nonblock" href="https://www.citeit.net/sample-code/">Submit a URL to be Indexed</a></li>
       <li><a class="underline nonblock" href="https://www.citeit.net/sample-code/text-version.php">"Create Text Version" of HTML page &amp; YouTube transcripts</a></li>
@@ -134,7 +143,6 @@ title: Hello
   <div id="volunteer" class="hide">
     <h3 class="mb-3" style="font-size: 1.6em; font-weight: bold;">Volunteer</h3>
 
-      <h3>Programmers:</h3>
       <p><a href="https://www.citeit.net/">CiteIt.net</a> is an open-source project (<a class="underline nonblock" href="https://github.com/CiteIt/citeit-webservice/blob/master/LICENSE">MIT license</a>) whose mission to <strong>create a higher standard of citation</strong> is accelerated through the help of volunteers.</p>
       <p>If you know how to code (especially in Python) <a class="underline nonblock" href="https://www.openpolitics.com/tim/">contact Tim</a> to help out.</p>
 
@@ -199,17 +207,17 @@ title: Hello
   <!-- Future Plans -->
   <div id="license" class="hide">
     <h3 class="mb-3" style="font-size: 1.8em; font-weight: bold;">License: MIT</h3>
-    <img style="float: right" src="/assets/images/OSIApproved_1.png" alt="Open Source Initiative Approved License" width="250" />
+    <a href="https://opensource.org/licenses/MIT"><img style="float: right" src="/assets/images/OSIApproved_1.png" alt="Open Source Initiative Approved License" width="250" /></a>
 
     <p>I released the CiteIt client and server code under the <a class="underline" href="https://opensource.org/licenses/MIT">MIT License</a> because I want 
     the concept of <strong>Contextual Citations</strong> to spread as widely as possible.</p>
 
-    <h4 class="mt-10 mb-2" style="font-size: 1.5em; font-weight: bold;">What is the MIT License?</h4>
+    <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">What is the MIT License?</h4>
     <p>The MIT License is an <a class="underline nonblock" href="https://en.wikipedia.org/wiki/Open-source_license">open source license</a>.</p>
 
     <p>Some people and companies are wary about using open source software that <strong><a class="underline nonblock" href="https://opensource.org/licenses/gpl-license">requires them to make their revisions open source</a></strong>.</p>
 
-    <p>I wanted to take away this hesitancy by choosing an open source license that <strong>does not have this requirement</strong> that derivative works be open-sourced.  Use it as you like.  Sell your derivative works.  Just don't sue me!  :-)</p>
+    <p>I wanted to take away this hesitancy by choosing an open source license that <strong>does not have this requirement</strong> that derivative works be open-sourced.  Use it as you like.  <strong class="text-green-700">Feel free to sell your derivative works</strong>. &nbsp; Just don't sue me! &nbsp;&nbsp;  :-)</p>
     
     <h4 class="mt-10 mb-2 text-green-700" style="font-size: 1.5em; font-weight: bold;">The MIT License Text</h4>
     

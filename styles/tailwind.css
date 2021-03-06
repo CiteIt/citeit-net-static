@@ -203,6 +203,28 @@ iframe.iframe_video,  {
   margin: auto auto;
 }
 
+ul.disc {
+  list-style: disc !important;
+}
+
+img.feature { 
+  float: right;
+  padding: 20px;
+}
+
+img.feature-left {
+  margin-left: 50px;
+  padding: 25px;
+}
+
+#page-tabs ul li a.nonblock {
+  display: contents;
+}
+
+#page-tabs ul li a.nonblock:hover {
+  color: blue;
+  weight: 600;
+}
 
 @tailwind components;
 @tailwind utilities;
