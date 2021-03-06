@@ -127,7 +127,7 @@
     into funding from foundations and the <a href="https://knightfoundation.org/programs/journalism/#post-1002:~:text=.%20We%20invest%20in%20efforts%20that,increase%20access%20to%20accurate%2C%20reliable%20information" class="underline" target="_blank">Knight foundation</a> looks attractive because they have partnerships with journalists 
     who I would like to partner with and they are interested in promoting trust in responsible journalism.</p>
     
-    <h4 class="text-blue-600 font-extrabold" style="font-size: 1.6em; font-weight: bold;">Phase 1: The Value of "Context"</h4>
+    <h4 class="text-blue-600 font-extrabold" style="font-size: 1.6em; font-weight: bold;">Phase 1: Building Trust through "Context"</h4>
     <p>The first phase of the project involves <strong>providing context</strong> for authors, through <strong>expanding blockquotes</strong> or <strong>contextual popups</strong>..</p>
 
     <h5 style="font-size: 1.3em; font-weight: bold;">Example:<h5>
@@ -135,10 +135,23 @@
 
     
     <h5 style="font-size: 1.3em; font-weight: bold;">Adoption:<h5>
-    <p>The path that the project follows, depends upon <strong>which groups first take interest in CiteIt</strong>, be they academics, journalists, web authors, or <a href="/demo/#wikipedia">Wikipedia</a>.
-    
+    <p>The project's path, depends upon <strong>which groups first choose to adopt CiteIt</strong>, be they:
+    <ul class="disc">
+      <li>academics,</li> 
+      <li>journalists,</li> 
+      <li><a class="underline nonblock" href="/demo/#wikipedia">Wikipedia</a>,</li>
+      <li><a class="underline nonblock" href="/code/#web-authors">Web authors</a> (WordPress).</li>
+    </ul>
 
-    <h4 class="mt-8 text-blue-600 font-extrabold" style="font-size: 1.6em; font-weight: bold;">Phase 2: Create a Citation Database</h2>
+    <p class="mt-8">A lot of work in the initial phase  will need to be done to 
+    <a class="underline" href="https://www.citeit.net/volunteer/">develop a full <strong>feature set</strong> and improve <strong>robustness</strong></a>.</p>
+
+    <h5 style="font-size: 1.3em; font-weight: bold;">Stopping at Phase 1?</h5>    
+    <p>If CiteIt remains soley a citation app, I will consider it a success.  The <strong>vision</strong> for further development is more <strong>speculative</strong>.</p>
+    <p><a class="underline" href="http://www.openpolitics.com/tim">Get in touch</a> with me if you want to start a conversation about the possibilities.<p>
+
+
+    <h4 class="mt-8 text-blue-600 font-extrabold" style="font-size: 1.6em; font-weight: bold;">Phase 2: Create a Citation Database</h4>
     <p>The second phase of the project involves <strong>taking advantage of the data collected</strong> from authors who use CiteIt to pull context into their webpages.</p>
     
     <h5 style="font-size: 1.3em; font-weight: bold;">"Targeted" Page Rank</h5>
@@ -147,8 +160,6 @@
     <img class="feature-left" src="/assets/images/800px-PageRank-hi-res.png" alt="Google Page Rank" width="400" />
     
     <p>CiteIt extends linking at a <strong>more granular level</strong>, enabling blockquotes and q-tags to link to a <strong>specific portion of a page</strong>.</p>
-
-
     
     <h5 class="mt-10" style="font-size: 1.3em; font-weight: bold;">"Second-Order Effects" of Data</h5>
     <blockquote cite="https://medium.com/paloit/second-order-effect-in-product-design-and-strategy-82c7fd2c52e6">Second Order Effect refers to the idea that every action has a consequence, and each consequence has a subsequent consequence.</blockquote>
@@ -167,21 +178,223 @@
 
     <h4 class="mt-8 text-blue-600 font-extrabold" style="font-size: 1.6em; font-weight: bold;">Phase 3: Community Building</h4>
 
-    <h5 class="mt-6" style="font-size: 1.3em; font-weight: bold;">Moderation with Tags</h5>
-    <p>Tagging could be added to quote tags and these tags could be used to <strong>moderate the linked content</strong>.
+    <h5 class="mt-6" style="font-size: 1.3em; font-weight: bold;">1) Moderation with Tags</h5>
+    <p><a class="underline" href="https://github.com/CiteIt/citeit-wordpress/issues/5">Tagging could be added to quote tags</a> and these tags could be used to <strong>moderate the linked content</strong>.</p>
 
-    <h5 style="font-size: 1.3em; font-weight: bold;">Breaking Media Silos with Consensus Building</h5>
+    <h6 class="mt-6" style="font-size: 1.05em; font-weight: bold;">2 Types of Tags:</h6>
+    <ol class="num">
+      <li>Descriptive Meta-data: &nbsp;&nbsp;  <a class="underline nonblock" href="javascript: jQuery('pre.meta-data').toggle();">Show/hide sample meta-data</a>
+
+<pre class="meta-data">
+
+&lt;blockquote cite="https://gimletmedia.com/shows/reply-all/o2hx34/127-the-crime-machine-part-i"
+	data-citeit-cited-audio_url='https://soundcloud.com/replyall/127-the-crime-machine-part-i'
+	data-citeit-cited-audio_start_time='157'
+	data-citeit-cited-transcript_url='https://gimletmedia.com/shows/reply-all/o2hx34/127-the-crime-machine-part-i'
+	data-citeit-citing-tags='reply-all-podcast, police, crime, crime-history, new-york-city, comsats, jack-maple'
+	data-citeit-cited-title='The Crime Machine, Part I, Episode 127'
+	data-citeit-cited-authors_names='PJ Vogt'
+	data-citeit-cited-authors_twitter='@PJVogt'
+	data-citeit-cited-authors_entities='Reply-All'
+	data-citeit-cited-authors_entities_urls = "https://en.wikipedia.org/wiki/Reply_All_(podcast)"
+	data-citeit-cited-series = 'Reply-All'
+	data-citeit-cited-embed-url = 'https://player.gimletmedia.com:443/o2hx34'
+	data-citeit-cited-series-url="https://gimletmedia.com/shows/reply-all/episodes"
+	data-citeit-cited-series-youtube="https://www.youtube.com/playlist?list=PLS8aEHTqDvpInY9kslUOOK8Qj_-B91o_W"
+	data-citeit-cited-event_date='2018-10-12'
+&gt;
+
+(See more about Html <a class="underline" target="_blank" href="http://html5doctor.com/html5-custom-data-attributes/">custom-data attributes</a>)
+</code>
+      </li>
+      <li>Opinions: Would <strong>more expressive tags</strong> allow for citations to be aggregated by a more sophisticated <strong>moderation algorithm</strong>?
+      <p class="text-blue-600"><strong>brilliant</strong>, misleading, <strong>consensus-building</strong>, bad-faith, funny, <strong>disagree</strong></p>
+      </li>
+    </ol>
+
+
+    <h5 class="mt-8" style="font-size: 1.3em; font-weight: bold;">2) Breaking Media Silos with Consensus Building</h5>
     <img src="/assets/images/silos.jpg" width="500" alt="Silos" />
     <a class="underline" href="https://www.flickr.com/photos/14617207@N00/4872111479">Silo Canister</a> in Indiana. &nbsp;&nbsp; Photo Credit: <a class="underline" href="https://www.flickr.com/photos/14617207@N00/">Alan Berning</a><br /><br />
-    <p>A new generation of search engines (or <strong>aggregators</strong>) could locate the <strong>top ranked citation</strong> comments associated with a text fragmnent.</p>
+    <p>I would like to make the CiteIt database freely available so that a broad array of people to analyze it and develop aggregators.</p>
+    <p>I would hope that a new generation of search engines (or <strong>aggregators</strong>) could locate the <strong>top ranked citation</strong> comments associated with citation fragmnents and develop innovative user interfaces.</p>
     <p>One desirable feature would be to <strong>classify and group</strong> quotes of a particular type together and display the <strong>top quotes of each group</strong>.</p>
 
-    <p>Surfacing citations rom accross the internet has the potential to <strong>reduce the polarization</strong> that results when individuals <strong>cluster into groups (silos)</strong>.</p>
+    <p>Surfacing citations from accross the internet has the potential to <strong>reduce the polarization</strong> that results when individuals <strong>cluster into their own homogenous groups (silos)</strong>.</p>
 
-    <h5 style="font-size: 1.3em; font-weight: bold;">Civl Conversations</h5>
-    <p>If CiteIt develops as a community, work could be done to <a class="underline" target="_blank" href="https://onbeing.org/civil-conversations-project/">build Civil Conversations</a>.</p>
-    <p>Healthy communities take time and intentionality to develop.</p>
- 
+    <h5 style="font-size: 1.3em; font-weight: bold;">3) Civil Conversations</h5>
+
+    <p>If CiteIt develops as a community, work sould be done to intentially work to
+    <a class="underline" target="_blank" href="https://onbeing.org/civil-conversations-project/">build Civil Conversations</a>,
+    as healthy communities take time and intentionality to develop.</p>
+
+
+<!--
+begin tag cloud : generated by TagCrowd.com
+Feel free to modify as long as you keep this notice.
+
+EMBEDDING INSTRUCTIONS:
+1. Customize your cloud's style by editing the CSS where it says CUSTOMIZE below.
+2. Insert this code in its entirety into your webpage or blog post.
+
+This code and its rendered image are released under the Creative Commons Attribution-Noncommercial 3.0 Unported License. (http://creativecommons.org/licenses/by-nc/3.0/)
+
+For COMMERCIAL USE LICENSING, visit https://tagcrowd.com/licensing.html
+-->
+<style type="text/css"><!-- #htmltagcloud{
+
+/******************************************
+ * CUSTOMIZE CLOUD CSS BELOW (optional)
+ */
+	font-size: 100%;
+	width: auto;		/* auto or fixed width, e.g. 500px   */
+	font-family:'lucida grande','trebuchet ms',arial,helvetica,sans-serif;
+	background-color:#fff;
+	margin:1em 1em 0 1em;
+	border:2px dotted #ddd;
+	padding:2em; 
+/******************************************
+ * END CUSTOMIZE
+ */
+
+}#htmltagcloud{
+  width: 75%;
+  line-height:2.4em;
+  word-spacing:normal;
+  letter-spacing:normal;text-transform:none;
+  text-align:justify;
+  text-indent:0
+}
+#htmltagcloud a:link{
+  text-decoration:none
+}
+#htmltagcloud a:visited{
+  text-decoration:none}
+  #htmltagcloud a:hover{
+  color:white;background-color:#05f
+}
+#htmltagcloud a:active{
+  color:white;background-color:#03d
+}
+.wrd{
+  padding:0;position:relative
+}
+.wrd a{
+  text-decoration:none
+}
+.tagcloud0{
+  font-size:1.0em;
+  color:#ACC1F3;
+  z-index:10
+}
+.tagcloud0 a{
+  color:#ACC1F3
+}
+.tagcloud1 {
+  font-size:1.25em;
+  color:#ACC1F3;
+  z-index:9
+}
+.tagcloud1 a{
+  color:#ACC1F3
+}
+.tagcloud2{
+    font-size:1.35em;
+    color:#86A0DC;
+    z-index:8
+}.tagcloud2 a{
+  color:#86A0DC
+}
+.tagcloud3{
+    font-size:1.5em;
+    color:#86A0DC;
+    z-index:7
+}
+.tagcloud3 a{
+  color:#86A0DC}
+.tagcloud4{
+  font-size:1.7em;
+  color:#607EC5;
+  z-index:6}
+.tagcloud4 a{
+  color:#607EC5
+}.tagcloud5{
+  font-size:1.9em;
+  color:#607EC5;
+  z-index:5
+}
+.tagcloud5 a{
+  color:#607EC5
+}
+.tagcloud6{
+  font-size:2.1em;
+  color:#4C6DB9;
+  z-index:4
+}
+.tagcloud6 a{
+  color:#4C6DB9
+}
+.tagcloud7 {
+  font-size:2.3em;
+  color:#395CAE;
+  z-index:3;
+}
+.tagcloud7 a{
+  color:#395CAE
+}
+.tagcloud8{
+  font-size:2.5em;
+  color:#264CA2;z-index:2
+}
+.tagcloud8 a{
+  color:#264CA2
+}
+.tagcloud9{
+  font-size:4.2em;
+  color:#133B97;
+  z-index:1
+}
+.tagcloud9 a{
+  color:#133B97
+}
+  .tagcloud10{
+  font-size:4.5em;
+  color:#002A8B;
+  z-index:0}
+  .tagcloud10 a{
+  color:#002A8B
+}
+.freq{
+  font-size:10pt !important;
+  color:#bbb
+}
+#credit{
+  text-align:center;
+  color:#333;
+  margin-bottom:0.6em;
+  font:0.7em 'lucida grande',trebuchet,'trebuchet ms',verdana,arial,helvetica,sans-serif
+}
+#credit a:link{
+  color:#777;
+  text-decoration:none
+}
+#credit a:visited{
+  color:#777;
+  text-decoration:none
+ }
+#credit a:hover{
+  color:white;background-color:#05f
+}
+#credit a:active{
+          text-decoration:underline
+            }// -->
+</style>
+
+<div id="htmltagcloud"> <span id="0" class="wrd tagcloud8"><a href="#tagcloud">accountable</a></span> <span id="1" class="wrd tagcloud0"><a href="#tagcloud">appreciative</a></span> <span id="2" class="wrd tagcloud0"><a href="#tagcloud">authentic</a></span> <span id="3" class="wrd tagcloud6"><a href="#tagcloud">balanced</a></span> <span id="4" class="wrd tagcloud0"><a href="#tagcloud">belonging</a></span> <span id="5" class="wrd tagcloud0"><a href="#tagcloud">caring</a></span> <span id="6" class="wrd tagcloud10"><a href="#tagcloud">civil</a></span> <span id="7" class="wrd tagcloud3"><a href="#tagcloud">community-building</a></span> <span id="8" class="wrd tagcloud0"><a href="#tagcloud">compassionate</a></span> <span id="9" class="wrd tagcloud0"><a href="#tagcloud">considerate</a></span> <span id="10" class="wrd tagcloud4"><a href="#tagcloud">constructive-criticism</a></span> <span id="11" class="wrd tagcloud4"><a href="#tagcloud">courteous</a></span> <span id="12" class="wrd tagcloud0"><a href="#tagcloud">dedicated</a></span> <span id="13" class="wrd tagcloud3"><a href="#tagcloud">diversity-building</a></span> <span id="14" class="wrd tagcloud0"><a href="#tagcloud">efficiency-seeking</a></span> <span id="15" class="wrd tagcloud0"><a href="#tagcloud">empathetic</a></span> <span id="16" class="wrd tagcloud0"><a href="#tagcloud">encouraging</a></span> <span id="17" class="wrd tagcloud0"><a href="#tagcloud">equality-promoting</a></span> <span id="18" class="wrd tagcloud0"><a href="#tagcloud">excellent</a></span> <span id="19" class="wrd tagcloud0"><a href="#tagcloud">fair</a></span> <span id="20" class="wrd tagcloud4"><a href="#tagcloud">forward-thinking</a></span> <span id="21" class="wrd tagcloud0"><a href="#tagcloud">generous</a></span> <span id="22" class="wrd tagcloud0"><a href="#tagcloud">genuine</a></span> <span id="23" class="wrd tagcloud4"><a href="#tagcloud">good-manners</a></span> <span id="24" class="wrd tagcloud0"><a href="#tagcloud">growth-seeking</a></span> <span id="25" class="wrd tagcloud0"><a href="#tagcloud">helpful-questioning</a></span> <span id="26" class="wrd tagcloud0"><a href="#tagcloud">helping</a></span> <span id="27" class="wrd tagcloud0"><a href="#tagcloud">holistic</a></span> <span id="28" class="wrd tagcloud0"><a href="#tagcloud">honest</a></span> <span id="29" class="wrd tagcloud0"><a href="#tagcloud">humble</a></span> <span id="30" class="wrd tagcloud4"><a href="#tagcloud">inclusive</a></span> <span id="31" class="wrd tagcloud0"><a href="#tagcloud">innovative</a></span> <span id="32" class="wrd tagcloud4"><a href="#tagcloud">integrity</a></span> <span id="33" class="wrd tagcloud6"><a href="#tagcloud">intelligent</a></span> <span id="34" class="wrd tagcloud0"><a href="#tagcloud">justice-seeking</a></span> <span id="35" class="wrd tagcloud6"><a href="#tagcloud">listening</a></span> <span id="36" class="wrd tagcloud4"><a href="#tagcloud">open-minded</a></span> <span id="37" class="wrd tagcloud0"><a href="#tagcloud">realistic</a></span> <span id="38" class="wrd tagcloud0"><a href="#tagcloud">reflective</a></span> <span id="39" class="wrd tagcloud0"><a href="#tagcloud">resourceful</a></span> <span id="40" class="wrd tagcloud6"><a href="#tagcloud">respectful</a></span> <span id="41" class="wrd tagcloud0"><a href="#tagcloud">responsibile</a></span> <span id="42" class="wrd tagcloud4"><a href="#tagcloud">sincere</a></span> <span id="43" class="wrd tagcloud4"><a href="#tagcloud">team-building</a></span> <span id="44" class="wrd tagcloud6"><a href="#tagcloud">thoughtful</a></span> <span id="45" class="wrd tagcloud0"><a href="#tagcloud">transparent</a></span> <span id="46" class="wrd tagcloud7"><a href="#tagcloud">trust-building</a></span> <span id="47" class="wrd tagcloud3"><a href="#tagcloud">understanding</a></span> <span id="48" class="wrd tagcloud8"><a href="#tagcloud">unity-building</a></span> <span id="49" class="wrd tagcloud0"><a href="#tagcloud">useful</a></span> <span id="50" class="wrd tagcloud0"><a href="#tagcloud">visionairy</a></span> </div><div id="credit">created at <a href="https://tagcrowd.com">TagCrowd.com</a></div>
+
+<!-- end tag cloud : generated by TagCrowd.com : please keep this notice -->
+
+
   </div>
 
   </div> <!--list-wrap-->
@@ -191,6 +404,11 @@
 </div><!--example-one-->
 
   <style>
+
+    ul.disc {
+      list-style: disc !important;
+    }
+
     img.feature { 
       float: right;
       padding: 20px;
@@ -215,9 +433,17 @@
     jQuery( document ).ready(function() {
       jQuery("#page-tabs").organicTabs();
 
+      jQuery("pre.meta-data").hide();
+
     });
   </script>
 
 {% include "_includes/footer.njk" %}
 
 {% endblock %}
+
+<!--
+
+Show HN: Build trust in Media through Citations that show Context. 
+
+-->
