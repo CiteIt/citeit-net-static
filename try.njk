@@ -35,7 +35,9 @@
 {% block content %}
 {% include "_includes/nav.njk" %}
 
-    <main class="mt-4 max-w-7xl px-4 sm:px-6 ">
+<div id="page_container">
+
+    <main id="building_trust" class="mt-4 max-w-7xl px-4 sm:px-6 ">
     <!--main class="mt-4 mx-auto max-w-7xl px-4 sm:px-6 "-->
       <div class="lg:grid lg:grid-cols-12 lg:gap-8">
         <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
@@ -182,12 +184,7 @@
 
       <iframe width="560" height="315" src="https://www.youtube.com/embed/_xkGHbOFW18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br />
       <a class="underline" href="https://www.citeit.net/sample-code/examples-video-outline.txt">View outline of video script</a>
-
-      <h4 class="mt-12 mb-15 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Download Sample Code from GitHub:</h4>
-      <a href="https://github.com/CiteIt/citeit-sample-code" class="mt-3 w-2/3 mb-12 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
-        Get Sample Code on GitHub</a>
-
-      
+      <br /><br />
       
       <h4 class="mt-15 mb-1 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">How to generate the citation context for this example:</h4>
       <div class="wp-block-image"><figure class="alignright size-large is-resized">
@@ -199,7 +196,7 @@
         <li>Upload this file to a public website</li>
         <li>Submit this page's URL using the <a class="underline nonblock" href="https://www.citeit.net/sample-code/">Submission Page</a></li>
         <li>This will generate <a class="underline nonblock" href="https://read.citeit.net/quote/sha256/0.4/41/4174a04d8a3fc6b30596b940f5264e9a0dfe22cced9070c9cb9c644a17a451da.json">JSON files</a> for each quote.</li>
-        <li>You can view the JSON files for this page in your <a class="underline nonblock" href="https://www.citeit.net/wp-content/uploads/2020/10/CiteIt-Inspect-Chrome-Developer-mode.png">browser's developer mode</a>.</li>
+        <li>You can view the <a class="underline nonblock" href="https://read.citeit.net/quote/sha256/0.4/41/4174a04d8a3fc6b30596b940f5264e9a0dfe22cced9070c9cb9c644a17a451da.json">JSON files</a> for this page in your <a class="underline nonblock" href="https://www.citeit.net/wp-content/uploads/2020/10/CiteIt-Inspect-Chrome-Developer-mode.png">browser's developer mode</a>.</li>
       </ul>
       </div>
 
@@ -207,7 +204,7 @@
       <h2 class="mt-10 mb-6 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Examples</h2>
 
       <h3 class="text-xl leading-8 font-extrabold font-header tracking-tight text-gray-700 sm:text-xl">1: Pride &amp; Prejudice</h3>
-      <p>CiteIt.net allows inline <b>popup quotations</b> use the &lt;q&gt; tag:</p>
+      <p>CiteIt.net allows inline <b>popup quotations</b> use the <strong>&lt;q&gt; tag</strong>:</p>
 
       In Chapter 5 of Pride and Prejudice, Elizabeth confesses how Darcy offended her, saying:
       <q cite="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5" 
@@ -223,7 +220,7 @@
       <a id="rabbi-david-wolpe-caption" class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> 
       </figure></div>
 
-      In a medium.com article, <a href="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">Tyler Cowen commented to David Wolpe</a> about how social media strips away context:
+      Here's a <strong>&lt;blockquote&gt;</strong> quote of a medium.com article, <a href="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">Tyler Cowen commented to David Wolpe</a> about how social media strips away context:
       
       <blockquote cite="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d" 
         data-citeit-cited-audio-url="https://soundcloud.com/conversationswithtyler/rabbi-david-wolpe-on-leadership-religion" 
@@ -239,7 +236,12 @@
         data-citeit-cited-authors-wikipedia-urls="https://en.wikipedia.org/wiki/David_Wolpe, https://en.wikipedia.org/wiki/Tyler_Cowen">I think that Judaism has the same problem that any <b>thick civilization</b> has in a world in which, as you say, <b>context is stripped away</b>. And not only is context stripped away, but attention to any one thing is canter and less than it used to be. So, for example, a lot of Jewish commentary is based on your recognizing the reference that I make. <b>Who recognizes references anymore?</b> Because people don’t spend years studying books.</blockquote>
 
       <p>You can mark up the quote with <b>html tags</b> such as &lt;ul&gt;, &lt;li&gt;, &lt;b&gt; or any other <b>tag that will not change the text version</b> of the quote when the hmtl is converted to text.</p>
-      <br /><br />
+      <br />
+
+      <h4 class="mt-12 mb-15 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Download Sample Code from GitHub:</h4>
+      <a href="https://github.com/CiteIt/citeit-sample-code" class="mt-3 w-2/3 mb-12 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
+        Get Sample Code on GitHub</a>
+
 
       <h3 class="mt-2 mb-3 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">View Html</h3>
       <a class="underline" href="https://www.citeit.net/sample-code/examples.html">View online html</a>
@@ -363,11 +365,13 @@
 
 </script>
 
-
+</div>
 
 {% include "_includes/footer.njk" %}
 
 {% endblock %}
+
+
 
 <!--
 

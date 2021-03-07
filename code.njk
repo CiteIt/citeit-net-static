@@ -13,8 +13,12 @@ title: Hello
 
 {% endblock %}
 
+
 {% block content %}
 {% include "_includes/nav.njk" %}
+
+<div id="page_container">
+
     <main class="mt-4 max-w-7xl px-4 sm:px-6 ">
     <!--main class="mt-4 mx-auto max-w-7xl px-4 sm:px-6 "-->
       <div class="lg:grid lg:grid-cols-12 lg:gap-8">
@@ -151,7 +155,7 @@ rather than parent div</li>
   <div id="developers" class="hide">
     <h3 class="mt-8 mb-4" style="font-size: 1.6em; font-weight: bold;">Developers</h3>
 
-    <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">1) Sample Code: Basic Html &amp; Javascript</h4>
+    <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">1) Frontend Sample Code: Basic Html &amp; Javascript</h4>
 
     <p>See simple sample code that marks up citations and calls the web service.</p>
 
@@ -169,8 +173,9 @@ rather than parent div</li>
 
     <br />
     <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">2) Python API Webservice</h4>
+    <img style="float: right" src="/assets/images/python-logo-master-v3-TM.png" alt="Python logo" width="400" />
 
-    <p>This is the code for the API server that the javascript clients talk to when creating a new quote file.</p>
+    <p>This is the code for the API server that the javascript clients talk to when creating a new quote <a class="underline" href="https://read.citeit.net/quote/sha256/0.4/41/4174a04d8a3fc6b30596b940f5264e9a0dfe22cced9070c9cb9c644a17a451da.json">JSON file</a>.</p>
 
     <p>This program accepts a URL “POST” request</p>
     <ul class="disc">
@@ -328,6 +333,10 @@ rather than parent div</li>
     });
   </script>
 
+</div>
+
 {% include "_includes/footer.njk" %}
+
+
 
 {% endblock %}

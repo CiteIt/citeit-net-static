@@ -14,6 +14,9 @@
 
 {% block content %}
 {% include "_includes/nav.njk" %}
+
+<div id="page_container">
+
     <main class="mt-4 max-w-7xl px-4 sm:px-6 ">
     <!--main class="mt-4 mx-auto max-w-7xl px-4 sm:px-6 "-->
       <div class="lg:grid lg:grid-cols-12 lg:gap-8">
@@ -31,8 +34,6 @@
         </div>
       </div>
     </main>
-  </div>
-</div>
 
 <h2 class="mt-2 mb-10 ml-5 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">About:</h2>
 
@@ -413,8 +414,11 @@ For COMMERCIAL USE LICENSING, visit https://tagcrowd.com/licensing.html
 
     });
   </script>
+</div>
 
 {% include "_includes/footer.njk" %}
+
+
 
 {% endblock %}
 
