@@ -55,7 +55,7 @@
   
 
 
-<h2 class="mt-2 mb-10 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">About:</h2>
+<h2 class="mt-2 mb-10 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Try CiteIt:</h2>
 
 <div id="page-tabs">
   <ul class="nav">
@@ -132,18 +132,51 @@
         <input type="hidden" name="log" id="user_login" class="input" value="test" size="20" autocapitalize="off" />
 			  <input type="hidden" name="pwd" id="user_pass" class="input password-input" value="CiteIt!" size="20" />
         <input class="submit" type="submit" value="Login to Demo WordPress Site" />
-   
     </form>
-      
 
+
+    <h3 class="mt-8 mb-4" style="font-size: 1.6em; font-weight: bold;">Part 1: What CiteIt.net Looks Like</h3>
+    <ol class="num"><li>The first step is to go to <a href="https://demo.citeit.net/">demo.citeit.net</a> in your web browser. (this page)</li>
+    <li>Next, <a href="https://demo.citeit.net/wp-login.php">Login</a> with the &ldquo;<strong>test</strong>&rdquo; user and the password found on the page.</li>
+    <li>The next step is to click &ldquo;<strong>Posts</strong>&rdquo; &gt; <strong>Add New</strong>&ldquo;</li>
+    <li>I&rsquo;ll give the post a title and write my article, leaving room for the quote<br>
+    ( Time Elapses..)</li>
+    <li>Now I&rsquo;ll locate my quote on the internet to find the full context. In this case, the transcript is found on <a href="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">medium.org</a>.</li>
+    <li>I&rsquo;ll copy the <strong>quote</strong> into my article</li>
+    <li>I&rsquo;ll copy the <strong>source&rsquo;s URL</strong> to my clipboard</li>
+    <li>In the editor, I <strong>highlight the quotation</strong> and</li>
+    <li>Click on the CiteIt.net <strong>blockquote button</strong>, which the CiteIt.net WordPress plugin adds to the WordPress Editor as a custom button.</li>
+    <li>Next, I <strong>Paste</strong> in my <strong>URL</strong></li>
+    <li>And click &ldquo;<strong>publish</strong>&ldquo;</li>
+    <li>To view the published post, I click on the post&rsquo;s URL or click &ldquo;Preview&rdquo;</li>
+    </ol>
+    
+    <p>I can now click on the blue arrows above or below the quote to see more context.</p>
+    
+    <h3 class="mt-8 mb-4" style="font-size: 1.6em; font-weight: bold;">Part 2: Popup Quotes</h3>
+    <p>I can achieve the second variant of citation by performing the same steps, but selecting a different button &mdash; inline popup &mdash; to create a shorter inline quote.</p>
+    <ol class="num"><li>I click &ldquo;Add New&rdquo;</li>
+    <li>I enter the quote title and post</li>
+    <li>I copy the quote into the article</li>
+    <li>I highlight the quotation</li>
+    <li>I click on the other button: Inline popup.</li>
+    <li>I pastee in the source&rsquo;s URL</li>
+    <li>I click publish.</li>
+    <li>I can now view the resulting post byu cliking on the URL or clicking Preview.</li>
+    <li>If I click on the quote&rsquo;s link, the CiteIt.net contextual popup appears.</li>
+    </ol>
+
+    <p>(NOTE: There still are some significant bugs.</p>
+    <p>Please report bugs by tagging your demo post with the tag &ldquo;<strong>citeit-bugs</strong>&ldquo;)</p>
 
     </div>
 
     <!-- Add CiteIt to Your Site -->
     <div id="your-site" class="hide"><!--a id="your-site"></a-->
-      <h3 class="mb-3" style="font-size: 1.6em; font-weight: bold;">Add CiteIt to Your Website:</h3>
+      <h3 class="mb-3" style="font-size: 1.6em; font-weight: bold;">How to Add CiteIt to Your Website:</h3>
 
-      <p>To learn how CiteIt works and how to add CiteIt to your site, developers can download and run Sample Code located at GitHub.</p>
+      <p>To learn how CiteIt works and how to <strong>add CiteIt to your site</strong>, developers can download and run 
+      <strong><a class="underline" href="https://github.com/CiteIt/citeit-sample-code">Sample Code</a></strong> located at GitHub.</p>
 
       <div id="instructions">
 
@@ -151,12 +184,17 @@
       <a class="underline" href="https://www.citeit.net/sample-code/examples-video-outline.txt">View outline of video script</a>
 
       <h4 class="mt-12 mb-15 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Download Sample Code from GitHub:</h4>
-      <a href="https://github.com/CiteIt/citeit-sample-code" class="mt-3 w-1/3 mb-12 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
+      <a href="https://github.com/CiteIt/citeit-sample-code" class="mt-3 w-2/3 mb-12 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
         Get Sample Code on GitHub</a>
 
       
       
       <h4 class="mt-15 mb-1 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">How to generate the citation context for this example:</h4>
+      <div class="wp-block-image"><figure class="alignright size-large is-resized">
+      <img class="feature" src="/assets/images/pride-and-prejudice.png" alt="Pride &amp; Prejudice" width="350"  /><br />
+      <a class="underline" href="https://en.wikipedia.org/wiki/Pride_and_Prejudice">Jane Austen's Pride &amp; Prejudice</a>
+      </figure></div>
+
       <ul>
         <li>Upload this file to a public website</li>
         <li>Submit this page's URL using the <a class="underline nonblock" href="https://www.citeit.net/sample-code/">Submission Page</a></li>
@@ -180,6 +218,11 @@
       >I could easily forgive his pride, if he had not mortified mine.</q>
 
       <h3 class="mt-10 text-xl leading-8 font-extrabold font-header tracking-tight text-gray-700 sm:text-xl">2: Tyler Cowen interviews David Wolpe</h3>
+      <div class="wp-block-image"><figure class="alignright size-large is-resized">
+      <img class="feature" src="/assets/images/rabbi-david-wolpe.jpg" alt="Rabbi David Wolpe" /><br />
+      <a id="rabbi-david-wolpe-caption" class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> 
+      </figure></div>
+
       In a medium.com article, <a href="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">Tyler Cowen commented to David Wolpe</a> about how social media strips away context:
       
       <blockquote cite="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d" 
@@ -196,8 +239,11 @@
         data-citeit-cited-authors-wikipedia-urls="https://en.wikipedia.org/wiki/David_Wolpe, https://en.wikipedia.org/wiki/Tyler_Cowen">I think that Judaism has the same problem that any <b>thick civilization</b> has in a world in which, as you say, <b>context is stripped away</b>. And not only is context stripped away, but attention to any one thing is canter and less than it used to be. So, for example, a lot of Jewish commentary is based on your recognizing the reference that I make. <b>Who recognizes references anymore?</b> Because people don’t spend years studying books.</blockquote>
 
       <p>You can mark up the quote with <b>html tags</b> such as &lt;ul&gt;, &lt;li&gt;, &lt;b&gt; or any other <b>tag that will not change the text version</b> of the quote when the hmtl is converted to text.</p>
-
       <br /><br />
+
+      <h3 class="mt-2 mb-3 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">View Html</h3>
+      <a class="underline" href="https://www.citeit.net/sample-code/examples.html">View online html</a>
+      <br /><br /><br /><br />
       <h3 class="mt-2 mb-3 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">More Examples</h3>
       <ul>
       <li><a class="underline nonblock text-xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-xl" href="https://www.citeit.net/sample-code/examples-advanced.html">View Advanced Examples</a>: 
