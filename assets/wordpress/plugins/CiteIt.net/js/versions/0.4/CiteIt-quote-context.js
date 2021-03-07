@@ -122,7 +122,7 @@ jQuery.fn.quoteContext = function() {
                         );
 
                         //Style quote as a link that calls the popup expander:
-                        blockcite.wrapInner("<a href='" + blockcite.attr("cite") + "' " +
+                        blockcite.wrapInner("<a class='popup_quote' href='" + blockcite.attr("cite") + "' " +
                             "onclick='expandPopup(this ,\"" + q_id + "\"); return false;' " +
                             " />");
                     } else if (tag_type === "blockquote") {
@@ -461,7 +461,7 @@ function embedUi(url, json, tag_type = 'blockquote') {
 
         // Create Embed iframe
         embed_icon = "<span class='view_on_youtube'>" +
-            "<br /><a href=\"javascript:toggleQuote('quote_arrow_up', 'quote_before_" + json.sha256 + "'); return false; \">Expand: Show Video Clip</a></span>";
+            "<br /><a href=\"javascript:toggleQuote('quote_arrow_up', 'quote_before_" + json.sha256 + "'); \">Expand: Show Video Clip</a></span>";
 
 		if (tag_type == 'q'){
 			width = '426';

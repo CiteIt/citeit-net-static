@@ -201,6 +201,7 @@ a.inline_source {
 a.rotated180{
   display: block;
   transform: rotate(180deg);
+  margin-bottom: -25px;
 
   /* Safari */
   -webkit-transform: rotate(180deg);
