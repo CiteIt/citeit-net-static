@@ -131,7 +131,9 @@
 
         <div id="loading">
           <div id="circle6"></div>
-          <div id="submission-progress"></div>
+          <div id="submission-progress">
+            <ul id="progress_list"></ul>          
+          </div>
         </div>
 
         <!--div id="todo" class="label mt-2" style="float:left">(Todo)</div -->
@@ -249,10 +251,9 @@
     color: #545de9 !important;
   }
 
-  #submission results {
-    
+  ul#progress_list {
+    margin-left: 25px;
   }
-
 
 #circle6 {
   display: block;
@@ -366,36 +367,35 @@ function process_test_citation() {
   jQuery('#loading').addClass('visible');
 
   var submission_steps = [
-        "<li><b>Looking up source</b> ..</li>",
-        "<li>Copying 500 characters before and after quotation.</li>",
-        "<li>Saving file in JSON format.</li>",
-        "<li>Loading JSON file into current page using javascript.</li>",
-        "<li>Submission Complete...</li>"
+        "<b>Contacting CiteIt webservice ..</b>",
+        "Looking up source from URL ..",
+        "Locating quotation ..", 
+        "Copying 500 characters before and after quotation.",
+        "Saving context data in JSON format.",
+        "Loading JSON data into current page using javascript.",
+        "<b>Submission Complete..</b>"
     ];
 
   // Print first message immediately: don't wait:
   if (message_cnt == 0) {
     var message = submission_steps[message_cnt];
-    jQuery('#submission-progress').append(message);  
+    jQuery('ul#progress_list').append('<li>' + message + '</li>');  
     message_cnt++;
   }
 
   // Pause for 2 seconds before printing other messages
   setTimeout(function() {   
     var message = submission_steps[message_cnt];
-    jQuery('#submission-progress').append(message);  
+    jQuery('ul#progress_list li:last').append('<li>' + message + '</li>');  
 
     message_cnt++;
-    if (message_cnt < 5) {
+    if (message_cnt < 7) {
       process_test_citation() 
     }
     else {
       jQuery('#submission-results').removeClass('hidden');
       jQuery('#submission-results').addClass('visible');
-      //jQuery('#loading').removeClass('visible');
-
       jQuery('#submission-results').addClass('visible');
-      //jQuery('#loading').addClass('hidden');
       jQuery('#circle6').addClass('hidden');
  
     }
