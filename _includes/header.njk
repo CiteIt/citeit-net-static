@@ -110,24 +110,25 @@
     <p>(If you need ideas, you can <span class="highlight">use <strong><a class="underline" target="_target" href="https://news.google.com/">Google News</a></strong> as a source for sample quotes</span>).</p>
 
     <!--http://localhost/post_quote-->
-    <form id="test-submssion" class="test-submission" method="POST">
+    <form id="test-submssion" class="test-submission" method="GET">
 
         <h4>Quote:</h4>
         <input type="hidden" name="citing_url" value="http://localhost:8080/" />
 
-        <textarea id="quote" name="quote" rows="4" cols="65"
+        <textarea id="citing_quote" name="citing_quote" rows="4" cols="65"
           onclick="document.getElementById('quote').text = '';"
         >Drink at least one-half of your body weight in ounces of water daily</textarea>
-        <!--span class="label">Example:</span>&nbsp; <span class="example">I could easily forgive his pride, if he had not mortified mine.</span><br /-->
 
         <h4>URL:</h4>
-        <input class="url" class="cited_url" name="url" type="text" 
+        <input class="url" class="cited_url" name="cited_url" type="text" 
             onclick="document.getElementById('test-submssion').reset();"
             value="https://www.nytimes.com/2021/02/07/sports/football/tom-brady-super-bowl-age.html"
           /><br />
 
-        <!--span class="label">Example:</span>&nbsp; <span class="example"><https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5</span><br /-->
-        <input id="submit_test_citation" class="w-full mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" onclick="process_test_citation(); return false;" value="Create Test Citation" />
+        <!--input type="submit" value="Test" class="w-full mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" / -->
+               
+        <input id="submit_test_citation" class="w-full mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" 
+          onclick="process_test_citation(); return false;" value="Create Test Citation" />
 
         <div id="loading">
           <div id="circle6"></div>
@@ -309,6 +310,9 @@
 
 <script>
 
+// Set Form Citing URL
+document.getElementById('citing_url').value = window.location.href;
+
 
 function swap_citation_type(tag_id, tag_type){
   // Convert <blockquote> to <q> and vice versa
@@ -363,9 +367,52 @@ var message_cnt = 0;
 
 function process_test_citation() {
 
+  citing_quote = document.getElementById('citing_quote');
+  citing_url = document.getElementById('citing_url');
+  cited_url = document.getElementById('cited_url');
+
+  var tag_type = 'blockquote';
+  var hash_key = quoteHashKey(citing_quote, citing_url, cited_url);
+
+  // Javascript uses utf-16.  Convert to utf-8
+  hash_key = encode_utf8(hash_key);
+  console.log(hash_key);
+  var hash_value = forge_sha256(hash_key);
+  console.log(hash_value);
+
+  var shard = hash_value.substring(0, 2);
+  var read_base = "https://read.citeit.net/quote/";
+  var read_url = read_base.concat("sha256/", webservice_version_num, "/",
+      shard, "/", hash_value, ".json");
+  var json = null;
+
+  // Submit this quote to lookup
+  jQuery.ajax({
+      type: "GET",
+      url: 'http://localhost/post_quote',
+      data: {
+        citing_url: citing_url,
+        citing_quote: citing_quote,
+        cited_url: cited_url
+      },
+      dataType: "json",
+      success: function(json) {
+          addQuoteToDom(tag_type, json, cited_url);
+
+          console.log("CiteIt Found: " + read_url);
+          console.log("       Quote: " + citing_quote);
+      },
+      error: function() {
+          console.log("CiteIt Missed: " + read_url);
+          console.log("       Quote: " + citing_quote);
+      }
+  });
+
+
   // Display 'Loading circle'
   jQuery('#loading').addClass('visible');
 
+  // Return data from API
   var submission_steps = [
         "<b>Contacting CiteIt webservice ..</b>",
         "Looking up source from URL ..",
@@ -433,5 +480,76 @@ function process_test_citation() {
         }
     }
   }
+
+  // Add Hidden div with context to DOM
+  function addQuoteToDom(tag_type, json, cited_url) {
+
+      // lookup html for video ui and icon
+      var embed_ui = embedUi(cited_url, json, tag_type);
+
+      if (tag_type === "q") {
+          var q_id = "hidden_" + json.sha256;
+          var url_cited_domain = json.cited_url.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
+
+          //Add content to a hidden div, so that the popup can later grab it
+          jQuery("#" + hidden_container).append(
+              "<div id='" + q_id + "' class='highslide-maincontent'>" + 
+              embed_ui.html + "<br />.. " + 
+              json.cited_context_before + " " + " <span class='q-tag-highlight'><strong>" +
+              json.citing_quote + "</strong></span> " +
+              json.cited_context_after + ".. </p>" +
+              "<p><a href='" + json.cited_url +
+              "' target='_blank'>Read more</a> | " +
+              "<a href='javascript:closePopup(" +
+              q_id + ");'>Close</a> <div class='source_url'>source: <a href='" + json.cited_url + "'>" + url_cited_domain + "</a> </p></div>"
+          );
+
+          //Style quote as a link that calls the popup expander:
+          blockcite.wrapInner("<a class='popup_quote' href='" + blockcite.attr("cite") + "' " +
+              "onclick='expandPopup(this ,\"" + q_id + "\"); return false;' " +
+              " />");
+      } else if (tag_type === "blockquote") {
+
+          //Fill 'before' and 'after' divs and then quickly hide them
+          blockcite.before("<div id='quote_before_" + json.sha256 + "' class='quote_context'>"
+            + "<blockquote class='quote_context'>"
+                + "<span class='context_header'>Context Before:</span>"
+                + "<div class='tooltip'><span class='tooltip_icon'>?</span><span class='tooltiptext'>CiteIt.net displays the 500 characters of Context immediately before and after the quote</span></div><br />" 
+                + embed_ui.html + " .. " + json.cited_context_before  
+            + "</blockquote></div>"
+);
+
+          blockcite.after("<div id='quote_after_" + json.sha256 + "' class='quote_context'>"
+              + "<blockquote class='quote_context'>"
+                + ".. " + json.cited_context_after + " .."
+                + "<br /><span class='context_header'>Context After:</span>" 
+              + "<div class='tooltip'><span class='tooltip_icon'>?</span><span class='tooltiptext'>CiteIt.net displays the 500 characters immediately before and after the quote</span></div>" 
+            + "</blockquote></div>" 
+          );
+
+          var context_before = jQuery("#quote_before_" + json.sha256);
+          var context_after = jQuery("#quote_after_" + json.sha256);
+
+          context_before.hide();
+          context_after.hide();
+
+          if (json.cited_context_before.length > 0) {
+              context_before.before("<div class='quote_arrows up-arrow' id='context_up_" + json.sha256 + "'> \
+              <a id='quote_arrow_up_" + json.sha256 + "' \
+                  href=\"javascript:toggleQuote('quote_arrow_up', 'quote_before_" + json.sha256 + "');\">&#9650;</a> " + trimDefault(embed_ui.icon) +
+                  "</div>"
+              );
+          }
+          if (json.cited_context_after.length > 0) {
+              context_after.after("<div class='quote_arrows down-arrow' id='context_down_" + json.sha256 + "'> \
+              <div class='citeit_source'><span class='source'>source: </span> \
+              <a class='citeit_source_domain' href='" + json.cited_url + "'>" + extractDomain(json.cited_url) + "</a></div> \
+              <a class='down_arrow' id='quote_arrow_down_" + json.sha256 + "' \
+              href=\"javascript:toggleQuote('quote_arrow_down', 'quote_after_" + json.sha256 + "');\">&#9660;</a></div>");
+          }
+
+      } // elseif (tag_type === 'blockquote')
+  } // end: function add_quote_to_dom
+
 
 </script>		
