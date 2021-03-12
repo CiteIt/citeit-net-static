@@ -61,21 +61,21 @@
 
 <div id="page-tabs">
   <ul class="nav">
-    <!--li class="nav-one"><a href="#live-editor">Try Live Editor</a></li-->
-    <li class="nav-one"><a href="#wordpress" class="current">Try WordPress Plugin</a></li>
-    <li class="nav-two last"><a href="#your-site">Add CiteIt to Your Site</a></li>
+    <!--li class="nav-one"><a href="#live-editor" class="current">Try Live Editor</a></li-->
+    <li class="nav-two"><a href="#wordpress">Try WordPress Plugin</a></li>
+    <li class="nav-three last"><a href="#your-site">Add CiteIt to Your Site</a></li>
   </ul>
   <div id="tab_contents">
   <div class="list-wrap">
-
+     
     <!-- Why CiteIt? -->    
-    <div id="live-editor" class="hide"><a name="live-editor"></a>
+    <div id="live-editor"><a name="live-editor"></a>
       <h3 class="mb-2" style="font-size: 1.8em; font-weight: bold;">Try Live Editor</h3>
     
       <div id="editor">
         <h3 class="text-blue-700 mt-4" style="font-size: 1.5em; font-weight: bold;">Editor:</h3>
 
-          <!--Form: Demo Citations -->
+        <!--Form: Demo Citations -->
         <form id="citation_demo_form" method="post" action="http://localhost/demo_post"> <!--action="http://api.citeit.net/demo_post/" -->
             <input type="hidden" id="post_url" name="post_url" value="https://www.citeit.net/" />
             <input type="hidden" id="format" name="format" value="list" />
@@ -84,7 +84,7 @@
             </textarea><br />
             <input type="submit" class="submit mb-7" value="Save" />
         </form><br />
-          <!--End Form -->
+        <!--End Form -->
 
         <div id="result"></div>
 
@@ -114,11 +114,10 @@
 
         <!-- Leave space for instructions to float from right to left -->
         <br /><br /><br /><br /><br /><br /><br /><br />
-    
     </div>
-        
+
     <!-- WordPress -->
-    <div id="wordpress">
+    <div id="wordpress" class="hide">
       <h3 class="mt-8 mb-4" style="font-size: 1.6em; font-weight: bold;">Try WordPress Plugin</h3>
       <iframe src="https://www.youtube.com/embed/eIwlo7nQr0g" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
       <a class="underline" href="https://www.citeit.net/2020/08/10/how-to-use-the-demo-citeit-net-site/">Video Transcript</a><br />
@@ -187,8 +186,8 @@
       
       <p>Most <strong>individuals</strong> seeking to add CiteIt to their site will use a plugin like the <a class="underline" href="/code/#wordpress">CiteIt WordPress plugin</a>.</p>
 
-      <p>If you are a developer, you can learn how to  <strong>add CiteIt to your website</strong> by downloading the GitHub 
-      <strong><a class="underline" href="https://github.com/CiteIt/citeit-sample-code">Sample Code</a></strong>.</p>
+      <p>If you are a developer, you can learn how to  <strong>add CiteIt to your website</strong> and download the 
+      <strong><a class="underline" href="https://github.com/CiteIt/citeit-sample-code">GitHub Sample Code</a></strong>.</p>
 
       <div id="instructions">
 
@@ -213,7 +212,7 @@
 
       <h2 class="text-blue-600 mt-10 mb-6 text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Examples:</h2>
 
-      <h3 class="text-xl leading-8 font-extrabold font-header tracking-tight text-gray-700 sm:text-xl">1: Contextual Popups</h3>
+      <h3 class="text-xl leading-8 font-extrabold font-header tracking-tight text-gray-700 sm:text-xl">1: Pride &amp; Prejudice</h3>
       <p>CiteIt.net allows inline <b>popup quotations</b> use the <strong>&lt;q&gt; tag</strong>:</p>
 
       In Chapter 5 of Pride and Prejudice, Elizabeth confesses how Darcy offended her, saying:
@@ -224,7 +223,7 @@
         data-citeit-cited-work-wikipedia-url="https://en.wikipedia.org/wiki/Pride_and_Prejudice"
       >I could easily forgive his pride, if he had not mortified mine.</q>
 
-      <h3 class="mt-10 text-xl leading-8 font-extrabold font-header tracking-tight text-gray-700 sm:text-xl">2: Expanding Blockquotes</h3>
+      <h3 class="mt-10 text-xl leading-8 font-extrabold font-header tracking-tight text-gray-700 sm:text-xl">2: Tyler Cowen interviews David Wolpe</h3>
       <div class="wp-block-image"><figure class="alignright size-large is-resized">
       <img class="feature" src="/assets/images/rabbi-david-wolpe.jpg" alt="Rabbi David Wolpe" /><br />
       <a id="rabbi-david-wolpe-caption" class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> 
@@ -373,7 +372,7 @@
         });
     });
 
-</script -->
+</script>
 
 </div>
 
