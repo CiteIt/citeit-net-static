@@ -15,10 +15,14 @@
 
 <script>
 	// Call CiteIt.net plugin on all q-tags and blockquotes:
-	jQuery( document ).ready(function() {
 
-    jQuery.noConflict();
+  /* Lazy load images */
+  jQuery('.lazy').Lazy();
+
+	
+  jQuery( document ).ready(function() {
 
 		jQuery('q, blockquote').quoteContext();
+  
 	});
 </script>
