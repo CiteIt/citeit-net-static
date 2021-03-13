@@ -99,14 +99,14 @@
     <form id="test-submssion" class="test-submission" method="GET">
 
         <h4>Quote:</h4>
-        <input type="hidden" name="citing_url" value="http://localhost:8080/" />
+        <input type="hidden" id="citing_url" name="citing_url" value="" />
 
         <textarea id="citing_quote" name="citing_quote" rows="4" cols="65"
           onclick="document.getElementById('quote').text = '';"
         >Drink at least one-half of your body weight in ounces of water daily</textarea>
 
         <h4>URL:</h4>
-        <input class="url" name="cited_url" type="text" 
+        <input class="url" id="cited_url" name="cited_url" type="text" 
             onclick="document.getElementById('test-submssion').reset();"
             value="https://www.nytimes.com/2021/02/07/sports/football/tom-brady-super-bowl-age.html"
           /><br />
@@ -292,10 +292,10 @@
 
 <script>
 
-// Set Form Citing URL
+// Default Base URL to current URL (www.citeit.net or localhost:8080 )
 document.getElementById('citing_url').value = window.location.href;
 
-
+	
 function swap_citation_type(tag_id, tag_type){
   // Convert <blockquote> to <q> and vice versa
 
