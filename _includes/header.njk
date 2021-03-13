@@ -12,8 +12,6 @@
             CiteIt is developing new <span class="text-blue-600 font-extrabold">digital tools</span> that help <span class="text-red-300 font-extrabold">combat misinformation</span> and <span class="text-red-300 font-extrabold">selective quotations</span>.
             These tools show the context surrounding the quoted media in order to build trust and understanding.
           </p>
-
-        <!--h2 style="font-size: 1.0em; color: #999;" class="mt-6 block text-1xl tracking-tight  sm:text-1xl text-blue-500">Did you know the Jefferson Memorial has a Cherry-picked quote? &nbsp;&nbsp;  <span style="white-space: nowrap;">View the surrounding context with CiteIt:</span></h2-->
         </div>
       </div>
 
@@ -23,16 +21,11 @@
               <!--span class="sr-only">Watch our video to learn more</span-->
               <!--iframe id="iframe_video" class="iframe_video" src="https://www.youtube.com/embed/8r42TmdqSqk"></iframe-->
 
-              <a href="https://youtu.be/8r42TmdqSqk"  target="iframe_video">
+              <a href="https://youtu.be/8r42TmdqSqk"  target="iframe_video" title="There is a Cherry-Picked Quote on the Jefferson Memorial, Washington, DC">
                 <picture>
-                  <img id="video_thumb" 
-                        width="923" height="519"
-                        src="/assets/images/jefferson-memorial-statue-panorama-1-854x480.jpg" alt="Jefferson Memorial Statue Panoroma, Washington, DC"
-                        srcset="/assets/images/jefferson-memorial-statue-panorama-1-854x480.jpg 900w,
-                                /assets/images/jefferson-memorial-statue-panorama-1-640x360.jpg 640w,
-                                /assets/images/jefferson-memorial-statue-panorama-1-426x240.jpg 450w,        
-                                "
-                  >
+                    <source srcset="/assets/images/jefferson-memorial-statue-panorama-1-854x480.webp" type="image/webp">
+                    <source srcset="/assets/images/jefferson-memorial-statue-panorama-1-854x480.jpg" type="image/jpeg">
+                    <img src="/assets/images/jefferson-memorial-statue-panorama-1-854x480.jpg" alt="Jefferson Memorial Statue Panoroma, Washington, DC" width="923" height="519">
                 </picture>
               </a>
               <span class="text-base text-gray-500 " >Did you know there is a Cherry-picked quote on the Jefferson Memorial? &nbsp;&nbsp;  <span style="white-space: nowrap;">Readers can <strong class="text-blue-600">trust citations</strong> made with CiteIt.</span></span>
@@ -47,8 +40,8 @@
           
         </div>
 
-        <div id="building-trust" class="mt-2 mb-2 w-4/5 md:mx-left lg:col-span-6 lg:text-left">
-          <div class="mt-2 ml-2sm:mt-2 ml-2 sm:flex ml-0 sm:justify-left lg:justify-center"class="mt-3 mb-3 text-base text-gray-500 sm:mt-3 sm:text-xl lg:text-lg xl:text-xl"> 
+        <div id="homepage_option_buttons" class="mt-2 mb-2 w-4/5 md:mx-left lg:col-span-6 lg:text-left">
+          <div class="mt-2 ml-2sm:mt-2 ml-2 sm:flex ml-0 sm:justify-left lg:justify-center mt-3 mb-3 text-base text-gray-500 sm:mt-3 sm:text-xl lg:text-lg xl:text-xl"> 
             <div class="rounded-md shadow">
               <a href="/demo/" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg">
                 See Demos
@@ -62,54 +55,45 @@
           </div>
         </div>
 
-      </div>
-
-
         <section class="bg-white overflow-hidden">
-            <div class="relative max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 lg:mt-16">
+          <div class="relative max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 lg:mt-16">
             <div id="callout-quote-1" class="mt-10 p-4 border bg-yellow-200 lg:absolute lg:left-24 lg:-top-20 animate-pulse"
                 >
                 Click on text in blue box below to see the quote in context.
             </div>
 
-                <div class="relative lg:flex lg:items-center">
-                    <div class="relative mt-16 lg:ml-10 lg:order-2">
-                        <svg class="absolute top-0 left-0 transform -translate-x-4 -translate-y-8 h-12 w-12 text-blue-200 opacity-100" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
-                            <path stroke-width="4" d="M41.485 15C17.753 31.753 1 59.208 1 89.455c0 24.664 14.891 39.09 32.109 39.09 16.287 0 28.386-13.03 28.386-28.387 0-15.356-10.703-26.524-24.663-26.524-2.792 0-6.515.465-7.446.93 2.327-15.821 17.218-34.435 32.11-43.742L41.485 15zm80.04 0c-23.268 16.753-40.02 44.208-40.02 74.455 0 24.664 14.891 39.09 32.109 39.09 15.822 0 28.386-13.03 28.386-28.387 0-15.356-11.168-26.524-25.129-26.524-2.792 0-6.049.465-6.98.93 2.327-15.821 16.753-34.435 31.644-43.742L121.525 15z" />
-                        </svg>
-                        <blockquote class="relative">
-                            <div x-data="citation()"
-                                class="text-lg leading-9 font-medium text-gray-900 lg:text-xl">
-                                <div id="nothing_is-more_certainly" x-on:click="showHomePageQuoteContext">
-                                    <p class="bg-blue-300 p-4 border bg-opacity-60 cursor-pointer hover:bg-blue-300 lg:p-8 shadow">
-                                        <q cite="https://avalon.law.yale.edu/19th_century/jeffauto.asp">Nothing is more certainly written in the book of fate than that these people are to be free.</q>
-                                    </p>
-                                </div>
-                            </div>
-                            <footer class="mt-8">
-                                <div class="flex">
-                                    <div class="ml-10 lg:ml-10">
-                                        <div class="text-base font-semibold text-gray-900">Thomas Jefferson, &nbsp; <a class="underline" href="https://avalon.law.yale.edu/19th_century/jeffauto.asp#:~:text=Nothing%20is%20more%20certainly%20written%20in%20the%20book%20of%20fate%20than%20that%20these%20people%20are%20to%20be%20free.">Autobiography</a>  </div>
-                                        <div class="text-base font-medium text-gray-900">Founding Father of USA &nbsp; (<a target="_blank" class="underline" href="https://www.citeit.net/2018/01/06/cherry-picked-quotations-on-the-jefferson-memorial/">Learn More</a>) </div>
-                                    </div>
-                                </div>
-                            </footer>
-                        </blockquote>
+            <div class="relative lg:flex lg:items-center">
+                <div class="relative mt-16 lg:ml-10 lg:order-2">
+                    <svg class="absolute top-0 left-0 transform -translate-x-4 -translate-y-8 h-12 w-12 text-blue-200 opacity-100" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
+                        <path stroke-width="4" d="M41.485 15C17.753 31.753 1 59.208 1 89.455c0 24.664 14.891 39.09 32.109 39.09 16.287 0 28.386-13.03 28.386-28.387 0-15.356-10.703-26.524-24.663-26.524-2.792 0-6.515.465-7.446.93 2.327-15.821 17.218-34.435 32.11-43.742L41.485 15zm80.04 0c-23.268 16.753-40.02 44.208-40.02 74.455 0 24.664 14.891 39.09 32.109 39.09 15.822 0 28.386-13.03 28.386-28.387 0-15.356-11.168-26.524-25.129-26.524-2.792 0-6.049.465-6.98.93 2.327-15.821 16.753-34.435 31.644-43.742L121.525 15z" />
+                    </svg>
+                    
+                    <div class="text-lg leading-9 font-medium text-gray-900 lg:text-xl">
+                        <div id="nothing_is-more_certainly">
+                            <p class="bg-blue-300 p-4 border bg-opacity-60 cursor-pointer hover:bg-blue-300 lg:p-8 shadow">
+                                <q cite="https://avalon.law.yale.edu/19th_century/jeffauto.asp">Nothing is more certainly written in the book of fate than that these people are to be free.</q>
+                            </p>
+                        </div>
                     </div>
+
+                    <footer class="mt-8">
+                        <div class="flex">
+                            <div class="ml-10 lg:ml-10">
+                                <div class="text-base font-semibold text-gray-900">Thomas Jefferson, &nbsp; <a class="underline" href="https://avalon.law.yale.edu/19th_century/jeffauto.asp#:~:text=Nothing%20is%20more%20certainly%20written%20in%20the%20book%20of%20fate%20than%20that%20these%20people%20are%20to%20be%20free.">Autobiography</a>  </div>
+                                <div class="text-base font-medium text-gray-900">Founding Father of USA &nbsp; (<a target="_blank" class="underline" href="https://www.citeit.net/2018/01/06/cherry-picked-quotations-on-the-jefferson-memorial/">Learn More</a>) </div>
+                            </div>
+                        </div>
+                    </footer>
+
                 </div>
-            </div>
+              </div>
+          </div>  
         </section>
       
 
-
-    <!--h3 id="example" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Example</h3>
-    <p class="mt-2 mb-4">On <a class="underline" href="https://www.citeit.net/2018/01/06/cherry-picked-quotations-on-the-jefferson-memorial/">Panel 3 of the Jefferson Memorial</a>, Thomas Jefferson is quoted as saying:</p>
-    <blockquote cite="http://avalon.law.yale.edu/19th_century/jeffauto.asp">Nothing is more certainly written in the book of fate than that these people are to be free.</blockquote>
-    -->
-
     <h3 id="test-drive" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Test-drive CiteIt!</h3>
-    <p class="mt-2 mb-1"><strong>Create your own sample citation</strong> by entering a quote below</strong> along with the URL on which the quote is located.<br />
-    <p>(If you need ideas, you can <span class="highlight">use <strong><a class="underline" target="_target" href="https://news.google.com/">Google News</a></strong> as a source for sample quotes</span>).</p>
+    <p class="mt-2 mb-1"><strong>Create your own sample citation</strong> by entering a quote below along with the URL on which the quote is located.<br />
+    <p>(If you need ideas, you can <span class="highlight"><strong>use <a class="underline" target="_blank" href="https://news.google.com/">Google News</a> as a source</strong> for sample quotes</span>).</p>
 
     <!--http://localhost/post_quote-->
     <form id="test-submssion" class="test-submission" method="GET">
@@ -122,7 +106,7 @@
         >Drink at least one-half of your body weight in ounces of water daily</textarea>
 
         <h4>URL:</h4>
-        <input class="url" class="cited_url" name="cited_url" type="text" 
+        <input class="url" name="cited_url" type="text" 
             onclick="document.getElementById('test-submssion').reset();"
             value="https://www.nytimes.com/2021/02/07/sports/football/tom-brady-super-bowl-age.html"
           /><br />
@@ -137,11 +121,7 @@
           <div id="submission-progress">
             <ul id="progress_list"></ul>          
           </div>
-        </div>
-
-        <!--div id="todo" class="label mt-2" style="float:left">(Todo)</div -->
-             
-      <br />
+        </div><br />
       
       <div id="submission-results" class="hidden">
 
@@ -162,10 +142,10 @@
     </form>
 
     </main>
-  </div>
-  </div>
+  <!--/div-->
+  <!--/div-->
 
-</div>
+<!--/div-->
 
 <style>
 
