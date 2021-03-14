@@ -1,0 +1,318 @@
+
+blockquote {
+    width: 65%;
+  }
+  div.down-arrow {
+    padding-left: 14.5%;
+    /* border: 3px solid purple; */
+    width: 65%;
+  }
+  a.down_arrow {
+    text-align: center;
+    width: 65%;
+  }
+  div.quote_arrows {
+    width: 65%; 
+  }
+  
+  div.quote_context {
+    /* border: 1px solid red; */
+    width: 90%;
+  }
+  
+  div.citeit_source {
+    margin-right: 0%;
+    width:30%;
+    /* border: 1px solid green;  */
+  }
+  span.source {
+    color: #999;
+    margin-right: 5px;
+  }
+  div.feature {
+    float: left;
+    padding-bottom: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+  }
+  
+  img.wiki-photo {
+    height: 225px;
+    padding-right: 0px;
+  }
+  
+  .thin-border {
+    border: 3px solid #ddd;
+    margin: 15px 0;
+  }
+  
+  div.code {
+    background-color: #f9fbe5;
+    border: 1px solid #dae380;
+    padding: 25px 25px 25px 30px;
+    width: 70%;
+    max-width: 70%;
+  }
+  
+  .highlight {
+    background-color: #f8ff7a;  // yellow
+  }
+  
+  img.feature {
+    float: right;
+    padding: 25px 25px 5px 25px;
+    width: 280px;
+  }
+  
+  div.wp-block-image {
+    text-align: center;
+  }
+  
+  h4 {
+    margin: 10px 0px 15px; 0px;
+  }
+  
+  span.code {
+    color: #2666bb;
+    font-weight: 400;
+  }
+  
+  blockquote.quote_text {
+    padding: 25px 30px 25px 30px;
+  }
+  
+  div#submission-progress {
+    padding-top: 5px;
+  }
+  
+  iframe.youtube {
+    margin-bottom: 20px;
+  }
+  
+  @media only screen and (max-width: 1200px) {
+  iframe.youtube {
+    width: 320px !important;
+    height: 185px !important;
+  }
+  }
+  
+  @media only screen and (max-width: 768px) {
+  
+  div#nothing_is-more_certainly p {
+    width:100%;
+  }
+  
+  iframe.youtube {
+    width: 320px !important;
+    height: 185px !important;
+  }
+  
+  }
+  
+  @media only screen and (max-width: 425px) {
+  
+  blockquote  {
+      width: 95% !important;
+  }
+  
+  div.code {
+      width: 95% !important;
+      max-width: 95% !important;
+  }
+  
+  div#nothing_is-more_certainly{
+      width:85% !important;
+  }
+  
+  img.wiki-photo {
+      height: 175px !important;;
+  }
+  
+  div.citeit_source {
+    width: 1%;
+  }
+  
+  ul#footer > li {
+    display: inline-block;
+    margin-bottom: 30px;
+    width: auto;
+      *display: inline;
+      /* this fix is needed for IE7- */
+  }
+  
+  nav#media_types {
+    display: none;
+  }
+  
+  #rabbi-david-wolpe-intro {
+    padding-top: 15px;
+    clear: both;
+  }
+  
+  div.up-arrow {
+    width: 95% !important;
+    clear: both;
+  }
+  
+  div#nothing_is-more_certainly p {
+    width:100%;
+  }
+  
+  iframe.youtube {
+    width: 260px !important;
+    height: 150px !important;
+    margin-bottom: 20px;
+  }
+  
+  a.blue {
+    background-color: #d8e7f2;
+  }
+  
+  
+  
+  
+  .video-caption {
+      text-align: center;
+      color: #aaa;
+      width: 854px;
+    }
+    
+    div#loading {
+      visibility: hidden;
+    }
+  
+    div#circle6.hidden {
+      visibility: hidden
+    }
+  
+    div#submission-results.hidden {
+      display: none;
+    }
+  
+    div#submission-results.visible {
+      display: visible;
+    }
+  
+    div#loading.visible, div#submission-results.visible {
+      visibility: visible;
+      display: visible;
+    }
+  
+    .hidden {
+      display: hidden;
+    }
+  
+    p#citeit-description {
+      text-align: left;
+      max-width: 600px;
+    }
+    div#building-trust {
+      clear: left;
+    }
+    div#example {
+      margin-top: 100px;
+    }
+    #test-drive {
+      margin-top: 15px;
+    }
+  
+    textarea, input.url {
+      border: 1px solid #95b7e5;
+      background-color: #e8f0f2;
+      max-width:100%;
+      padding: 15px;
+    }
+    input.url {
+      width: 540px;
+      height: 40px;
+    }
+    input[type=submit]{
+      width: 300px;
+    }
+    input[type=text]:focus {
+      border: 3px solid #555;
+    }
+  
+    form.test-submission h4 {
+      color: #2666bb;
+      font-weight: 600;
+      margin: 20px 0 5px 0;
+    }
+  
+    form.test-submission span.label {
+      color: #545de9;
+    }
+  
+    form.test-submission span.example {
+      color: #666;
+    }
+  
+    form.test-submission {
+      margin-bottom: 40px;
+    }
+  
+    q#sample-quote { 
+      font-size: 145%;
+      width: 625px;
+      display: block;
+      padding: 30px;
+    }
+  
+    div#todo {
+      color: #545de9 !important;
+    }
+  
+    ul#progress_list {
+      margin-left: 25px;
+    }
+  
+  #circle6 {
+    display: block;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    margin: -55px 0 0 325px;
+    border: 4px rgba(0, 0, 0, 0.25) solid;
+    border-top: 10px #008744 solid;
+    border-right: 10px #0057e7 solid;
+    border-bottom: 10px #d62d20 solid;
+    border-left: 10px #ffa700 solid;
+    border-radius: 50%;
+    -webkit-animation: spin6 1s infinite linear;
+            animation: spin6 1s infinite linear;
+  }
+  
+  @-webkit-keyframes spin6 {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+              transform: rotate(359deg);
+    }
+  }
+  @keyframes spin6 {
+    from {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(359deg);
+              transform: rotate(359deg);
+      -webkit-transform: rotate(359deg);
+              transform: rotate(359deg);
+    }
+  }
+  /** END of circle6 */
+  
+  
+  .col-sm-2 {
+    padding: 10px;
+    border-radius: 4px;
+    height: 125px;
+    margin-bottom: 10px;
+  }

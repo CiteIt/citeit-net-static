@@ -14,6 +14,11 @@
 <div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
 
 <script>
+
+  // Default Base URL to current URL (www.citeit.net or localhost:8080 )
+  document.getElementById('citing_url').value = window.location.href;
+
+
 	// Call CiteIt.net plugin on all q-tags and blockquotes:
 
   /* Lazy load images */
