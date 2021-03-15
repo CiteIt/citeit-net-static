@@ -6,17 +6,17 @@ function swap_citation_type(tag_id, tag_type){
 }
 
 function replace_tag(tag_id, tag_type){
-
   var div_id = 'sample-quote-container';
+  var text = '';
 
   var url = jQuery('#' + tag_id).val('#' + tag_id).attr("cite");
   
   if (tag_type === 'blockquote') {
     // Get text from existing q tag, which has an anchor tag
-    var text = jQuery('#' + tag_id + ' > a').text();
+    text = jQuery('#' + tag_id + ' > a').text();
   }
   else {
-    var text = jQuery('#' + tag_id).text();
+    text = jQuery('#' + tag_id).text();
   }
   
   // Build blockquote/q  element:
@@ -55,8 +55,7 @@ function process_test_citation() {
   var citing_url =  'http://localhost:8080/';
   var citing_quote = jQuery("#citing_quote").val();
   var cited_url = jQuery("#cited_url").val() ;
-  var json = null;
-
+  
   // Submit Quote the first time: Lookup JSON Context */
   if (message_cnt == 0) {
     var tag_type = 'q';
@@ -81,12 +80,16 @@ function process_test_citation() {
         dataType: "json",
         success: function(json) {
             addQuoteToDomDemo(tag_type, json, cited_url);
+            json_complete = true;
 
-            console.log("CiteIt Found: " + post_url);
-            console.log("       Quote: " + citing_quote);
+            console.log("CiteIt Found:  " + post_url);
+            console.log("       Before: " + json.cited_context_before);
+            console.log("       Quote:  " + citing_quote);
+            console.log("       After:  " + json.cited_context_after);
         },
         error: function() {
             alert("JSON NOT FOUND");
+            json_complete = true;
 
             console.log("CiteIt Missed: " + post_url);
             console.log("       Quote: " + citing_quote);
@@ -106,11 +109,12 @@ function process_test_citation() {
         "Copying 500 characters before and after quotation.",
         "Saving context data in JSON format.",
         "Loading JSON data into current page using javascript.",
-        "<b>Submission Complete..</b>"
+        "<li><b>Submission Complete..</b></li>"
     ];
 
   // Print first message immediately: don't wait:
   if (message_cnt == 0) {
+    var json_complete = false;
     var message = submission_steps[message_cnt];
     jQuery('ul#progress_list').append('<li>' + message + '</li>');  
     message_cnt++;
@@ -125,22 +129,30 @@ function process_test_citation() {
     if (message_cnt < 7) {
       process_test_citation();
     }
-    else {
+    else {  // Completed
+
+      //jQuery('ul#progress_list li:last').append('<li><b>Submission Complete..</b></li>');        
+      //jQuery('ul#progress_list li:last').append('<li><b>Error: Unable to Complete</b></li>');
+      
       jQuery('#submission-results').removeClass('hidden');
       jQuery('#submission-results').addClass('visible');
       jQuery('#submission-results').addClass('visible');
       jQuery('#circle6').addClass('hidden');
     }
-  }, 1500)
+  }, 1500);
+
 }
 
 // **************** Begin: Calculate Video UI ******************
 function embedUiDemo(url, json, tag_type = 'blockquote') {
 
-    var media_providers = ["youtube", "vimeo", "soundcloud"];
     var url_provider = "";
     var embed_icon = "";
     var embed_html = "";
+    var embed_url = "";
+    var width = 0;
+    var height = 0;
+
 
     var url_parsed = urlParser.parse(url);
     if (typeof(url_parsed) !== "undefined") {
@@ -159,7 +171,7 @@ function embedUiDemo(url, json, tag_type = 'blockquote') {
 		  }
         }			
         // Generate YouTube Embed URL
-        var embed_url = urlParser.create({
+        embed_url = urlParser.create({
             videoInfo: {
                 provider: url_provider,
                 id: url_parsed.id,
@@ -200,13 +212,13 @@ function embedUiDemo(url, json, tag_type = 'blockquote') {
             "</iframe>";
     } else if (url_provider == "soundcloud") {
         // Webservice Query: Get Embed Code
-        $.getJSON("http://soundcloud.com/oembed?callback=?", {
+       jQuery.getJSON("http://soundcloud.com/oembed?callback=?", {
                 format: "js",
                 url: cited_url,
                 iframe: true
             },
             function(data) {
-                var embed_html = data.html;
+                embed_html = data.html;
             });
 
         embed_icon = "<span class='view_on_youtube'>" +
@@ -239,6 +251,7 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
     // lookup html for video ui and icon
     var embed_ui = embedUiDemo(cited_url, json, tag_type);
     var blockcite = jQuery('#sample-quote');
+    var hidden_container = '';
 
     blockcite.text(json.citing_quote);
 
@@ -388,16 +401,19 @@ function normalizeTextDemo(str, escape_code_points) {
 
     var str_array = stringToArrayDemo(str); // convert string to array
 
-    for (idx in str_array) {
-        // Get Unicode Code Point of Current Character
-        chr = str_array[idx];
-        chr_code = chr.codePointAt(0);
-        input_code_point = chr.codePointAt(0);
+    if (str_array){
 
-        // Only Include this character if it is not in the
-        // supplied set of escape_code_points
-        if (!(escape_code_points.has(input_code_point))) {
-            str_return += chr; // Add this character
+        for (idx in str_array) {
+            // Get Unicode Code Point of Current Character
+            chr = str_array[idx];
+            chr_code = chr.codePointAt(0);
+            input_code_point = chr.codePointAt(0);
+    
+            // Only Include this character if it is not in the
+            // supplied set of escape_code_points
+            if (!(escape_code_points.has(input_code_point))) {
+                str_return += chr; // Add this character
+            }
         }
     }
 
