@@ -1,10 +1,8 @@
 
 function swap_citation_type(tag_id, tag_type){
-  // Convert <blockquote> to <q> and vice versa
-
-  replace_tag(tag_id, tag_type);
-	jQuery('#' + tag_id).quoteContext();
-
+    // Convert <blockquote> to <q> and vice versa
+    replace_tag(tag_id, tag_type);
+    jQuery('#' + tag_id).quoteContext();
 }
 
 function replace_tag(tag_id, tag_type){
@@ -52,55 +50,50 @@ var message_cnt = 0;
 
 function process_test_citation() {
 
-  var read_base = "http://localhost/post_quote/";    
+  var post_url = "http://localhost/post_quote";    
 
-  citing_quote = document.getElementById('citing_quote').value;
-  citing_url = document.getElementById('citing_url').value;
-  cited_url = document.getElementById('cited_url').value;
-
-  
-  var tag_type = 'blockquote';
-  
-  
-  var hash_key = quoteHashKeyDemo(citing_quote, citing_url, cited_url);
-/*
-  // Javascript uses utf-16.  Convert to utf-8
-  
-  hash_key = encode_utf8(hash_key);
-  console.log(hash_key);
-  var hash_value = forge_sha256(hash_key);
-  console.log(hash_value);
-
-  var shard = hash_value.substring(0, 2);
-  
-  var read_url = read_base.concat("sha256/", webservice_version_num, "/",
-      shard, "/", hash_value, ".json");
+  var citing_url =  'http://localhost:8080/';
+  var citing_quote = jQuery("#citing_quote").val();
+  var cited_url = jQuery("#cited_url").val() ;
   var json = null;
 
-  //See if a json summary of this quote was already created
-  // and uploaded to the content delivery network: read.citeit.net
-  
-  jQuery.ajax({
-      type: "GET",
-      url: read_url,
-      dataType: "json",
-      success: function(json) {
-          addQuoteToDomDemo(tag_type, json, cited_url);
+  // Submit Quote the first time: Lookup JSON Context */
+  if (message_cnt == 0) {
+    var tag_type = 'q';
+    var hash_key = quoteHashKeyDemo(citing_quote, citing_url, cited_url);
 
-          console.log("CiteIt Found: " + read_url);
-          console.log("       Quote: " + citing_quote);
-      },
-      error: function() {
-          console.log("CiteIt Missed: " + read_url);
-          console.log("       Quote: " + citing_quote);
-      }
-  });  
-*/
+    // Javascript uses utf-16.  Convert to utf-8
+    hash_key = encode_utf8(hash_key);
+    console.log(hash_key);
+    var hash_value = forge_sha256(hash_key);
+    console.log(hash_value);
 
+    console.log("Submitting JSON ..");
+    
+    jQuery.ajax({
+        type: "GET",
+        url: post_url,
+        data: {
+            citing_url: citing_url,
+            citing_quote: citing_quote,
+            cited_url: cited_url
+        },
+        dataType: "json",
+        success: function(json) {
+            addQuoteToDomDemo(tag_type, json, cited_url);
 
+            console.log("CiteIt Found: " + post_url);
+            console.log("       Quote: " + citing_quote);
+        },
+        error: function() {
+            alert("JSON NOT FOUND");
 
+            console.log("CiteIt Missed: " + post_url);
+            console.log("       Quote: " + citing_quote);
+        }
+    });  
 
-
+ }
 
   // Display 'Loading circle'
   jQuery('#loading').addClass('visible');
@@ -130,7 +123,6 @@ function process_test_citation() {
 
     message_cnt++;
     if (message_cnt < 7) {
-      console.log("message");
       process_test_citation();
     }
     else {
@@ -138,7 +130,6 @@ function process_test_citation() {
       jQuery('#submission-results').addClass('visible');
       jQuery('#submission-results').addClass('visible');
       jQuery('#circle6').addClass('hidden');
- 
     }
   }, 1500)
 }
@@ -247,6 +238,10 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
 
     // lookup html for video ui and icon
     var embed_ui = embedUiDemo(cited_url, json, tag_type);
+    var blockcite = jQuery('#sample-quote');
+
+    blockcite.text(json.citing_quote);
+
 
     if (tag_type === "q") {
         var q_id = "hidden_" + json.sha256;
@@ -297,14 +292,14 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
         context_before.hide();
         context_after.hide();
 
-        if (json.cited_context_before.length > 0) {
+        if (!!json.cited_context_before) {
             context_before.before("<div class='quote_arrows up-arrow' id='context_up_" + json.sha256 + "'> \
             <a id='quote_arrow_up_" + json.sha256 + "' \
                 href=\"javascript:toggleQuote('quote_arrow_up', 'quote_before_" + json.sha256 + "');\">&#9650;</a> " + trimDefault(embed_ui.icon) +
                 "</div>"
             );
         }
-        if (json.cited_context_after.length > 0) {
+        if (!!json.cited_context_after) {
             context_after.after("<div class='quote_arrows down-arrow' id='context_down_" + json.sha256 + "'> \
             <div class='citeit_source'><span class='source'>source: </span> \
             <a class='citeit_source_domain' href='" + json.cited_url + "'>" + extractDomain(json.cited_url) + "</a></div> \
@@ -321,28 +316,21 @@ function stringToArrayDemo(s) {
     // Credit: https://medium.com/@giltayar/iterating-over-emoji-characters-the-es6-way-f06e4589516
     // convert string to Array
 
-    //alert("start: stringToArrayDemo");
     const retVal = [];
 
     for (const ch of s) {
         retVal.push(ch);
     }
 
-    //alert("end: stringToArrayDemo");
     return retVal;
 }
 //****************** Quote Hash Key ********************I**
 function quoteHashKeyDemo(citing_quote, citing_url, cited_url) {
 
-    //alert("citing_quote: " + citing_quote + " |  citing_url: " + citing_url + ' | cited: ' + cited_url );
-
-
-
     var quote_hash = escapeQuoteDemo(citing_quote) + "|" +
         urlWithoutProtocolDemo(escapeUrlDemo(citing_url)) + "|" +
         urlWithoutProtocolDemo(escapeUrlDemo(cited_url));
-    
-    
+
     return quote_hash;
 }
 
@@ -379,8 +367,6 @@ function escapeQuoteDemo(str) {
     // * https://github.com/CiteIt/citeit-webservice/blob/master/app/settings-default.py
     //   - TEXT_ESCAPE_CODE_POINTS
 
-    //alert("escapeQuoteDemo");
-
     var replace_chars = new Set([
         2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 39, 96, 160, 173, 699, 700, 701, 702, 703, 712, 713, 714, 715, 716, 717, 718, 719, 732, 733, 750, 757, 8211, 8212, 8213, 8216, 8217, 8219, 8220, 8221, 8226, 8203, 8204, 8205, 65279, 8232, 8233, 133 , 5760, 6158, 8192, 8193, 8194, 8195, 8196, 8197, 8198, 8199, 8200, 8201, 8202, 8239, 8287, 8288, 12288
     ]);
@@ -397,16 +383,10 @@ function normalizeTextDemo(str, escape_code_points) {
        It removes an array of symbols from the input str
     */
 
-    //alert("normalizeTextDemo");
-
     var str_return = ''; //default: empty string
     var input_code_point = -1;
-    //alert("Pre-stringToArray");
 
     var str_array = stringToArrayDemo(str); // convert string to array
-
-    //alert("normalize-string-to-array");
-
 
     for (idx in str_array) {
         // Get Unicode Code Point of Current Character
