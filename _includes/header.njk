@@ -105,11 +105,11 @@
         <input type="hidden" id="citing_url" name="citing_url" value="" />
 
         <textarea id="citing_quote" name="citing_quote" rows="4" cols="65"
-          onclick="document.getElementById('quote').text = '';"
+          onclick="document.getElementById('citing_quote').value = '';"
         >Drink at least one-half of your body weight in ounces of water daily</textarea>
 
         <h4>URL:</h4>
-        <input id="cited_url" name="cited_url" class="url" type="text" 
+        <input id="cited_url" name="cited_url" class="url" type="text" onclick="this.value=''"
             value="https://www.nytimes.com/2021/02/07/sports/football/tom-brady-super-bowl-age.html"
           /><br />
 
