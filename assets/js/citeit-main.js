@@ -1,6 +1,6 @@
 
 function swap_citation_type(tag_id, tag_type){
-    // Convert <blockquote> to <q> and vice versa
+    // Convert <blockquote> to <q> tag and vice versa
     replace_tag(tag_id, tag_type);
     jQuery('#' + tag_id).quoteContext();
 }
@@ -50,15 +50,44 @@ var message_cnt = 0;
 
 function process_test_citation() {
 
-  var post_url = "http://localhost/post_quote";    
+    // Status messages
+    var submission_steps = [
+        "<b>Contacting CiteIt webservice ..</b>",
+        "Looking up source from URL ..",
+        "Locating quotation ..", 
+        "Copying 500 characters before and after quotation.",
+        "Saving context data in JSON format.",
+        "Loading JSON data into current page using javascript.",
+        "<li><b>Submission Complete..</b></li>"
+    ];
 
-  var citing_url =  'http://localhost:8080/';
-  var citing_quote = jQuery("#citing_quote").val();
-  var cited_url = jQuery("#cited_url").val() ;
-  
   // Submit Quote the first time: Lookup JSON Context */
   if (message_cnt == 0) {
+
+    // Print status messages every 1.5 secons
+    sleep_ms = 1500; // 1500 ms = 1.5 secons
+
+    // Local Development Server  
+    if (window.location.href == "http://localhost:8080/" ) {
+        var post_url = "http://localhost/post_quote";    
+        var citing_url =  'http://localhost:8080/';
+        var citing_quote = jQuery("#citing_quote").val();
+        var cited_url = jQuery("#cited_url").val() ;
+    }
+    // Production Server
+    else {
+        var post_url = "http://api.citeit.net/post_quote";    
+        var citing_url =  'https://www.citeit.net/';
+        var citing_quote = jQuery("#citing_quote").val();
+        var cited_url = jQuery("#cited_url").val() ;
+    }
+
+    // Display 'Loading circle'
+    jQuery('#loading').addClass('visible');
+
     var tag_type = 'q';
+
+    // Compute Hash Key
     var hash_key = quoteHashKeyDemo(citing_quote, citing_url, cited_url);
 
     // Javascript uses utf-16.  Convert to utf-8
@@ -69,6 +98,7 @@ function process_test_citation() {
 
     console.log("Submitting JSON ..");
     
+    // API Request: lookup quote
     jQuery.ajax({
         type: "GET",
         url: post_url,
@@ -98,48 +128,34 @@ function process_test_citation() {
 
  }
 
-  // Display 'Loading circle'
-  jQuery('#loading').addClass('visible');
-
-  // Return data from API
-  var submission_steps = [
-        "<b>Contacting CiteIt webservice ..</b>",
-        "Looking up source from URL ..",
-        "Locating quotation ..", 
-        "Copying 500 characters before and after quotation.",
-        "Saving context data in JSON format.",
-        "Loading JSON data into current page using javascript.",
-        "<li><b>Submission Complete..</b></li>"
-    ];
-
   // Print first message immediately: don't wait:
   if (message_cnt == 0) {
     var json_complete = false;
     var message = submission_steps[message_cnt];
+
+    // Display Status message
     jQuery('ul#progress_list').append('<li>' + message + '</li>');  
     message_cnt++;
   }
 
-  // Pause for 2 seconds before printing other messages
+  // Pause for 1.5 seconds before printing other messages
   setTimeout(function() {   
     var message = submission_steps[message_cnt];
     jQuery('ul#progress_list li:last').append('<li>' + message + '</li>');  
 
     message_cnt++;
-    if (message_cnt < 7) {
+    if (message_cnt < submission_steps.length) {
+      
+      // Call again after waiting 1.5 seconds
       process_test_citation();
     }
-    else {  // Completed
-
-      //jQuery('ul#progress_list li:last').append('<li><b>Submission Complete..</b></li>');        
-      //jQuery('ul#progress_list li:last').append('<li><b>Error: Unable to Complete</b></li>');
-      
+    else {  // Completed: Show results.  Hide 'pending' status display
       jQuery('#submission-results').removeClass('hidden');
       jQuery('#submission-results').addClass('visible');
       jQuery('#submission-results').addClass('visible');
       jQuery('#circle6').addClass('hidden');
     }
-  }, 1500);
+  }, sleep_ms);
 
 }
 
@@ -153,7 +169,7 @@ function embedUiDemo(url, json, tag_type = 'blockquote') {
     var width = 0;
     var height = 0;
 
-
+    // Lookup whether URL belongs to YouTube, Vimeo, SoundCloud, etc
     var url_parsed = urlParser.parse(url);
     if (typeof(url_parsed) !== "undefined") {
         if (url_parsed.hasOwnProperty("provider")) {
@@ -253,14 +269,14 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
     var blockcite = jQuery('#sample-quote');
     var hidden_container = '';
 
+    // Reset the quoted text
     blockcite.text(json.citing_quote);
-
 
     if (tag_type === "q") {
         var q_id = "hidden_" + json.sha256;
         var url_cited_domain = json.cited_url.replace('http://','').replace('https://','').replace('www.','').split(/[/?#]/)[0];
 
-        //Add content to a hidden div, so that the popup can later grab it
+        //Add content to a hidden div container, so that the popup can later grab it
         jQuery("#" + hidden_container).append(
             "<div id='" + q_id + "' class='highslide-maincontent'>" + 
             embed_ui.html + "<br />.. " + 
@@ -277,6 +293,7 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
         blockcite.wrapInner("<a class='popup_quote' href='" + blockcite.attr("cite") + "' " +
             "onclick='expandPopup(this ,\"" + q_id + "\"); return false;' " +
             " />");
+
     } else if (tag_type === "blockquote") {
 
         //Fill 'before' and 'after' divs and then quickly hide them
@@ -302,9 +319,11 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
         /* Main Class */
         blockcite.addClass('quote_text');
 
+        // Hide the surrounding context until the user clicks the arrow above or below the quote
         context_before.hide();
         context_after.hide();
 
+        // If the context before is found, set if
         if (!!json.cited_context_before) {
             context_before.before("<div class='quote_arrows up-arrow' id='context_up_" + json.sha256 + "'> \
             <a id='quote_arrow_up_" + json.sha256 + "' \
@@ -312,6 +331,7 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
                 "</div>"
             );
         }
+        // If the context after is found, set if
         if (!!json.cited_context_after) {
             context_after.after("<div class='quote_arrows down-arrow' id='context_down_" + json.sha256 + "'> \
             <div class='citeit_source'><span class='source'>source: </span> \
