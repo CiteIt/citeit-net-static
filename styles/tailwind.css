@@ -81,6 +81,28 @@ a.footnote {
   padding: 3px;
 }
 
+#reset_test_citation {
+  width: 165px;
+  padding: 12px;
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  background-color: green;
+}
+
+.reset_button {
+  
+  color: white;
+  background-color: green;
+}
+
+#switch_view_type {
+  margin-bottom: 40px;
+
+}
+
+
+
 .text-blue {
   color: blue !important;
 }

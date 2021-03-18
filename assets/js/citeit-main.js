@@ -1,11 +1,17 @@
 
 function swap_citation_type(tag_id, tag_type){
-    // Convert <blockquote> to <q> tag and vice versa
+    // Convert from <blockquote> to <q> tag and vice versa
     replace_tag(tag_id, tag_type);
     jQuery('#' + tag_id).quoteContext();
 }
 
 function replace_tag(tag_id, tag_type){
+  /*
+    Conversion depends upon dealing with differences between <blockquote> and <q> tags:
+      *  <q> tag has text wrapped with an anchor
+      *  get cite url and text to populate new tag
+  */
+
   var div_id = 'sample-quote-container';
   var text = '';
 
@@ -46,10 +52,21 @@ function append_element(id, element_message, sleep_ms){
 
 }
 
+function reset_example_citation() {
+    console.log("Resetting form ..");
+    jQuery('#submission-progress').hide();
+    jQuery('#submission-results').hide();
+    jQuery("#cited_url").val('');
+    jQuery("#citing_quote").val('');
+    jQuery("#citing_quote").focus();
+    console.log("Form is now reset.");
+}
+
 var message_cnt = 0;   
 
 function process_test_citation() {
-
+    console.log("Processing test citation..");
+    
     // Status messages
     var submission_steps = [
         "<b>Contacting CiteIt webservice ..</b>",
@@ -57,24 +74,23 @@ function process_test_citation() {
         "Locating quotation ..", 
         "Copying 500 characters before and after quotation.",
         "Saving context data in JSON format.",
-        "Loading JSON data into current page using javascript.",
-        "<li><b>Submission Complete..</b></li>"
+        "Loading JSON data into current page using javascript."
     ];
 
   // Submit Quote the first time: Lookup JSON Context */
-  if (message_cnt == 0) {
+  if ((message_cnt == 0)) {  //or ( message_cnt == null))  {
 
     // Print status messages every 1.5 secons
     sleep_ms = 1500; // 1500 ms = 1.5 secons
 
-    // Local Development Server  
+    // Local Development Server: Set/get form variables
     if (window.location.href == "http://localhost:8080/" ) {
         var post_url = "http://localhost/post_quote";    
         var citing_url =  'http://localhost:8080/';
-        var citing_quote = jQuery("#citing_quote").val();
+        var citing_quote = jQuery("#citing_quote").val();  
         var cited_url = jQuery("#cited_url").val() ;
     }
-    // Production Server
+    // Production Server: Set/get form variables
     else {
         var post_url = "http://api.citeit.net/post_quote";    
         var citing_url =  'https://www.citeit.net/';
@@ -84,8 +100,10 @@ function process_test_citation() {
 
     // Display 'Loading circle'
     jQuery('#loading').addClass('visible');
+    jQuery('#circle6').removeClass('hidden');
+    jQuery('#circle6').addClass('visible');
 
-    var tag_type = 'q';
+    var tag_type = 'q';  // default to contextual popup
 
     // Compute Hash Key
     var hash_key = quoteHashKeyDemo(citing_quote, citing_url, cited_url);
@@ -97,7 +115,12 @@ function process_test_citation() {
     console.log(hash_value);
 
     console.log("Submitting JSON ..");
-    
+    console.log("Clearing out status progress list");
+
+    // Clear out all previous messages
+    jQuery('ul#progress_list li').remove();
+
+
     // API Request: lookup quote
     jQuery.ajax({
         type: "GET",
@@ -118,7 +141,7 @@ function process_test_citation() {
             console.log("       After:  " + json.cited_context_after);
         },
         error: function() {
-            alert("JSON NOT FOUND");
+            console.log("JSON NOT FOUND");
             json_complete = true;
 
             console.log("CiteIt Missed: " + post_url);
@@ -140,21 +163,40 @@ function process_test_citation() {
 
   // Pause for 1.5 seconds before printing other messages
   setTimeout(function() {   
-    var message = submission_steps[message_cnt];
-    jQuery('ul#progress_list li:last').append('<li>' + message + '</li>');  
 
-    message_cnt++;
+    // Display all Status messages sequentially
     if (message_cnt < submission_steps.length) {
-      
-      // Call again after waiting 1.5 seconds
+        message = submission_steps[message_cnt];
+    }
+    // When the webservice returns results
+    else if (json_complete) {
+        jQuery('#submission-results').removeClass('hidden');
+        jQuery('#submission-results').addClass('visible');
+        jQuery('#circle6').addClass('hidden'); 
+        
+        message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
+        message_cnt = 0; // reset counter so proocess can be run again
+    }
+
+    // Stop Process even if web service doesn't returns results
+    else if (message_cnt >= max_cycles){
+        jQuery('#submission-results').removeClass('hidden');
+        jQuery('#submission-results').addClass('visible');
+        jQuery('#circle6').addClass('hidden'); 
+        
+        message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
+        message_cnt = 0; // reset counter so proocess can be run again
+    }
+
+    // Display progress status message
+    jQuery('ul#progress_list li:last').append('<li>' + message + '</li>');  
+    message_cnt++;
+
+    // Re-run Process every 1.5 seconds until webservice returns JSON result or it reaches the max number of cycles
+    if ((!json_complete) && (message_cnt < max_cycles))
       process_test_citation();
     }
-    else {  // Completed: Show results.  Hide 'pending' status display
-      jQuery('#submission-results').removeClass('hidden');
-      jQuery('#submission-results').addClass('visible');
-      jQuery('#submission-results').addClass('visible');
-      jQuery('#circle6').addClass('hidden');
-    }
+  
   }, sleep_ms);
 
 }
