@@ -31,7 +31,7 @@
                     <img src="/assets/images/jefferson-memorial-statue-panorama-1-854x480.jpg" alt="Jefferson Memorial Statue Panoroma, Washington, DC" width="854" height="480">
                 </picture>
               </a>
-              <span class="text-base text-gray-500 " >Did you know there is a Cherry-picked quote on the Jefferson Memorial? &nbsp;&nbsp;  <span style="white-space: nowrap;">Readers can <strong class="text-blue-600">trust citations</strong> made with CiteIt.</span></span>
+              <span class="text-base text-gray-500">Did you know there is a Cherry-picked quote on the Jefferson Memorial? &nbsp;&nbsp;  <span style="white-space: nowrap;">Readers can <strong class="text-blue-600">trust citations</strong> made with CiteIt.</span></span>
               
                 <div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
                 <svg class="h-20 w-20 text-blue-500" fill="currentColor" viewBox="0 0 84 84">
@@ -96,7 +96,16 @@
 
     <h3 id="test-drive" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Test-drive CiteIt!</h3>
     <p class="mt-2 mb-1"><strong>Create your own sample citation</strong> by entering a quote below along with the URL on which the quote is located.<br />
-    <p>(If you need ideas, you can <span class="highlight"><strong>use <a class="underline" target="_blank" href="https://news.google.com/">Google News</a> as a source</strong> for sample quotes</span>).</p>
+    <p>(If you need ideas, you can <span class="highlight"><strong>use 
+    
+    <a class="underline" target="_blank" href="https://news.google.com/">Google News</a></strong> or 
+    <strong><a class="underline" href="https://youtu.be/1NqRbBvujHY?t=398">YouTube</a></strong> 
+    <sup id="fnref:1">
+        <a href="#fn:1" rel="footnote">1</a>
+    </sup>
+
+    <strong>as a source</strong> for sample quotes</span>).</p>
+
 
     <!--http://localhost/post_quote-->
     <form id="test-submssion" class="test-submission" method="GET">
@@ -131,11 +140,15 @@
               <q id='sample-quote' cite=""></q>
         </div>
 
-        <h4 style="font-size: 1.2em">Switch View Type</h4>
-        <input onclick="swap_citation_type('sample-quote', 'q');" type="radio" id="popup" name="citation_type" value="popup" checked>
-        <label for="popup">Contextual Popup</label><br>
-        <input onclick="swap_citation_type('sample-quote', 'blockquote');" type="radio" id="expand" name="citation_type" value="expand">
-        <label for="expand">Expanding blockquote</label><br>
+        <div id="switch_view_type">
+          <h4 style="font-size: 1.2em">Switch View Type</h4>
+          <input onclick="swap_citation_type('sample-quote', 'q');" type="radio" id="popup" name="citation_type" value="popup" checked>
+          <label for="popup">Contextual Popup</label><br>
+          <input onclick="swap_citation_type('sample-quote', 'blockquote');" type="radio" id="expand" name="citation_type" value="expand">
+          <label for="expand">Expanding blockquote</label><br>
+        </div>
+
+        <a id="reset_test_citation" class='reset_button' href='javascript:reset_example_citation();'>Reset Example Citation</a>
 
       </div>
 
