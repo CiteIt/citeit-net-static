@@ -1,4 +1,3 @@
-
 function swap_citation_type(tag_id, tag_type){
     // Convert from <blockquote> to <q> tag and vice versa
     replace_tag(tag_id, tag_type);
@@ -49,7 +48,6 @@ function append_element(id, element_message, sleep_ms){
     document.getElementById(id).appendChild(message);
 
   }, sleep_ms);
-
 }
 
 function reset_example_citation() {
@@ -63,9 +61,17 @@ function reset_example_citation() {
 }
 
 var message_cnt = 0;   
+var webrequest_complete = false;
+var process_complete = false;
 
 function process_test_citation() {
-    console.log("Processing test citation..");
+    /*
+        Display UI feedback that processsing is occurring
+        Submit request to Webservice API
+        Periodically loop through status display process every 1.5 seconds
+        When webservice request is returned, update user interface
+        If webservice does not submit results in time, display timeout
+    */
     
     // Status messages
     var submission_steps = [
@@ -78,27 +84,27 @@ function process_test_citation() {
     ];
 
   // Submit Quote the first time: Lookup JSON Context */
-  if ((message_cnt == 0)) {  //or ( message_cnt == null))  {
+  if ((message_cnt == 0) || ( message_cnt == null))  {
 
     // Print status messages every 1.5 secons
-    sleep_ms = 1500; // 1500 ms = 1.5 secons
+    sleep_ms = 1500;   // 1500 ms = 1.5 secons
+    max_cycles = 10;   // Timeout after n loops
+
+    var post_url = "http://api.citeit.net/post_quote";    
+    var citing_url =  'https://www.citeit.net/';
+    var citing_quote = jQuery("#citing_quote").val();
+    var cited_url = jQuery("#cited_url").val() ;
 
     // Local Development Server: Set/get form variables
     if (window.location.href == "http://localhost:8080/" ) {
-        var post_url = "http://localhost/post_quote";    
-        var citing_url =  'http://localhost:8080/';
-        var citing_quote = jQuery("#citing_quote").val();  
-        var cited_url = jQuery("#cited_url").val() ;
+        post_url = "http://localhost/post_quote";    
+        citing_url =  'http://localhost:8080/';
+        citing_quote = jQuery("#citing_quote").val();  
+        cited_url = jQuery("#cited_url").val() ;
     }
     // Production Server: Set/get form variables
-    else {
-        var post_url = "http://api.citeit.net/post_quote";    
-        var citing_url =  'https://www.citeit.net/';
-        var citing_quote = jQuery("#citing_quote").val();
-        var cited_url = jQuery("#cited_url").val() ;
-    }
 
-    // Display 'Loading circle'
+    // Display "Loading circle"
     jQuery('#loading').addClass('visible');
     jQuery('#circle6').removeClass('hidden');
     jQuery('#circle6').addClass('visible');
@@ -117,9 +123,8 @@ function process_test_citation() {
     console.log("Submitting JSON ..");
     console.log("Clearing out status progress list");
 
-    // Clear out all previous messages
+    // Clear out all previous status messages
     jQuery('ul#progress_list li').remove();
-
 
     // API Request: lookup quote
     jQuery.ajax({
@@ -133,7 +138,7 @@ function process_test_citation() {
         dataType: "json",
         success: function(json) {
             addQuoteToDomDemo(tag_type, json, cited_url);
-            json_complete = true;
+            webrequest_complete = true;
 
             console.log("CiteIt Found:  " + post_url);
             console.log("       Before: " + json.cited_context_before);
@@ -142,7 +147,7 @@ function process_test_citation() {
         },
         error: function() {
             console.log("JSON NOT FOUND");
-            json_complete = true;
+            webrequest_complete = true;
 
             console.log("CiteIt Missed: " + post_url);
             console.log("       Quote: " + citing_quote);
@@ -153,7 +158,6 @@ function process_test_citation() {
 
   // Print first message immediately: don't wait:
   if (message_cnt == 0) {
-    var json_complete = false;
     var message = submission_steps[message_cnt];
 
     // Display Status message
@@ -168,33 +172,41 @@ function process_test_citation() {
     if (message_cnt < submission_steps.length) {
         message = submission_steps[message_cnt];
     }
-    // When the webservice returns results
-    else if (json_complete) {
+    // If the webservice returns results
+    else if (webrequest_complete) {
         jQuery('#submission-results').removeClass('hidden');
         jQuery('#submission-results').addClass('visible');
         jQuery('#circle6').addClass('hidden'); 
         
         message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
         message_cnt = 0; // reset counter so proocess can be run again
+        process_complete = true;
     }
 
-    // Stop Process even if web service doesn't returns results
+    // Stop Process even if web service doesn't returns results after max_cycles timeout
     else if (message_cnt >= max_cycles){
         jQuery('#submission-results').removeClass('hidden');
         jQuery('#submission-results').addClass('visible');
         jQuery('#circle6').addClass('hidden'); 
         
-        message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
+        message = "<li><b>Submission Timed out.</b> &nbsp;&nbsp;</li>";
         message_cnt = 0; // reset counter so proocess can be run again
+        process_complete = true;
     }
 
-    // Display progress status message
-    jQuery('ul#progress_list li:last').append('<li>' + message + '</li>');  
+    console.log(message_cnt + " " + message);
+
+    // Display progress status message to UI
+    if (message !== undefined) {
+        jQuery('ul#progress_list li:last').append('<li>' + message + '</li>');  
+    }
+
     message_cnt++;
 
-    // Re-run Process every 1.5 seconds until webservice returns JSON result or it reaches the max number of cycles
-    if ((!json_complete) && (message_cnt < max_cycles))
-      process_test_citation();
+    // Re-run Process every 1.5 seconds, either until
+    // Webservice returns JSON result or until it reaches the max number of cycles
+    if (!process_complete){
+        process_test_citation();
     }
   
   }, sleep_ms);
@@ -339,20 +351,20 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
     } else if (tag_type === "blockquote") {
 
         //Fill 'before' and 'after' divs and then quickly hide them
-        blockcite.before("<div id='quote_before_" + json.sha256 + "' class='quote_context'>"
-            + "<blockquote class='quote_context'>"
-                + "<span class='context_header'>Context Before:</span>"
-                + "<div class='tooltip'><span class='tooltip_icon'>?</span><span class='tooltiptext'>CiteIt.net displays the 500 characters of Context immediately before and after the quote</span></div><br />" 
-                + embed_ui.html + " .. " + json.cited_context_before  
-            + "</blockquote></div>"
+        blockcite.before("<div id='quote_before_" + json.sha256 + "' class='quote_context'>" +
+            "<blockquote class='quote_context'>" +
+                "<span class='context_header'>Context Before:</span>" + 
+                "<div class='tooltip'><span class='tooltip_icon'>?</span><span class='tooltiptext'>CiteIt.net displays the 500 characters of Context immediately before and after the quote</span></div><br />" +
+                embed_ui.html + " .. " + json.cited_context_before +
+            "</blockquote></div>"
         );
 
-        blockcite.after("<div id='quote_after_" + json.sha256 + "' class='quote_context'>"
-            + "<blockquote class='quote_context'>"
-                + ".. " + json.cited_context_after + " .."
-                + "<br /><span class='context_header'>Context After:</span>" 
-                + "<div class='tooltip'><span class='tooltip_icon'>?</span><span class='tooltiptext'>CiteIt.net displays the 500 characters immediately before and after the quote</span></div>" 
-            + "</blockquote></div>" 
+        blockcite.after("<div id='quote_after_" + json.sha256 + "' class='quote_context'>" +
+            "<blockquote class='quote_context'>" +
+                ".. " + json.cited_context_after + " .." +
+                "<br /><span class='context_header'>Context After:</span>" +
+                "<div class='tooltip'><span class='tooltip_icon'>?</span><span class='tooltiptext'>CiteIt.net displays the 500 characters immediately before and after the quote</span></div>" +
+            "</blockquote></div>" 
         );
 
         var context_before = jQuery("#quote_before_" + json.sha256);
@@ -367,19 +379,20 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
 
         // If the context before is found, set if
         if (!!json.cited_context_before) {
-            context_before.before("<div class='quote_arrows up-arrow' id='context_up_" + json.sha256 + "'> \
-            <a id='quote_arrow_up_" + json.sha256 + "' \
-                href=\"javascript:toggleQuote('quote_arrow_up', 'quote_before_" + json.sha256 + "');\">&#9650;</a> " + trimDefault(embed_ui.icon) +
-                "</div>"
+            context_before.before("<div class='quote_arrows up-arrow' id='context_up_" + json.sha256 + "'>" +
+            "<a id='quote_arrow_up_" + json.sha256 + "' " +
+            "href=\"javascript:toggleQuote('quote_arrow_up', 'quote_before_" + json.sha256 + "');\">&#9650;</a> " + trimDefault(embed_ui.icon) +
+            "</div>"
             );
         }
         // If the context after is found, set if
         if (!!json.cited_context_after) {
-            context_after.after("<div class='quote_arrows down-arrow' id='context_down_" + json.sha256 + "'> \
-            <div class='citeit_source'><span class='source'>source: </span> \
-            <a class='citeit_source_domain' href='" + json.cited_url + "'>" + extractDomain(json.cited_url) + "</a></div> \
-            <a class='down_arrow' id='quote_arrow_down_" + json.sha256 + "' \
-            href=\"javascript:toggleQuote('quote_arrow_down', 'quote_after_" + json.sha256 + "');\">&#9660;</a></div>");
+            context_after.after("<div class='quote_arrows down-arrow' id='context_down_" + json.sha256 + "'>" +
+            "<div class='citeit_source'><span class='source'>source: </span>" +
+            "<a class='citeit_source_domain' href='" + json.cited_url + "'>" + extractDomain(json.cited_url) + "</a></div> " +
+            "<a class='down_arrow' id='quote_arrow_down_" + json.sha256 + "' " +
+            "href=\"javascript:toggleQuote('quote_arrow_down', 'quote_after_" + json.sha256 + "');\">&#9660;</a>" +
+            "</div>");
         }
 
     } // elseif (tag_type === 'blockquote')
@@ -417,6 +430,8 @@ function urlWithoutProtocolDemo(url) {
 
     var url_without_trailing_slash = url.replace(/\/$/, "");
     var url_without_protocol = url_without_trailing_slash.replace(/^https?\:\/\//i, "");
+
+    return url_without_protocol;
 }
 
 //******** Escape URL *************
