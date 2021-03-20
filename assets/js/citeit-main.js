@@ -73,6 +73,9 @@ function process_test_citation() {
         If webservice does not submit results in time, display timeout
     */
     
+    console.log("Beginning Looop: " + message_cnt);
+
+
     // Status messages
     var submission_steps = [
         "<b>Contacting CiteIt webservice ..</b>",
@@ -89,6 +92,7 @@ function process_test_citation() {
     // Print status messages every 1.5 secons
     sleep_ms = 1500;   // 1500 ms = 1.5 secons
     max_cycles = 10;   // Timeout after n loops
+    webrequest_complete = false;
 
     var post_url = "http://api.citeit.net/post_quote";    
     var citing_url =  'https://www.citeit.net/';
@@ -177,10 +181,12 @@ function process_test_citation() {
         jQuery('#submission-results').removeClass('hidden');
         jQuery('#submission-results').addClass('visible');
         jQuery('#circle6').addClass('hidden'); 
-        
+
+        console.log("Submission Complete.");
         message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
         message_cnt = 0; // reset counter so proocess can be run again
         process_complete = true;
+        console.log("process_complete = true");
     }
 
     // Stop Process even if web service doesn't returns results after max_cycles timeout
@@ -188,10 +194,12 @@ function process_test_citation() {
         jQuery('#submission-results').removeClass('hidden');
         jQuery('#submission-results').addClass('visible');
         jQuery('#circle6').addClass('hidden'); 
-        
+
+        console.log("Submission Timed out.");
         message = "<li><b>Submission Timed out.</b> &nbsp;&nbsp;</li>";
         message_cnt = 0; // reset counter so proocess can be run again
         process_complete = true;
+        console.log("process_complete = true");
     }
 
     console.log(message_cnt + " " + message);
@@ -207,10 +215,14 @@ function process_test_citation() {
     // Webservice returns JSON result or until it reaches the max number of cycles
     if (!process_complete){
         process_test_citation();
+        console.log("Calling again: process_test_citation()");
     }
   
+    console.log("End: loop");
+
   }, sleep_ms);
 
+  console.log("End: process_test_citation()");
 }
 
 // **************** Begin: Calculate Video UI ******************

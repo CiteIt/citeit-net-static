@@ -480,6 +480,19 @@ iframe.youtube {
   margin-bottom: 20px;
 }
 
+div#jefferson_video_caption {
+  width: 66%;
+  text-align: center;
+  /* border: 1px solid red; */
+  margin: auto auto;
+}
+
+#footnotes {
+  background-color: #d6e8ec;
+  padding: 20px 35px 35px 35px;
+
+}
+
 /*************************** Width: 1200px ******************************/
 
 @media only screen and (max-width: 1200px) {
