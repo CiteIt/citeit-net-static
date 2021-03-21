@@ -14,7 +14,7 @@ function replace_tag(tag_id, tag_type){
   var div_id = 'sample-quote-container';
   var text = '';
 
-  var url = jQuery('#' + tag_id).val('#' + tag_id).attr("cite");
+  var url = jQuery('#cited_url').val('#cited_url').attr("cite");
   
   if (tag_type === 'blockquote') {
     // Get text from existing q tag, which has an anchor tag
@@ -73,6 +73,9 @@ function process_test_citation() {
         If webservice does not submit results in time, display timeout
     */
     
+    var sleep_ms = 1500;   // 1500 ms = 1.5 secons
+    var max_cycles = 10;   // Timeout after n loops
+
     console.log("Beginning Looop: " + message_cnt);
 
 
@@ -90,9 +93,7 @@ function process_test_citation() {
   if ((message_cnt == 0) || ( message_cnt == null))  {
 
     // Print status messages every 1.5 secons
-    sleep_ms = 1500;   // 1500 ms = 1.5 secons
-    max_cycles = 10;   // Timeout after n loops
-    webrequest_complete = false;
+    var webrequest_complete = false;
 
     var post_url = "http://api.citeit.net/post_quote";    
     var citing_url =  'https://www.citeit.net/';
@@ -119,7 +120,7 @@ function process_test_citation() {
     var hash_key = quoteHashKeyDemo(citing_quote, citing_url, cited_url);
 
     // Javascript uses utf-16.  Convert to utf-8
-    hash_key = encode_utf8(hash_key);
+    hash_key = encode_utf8Demo(hash_key);
     console.log(hash_key);
     var hash_value = forge_sha256(hash_key);
     console.log(hash_value);
@@ -508,3 +509,30 @@ function normalizeTextDemo(str, escape_code_points) {
 
     return str_return;
 }
+
+//************************** Sample Quotes **************************/
+function prepopulate_quote(url){
+
+    var examples = { 
+        "https://www.theguardian.com/business/2016/oct/20/alan-greenspan-cult-of-expert-and-how-it-collapsed": "Greenspan maximised a form of power that is invaluable to experts. Because journalists admired him, it was dangerous for politicians to pick a fight with the Fed: in any public dispute, the newspaper columnists and talking heads would take Greenspan’s side of the argument. As a result, the long tradition of Fed-bashing ceased almost completely. Every Washington insider understood that Greenspan was too powerful to touch.",
+        "https://onbeing.org/programs/david-whyte-the-conversational-nature-of-reality/#transcript" : "I always say that poetry is language against which you have no defenses.",
+        "https://en.wikisource.org/wiki/Leviathan/The_First_Part" : "the life of man, solitary, poor, nasty, brutish, and short",
+        "https://www.theatlantic.com/magazine/archive/2020/01/wheres-my-flying-car/603025/": "If American productivity had continued to grow as it did from Harry Truman’s election to Richard Nixon’s resignation, the 2013 economy would have been about 60 percent larger. ",
+        "https://www.openpolitics.com/articles/ted-nelson-philosophy-of-hypertext.html": "It is said that success has many fathers, but failure is an orphan. The history of the Internet is a variation on this theme – the internet’s size and complexity required the work of many, but the one man whose work is responsible for the web arriving several decades earlier than it otherwise would have regards its design as a failure. This is not to say that the internet we have today is not impressive or powerful, but as Ted Nelson writes in a newly-released publication of his 2002 Ph.D. thesis “Philosophy of Hypertext”, today’s internet is tied to bad philosophy – backward ways of thinking that limit its potential. Ultimately, the world wide web is informed by the philosophical and technical constraints of the past, resulting in a distorted media platform.",
+        "https://www.ourdocuments.gov/doc.php?flash=false&doc=90&page=transcript" : "In the councils of government, we must guard against the acquisition of unwarranted influence, whether sought or unsought, by the military-industrial complex.",
+        "https://youtu.be/xPsfgEk00kU?t=1216" : "psychologists quite recently have begin to argue that deterrence theory doesn't work it's not really the answer it's part of the solution but it misses a much broader truth and that is that people choose to obey the law and to comply with Authority not because they make a rational calculation about risks and benefits but they do so basis rather on the basis of whether they believe that justice is being administered in a legitimate manner",
+        "https://youtu.be/rMz7JBRbmNo?t=173": "You fool! You fell victim to one of the classic blunders! The most famous is never get involved in a land war in Asia But only slightly less well-known is this: never go in against a Sicilian when death is on the line!",
+        "https://youtu.be/zrzMhU_4m-g?t=64" : "what makes you think she's a witch well she turn me into a newt",
+        "https://www.nytimes.com/2020/04/10/opinion/coronavirus-texas-fracking-layoffs.html": "oil fracking has never been financially viable",
+    }
+    var quote = examples[url];
+    jQuery("#cited_url").val(url);
+    jQuery("#citing_quote").val(quote);
+}
+
+function view_link(){
+    var link = jQuery("#cited_url").val();
+    window.open(link, "_blank") || window.location.replace(link);
+}
+
+

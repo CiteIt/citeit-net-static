@@ -108,6 +108,18 @@
     <strong>as a source</strong> for sample quotes</span>).</p>
 
 
+    <p class="mt-6">Or click on one of the following <strong>9 buttons</strong> to pre-populate the <strong>quote</strong> and <strong>URL</strong> below:</p>
+      <a class="circle" href="javascript: prepopulate_quote('https://www.nytimes.com/2020/04/10/opinion/coronavirus-texas-fracking-layoffs.html');" title="NYTimes: oil fracking has never been financially viable">1</a>
+      <a class="circle" href="javascript: prepopulate_quote('https://www.theatlantic.com/magazine/archive/2020/01/wheres-my-flying-car/603025/');" title="The Atlantic: Where's my flying car?">2</a>
+      <a class="circle" href="javascript: prepopulate_quote('https://en.wikisource.org/wiki/Leviathan/The_First_Part');" title="Thomas Hobbes: Nasty Butish and Short">3</a>
+      <a class="circle" href="javascript: prepopulate_quote('https://onbeing.org/programs/david-whyte-the-conversational-nature-of-reality/#transcript');" title="Poetry: languages against which you have no defences.">4</a>
+      <a class="circle" href="javascript: prepopulate_quote('https://www.openpolitics.com/articles/ted-nelson-philosophy-of-hypertext.html');" title="Ted Nelson: Philosophy of Hypertextr">5</a>
+      <a class="circle" href="javascript: prepopulate_quote('https://www.ourdocuments.gov/doc.php?flash=false&doc=90&page=transcript');" title="Eisenhower: Military Industrial Complex">6</a>
+      <a class="circle" href="javascript: prepopulate_quote('https://youtu.be/xPsfgEk00kU?t=1216');" title="Malcolm Gladwell: The importance of Legitimacy">7</a>
+      <a class="circle" href="javascript: prepopulate_quote('https://youtu.be/zrzMhU_4m-g?t=64');" title="Monty Python: What makes you think she is a Witch?">8</a>
+      <a class="circle" href="javascript: prepopulate_quote('https://youtu.be/rMz7JBRbmNo?t=173');" title="Princess Bride: never get involved in a land war in Asia">9</a>
+
+
     <!--http://localhost/post_quote-->
     <form id="test-submssion" class="test-submission" method="GET">
 
@@ -121,7 +133,7 @@
         <h4>URL:</h4>
         <input id="cited_url" name="cited_url" class="url" type="text" onclick="this.value=''"
             value="https://www.nytimes.com/2021/02/07/sports/football/tom-brady-super-bowl-age.html"
-          /><br />
+          />&nbsp; (<a class="underline" href="javascript: view_link();">link</a>)<br />
               
         <input id="submit_test_citation" class="w-1/2 mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" 
           onclick="process_test_citation(); return false;" value="Create Test Citation" />
