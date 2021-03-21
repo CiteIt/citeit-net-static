@@ -76,8 +76,7 @@ function process_test_citation() {
     var sleep_ms = 1500;   // 1500 ms = 1.5 secons
     var max_cycles = 10;   // Timeout after n loops
 
-    console.log("Beginning Looop: " + message_cnt);
-
+    console.log("Beginning Loop: " + message_cnt);
 
     // Status messages
     var submission_steps = [
@@ -89,10 +88,8 @@ function process_test_citation() {
         "Loading JSON data into current page using javascript."
     ];
 
-  // Submit Quote the first time: Lookup JSON Context */
+  // Lookup JSON Context: Submit Quote the first time  */
   if ((message_cnt == 0) || ( message_cnt == null))  {
-
-    // Print status messages every 1.5 secons
     var webrequest_complete = false;
 
     var post_url = "http://api.citeit.net/post_quote";    
@@ -109,7 +106,7 @@ function process_test_citation() {
     }
     // Production Server: Set/get form variables
 
-    // Display "Loading circle"
+    // Display "Loading graphic"
     jQuery('#loading').addClass('visible');
     jQuery('#circle6').removeClass('hidden');
     jQuery('#circle6').addClass('visible');
@@ -151,7 +148,7 @@ function process_test_citation() {
             console.log("       After:  " + json.cited_context_after);
         },
         error: function() {
-            console.log("JSON NOT FOUND");
+            console.log("JSON Result not found");
             webrequest_complete = true;
 
             console.log("CiteIt Missed: " + post_url);
@@ -174,33 +171,33 @@ function process_test_citation() {
   setTimeout(function() {   
 
     // Display all Status messages sequentially
-    if (message_cnt < submission_steps.length) {
-        message = submission_steps[message_cnt];
-    }
-    // If the webservice returns results
-    else if (webrequest_complete) {
-        jQuery('#submission-results').removeClass('hidden');
-        jQuery('#submission-results').addClass('visible');
-        jQuery('#circle6').addClass('hidden'); 
-
+    if (webrequest_complete) {
         console.log("Submission Complete.");
         message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
         message_cnt = 0; // reset counter so proocess can be run again
-        process_complete = true;
-        console.log("process_complete = true");
-    }
-
-    // Stop Process even if web service doesn't returns results after max_cycles timeout
-    else if (message_cnt >= max_cycles){
+        webrequest_complete = true;
+        console.log("webrequest_complete = true");
+    
         jQuery('#submission-results').removeClass('hidden');
         jQuery('#submission-results').addClass('visible');
         jQuery('#circle6').addClass('hidden'); 
 
-        console.log("Submission Timed out.");
-        message = "<li><b>Submission Timed out.</b> &nbsp;&nbsp;</li>";
+    }
+    // Stop Process even if web service doesn't returns results after max_cycles timeout
+    else if (message_cnt >= max_cycles){
+        console.log("Submission Timed out.");        
+        message = "<li><b class='red'>Submission Timed out.</b> &nbsp;&nbsp;</li>";
         message_cnt = 0; // reset counter so proocess can be run again
-        process_complete = true;
-        console.log("process_complete = true");
+        webrequest_complete = true;
+        console.log("webrequest_complete = true");
+
+        jQuery('#submission-results').removeClass('hidden');
+        jQuery('#submission-results').addClass('visible');
+        jQuery('#circle6').addClass('hidden'); 
+    }
+    // If the webservice returns results
+    else if (message_cnt < submission_steps.length) {
+        message = submission_steps[message_cnt];
     }
 
     console.log(message_cnt + " " + message);
@@ -211,16 +208,15 @@ function process_test_citation() {
     }
 
     message_cnt++;
+    console.log("End Request? " + webrequest_complete);
 
     // Re-run Process every 1.5 seconds, either until
     // Webservice returns JSON result or until it reaches the max number of cycles
-    if (!process_complete){
+    if (!webrequest_complete){
+        console.log("Calling loop again:");
         process_test_citation();
-        console.log("Calling again: process_test_citation()");
     }
-  
-    console.log("End: loop");
-
+    
   }, sleep_ms);
 
   console.log("End: process_test_citation()");
@@ -493,7 +489,7 @@ function normalizeTextDemo(str, escape_code_points) {
 
     if (str_array){
 
-        for (idx in str_array) {
+        for (var idx in str_array) {
             // Get Unicode Code Point of Current Character
             chr = str_array[idx];
             chr_code = chr.codePointAt(0);
@@ -524,7 +520,7 @@ function prepopulate_quote(url){
         "https://youtu.be/rMz7JBRbmNo?t=173": "You fool! You fell victim to one of the classic blunders! The most famous is never get involved in a land war in Asia But only slightly less well-known is this: never go in against a Sicilian when death is on the line!",
         "https://youtu.be/zrzMhU_4m-g?t=64" : "what makes you think she's a witch well she turn me into a newt",
         "https://www.nytimes.com/2020/04/10/opinion/coronavirus-texas-fracking-layoffs.html": "oil fracking has never been financially viable",
-    }
+    };
     var quote = examples[url];
     jQuery("#cited_url").val(url);
     jQuery("#citing_quote").val(quote);

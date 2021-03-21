@@ -72,6 +72,10 @@ a.footnote {
   display: none;
 }
 
+.red {
+  color: red;  
+}
+
 .grey-888 {
   color: #888; 
 }
