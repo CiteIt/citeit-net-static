@@ -294,6 +294,10 @@ img.feature-left {
   border-bottom: solid 3px #aaa;
 }
 
+#play_button {
+  margin-top: -100px;
+}
+
 .btn:active{
   -ms-transform: translateY(2px);
   -webkit-transform: translateY(2px);
