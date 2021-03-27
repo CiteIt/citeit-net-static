@@ -90,6 +90,8 @@ function process_test_citation() {
 
   // Lookup JSON Context: Submit Quote the first time  */
   if ((message_cnt == 0) || ( message_cnt == null))  {
+    
+    jQuery('#submission-results').hide();
     var webrequest_complete = false;
 
     // Production Server: Set/get form variables
@@ -103,7 +105,7 @@ function process_test_citation() {
         post_url = "http://localhost/post_quote";    
         citing_url =  'http://localhost:8080/';
         citing_quote = jQuery("#citing_quote").val();  
-        cited_url = jQuery("#cited_url").val() ;
+        cited_url = jQuery("#cited_url").val();
     }
     
     // Display "Loading" graphic
@@ -169,36 +171,8 @@ function process_test_citation() {
 
   // Pause for 1.5 seconds before printing other messages
   setTimeout(function() {   
-
-    // Display all Status messages, sequentially
-    if (webrequest_complete) {
-        console.log("Submission Complete.");
-        message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
-        message_cnt = 0; // reset counter so proocess can be run again
-        webrequest_complete = true;
-        console.log("webrequest_complete = true");
-    
-        // Clear out "Loading" graphic and status messages
-        jQuery('#submission-results').removeClass('hidden');
-        jQuery('#submission-results').addClass('visible');
-        jQuery('#circle6').addClass('hidden'); 
-
-    }
-    // Stop Process even if web service doesn't returns results after max_cycles timeout
-    else if (message_cnt >= max_cycles){
-        console.log("Submission Timed out.");        
-        message = "<li><b class='red'>Submission Timed out.</b> &nbsp;&nbsp;</li>";
-        message_cnt = 0; // reset counter so proocess can be run again
-        webrequest_complete = true;
-        console.log("webrequest_complete = true");
-
-        // Clear out "Loading" graphic and status messages
-        jQuery('#submission-results').removeClass('hidden');
-        jQuery('#submission-results').addClass('visible');
-        jQuery('#circle6').addClass('hidden'); 
-    }
     // If there are still status messages to print out
-    else if (message_cnt < submission_steps.length) {
+    if (message_cnt < submission_steps.length) {
         message = submission_steps[message_cnt];
     }
 
@@ -212,13 +186,29 @@ function process_test_citation() {
     message_cnt++;
     console.log("End Request? " + webrequest_complete);
 
-    // Re-run Process every 1.5 seconds (sleep_ms), either 
+    // Re-run Process every 1.5 seconds , either 
     // Wait until all the messages have been printed out (submission_steps.length) and the 
     // Webservice returns JSON result or 
     // until it reaches the max number of cycles (timeout)
-    if ((!webrequest_complete) || (message_cnt < submission_steps.length) ){
+    if ((!webrequest_complete) && (message_cnt < submission_steps.length) ){
         console.log("Calling loop again:");
         process_test_citation();
+    }
+
+    // Finish Loop: Clear out "Loading" graphic and status messages
+    else {
+        // Display all Status messages, sequentially
+        console.log("Submission Complete.");
+        message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
+        message_cnt = 0; // reset counter so proocess can be run again
+        webrequest_complete = false;
+        console.log("webrequest_complete = true");
+
+        jQuery('#submission-results').removeClass('hidden');
+        jQuery('#submission-results').addClass('visible');
+        jQuery('#submission-results').show();
+        jQuery('#circle6').addClass('hidden'); 
+        
     }
     
   }, sleep_ms);
