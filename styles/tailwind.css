@@ -306,6 +306,49 @@ img.feature-left {
   border-bottom: none;
 }
 
+div.tweet {
+  margin-top: 25px;
+  margin-bottom: 35px;
+  margin-left: 100px;
+}
+
+.tweet_caption {
+  margin-left: 100px;
+}
+
+
+.tweet_header p {
+  font-size: 90%;
+  margin: 1% 0 2% 0%;
+}
+
+.twitter_logo {
+  width: 70px;
+  float: left;
+  margin-left: -90px;
+}
+
+.tweet_header {
+  float: left;
+  width: 100%;
+}
+
+.twitter_image {
+  border-radius: 15px 15px 0px 0px;
+/*  width: 100%; */
+}
+
+.tweet_footer {
+  padding: 17px;
+  border: 1px solid #bbb;
+  border-radius: 0 0 15px 15px;
+}
+
+.tweet_domain {
+  clear: both;
+  margin-top: 10px;
+  color: #777;
+}
 
 /*************************** HEADER ******************************/
 
