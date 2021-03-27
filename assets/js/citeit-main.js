@@ -92,26 +92,26 @@ function process_test_citation() {
   if ((message_cnt == 0) || ( message_cnt == null))  {
     var webrequest_complete = false;
 
+    // Production Server: Set/get form variables
     var post_url = "http://api.citeit.net/post_quote";    
     var citing_url =  'https://www.citeit.net/';
     var citing_quote = jQuery("#citing_quote").val();
     var cited_url = jQuery("#cited_url").val() ;
 
-    // Local Development Server: Set/get form variables
+    // Local Development Server: form variables
     if (window.location.href == "http://localhost:8080/" ) {
         post_url = "http://localhost/post_quote";    
         citing_url =  'http://localhost:8080/';
         citing_quote = jQuery("#citing_quote").val();  
         cited_url = jQuery("#cited_url").val() ;
     }
-    // Production Server: Set/get form variables
-
-    // Display "Loading graphic"
+    
+    // Display "Loading" graphic
     jQuery('#loading').addClass('visible');
     jQuery('#circle6').removeClass('hidden');
     jQuery('#circle6').addClass('visible');
 
-    var tag_type = 'q';  // default to contextual popup
+    var tag_type = 'q';  // default to contextual popup rather than expanding blockquote
 
     // Compute Hash Key
     var hash_key = quoteHashKeyDemo(citing_quote, citing_url, cited_url);
@@ -119,7 +119,7 @@ function process_test_citation() {
     // Javascript uses utf-16.  Convert to utf-8
     hash_key = encode_utf8Demo(hash_key);
     console.log(hash_key);
-    var hash_value = forge_sha256(hash_key);
+    var hash_value = forge_sha256(hash_key);  // use forge library
     console.log(hash_value);
 
     console.log("Submitting JSON ..");
@@ -128,18 +128,18 @@ function process_test_citation() {
     // Clear out all previous status messages
     jQuery('ul#progress_list li').remove();
 
-    // API Request: lookup quote
+    // Call API: lookup quote
     jQuery.ajax({
         type: "GET",
         url: post_url,
         data: {
-            citing_url: citing_url,
+            citing_url: citing_url,         // pass parameters into webservice
             citing_quote: citing_quote,
             cited_url: cited_url
         },
         dataType: "json",
         success: function(json) {
-            addQuoteToDomDemo(tag_type, json, cited_url);
+            addQuoteToDomDemo(tag_type, json, cited_url); 
             webrequest_complete = true;
 
             console.log("CiteIt Found:  " + post_url);
@@ -170,7 +170,7 @@ function process_test_citation() {
   // Pause for 1.5 seconds before printing other messages
   setTimeout(function() {   
 
-    // Display all Status messages sequentially
+    // Display all Status messages, sequentially
     if (webrequest_complete) {
         console.log("Submission Complete.");
         message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
@@ -178,6 +178,7 @@ function process_test_citation() {
         webrequest_complete = true;
         console.log("webrequest_complete = true");
     
+        // Clear out "Loading" graphic and status messages
         jQuery('#submission-results').removeClass('hidden');
         jQuery('#submission-results').addClass('visible');
         jQuery('#circle6').addClass('hidden'); 
@@ -191,18 +192,19 @@ function process_test_citation() {
         webrequest_complete = true;
         console.log("webrequest_complete = true");
 
+        // Clear out "Loading" graphic and status messages
         jQuery('#submission-results').removeClass('hidden');
         jQuery('#submission-results').addClass('visible');
         jQuery('#circle6').addClass('hidden'); 
     }
-    // If the webservice returns results
+    // If there are still status messages to print out
     else if (message_cnt < submission_steps.length) {
         message = submission_steps[message_cnt];
     }
 
-    console.log(message_cnt + " " + message);
+    console.log(message_cnt + " :: " + message);
 
-    // Display progress status message to UI
+    // Print status messages
     if (message !== undefined) {
         jQuery('ul#progress_list li:last').append('<li>' + message + '</li>');  
     }
@@ -210,9 +212,11 @@ function process_test_citation() {
     message_cnt++;
     console.log("End Request? " + webrequest_complete);
 
-    // Re-run Process every 1.5 seconds, either until
-    // Webservice returns JSON result or until it reaches the max number of cycles
-    if (!webrequest_complete){
+    // Re-run Process every 1.5 seconds (sleep_ms), either 
+    // Wait until all the messages have been printed out (submission_steps.length) and the 
+    // Webservice returns JSON result or 
+    // until it reaches the max number of cycles (timeout)
+    if ((!webrequest_complete) || (message_cnt < submission_steps.length) ){
         console.log("Calling loop again:");
         process_test_citation();
     }

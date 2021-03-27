@@ -13,13 +13,13 @@
             These tools show the context surrounding the quoted media in order to build trust and understanding.
           </p>
 
-            <div class="video-caption">(Watch our video to learn more)</div>
+            <div class="video-caption sm:justify-center sm:w-full md:w-2/3 lg:w-1/2" >(Watch our video to learn more)</div>
         </div>
       
 
       </div>
         
-        <div id="video" class="video_thumbnail w-2/3 mt-0 mb-5 relative sm:mx-  lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-12 lg:flex">
+        <div id="video" class="video_thumbnail sm:w-full mt-0 mb-5 relative md:w-2/3  lg:mt-0 lg:w-1/2 lg:max-w-none lg:mx-0 lg:col-span-12 lg:flex">
             <button type="button" class="relative block w-full bg-white overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
               
               <!--iframe id="iframe_video" class="iframe_video" src="https://www.youtube.com/embed/8r42TmdqSqk"></iframe-->
@@ -31,7 +31,7 @@
                     <img src="/assets/images/jefferson-memorial-statue-panorama-1-854x480.jpg" alt="Jefferson Memorial Statue Panoroma, Washington, DC" width="854" height="480">
                 </picture>
               </a>
-              <div id="jefferson_video_caption" class="w-2/3">
+              <div id="jefferson_video_caption" class="sm:w-full md:w-2/3 lg:w-1/2">
                   <span class="text-base text-gray-500">Did you know there is a Cherry-picked quote on the Jefferson Memorial? &nbsp;&nbsp;  
                   <span style="white-space: nowrap;">Readers can <strong class="text-blue-600">trust citations</strong> made with CiteIt.</span></span>
               </div>
@@ -46,8 +46,8 @@
           
         </div>
 
-        <div id="homepage_option_buttons" class="mt-2 mb-2 w-2/3 md:mx-left lg:col-span-6 lg:text-left">
-          <div class="mt-2 ml-2sm:mt-2 ml-2 sm:flex ml-0 sm:justify-left lg:justify-center mt-3 mb-3 text-base text-gray-500 sm:mt-3 sm:text-xl lg:text-lg xl:text-xl"> 
+        <div id="homepage_option_buttons" class="mt-2 mb-2 sm:w-full sm:justify-center md:w-2/3 md:justify-center  lg:col-span-6 lg:w-1/2 lg:text-left">
+          <div class="mt-2 ml-2sm:mt-2 ml-2 sm:flex ml-0 sm:justify-center lg:justify-center mt-3 mb-3 text-base text-gray-500 sm:mt-3 sm:text-xl lg:text-lg xl:text-xl"> 
             <div class="rounded-md shadow">
               <a href="/demo/" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg">
                 See Demos
@@ -108,7 +108,7 @@
     <strong>as a source</strong> for sample quotes</span>).</p>
 
 
-    <p class="mt-6">Or click on one of the following <strong>9 buttons</strong> to pre-populate the <strong>quote</strong> and <strong>URL</strong> below:</p>
+    <p class="mt-6"><strong>Create your own</strong>, or click one of the <strong>9 buttons</strong> to pre-populate the <strong>quote</strong> and <strong>URL</strong> below:</p>
       <a class="circle" href="javascript: prepopulate_quote('https://www.nytimes.com/2020/04/10/opinion/coronavirus-texas-fracking-layoffs.html');" title="NYTimes: oil fracking has never been financially viable">1</a>
       <a class="circle" href="javascript: prepopulate_quote('https://www.theatlantic.com/magazine/archive/2020/01/wheres-my-flying-car/603025/');" title="The Atlantic: Where's my flying car?">2</a>
       <a class="circle" href="javascript: prepopulate_quote('https://en.wikisource.org/wiki/Leviathan/The_First_Part');" title="Thomas Hobbes: Nasty Butish and Short">3</a>
@@ -132,7 +132,6 @@
 
         <h4>URL:</h4>
         <input id="cited_url" name="cited_url" class="url" type="text" onclick="this.value=''"
-            value="https://www.nytimes.com/2021/02/07/sports/football/tom-brady-super-bowl-age.html"
           />&nbsp; (<a class="underline" href="javascript: view_link();">link</a>)<br />
               
         <input id="submit_test_citation" class="w-1/2 mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" 
