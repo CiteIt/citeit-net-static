@@ -603,12 +603,15 @@ blockquote  {
 div.code {
   width: 95% !important;
   max-width: 95% !important;
+  padding-left: 20px;
+  font-size: 65%;
+  margin-bottom: 20px;
 }
 div#nothing_is-more_certainly{
   width:85% !important;
 }
 img.wiki-photo {
-  height: 175px !important;;
+  /* height: 175px !important; */
 }
 div.citeit_source {
   width: 1%;
