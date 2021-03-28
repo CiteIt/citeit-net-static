@@ -76,8 +76,6 @@ function process_test_citation() {
     var sleep_ms = 1500;   // 1500 ms = 1.5 secons
     var max_cycles = 10;   // Timeout after n loops
 
-    console.log("Beginning Loop: " + message_cnt);
-
     // Status messages
     var submission_steps = [
         "<b>Contacting CiteIt webservice ..</b>",
@@ -184,14 +182,12 @@ function process_test_citation() {
     }
 
     message_cnt++;
-    console.log("End Request? " + webrequest_complete);
-
+    
     // Re-run Process every 1.5 seconds , either 
     // Wait until all the messages have been printed out (submission_steps.length) and the 
     // Webservice returns JSON result or 
     // until it reaches the max number of cycles (timeout)
     if ((!webrequest_complete) && (message_cnt < submission_steps.length) ){
-        console.log("Calling loop again:");
         process_test_citation();
     }
 
@@ -202,18 +198,15 @@ function process_test_citation() {
         message = "<li><b>Submission Complete..</b> &nbsp;&nbsp;</li>";
         message_cnt = 0; // reset counter so proocess can be run again
         webrequest_complete = false;
-        console.log("webrequest_complete = true");
 
         jQuery('#submission-results').removeClass('hidden');
         jQuery('#submission-results').addClass('visible');
         jQuery('#submission-results').show();
         jQuery('#circle6').addClass('hidden'); 
-        
     }
     
   }, sleep_ms);
 
-  console.log("End: process_test_citation()");
 }
 
 // **************** Begin: Calculate Video UI ******************
