@@ -209,6 +209,47 @@ function process_test_citation() {
 
 }
 
+
+var num_tries = 0;
+var response_returned = false;
+
+function applyContext(){
+    // Try to add context to Sample Quote by calling the .quoteContext() function
+  
+    setTimeout(function() { 
+
+        // If the #sample_quote has a cite attribute, assume the webservice returned results
+        response_returned = (jQuery('#sample-quote').attr('cite').length > 0);
+
+        console.log("response_returned: " + response_returned);
+        console.log("num_tries: " + num_tries);
+
+        if ((response_returned ) && (num_tries < 30)) {
+            console.log("Finding quoteContext()");
+            jQuery('q#sample-quote').quoteContext();
+        }
+        else {
+            console.log("Not finding quoteContext");
+        }
+
+        num_tries++;
+
+        // Try again if not found
+        response_returned = (jQuery('#sample-quote').attr('cite').length > 0);
+
+        if ((!response_returned) && (num_tries < 30)) {
+            applyContext();
+        }
+        else {
+            console.log("Not trying again ..");
+            console.log("response_returned: " + response_returned);
+            console.log("num_tries: " + num_tries);
+        }
+
+    }, 1000);
+  }
+
+
 // **************** Begin: Calculate Video UI ******************
 function embedUiDemo(url, json, tag_type = 'blockquote') {
 
@@ -340,9 +381,12 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
         );
 
         //Style quote as a link that calls the popup expander:
-        blockcite.wrapInner("<a class='popup_quote' href='" + blockcite.attr("cite") + "' " +
+        blockcite.wrapInner("<a class='popup_quote' href='" + json.cited_url + "' " +
             "onclick='expandPopup(this ,\"" + q_id + "\"); return false;' " +
             " />");
+
+        // Add 'cite' tag:
+        blockcite.attr('cite', cited_url);
 
     } else if (tag_type === "blockquote") {
 
@@ -392,6 +436,10 @@ function addQuoteToDomDemo(tag_type, json, cited_url) {
         }
 
     } // elseif (tag_type === 'blockquote')
+
+    
+    applyContext();
+
 } // end: function add_quote_to_dom
 
 
