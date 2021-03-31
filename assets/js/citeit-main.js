@@ -553,7 +553,7 @@ function prepopulate_quote(url){
         "https://www.ourdocuments.gov/doc.php?flash=false&doc=90&page=transcript" : "In the councils of government, we must guard against the acquisition of unwarranted influence, whether sought or unsought, by the military-industrial complex.",
         "https://youtu.be/xPsfgEk00kU?t=1216" : "psychologists quite recently have begin to argue that deterrence theory doesn't work it's not really the answer it's part of the solution but it misses a much broader truth and that is that people choose to obey the law and to comply with Authority not because they make a rational calculation about risks and benefits but they do so basis rather on the basis of whether they believe that justice is being administered in a legitimate manner",
         "https://youtu.be/rMz7JBRbmNo?t=173": "You fool! You fell victim to one of the classic blunders! The most famous is never get involved in a land war in Asia But only slightly less well-known is this: never go in against a Sicilian when death is on the line!",
-        "https://youtu.be/zrzMhU_4m-g?t=64" : "what makes you think she's a witch well she turn me into a newt",
+        "https://youtu.be/zrzMhU_4m-g?t=64" : "what makes you think she's a witch",
         "https://www.nytimes.com/2020/04/10/opinion/coronavirus-texas-fracking-layoffs.html": "oil fracking has never been financially viable",
     };
     var quote = examples[url];
