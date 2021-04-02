@@ -1,7 +1,8 @@
 function swap_citation_type(tag_id, tag_type){
     // Convert from <blockquote> to <q> tag and vice versa
-    replace_tag(tag_id, tag_type);
-    jQuery('#' + tag_id).quoteContext();
+    replace_tag(tag_id, tag_type)
+    jQuery('#' + tag_id).quoteContext();    
+    
 }
 
 function replace_tag(tag_id, tag_type){
@@ -12,13 +13,26 @@ function replace_tag(tag_id, tag_type){
   */
 
   var div_id = 'sample-quote-container';
+  var citing_url = window.location.href;
   var text = '';
 
-  var url = jQuery('#cited_url').val('#cited_url').attr("cite");
-  
+  var cited_url = jQuery('#cited_url').val('#cited_url').attr("cite");
+
+  var citing_quote =text;
+  var hash_key = quoteHashKeyDemo(citing_quote, citing_url, cited_url);
+  var q_id = "hidden_" + hash_key;
+
+  // Switch from 'blockquote' to 'q' tag:
   if (tag_type === 'blockquote') {
-    // Get text from existing q tag, which has an anchor tag
+
+    // Get text from existing q tag, which uses an anchor tag
     text = jQuery('#' + tag_id + ' > a').text();
+
+    //Style quote as a link that calls the popup expander:
+    jQuery('#' + tag_id).wrapInner("<a class='popup_quote' href='" + cited_url + "' " +
+        "onclick='expandPopup(this ,\"" + q_id + "\"); return false;' " +
+        " />");
+
   }
   else {
     text = jQuery('#' + tag_id).text();
@@ -27,7 +41,7 @@ function replace_tag(tag_id, tag_type){
   // Build blockquote/q  element:
   var new_div = document.createElement(tag_type);
   new_div.setAttribute('id', tag_id);
-  new_div.setAttribute('cite', url);
+  new_div.setAttribute('cite', cited_url);
   new_div.textContent = text;
 
   // Build Replacement div:
@@ -450,8 +464,10 @@ function stringToArrayDemo(s) {
 
     const retVal = [];
 
-    for (const ch of s) {
-        retVal.push(ch);
+    if (s){
+        for (const ch of s) {
+            retVal.push(ch);
+        }
     }
 
     return retVal;
