@@ -301,28 +301,39 @@ ul#footer > li {
  }
 
 
-/*********** Phone-specific Styles *************/
+/*********** Tablet & Low Res-specific Styles *************/
 @media only screen and (max-width: 768px) {
 
-div.quote_arrows a {
-	font-size: 110%;						/* make it larger: to select on phone screen */
-	border: 0px;
-}
-span.view_on_youtube {
-	font-size: 65%;
+	div.quote_arrows a {
+		font-size: 110%;						/* make it larger: to select on phone screen */
+		border: 0px;
+	}
+	span.view_on_youtube {
+		font-size: 65%;
+	}
+
+	iframe.youtube {
+		width: 320px;
+		height: 270px;
+	}
+
+	blockquote.quote_context {
+		color: #999;
+		border: 1px solid 1px solid #cdcdc;
+		background-color: #eef3f5;
+		padding: 20px 20px 25px 20px;
+		margin: 0 25px 5px 25px;
+	}
 }
 
-iframe.youtube {
-	width: 320px;
-	height: 270px;
-}
+/*********** Phone-specific Styles *************/
+@media only screen and (max-width: 480px) {
 
-blockquote.quote_context {
-	color: #999;
-	border: 1px solid 1px solid #cdcdc;
-	background-color: #eef3f5;
-	padding: 20px 20px 25px 20px;
-	margin: 0 25px 5px 25px;
-}
-
+	div.highslide-maincontent{
+		font-size: 14px;
+	}
+	
+	div.source_url {
+	  font-size: 150%;
+	}
 }

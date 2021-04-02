@@ -101,6 +101,29 @@ jQuery.fn.quoteContext = function() {
                 // Add Hidden div with context to DOM
                 function addQuoteToDom(tag_type, json, cited_url) {
 
+                    // Set a different popup width for Phones vs Desktop
+                    if (window.screen.availWidth <= 320){
+                        popup_width = 800;
+                    }
+                    else if (window.screen.availWidth <= 480) {
+                        popup_width = 800;
+                    }
+                    else if (window.screen.availWidth <= 640) {
+                        popup_width = 640;
+                    }
+                    else if (window.screen.availWidth <= 768) {
+                        popup_width = 755;
+                    }
+                    else if (window.screen.availWidth <= 1024) {
+                        popup_width = 400;
+                    }
+                    else if (window.screen.availWidth <= 1280) {
+                        popup_width = 400;
+                    }
+                    else {
+                        popup_width = 400;
+                    }
+
                     // lookup html for video ui and icon
                     var embed_ui = embedUi(cited_url, json, tag_type);
 
@@ -110,7 +133,7 @@ jQuery.fn.quoteContext = function() {
 
                         //Add content to a hidden div, so that the popup can later grab it
                         jQuery("#" + hidden_container).append(
-                            "<div id='" + q_id + "' class='highslide-maincontent'>" + 
+                            "<div id='" + q_id + "' class='highslide-maincontent width_" + popup_width + "'>" + 
                             embed_ui.html + "<br />.. " + 
                             json.cited_context_before + " " + " <span class='q-tag-highlight'><strong>" +
                             json.citing_quote + "</strong></span> " +
@@ -123,7 +146,7 @@ jQuery.fn.quoteContext = function() {
 
                         //Style quote as a link that calls the popup expander:
                         blockcite.wrapInner("<a class='popup_quote' href='" + blockcite.attr("cite") + "' " +
-                            "onclick='expandPopup(this ,\"" + q_id + "\"); return false;' " +
+                            "onclick='return expandPopup(this ,\"" + q_id + "\", " + popup_width + ")' " +
                             " />");
                     } else if (tag_type === "blockquote") {
 
@@ -218,10 +241,14 @@ function toggleQuote(section, id) {
 }
 
 // *********** Expand Popup *************
-function expandPopup(tag, hidden_popup_id) {
+
+function expandPopup(tag, hidden_popup_id, popup_width=400) {
 
     // Configure jQuery Popup Library
     jQuery.curCSS = jQuery.css;
+
+	console.log("Popup width:");
+	console.log(popup_width);
 
     // Setup Initial Dialog box
     jQuery("#" + hidden_popup_id).dialog({
