@@ -107,7 +107,7 @@ function process_test_citation() {
     var webrequest_complete = false;
 
     // Production Server: Set/get form variables
-    var post_url = "http://api.citeit.net/post_quote";    
+    var post_url = "https://api.citeit.net/post_quote";    
     var citing_url =  'https://www.citeit.net/';
     var citing_quote = jQuery("#citing_quote").val();
     var cited_url = jQuery("#cited_url").val() ;
@@ -572,6 +572,7 @@ function prepopulate_quote(url){
         "https://youtu.be/rMz7JBRbmNo?t=173": "You fool! You fell victim to one of the classic blunders! The most famous is never get involved in a land war in Asia But only slightly less well-known is this: never go in against a Sicilian when death is on the line!",
         "https://youtu.be/zrzMhU_4m-g?t=64" : "what makes you think she's a witch",
         "https://www.nytimes.com/2020/04/10/opinion/coronavirus-texas-fracking-layoffs.html": "oil fracking has never been financially viable",
+        "https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_59": "We all know him to be a proud, unpleasant sort of man; but this would be nothing if you really liked him.",
     };
     var quote = examples[url];
     jQuery("#cited_url").val(url);
