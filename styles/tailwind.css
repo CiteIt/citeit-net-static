@@ -570,8 +570,13 @@ div#jefferson_video_caption {
 }
 
 div.learn_more {
-  margin-top: 100px; 
-  margin-bottom: 125px;
+  margin-top: 70px; 
+  margin-bottom: 90px;
+}
+
+div.inspired_by {
+  margin-top: 70px; 
+  margin-bottom: 0px;
 }
 
 .video_width {
