@@ -83,10 +83,82 @@
         </section>
       
 
+    <h3 id="test-drive" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Test-drive CiteIt!</h3>
+    <p class="mt-2 mb-1"><strong>Create your own sample citation</strong> by entering a quote and it's URL below:<br />
+    <p>(If you need ideas, you can <span class="highlight"><strong>use 
+    
+    <a class="underline" target="_blank" href="https://news.google.com/">Google News</a></strong> or 
+    <strong><a class="underline" href="https://youtu.be/1NqRbBvujHY?t=398">YouTube</a></strong> 
+    <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>
+
+    <strong>as a source</strong> for sample quotes</span>).</p>
+
+
+    <p class="mt-6"><strong>Create your own</strong>, or click one of the <strong>4 buttons</strong> to pre-populate the <strong>quote</strong> and <strong>URL</strong> below:</p>
+      <a class="circle" href="javascript: prepopulate_quote('https://www.nytimes.com/2021/02/07/sports/football/tom-brady-super-bowl-age.html');" title="Tom Brady: Drink Water">1</a>
+      <!-- a class="circle" href="javascript: prepopulate_quote('https://www.theatlantic.com/magazine/archive/2020/01/wheres-my-flying-car/603025/');" title="The Atlantic: Where's my flying car?">2</a-->
+      <a class="circle" href="javascript: prepopulate_quote('https://en.wikisource.org/wiki/Leviathan/The_First_Part');" title="Thomas Hobbes: Nasty Butish and Short">2</a>
+      <a class="circle" href="javascript: prepopulate_quote('https://www.nytimes.com/2020/04/10/opinion/coronavirus-texas-fracking-layoffs.html');" title="NYTimes: oil fracking has never been financially viable">3</a>
+      
+      <a class="circle" href="javascript: prepopulate_quote('https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_59');" title="We all know him to be a proud, unpleasant sort of man; but this would be nothing if you really liked him.">3</a>
+      
+      <!--a class="circle" href="javascript: prepopulate_quote('https://onbeing.org/programs/david-whyte-the-conversational-nature-of-reality/#transcript');" title="Poetry: languages against which you have no defences.">4</a-->
+      <!--a class="circle" href="javascript: prepopulate_quote('https://www.openpolitics.com/articles/ted-nelson-philosophy-of-hypertext.html');" title="Ted Nelson: Philosophy of Hypertextr">5</a-->
+      <!--a class="circle" href="javascript: prepopulate_quote('https://www.ourdocuments.gov/doc.php?flash=false&doc=90&page=transcript');" title="Eisenhower: Military Industrial Complex">6</a-->
+      <a class="circle" href="javascript: prepopulate_quote('https://youtu.be/xPsfgEk00kU?t=1216');" title="Malcolm Gladwell: The importance of Legitimacy">4</a>
+      <!--a class="circle" href="javascript: prepopulate_quote('https://youtu.be/zrzMhU_4m-g?t=64');" title="Monty Python: What makes you think she is a Witch?">8</a-->
+      <!--a class="circle" href="javascript: prepopulate_quote('https://youtu.be/rMz7JBRbmNo?t=173');" title="Princess Bride: never get involved in a land war in Asia">9</a-->
+
+
+    <!--http://localhost/post_quote-->
+    <form id="test-submssion" class="test-submission" method="GET" acction="">
+
+        <h4>Quote:</h4>
+        <input type="hidden" id="citing_url" name="citing_url" value="" />
+
+        <textarea id="citing_quote" name="citing_quote" rows="4" cols="65"
+          onclick="document.getElementById('citing_quote').value = '';"
+        >Drink at least one-half of your body weight in ounces of water daily</textarea>
+
+        <h4>URL:</h4>
+        <input id="cited_url" name="cited_url" class="url" type="text" onclick="this.value=''" value="https://www.nytimes.com/2021/02/07/sports/football/tom-brady-super-bowl-age.html"
+          />&nbsp; (<a class="underline" href="javascript: view_link();">link</a>)<br />
+              
+        <input id="submit_test_citation" class="w-1/2 mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-blue-600 hover:bg-blue-700 md:text-lg" size="25" type="submit" 
+          onclick="process_test_citation(); return false;" value="Create Test Citation" />
+
+        <div id="loading">
+          <div id="circle6"></div>
+          <div id="submission-progress">
+            <ul id="progress_list"></ul>          
+          </div>
+        </div><br />
+      
+      <div id="submission-results" class="hidden">
+
+        <h4 style="font-size: 1.8em; font-weight: bold;">Submission Results</h4>
+        <p class="mb-4"><span class="highlight">Click the <strong>quote in the blue box</strong> below</span> to <strong>view the contextual popup</strong>:</p>
+        <div id="sample-quote-container">
+              <q id='sample-quote' cite=""></q>
+        </div>
+
+        <div id="switch_view_type">
+          <h4 style="font-size: 1.2em">Switch View Type</h4>
+          <input onclick="swap_citation_type('sample-quote', 'q');" type="radio" id="popup" name="citation_type" value="popup" checked>
+          <label for="popup">Contextual Popup</label><br>
+          <input onclick="swap_citation_type('sample-quote', 'blockquote');" type="radio" id="expand" name="citation_type" value="expand">
+          <label for="expand">Expanding blockquote</label><br>
+        </div>
+
+        <a id="reset_test_citation" class='reset_button' href='javascript:reset_example_citation();'>Reset Example Citation</a>
+
+      </div>
+
+    </form>
 
 <a name="wikipedia"></a>
 
-<h3 class="mt-7 mb-3 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Sample Wikipedia Articles</h3>
+<h3 class="mt-20 mb-3 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Sample Wikipedia Articles</h3>
 <p>Click on an image below to view <strong>sample Wikipedia articles</strong> that feature contextual quotations.</p>
 <br />
 <div class="feature">
