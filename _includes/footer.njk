@@ -16,8 +16,11 @@
 <script>
 
   // Default Base URL to current URL (www.citeit.net or localhost:8080 )
-  document.getElementById('citing_url').value = window.location.href;
-
+  citing_url = document.getElementById('citing_url');
+  if(citing_url != null){
+    document.getElementById('citing_url').value = window.location.href;
+  }
+  
   // Call CiteIt.net plugin on all q-tags and blockquotes:
   jQuery(document).ready(function(){
 
