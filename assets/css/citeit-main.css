@@ -266,7 +266,12 @@ blockquote {
     ul#progress_list {
       margin-left: 25px;
     }
-  
+
+    #wikipedia_logo {
+      border: 1px solid red;
+      padding: 15px;
+    }
+
   #circle6 {
     display: block;
     position: absolute;
