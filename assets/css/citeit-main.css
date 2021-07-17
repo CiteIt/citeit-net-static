@@ -168,9 +168,10 @@ blockquote {
   a.blue {
     background-color: #d8e7f2;
   }
-  
-  
-  
+
+  .homeWidth ul li {
+    margin-bottom: 10px;
+  }
   
   .video-caption {
       text-align: center;
