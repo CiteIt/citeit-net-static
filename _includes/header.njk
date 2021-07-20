@@ -203,6 +203,39 @@
 <br style="clear:both" />
 
     <div class="learn_more homeWidth">
+      <h3 id="learn_more" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">How CiteIt Works</h3>
+      
+      <p class="mt-7"><strong>Authors opt-in</strong> to CiteIt by:</p>
+      <ol class="num">
+        <li>providing a <strong>URL</strong> for the quote they are citing,
+          <ul>
+            <li>
+            <div class="code">
+            &lt;<strong>blockquote <span class="highlight">cite="https://avalon.law.yale.edu/19th_century/jeffauto.asp"&gt;</span></strong><br />
+              Nothing is more certainly written in the book of fate than that these people are to be free.<br />
+            &lt;<strong>/blockquote</strong>&gt;
+            </div>
+
+          </ul>        
+        </li>
+        <li>calling the <strong><a class="underline" href="https://pages.citeit.net/sample-code/">CiteIt webservice</a></strong>, which looks up the quote and <strong>creates a <a class="underline" href="https://read.citeit.net/quote/sha256/0.4/d5/d588c1c9c4acfcd254acc4033b7888e98f21e426214b21f0e07673664e328e39.json">JSON file</a></strong> with the contextual data,</li>
+        <li>installing the CiteIt jQuery library on their website.  (This can be done with the <strong><a class="underline" href="/code/">WordPress plugin</a></strong>)
+          <ul class="disc">
+            <li>This library looks for <strong>&lt;blockquote&gt;</strong> and <strong>&lt;q&gt; tags</strong> that have a <strong>"cite"</strong> attributes,</li>
+            <li>Looks up the contextual <strong><a class="underline" href="https://read.citeit.net/quote/sha256/0.4/d5/d588c1c9c4acfcd254acc4033b7888e98f21e426214b21f0e07673664e328e39.json">JSON file</a></strong> that the webservice just computed,</li>
+            <li>changes the UI for blockquotes and q tags so that they <strong>expand when clicked on</strong>.
+          </ul>
+        </li>
+      </ol>
+
+      <br />
+      <h4 class="text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Don't bother with the unserious</h4>
+      <p class="mt-15">CiteIt does <i>not</i> try to locate sources for <strong>authors who don't provide citations</strong>.</p>
+      <p>CiteIt's approach is that if you want your <strong>readers to take you seriously</strong>, you need to cite them with CiteIt!</p>
+      <p>Using CiteIt signals to your readers that you are <strong>holding yourself to a higher standard</strong> and want your readers to <strong>understand more about your sources</strong>.</p>
+    </div>
+
+    <div class="learn_more homeWidth">
       <h3 id="learn_more" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Learn More</h3>
       <ul class="disc">
         <li><a class="underline" href="/demo/">More Demos</li>
