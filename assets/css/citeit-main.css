@@ -336,14 +336,3 @@ blockquote {
     margin-bottom: 10px;
   }
 
-
-/******************* Mobile Style *****************/
-@media only screen and (max-width: 600px) {
-  
-  .wiki-photo {
-    height: 150px;
-    padding-right: 0px;
-
-  }
-
-}
