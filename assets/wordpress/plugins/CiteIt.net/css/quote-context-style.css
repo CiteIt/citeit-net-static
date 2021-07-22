@@ -311,12 +311,12 @@ ul#footer > li {
 	span.view_on_youtube {
 		font-size: 65%;
 	}
-
+/*
 	iframe.youtube {
 		width: 320px;
 		height: 270px;
 	}
-
+*/
 	blockquote.quote_context {
 		color: #999;
 		border: 1px solid 1px solid #cdcdc;
@@ -334,7 +334,7 @@ ul#footer > li {
 	}
 	
 	div.source_url {
-	  font-size: 130%;
+	  font-size: 110%;
 	}
 
 	ul#footer > li {

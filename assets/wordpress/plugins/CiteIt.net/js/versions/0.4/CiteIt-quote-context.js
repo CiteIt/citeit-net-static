@@ -115,13 +115,13 @@ jQuery.fn.quoteContext = function() {
                         popup_width = 755;
                     }
                     else if (window.screen.availWidth <= 1024) {
-                        popup_width = 400;
+                        popup_width = 375;
                     }
                     else if (window.screen.availWidth <= 1280) {
-                        popup_width = 400;
+                        popup_width = 375;
                     }
                     else {
-                        popup_width = 400;
+                        popup_width = 375;
                     }
 
                     // lookup html for video ui and icon
@@ -242,7 +242,7 @@ function toggleQuote(section, id) {
 
 // *********** Expand Popup *************
 
-function expandPopup(tag, hidden_popup_id, popup_width=400) {
+function expandPopup(tag, hidden_popup_id, popup_width=375) {
 
     // Configure jQuery Popup Library
     jQuery.curCSS = jQuery.css;
@@ -257,7 +257,7 @@ function expandPopup(tag, hidden_popup_id, popup_width=400) {
         closeText: "hide",
         draggableType: true,
         resizable: true,
-        width: 400,
+        width: 375,
         modal: false,
         title: "Quote Context by CiteIt.net",
         hide: {

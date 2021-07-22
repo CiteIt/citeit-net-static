@@ -221,11 +221,6 @@ p {
   width: 65%;
 }
 
-iframe.iframe_video,  {
-  width: 80vw;
-  height: calc(80vw/1.77);
-}
-
 #video_thumb {
   width: 100%;
   margin: auto auto;
@@ -336,7 +331,6 @@ div.tweet {
 
 .twitter_image {
   border-radius: 15px 15px 0px 0px;
-/*  width: 100%; */
 }
 
 .tweet_footer {
@@ -350,6 +344,14 @@ div.tweet {
   margin-top: 10px;
   color: #777;
 }
+
+.text-green-bright {
+  color: #00b33c; /* #009933;*/
+}
+.text-red-light {
+  color: #ff8080; /* #ff6666;*/
+}
+
 
 /*************************** HEADER ******************************/
 
@@ -480,6 +482,21 @@ height: 125px;
 margin-bottom: 10px;
 }
 
+.video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
 
 /************************ EXAMPLES ****************************/
 
@@ -488,7 +505,6 @@ blockquote {
 }
 div.down-arrow {
   padding-left: 14.5%;
-  /* border: 3px solid purple; */
   width: 65%;
 }
 a.down_arrow {
@@ -499,13 +515,11 @@ div.quote_arrows {
   width: 65%; 
 }
 div.quote_context {
-  /* border: 1px solid red; */
   width: 90%;
 }
 div.citeit_source {
   margin-right: 0%;
   width:30%;
-  /* border: 1px solid green;  */
 }
 span.source {
   color: #999;
@@ -565,7 +579,6 @@ iframe.youtube {
 div#jefferson_video_caption {
   width: 66%;
   text-align: center;
-  /* border: 1px solid red; */
   margin: auto auto;
 }
 
@@ -657,11 +670,12 @@ div.up-arrow {
 div#nothing_is-more_certainly p {
   width:100%;
 }
-iframe.youtube {
-  width: 260px !important;
-  height: 150px !important;
-  margin-bottom: 20px;
+iframe#iframe_video {
+  width: 100%;
+  height: 100%;
+
 }
+
 a.blue {
   background-color: #d8e7f2;
 }
