@@ -89,10 +89,17 @@ blockquote {
   iframe.youtube {
     margin-bottom: 20px;
   }
-  
 
   .feedback {
     
+  }
+
+  div#wordpress h5 {
+    font-weight: 800 !important;
+    color: #333;
+  }
+  .purple {
+    color: #8d01b0;
   }
 
 
