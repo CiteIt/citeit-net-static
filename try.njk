@@ -14,7 +14,7 @@
       padding-right: 60px;
     }
 
-    div#instructions {
+    div.instructions {
 
 
     }
@@ -24,7 +24,7 @@
     div#editor {
       width: 715px;
     }
-    div#instructions {
+    div.instructions {
       width: 45%;
     }
   }
@@ -37,7 +37,7 @@
 
 <div id="page_container">
 
-    <main id="building_trust" class="mt-4 max-w-7xl px-4 sm:px-6 ">
+    <main class="mt-4 max-w-7xl px-4 sm:px-6 ">
     <!--main class="mt-4 mx-auto max-w-7xl px-4 sm:px-6 "-->
       <div class="lg:grid lg:grid-cols-12 lg:gap-8">
         <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
@@ -69,7 +69,7 @@
   <div class="list-wrap">
 
     <!-- Why CiteIt? -->    
-    <div id="live-editor" class="hide"><a name="live-editor"></a>
+    <div class="hide"><a id="live-editor"></a>
       <h3 class="mb-2" style="font-size: 1.8em; font-weight: bold;">Try Live Editor</h3>
     
       <div id="editor">
@@ -90,7 +90,7 @@
 
       </div>
 
-      <div id="instructions">
+      <div class="instructions">
           <h3 class="text-blue-700" style="font-size: 1.5em; font-weight: bold;">Instructions:</h3>
           <ol class="num">
           <li><strong>Find</strong> a Quotation Online.  (Try: <a class="underline" href="https://news.google.com/">google news</a>)</li>
@@ -180,7 +180,7 @@
     </div>
 
     <!-- Add CiteIt to Your Site -->
-    <div id="your-site" class="hide"><!--a id="your-site"></a-->
+    <div id="your-site" class="hide">
       <h3 class="mb-3" style="font-size: 1.6em; font-weight: bold;">How to Add CiteIt to Your Website:</h3>
 
       <h4 class="mt-8  mb-6 text-blue-600" style="font-size: 1.45em; font-weight: bold;">Developers</h4>
@@ -190,7 +190,7 @@
       <p>If you are a developer, you can learn how to  <strong>add CiteIt to your website</strong> by downloading the GitHub 
       <strong><a class="underline" href="https://github.com/CiteIt/citeit-sample-code">Sample Code</a></strong>.</p>
 
-      <div id="instructions">
+      <div class="instructions">
 
       <iframe width="560" height="315" src="https://www.youtube.com/embed/_xkGHbOFW18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br />
       <a class="underline" href="https://pages.citeit.net/sample-code/examples-video-outline.txt">View outline of video script</a>
@@ -373,7 +373,7 @@
         });
     });
 
-</script -->
+</script>
 
 </div>
 
@@ -381,10 +381,3 @@
 
 {% endblock %}
 
-
-
-<!--
-
-Show HN: Build trust in Media through Citations that show Context. 
-
--->
