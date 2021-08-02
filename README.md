@@ -53,7 +53,4 @@ npm run build
 
 #### 6. Run Eleventy
 
-```
-npm run start
-```
-
+`npm run start`
