@@ -49,6 +49,10 @@ This step is only required the very first time
 
 ```
 npm run build
+```
 
+#### 6. Run Eleventy
+
+```
 npm run start
 ```
