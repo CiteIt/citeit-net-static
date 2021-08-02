@@ -28,6 +28,12 @@
         </iframe>
       </div>
 
+      <!--div class="video-container">
+        <div class="youtube" data-embed="HzLim9WQHXU">
+          <div class="play-button"></div>
+        </div>
+      </div-->
+
         <section class="bg-white overflow-hidden">
           <div class="relative max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 lg:mt-16">
             <div id="callout-quote-1" class="mt-10 sm:w-full lg:w-2/3 p-4 border bg-yellow-200 lg:absolute lg:left-24 lg:-top-20 animate-pulse"
@@ -222,12 +228,19 @@
 
     <div class="try homeWidth">
       <h3 class="try mt-2 mb-3 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Try the WordPress Plugin</h3>
-      <iframe src="https://www.youtube.com/embed/eIwlo7nQr0g" 
+      <!--iframe src="https://www.youtube.com/embed/eIwlo7nQr0g" 
           width="560" 
           height="315" 
           frameborder="0" 
           allowfullscreen="allowfullscreen">
-      </iframe>
+      </iframe-->
+
+      <div class="video-container">
+        <div class="youtube" data-embed="eIwlo7nQr0g">
+          <div class="play-button"></div>
+        </div>
+      </div>
+
       <div class="align_right"><a target="_blank" class="underline" href="https://pages.citeit.net/2020/08/10/how-to-use-the-demo-citeit-net-site/">Video Transcript</a></div><br />
       <a href="https://demo.citeit.net/" class="myButton margin_top_negative">Test-Drive on Demo Site</a>
     </div>
@@ -274,6 +287,42 @@
     
 
     </main>
+
+<script>
+( function() {
+
+	var youtube = document.querySelectorAll( ".youtube" );
+	
+	for (var i = 0; i < youtube.length; i++) {
+		
+		var source = "https://img.youtube.com/vi/"+ youtube[i].dataset.embed +"/sddefault.jpg";
+		
+		var image = new Image();
+				image.src = source;
+				image.addEventListener( "load", function() {
+					youtube[ i ].appendChild( image );
+				}( i ) );
+		
+				youtube[i].addEventListener( "click", function() {
+
+					var iframe = document.createElement( "iframe" );
+
+							iframe.setAttribute( "frameborder", "0" );
+							iframe.setAttribute( "allowfullscreen", "" );
+							iframe.setAttribute( "src", "https://www.youtube.com/embed/"+ this.dataset.embed +"?rel=0&showinfo=0&autoplay=1" );
+
+							this.innerHTML = "";
+							this.appendChild( iframe );
+				} );	
+	};
+	
+} )();
+</script>
+
+
+
+
+
   <!--/div-->
   <!--/div-->
 
