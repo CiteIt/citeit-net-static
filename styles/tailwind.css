@@ -602,9 +602,42 @@ div.inspired_by {
 
 }
 
+.align_right {
+  width: 550px !important;
+  text-align: right;
+}
+
 .copyright {
     
 }
+
+.margin_top_negative {
+  margin-top: -30px;
+  margin-bottom: 15px;
+}
+
+.myButton {
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+        
 
 /*************************** Width: 1200px ******************************/
 
@@ -686,8 +719,10 @@ div.source_url {
 ul#footer > li {
   display:list-item !important;
   margin-left: 70px;
-
 }
+
+
+
 
 
 }
