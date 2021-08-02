@@ -624,94 +624,91 @@ div.inspired_by {
 	position:relative;
 	top:1px;
 }
-
         
 
 /*************************** Width: 1200px ******************************/
 
 @media only screen and (max-width: 1200px) {
-iframe.youtube {
-  width: 320px !important;
-  height: 185px !important;
-}
+    iframe.youtube {
+      width: 320px !important;
+      height: 185px !important;
+    }
 }
 
 /*************************** Width: 768px ******************************/
 
 @media only screen and (max-width: 768px) {
-div#nothing_is-more_certainly p {
-  width:100%;
-}
-iframe.youtube {
-  width: 320px !important;
-  height: 185px !important;
-}
+
+    div#nothing_is-more_certainly p {
+      width:100%;
+    }
+    iframe.youtube {
+      width: 320px !important;
+      height: 185px !important;
+    }
 }
 /*************************** Width: 425px ******************************/
 
 @media only screen and (max-width: 425px) {
-blockquote  {
-  width: 95% !important;
-}
-div.code {
-  width: 95% !important;
-  max-width: 95% !important;
-  padding-left: 20px;
-  font-size: 65%;
-  margin-bottom: 20px;
-}
-div#nothing_is-more_certainly{
-  width:85% !important;
-}
-img.wiki-photo {
-  height: 150px !important; 
-}
-div.citeit_source {
-  width: 1%;
-}
-ul#footer > li {
-  display: list-item;
-  margin-left: 70px;
-  margin-bottom: 30px;
-  width: auto;
-  *display: inline;
-  /* this fix is needed for IE7- */
-}
-nav#media_types {
-  display: none;
-}
-#rabbi-david-wolpe-intro {
-  padding-top: 15px;
-  clear: both;
-}
-div.up-arrow {
-  width: 95% !important;
-  clear: both;
-}
-div#nothing_is-more_certainly p {
-  width:100%;
-}
-iframe#iframe_video {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
 
-a.blue {
-  background-color: #d8e7f2;
-}
-div.source_url {
-  font-size: 250%;
-}
+    blockquote  {
+      width: 95% !important;
+    }
+    div.code {
+      width: 95% !important;
+      max-width: 95% !important;
+      padding-left: 20px;
+      font-size: 65%;
+      margin-bottom: 20px;
+    }
+    div#nothing_is-more_certainly{
+      width:85% !important;
+    }
+    img.wiki-photo {
+      height: 150px !important; 
+    }
+    div.citeit_source {
+      width: 1%;
+    }
+    ul#footer > li {
+      display: list-item;
+      margin-left: 70px;
+      margin-bottom: 30px;
+      width: auto;
+      *display: inline;
+      /* this fix is needed for IE7- */
+    }
+    nav#media_types {
+      display: none;
+    }
+    #rabbi-david-wolpe-intro {
+      padding-top: 15px;
+      clear: both;
+    }
+    div.up-arrow {
+      width: 95% !important;
+      clear: both;
+    }
+    div#nothing_is-more_certainly p {
+      width:100%;
+    }
+    iframe#iframe_video {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
-ul#footer > li {
-  display:list-item !important;
-  margin-left: 70px;
-}
+    a.blue {
+      background-color: #d8e7f2;
+    }
+    div.source_url {
+      font-size: 250%;
+    }
 
-
-
-
+    ul#footer > li {
+      display:list-item !important;
+      margin-left: 70px;
+    }
 
 }
 
