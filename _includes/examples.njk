@@ -141,7 +141,7 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 <a id="wikipedia"></a>
 <br /><br />
 
-<h3 class="mt-7" style="font-size: 1.8em; font-weight: bold;">Wikipedia Citations</h3><br />
+<h3 class="mt-7" style="font-size: 1.8em; font-weight: bold;">Wikipedia Citations <a href="#wikipedia">#</a></h3><br />
 
 <h4 style="font-size: 1.3em; font-weight: bold;">Article Popups</h4>
 <p>Wikimedia already has <strong>contextual popups</strong> which appear when a reader mouses over a linked article.</p>
@@ -164,10 +164,10 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 </picture>
 
 <strong>Example</strong>: Proposed <a class="underline" target="_blank" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Ruth_Bader_Ginsburg">Ruth Bader Gingsburg Wikipedia article</a> with CiteIt Contextual Popup
+<a id="wikipedia-samples">#</a>
 <br />
 <br />
-<br />
-<h4 style="font-size: 1.6em; font-weight: bold;">Sample Wikipedia Articles</h4>
+<h4 style="font-size: 1.6em; font-weight: bold;">Sample Wikipedia Articles <a href="#wikipedia-samples">#</a></h4>
 <p>Click on an image below to view <strong>sample Wikipedia articles</strong> that feature contextual quotations.</p>
 <br />
 <div class="feature">
@@ -253,13 +253,12 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 
 <br style="clear:both" />
 <!--p class="mt-7"><strong><a class="underline highlight" href="https://pages.citeit.net/2020/11/02/open-source-project-seeks-machine-learning-expertise-for-new-wikipedia-citation-feature/">Machine Learning Volunteer Wanted</a></strong> to help convert existing Wikipedia footnotes to contextual citations.</p-->
-
-<br /><br />
 <a id="youtube"></a>
+<br /><br />
 
-<h3 style="font-size: 1.8em; font-weight: bold;">YouTube Citations</h3>
+<h3 style="font-size: 1.8em; font-weight: bold;">YouTube Citations <a href="#youtube">#</a></h3>
 <br />
-<div class="wp-block-image"><figure class="alignright size-large is-resized">
+<!--div class="wp-block-image"><figure class="alignright size-large is-resized">
 <picture>
     <source srcset="/assets/images/James_Burke_(historian).webp" type="image/webp">
     <source srcset="/assets/images/James_Burke_(historian).jpg" type="image/jpeg">
@@ -278,9 +277,12 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 <span class="code"><strong>HTML code:</strong></span>
 <div class="code"><strong>&lt;blockquote cite="https://youtu.be/1NqRbBvujHY?t=398"&gt;</strong>Now, they got these scrolls, either because the local scholars wrote them or because they had a rather crafty law. See, if you came to Alexandria on a boat and you owned a book you had to lend it to the library to be copied. And sometimes the copies were so good the owners went off with the fakes and the library kept the original.<strong>&lt;/blockquote&gt;</strong></div>
 
-<br />
+<br /-->
 <h4 style="font-size: 1.3em; font-weight: bold;">Malcolm Gladwell Interview: "Westerns"</h4>
-<p><strong>HTML Formatting is allowed</strong> within a citation, so long as the <strong>plain-text version matches the original</strong> quote's plain-text version.</p>
+
+<p>Consider how adding the video's YouTube URL to the blockquote's cite tag allows the <a class="underline" href="/code/developers/">CiteIt.net javascript library</a> to 
+<strong>automatically embed</strong> the video and <strong>locate the surrounding transcript</strong> (if a <strong>matching transcript</strong> is found).  &nbsp;&nbsp;<br /><span class="highlight">↓ Click: "Expand: Show Video Clip" ↓</span></p>
+<br />
 
 <p class="mt-8">Here is a quotation from Joe Rogan's interview with <strong>Malcolm Gladwell</strong>.</p>
 
@@ -303,7 +305,8 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 </ol>
 </blockquote>
 <br />
-<span class="code"><strong>HTML code:</strong></span>
+<p><strong>HTML Formatting</strong> (such as bold and italics)<strong> is allowed</strong> within a citation, so long as the <strong>plain-text version matches the original</strong> quote's plain-text version.</p>
+<br /><span class="code"><strong>HTML code:</strong></span>
 <div class="code">
 <strong>&lt;blockquote cite="https://youtu.be/OnEjzmR9Hvw?t=231"&gt;</strong><br />
 &lt;ol class="num"&gt;<br />
@@ -318,7 +321,7 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 
 <a id="twitter"></a>
 <br /><br />
-<h3 style="font-size: 1.8em; font-weight: bold;">Twitter</h3>
+<h3 style="font-size: 1.8em; font-weight: bold;">Twitter <a href="#twitter">#</a></h3>
 <br /><p>Here is an a example of what <strong>twitter</strong> could look like <strong>if a quote were linked to its source</strong> with a contextual popup.</p>
 
 <div class="tweet sm:w-full md:w-2/3 lg:w-2/3">
@@ -340,14 +343,15 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 
 <a id="audio"></a>
 <br /><br />
-<h3 style="font-size: 1.8em; font-weight: bold;">Audio</h3>
+<h3 style="font-size: 1.8em; font-weight: bold;">Audio <a href="#audio">#</a></h3>
 
 <br /><p>I would like to add support for audio-citations, especially for <strong><a class="underline" target="_blank" href="https://www.openpolitics.com/tag/transcribe/" title="List of Resources about Transcription">transcription</a> of podcasts and radio</strong>.</p><br />
 
 <p><a class="underline" href="https://www.openpolitics.com/tim/" target="_blank">Contact me</a> if you are interested in contributing to this portion of the app.</p>
+<a id="sample-code"></a>
 <br /><br />
 
-<h3 style="font-size: 1.8em; font-weight: bold;">Sample Code</h3>
+<h3 style="font-size: 1.8em; font-weight: bold;">Sample Code <a href="#sample-code">#</a></h3>
 <p>These examples depend upon the <a class="underline" href="https://pages.citeit.net/sample-code/examples.html">CiteIt <strong>javascript library</strong></a> being installed on the quote's webpage.</p>
 
 <ul class="disc">
