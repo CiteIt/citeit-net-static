@@ -641,11 +641,11 @@ html {
 
 .youtube {
 	background-color: #000;
-	margin-bottom: 30px;
+	/* margin-bottom: 30px; */
 	position: relative;
-	padding-top: 56.25%;
-	overflow: hidden;
-	cursor: pointer;
+	/* padding-top: 56.25%;
+	overflow: hidden; */ 
+	cursor: pointer; 
 }
 .youtube img {
 	width: 100%;
