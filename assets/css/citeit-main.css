@@ -72,7 +72,13 @@ blockquote {
   h4 {
     margin: 10px 0px 15px; 0px;
   }
+
+  a.anchor {
+    color: lightskyblue;
+    font-size: 80%;
+  }
   
+
   span.code {
     color: #2666bb;
     font-weight: 400;
