@@ -1,4 +1,18 @@
-_site/
+_site/about/
+_site/assets/
+_site/code/
+_site/demo/
+_site/demo_copy/
+_site/editor/
+_site/js/
+_site/test/
+_site/try/
+_site/demo copy/
+_site/try copy/
+_site/try2/
+_site/z.try/
+_site/index.html
+
 _tmp/
 .DS_Store
 node_modules/
