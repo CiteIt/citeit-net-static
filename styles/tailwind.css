@@ -420,6 +420,13 @@ q#sample-quote {
 div#todo {
   color: #545de9 !important;
 }
+div.warning {
+  border: 2px solid #bbb;
+  background-color: #FF372E;
+  color: white;
+  padding: 20px;
+}
+
 ul#progress_list {
   margin-left: 25px;
 }
