@@ -422,7 +422,7 @@ div#todo {
 }
 div.warning {
   border: 2px solid #bbb;
-  background-color: #FF372E;
+  background-color: red;
   color: white;
   padding: 20px;
 }
