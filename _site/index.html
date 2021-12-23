@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      CiteIt - Building trust in media
+    </title>
+    <meta charset="UTF-8"/>
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/style.css?v=1640227444710"  />
+
+    <script src="/assets/js/citeit-main.js"></script>
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <script src="/js/alpine.js?v=1640227444710"></script>
+
+      <!-- CiteIt Javascript Dependencies
+      - jQuery: manipulate Dom: 
+      - query api.CiteIt.net
+      - download JSON to hidden citeit_container div
+      - add arrows and popup links to q tags and blockquotes
+
+  1) jQuery -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"   
+	  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   
+	  crossorigin="anonymous">
+  </script>
+
+  <!-- 2) jQuery Migrate: Used to migrate jQuery: https://github.com/jquery/jquery-migrate -->
+  <script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js" 
+	  integrity="sha256-SOuLUArmo4YXtXONKz+uxIGSKneCJG4x0nVcA0pFzV0=" 
+	  crossorigin="anonymous">
+  </script>
+
+  <!-- 3) Generate q-tag Popup -->
+  <script   
+	  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   
+	  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   
+	  crossorigin="anonymous">
+  </script> 
+
+  <!-- 4) Calculate JSON Hash values using sha256 library -->
+  <script src='/assets/wordpress/plugins/Citeit.net/lib/forge-sha256/build/forge-sha256.min.js' defer></script>
+
+  <!-- 5) jsVideoUrlParser: Detect Domain: Determine if an Embed code can be use: YouTube, Vimeo, Soundcloud -->
+  <script src='/assets/wordpress/plugins/CiteIt.net/lib/jsVideoUrlParser/dist/jsVideoUrlParser.min.js' defer></script>
+
+  <!--CSS Styles: CiteIt & JQuery Popup Window -->
+  <link rel='stylesheet' id='jQuery-ui'  href='/assets/wordpress/plugins/CiteIt.net/lib/jquery-ui-1.12.1/jquery-ui.min.css' type='text/css' media='all' />
+  <link rel='stylesheet' id='CiteIt-css'  href='/assets/wordpress/plugins/CiteIt.net/css/quote-context-style.css' type='text/css' media='all' />
+  
+  <!-- 6) Main CiteIt Javascript Code: Download JSON & Create Popup windows and Expanding Arrows  -->
+  <script src='/assets/wordpress/plugins/Citeit.net/js/versions/0.4/CiteIt-quote-context.js' defer></script>
+
+  <!-- hide Tiny MCE -->
+  <!--script src="https://cdn.tiny.cloud/1/scnw5ns1yumqe042c4r7c55bwser40g3f4k1h15lq07aqpmq/tinymce/4/tinymce.min.js" referrerpolicy="origin"></script-->
+
+  <!-- Bigfoot footnotes: http://www.bigfootjs.com/ -->
+  <script src="/assets/js/bigfoot/dist/bigfoot.min.js" defer></script>
+  <link rel="stylesheet" href="/assets/js/bigfoot/dist/bigfoot-default.css" />
+
+  <!-- Lazy Load Images -->
+  <script src="/assets/js/lazysizes.min.js" async=""></script>
+
+
+  
+
+  </head>
+  <body>
+    
+    <nav class="bg-white"  x-data="{ open: false }">
+      <div id="building_trust" class="max-w-7xl m-auto flex justify-between items-center">
+        <div class="py-4">
+          <div class="ml-2 sm:ml-4 md:ml-8">
+              <a class="" href="/">
+                
+                <div class="flex">
+                  <picture>
+                      <source srcset="/assets/images/CiteIt-logo-C.webp" type="image/webp">
+                      <source srcset="/assets/images/CiteIt-logo-C.png" type="image/png">
+                      <img src="/assets/images/CiteIt-logo-C.png" alt="CiteIt logo" width="56" height="56">
+                  </picture>
+
+                  <span class="mt-2 ml-4 text-md font-bold font-header text-gray-900">CiteIt.net - Building trust in media</span>
+                </div>
+              </a>
+          </div>
+        </div>
+        <ul class="hidden md:flex justify-between items-center space-x-10 mr-8">
+          
+            <li>
+              <a href="/" class="font-medium font-header text-gray-500 hover:text-gray-900 whitespace-no-wrap">
+                Home
+              </a>
+            </li>
+          
+            <li>
+              <a href="/demo" class="font-medium font-header text-gray-500 hover:text-gray-900 whitespace-no-wrap">
+                Demos
+              </a>
+            </li>
+          
+            <li>
+              <a href="/try" class="font-medium font-header text-gray-500 hover:text-gray-900 whitespace-no-wrap">
+                Try CiteIt!
+              </a>
+            </li>
+          
+            <li>
+              <a href="https://pages.citeit.net/" class="font-medium font-header text-gray-500 hover:text-gray-900 whitespace-no-wrap">
+                Blog
+              </a>
+            </li>
+          
+            <li>
+              <a href="/code" class="font-medium font-header text-gray-500 hover:text-gray-900 whitespace-no-wrap">
+                Code
+              </a>
+            </li>
+          
+            <li>
+              <a href="/about" class="font-medium font-header text-gray-500 hover:text-gray-900 whitespace-no-wrap">
+                About
+              </a>
+            </li>
+          
+        </ul>
+        <div class="flex md:hidden mr-2 sm:mr-4">
+          <!-- Mobile menu button -->
+          <button x-on:click="open = !open"
+            class="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-blue-400 hover:bg-gray-700 focus:outline-none" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <!-- Icon when menu is closed. -->
+            <!--
+              Heroicon name: menu
+
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <svg class="h-6 w-6" :class="{ 'hidden': open, 'block': !open }"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <!-- Icon when menu is open. -->
+            <!--
+              Heroicon name: x
+
+              Menu open: "block", Menu closed: "hidden"
+            -->
+            <svg class="h-6 w-6" :class="{ 'hidden': !open, 'block': open }"
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="lg:hidden" :class="{ 'hidden': !open, 'block': open }">
+        <div class="pt-2 pb-3 space-y-1">
+        
+
+            <a href="/" class="border-transparent font-header text-gray-900 hover:bg-gray-900 hover:border-blue-400 hover:text-blue-400 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                Home
+            </a>
+        
+
+            <a href="/demo" class="border-transparent font-header text-gray-900 hover:bg-gray-900 hover:border-blue-400 hover:text-blue-400 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                Demos
+            </a>
+        
+
+            <a href="/try" class="border-transparent font-header text-gray-900 hover:bg-gray-900 hover:border-blue-400 hover:text-blue-400 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                Try CiteIt!
+            </a>
+        
+
+            <a href="https://pages.citeit.net/" class="border-transparent font-header text-gray-900 hover:bg-gray-900 hover:border-blue-400 hover:text-blue-400 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                Blog
+            </a>
+        
+
+            <a href="/code" class="border-transparent font-header text-gray-900 hover:bg-gray-900 hover:border-blue-400 hover:text-blue-400 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                Code
+            </a>
+        
+
+            <a href="/about" class="border-transparent font-header text-gray-900 hover:bg-gray-900 hover:border-blue-400 hover:text-blue-400 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
+                About
+            </a>
+        
+        </div>
+      </div>
+    </nav>
+    <main class="mt-4 mx-auto max-w-7xl px-4 sm:px-6 ">
+        
+      <div class="top_pic_slogan  lg:grid lg:grid-cols-12 lg:gap-8">
+
+        <div id="building-trust" class="md:mx-left lg:col-span-12 lg:text-left">
+          <h1>
+            <span class="mt-1 block text-4xl tracking-tight font-extrabold sm:text-5xl">
+              <span class="block font-header text-gray-900">Building trust in media</span>
+            </span>
+          </h1>
+          <p id="citeit-description" class="mt-3 mb-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+            CiteIt is developing new <span class="text-green-bright font-extrabold">digital tools</span> that help <span class="text-red-light font-extrabold">combat misinformation</span> and <span class="text-red-light font-extrabold">selective quotations</span>.
+            These tools show the context surrounding the quoted media in order to build trust and understanding.
+          </p>
+
+            <div class="video-caption" >(Watch our video to learn more)</div>
+        </div>
+
+      </div>
+        
+
+      <div class="video-container">
+        <iframe 
+            id="iframe_video" class="iframe_video" 
+            src="https://www.youtube.com/embed/HzLim9WQHXU"
+            title="YouTube video player" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+
+      <!--div class="video-container">
+        <div class="youtube" data-embed="HzLim9WQHXU">
+          <div class="play-button"></div>
+        </div>
+      </div-->
+
+        <section class="bg-white overflow-hidden">
+          <div class="relative max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8 lg:mt-16">
+            <div id="callout-quote-1" class="mt-10 sm:w-full lg:w-2/3 p-4 border bg-yellow-200 lg:absolute lg:left-24 lg:-top-20 animate-pulse"
+                >
+                Click on text in blue box below to see the quote in context.
+            </div>
+
+            <div class="relative lg:flex lg:items-center">
+                <div class="relative mt-16 lg:ml-10 lg:order-2">
+                    <svg class="absolute top-0 left-0 transform -translate-x-4 -translate-y-8 h-12 w-12 text-blue-200 opacity-100" stroke="currentColor" fill="none" viewBox="0 0 144 144" aria-hidden="true">
+                        <path stroke-width="4" d="M41.485 15C17.753 31.753 1 59.208 1 89.455c0 24.664 14.891 39.09 32.109 39.09 16.287 0 28.386-13.03 28.386-28.387 0-15.356-10.703-26.524-24.663-26.524-2.792 0-6.515.465-7.446.93 2.327-15.821 17.218-34.435 32.11-43.742L41.485 15zm80.04 0c-23.268 16.753-40.02 44.208-40.02 74.455 0 24.664 14.891 39.09 32.109 39.09 15.822 0 28.386-13.03 28.386-28.387 0-15.356-11.168-26.524-25.129-26.524-2.792 0-6.049.465-6.98.93 2.327-15.821 16.753-34.435 31.644-43.742L121.525 15z" />
+                    </svg>
+                    
+                    <div class="text-lg leading-9 font-medium text-gray-900 lg:text-xl">
+                        <div id="nothing_is-more_certainly">
+                            <p class="bg-blue-300 p-4 border bg-opacity-60 cursor-pointer hover:bg-blue-300 lg:p-8 shadow">
+                                <q cite="https://avalon.law.yale.edu/19th_century/jeffauto.asp">Nothing is more certainly written in the book of fate than that these people are to be free.</q>
+                            </p>
+                        </div>
+                    </div>
+
+                    <footer class="mt-8">
+                        <div class="flex">
+                            <div class="ml-10 lg:ml-10">
+                                <div class="text-base font-semibold text-gray-900">Thomas Jefferson, &nbsp; <a class="underline" href="https://avalon.law.yale.edu/19th_century/jeffauto.asp#:~:text=Nothing%20is%20more%20certainly%20written%20in%20the%20book%20of%20fate%20than%20that%20these%20people%20are%20to%20be%20free.">Autobiography</a></div>
+                                <div class="text-base font-medium text-gray-900">Founding Father of USA &nbsp;<br /> <b>Learn More</b>: <a target="_blank" class="underline" href="https://pages.citeit.net/2018/01/06/cherry-picked-quotations-on-the-jefferson-memorial/#in-defense-of-jefferson">In Defense of Jefferson</a> </div>
+                            </div>
+                        </div>
+                    </footer>
+
+                </div>
+              </div>
+          </div>  
+        </section>
+      
+
+
+<a id="wikipedia"></a>
+
+<h3 class="mt-7 mb-3 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Why Start with Wikipedia? <a class="anchor" href="#wikipedia">#</a></h3>
+<div class="mb-15" id="wikipedia_logo" style="float:right">
+  <img id="wikipedia-logo" style="float:right; margin:30px 30px 0px 30px" src="/assets/images/Wikipedia-logo-simple.svg" alt="Wikipedia" width="200" height="200" /><br />
+  <a style="margin-top: -10px" href="https://en.wikipedia.org/wiki/File:Wikipedia-logo-simple.svg">Wikipedia logo</a>
+</div>
+
+<h4 class="mt-7 mb-3 text-xl leading-8 font-extrabold font-header tracking-tight text-green-bright sm:text-2xl">Future Goal: Journalism &amp; Academia</h4>
+
+<p>My goal is to bring contextual citations to <strong>Journalism</strong> and <strong>Academia</strong>, but I expect I will need to <strong>postpone this goal</strong> until after I:</p>
+<ul class="disc">
+  <li>add <strong>features</strong> to CiteIt and make it more <strong>robust</strong></li>
+  <li>convince the <strong>publishers/editors</strong> to use CiteIt</li>
+  <li>get the <strong>tech people</strong> in publishing to incorporate CiteIt in their publishing software</li>
+  <li><strong>teach the journalists/academics</strong> how to build the creation of contextual citations into their workflow.</li>
+</ul>
+<br /><br />
+
+
+<p>My currrent <strong class="text-green-bright">strategy</strong> is to <strong class="text-green-bright">convert the English-language Wikipedia articles</strong> to contextual citations as a <strong>showcase</strong> of what would be possible in journalism and academia.</p>
+<br /><br />
+
+<!--h4 class="mt-7 mb-3 text-xl leading-8 font-extrabold font-header tracking-tight text-green-bright sm:text-2xl">Wikipedia</h4>
+<ul class="disc">
+<li>Wikipedia is already has a huge base of citations that can be upgraded to CiteIt's contextual citations.  </li>
+<li>Wikipedia articles can be downloaded without asking for permission.</li>
+<li>Wikipedia could serve as a showcase of what is possible to journalists and academics.</li>
+</ul>
+<br /><br /-->
+
+<a id="wikipedia-samples"></a>
+
+<h3 class="mt-7 mb-3 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Sample Wikipedia Articles <a class="anchor" href="#wikipedia-samples">#</a></h3>
+<p><strong class="text-green-bright">Click on an image</strong> below to view <strong>sample Wikipedia articles</strong> that feature contextual quotations.</p>
+<br />
+<div class="feature">
+  <a href="https://demo-sites.citeit.net/en.wikipedia.org/wiki/Inauguration_of_John_F._Kennedy" target="_blank">
+  <picture>
+      <source srcset="/assets/images/john-f-kennedy-cropped.webp" type="image/webp">
+      <source srcset="/assets/images/john-f-kennedy-cropped.png" type="image/png">
+      <img src="/assets/images/john-f-kennedy-cropped.png" class="wiki-photo lazyload" loading="lazy" alt="John F. Kennedy Portrait" />
+  </picture></a>
+  <a class="underline" href="https://demo-sites.citeit.net/en.wikipedia.org/wiki/Inauguration_of_John_F._Kennedy" target="_blank">John F. Kennedy</a>
+</div>
+
+<div class="feature">
+  <a href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Ruth_Bader_Ginsburg" target="_blank">
+  <picture>
+      <source srcset="/assets/images/Ruth_Bader_Ginsburg_2016_portrait.webp" type="image/webp">
+      <source srcset="/assets/images/Ruth_Bader_Ginsburg_2016_portrait.jpg" type="image/jpeg">
+      <img src="/assets/images/Ruth_Bader_Ginsburg_2016_portrait.jpg" class="wiki-photo lazyload" loading="lazy" alt="Ruth Bader Ginsburg Portrait"  />
+  </picture></a>
+  <a class="underline" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Ruth_Bader_Ginsburg" target="_blank">Ruth Bader Ginsburg</a>
+</div>
+
+<div class="feature">
+  <a href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Hillary_Clinton" target="_blank">
+  <picture>
+      <source srcset="/assets/images/hillary-clinton.webp" type="image/webp">
+      <source srcset="/assets/images/hillary-clinton.jpg" type="image/jpeg">
+      <img src="/assets/hillary-clinton.jpg" class="wiki-photo lazyload" loading="lazy" alt="Hillary Clinton photo by Gage Skidmore" >
+  </picture></a>
+  <a class="underline" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Hillary_Clinton" target="_blank">Hillary Clinton</a>
+</div>
+
+<div class="feature">
+  <a href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Donald_Trump" target="_blank">
+  <picture>
+      <source srcset="/assets/images/Donald_Trump_official_portrait.webp" type="image/webp">
+      <source srcset="/assets/images/Donald_Trump_official_portrait.jpg" type="image/jpeg">
+      <img src="/assets/images/Donald_Trump_official_portrait.jpg " class="wiki-photo lazyload" loading="lazy" alt="Donald Trump official portrait">
+  </picture></a>
+  <a class="underline" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Donald_Trump" target="_blank">Donald Trump</a>
+</div>
+
+<div class="feature">
+  <a href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Hamlet" target="_blank">
+  <picture>
+      <source srcset="/assets/images/Edwin_Booth_Hamlet_1870.webp" type="image/webp">
+      <source srcset="/assets/images/Edwin_Booth_Hamlet_1870.jpg" type="image/jpeg">
+      <img src="/assets/images/Edwin_Booth_Hamlet_1870.jpg" alt="Wikipedia: Article Popup" loading="lazy" class="lazyload">
+  </picture></a>
+  <a class="underline" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Hamlet" target="_blank">Hamlet</a>
+</div>
+
+<div class="feature">
+  <a href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Pride_and_Prejudice" target="_blank">
+  <picture>
+      <source srcset="/assets/images/pride-and-prejudice.webp" type="image/webp">
+      <source srcset="/assets/images/pride-and-prejudice.png" type="image/png">
+      <img src="/assets/images/pride-and-prejudice.png" class="wiki-photo lazyload" loading="lazy" alt="Pride and Prejudice" >
+  </picture></a>
+  <a class="underline" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Pride_and_Prejudice" target="_blank">Pride and Prejudice</a>
+</div>
+
+
+<div class="feature">
+  <a href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Manned_Orbiting_Laboratory" target="_blank">
+  <picture>
+      <source srcset="/assets/images/480px-MOL_USAF.webp" type="image/webp">
+      <source srcset="/assets/images/480px-MOL_USAF.png" type="image/png">
+      <img src="/assets/images/480px-MOL_USAF.png" alt="Manned Orbital Laboratory" loading="lazy" class="lazyload">
+  </picture></a>
+  <a class="underline" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Manned_Orbiting_Laboratory" target="_blank">Manned Orbital Laboratory</a>
+</div>
+
+<div class="feature">
+  <a href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Syphilis" target="_blank">
+  <picture>
+      <source srcset="/assets/images/Syphilis.webp" type="image/webp">
+      <source srcset="/assets/images/Syphilis.jpg" type="image/jpeg">
+      <img src="/assets/images/Syphilis.png" class="wiki-photo lazyload" loading="lazy" alt="Syphilis" >
+  </picture></a>
+  <a class="underline" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Syphilis" target="_blank">Syphilis</a>
+</div>
+
+<br style="clear:both" />
+<a name="video"></a>
+<h3 class="mt-8 text-3xl leading-8 leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Video <a href="#video" class="anchor" name="video">#</a></h3>
+<h4 class="text-xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-xl">1) Expanding Blockquote:</h4>
+<blockquote cite="https://youtu.be/DH0VqlPnzpE?t=1608" data-citeit-citing-url="https://pages.citeit.net/2021/12/14/sample-contextual-video-tyler-cowen/"><p>But there&rsquo;s something about social media that seems to act to <strong>strip away context</strong>, and people who write for mainstream media will tell you this: &ldquo;Well, I wrote an article that ended up on Facebook in a very different setting than how I intended it to be read.&rdquo; And you can say all you want &mdash; all the hyperlinks are there, but people don&rsquo;t click through.</p>
+<p>What do you think is the intellectual future of a belief system based on <strong>commentary on commentary on commentary</strong>, now injected into a world with this technology that so strips away context and just gives you some bald statement of something?</p>
+<p>WOLPE: I think that <strong>Judaism has the same problem that any thick civilization has</strong> in a world in which, as you say, <strong>context is stripped away</strong>. And not only is context stripped away, but attention to any one thing is scanter and less than it used to be.</p>
+</blockquote>
+<p>&nbsp;</p>
+<h4 class="text-xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-xl">2) Contextual Popup:</h4>
+<p style="text-align: center;"><span class="highlight">&darr; Click grey-blue link below to View Popup</span></p>
+<p class="mb-2"><b>Malcolm Gladwell</b></p>
+<p>One point Gladwell made was that <q cite="https://youtu.be/cE1g3GJCq7o?t=2587" data-citeit-citing-url="https://pages.citeit.net/2021/12/14/sample-contextual-video-tyler-cowen/">there are no bad neighborhoods there only bad blocks</q>. By this Gladwell meant that <strong>crime is concentrated in small areas</strong> (blocks), which require a concentrated response, rather than a <strong>blanket &ldquo;stop and frisk&rdquo;</strong> policy that affects whole neighborhoods.</p>
+<p>&nbsp;</p>
+
+<br style="clear:both" />
+<a id="how"></a>
+
+    <div class="learn_more homeWidth">
+      <h3 id="how_citeit_works" class="learn_more mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">How CiteIt Works <a class="anchor" href="#how">#</a></h3>
+      
+      <p class="mt-7"><strong>Authors opt-in</strong> to CiteIt by:</p>
+      <ol class="num">
+        <li>providing a <strong>URL</strong> for the quote they are citing,
+          <ul>
+            <li>
+            <div class="code">
+            &lt;<strong>blockquote <span class="highlight">cite="https://avalon.law.yale.edu/19th_century/jeffauto.asp"&gt;</span></strong><br />
+              Nothing is more certainly written in the book of fate than that these people are to be free.<br />
+            &lt;<strong>/blockquote</strong>&gt;
+            </div>
+
+          </ul>        
+        </li>
+        <li>calling the <strong><a class="underline" href="https://pages.citeit.net/sample-code/">CiteIt webservice</a></strong>, which looks up the quote and <strong>creates a <a class="underline" href="https://read.citeit.net/quote/sha256/0.4/d5/d588c1c9c4acfcd254acc4033b7888e98f21e426214b21f0e07673664e328e39.json">JSON file</a></strong> with the contextual data,</li>
+        <li>installing the CiteIt jQuery library on their website.  (This can be done with the <strong><a class="underline" href="/code/">WordPress plugin</a></strong>)
+          <ul class="disc">
+            <li>This library looks for <strong>&lt;blockquote&gt;</strong> and <strong>&lt;q&gt; tags</strong> that have a <strong>"cite"</strong> attributes,</li>
+            <li>Looks up the contextual <strong><a class="underline" href="https://read.citeit.net/quote/sha256/0.4/d5/d588c1c9c4acfcd254acc4033b7888e98f21e426214b21f0e07673664e328e39.json">JSON file</a></strong> that the webservice just computed,</li>
+            <li>Changes the UI for blockquotes and q tags so that they <strong>expand when clicked on</strong>,</li>
+            <li>Injects the quote's contextual text from the webservice's JSON data into the popup window or sections surrounding the quote.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <br />
+      <h4 class="text-2xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Don't bother with the unserious</h4>
+      <ul class="disc mt-10">
+        <li>CiteIt does <i>not</i> try to locate sources for <strong>authors who don't provide citations</strong>.</li>
+        <li>CiteIt's approach is that if you want your <strong>readers to take you seriously</strong>, you need to cite sources with CiteIt!</li>
+        <li>Using CiteIt signals to your readers that you are <strong>holding yourself to a higher standard</strong> and want your readers to <strong>understand more about your sources</strong>.</li>
+      </ul>
+    </div>
+    <a id="try"></a>
+
+    <div class="try homeWidth">
+
+      <h3 class="try mt-2 mb-3 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Try the WordPress Plugin <a class="anchor" href="#try">#</a></h3>
+      <iframe src="https://www.youtube.com/embed/eojuAKkFmGg" 
+          width="560" 
+          height="315" 
+          frameborder="0" 
+          allowfullscreen="allowfullscreen">
+      </iframe>
+
+      <div class="align_right"><a target="_blank" class="underline" href="http://demo.citeit.net/">Video Transcript</a></div><br />
+      <a href="https://demo.citeit.net/wp-login.php" class="myButton margin_top_negative">Test-Drive on Demo Site</a>
+    </div>
+
+    <div class="learn_more homeWidth">
+      <a id="learn-more"></a>
+
+      <h3 class="learn_more mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Learn More <a class="anchor" href="#learn-more">#</a></h3>
+      <ul class="disc">
+        <li><a class="underline" href="/demo/">More Demo Examples</a></li>
+        <li><a class="underline" href="/try/">CiteIt <strong>WordPress Plugin</strong></a></li>
+        <li>
+          <a class="underline" href="https://meta.wikimedia.org/wiki/User:Timlangeman/sandbox#Proposal_for_adding_Contextual_Citations_to_MediaWiki">Wikipedia proposal</a> | 
+          <a class="underline" href="https://en.wikipedia.org/wiki/Wikipedia:Village_pump_(idea_lab)#Feature_Proposal:_Contextual_Citations" >discussion</a>
+        </li>
+      </ul>
+      <a id="feedback"></a>
+      <br /><br />
+      <h3 class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Your Feeback wanted <a class="anchor" href="#feedback">#</a></h3>
+      <ul class="disc">      
+        <li><a class="underline" href="https://www.openpolitics.com/tim">Email Tim</a></li>
+      </ul>
+    
+    </div>
+
+    
+
+    <div class="inspired_by homeWidth">
+      <a id="ted-nelson"></a>
+      <h3 id="inspired_by" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Inspired by <a class="anchor" href="#ted-nelson">#</a></h3>
+      <ul class="disc">
+        <li><a target="_blank" class="underline" href="https://www.openpolitics.com/articles/ted-nelson-philosophy-of-hypertext.html">Read my article about <strong>Ted Nelson</strong>, which inspired me to create CiteIt.</a> (external link)</li>
+        <li><a target="_blank" class="underline" href="http://www.thetednelson.com/">Ted Nelson website</a></li>
+      </ul>
+      <br /><br />
+      <br /><br /><br />
+    </div>
+    
+    <!--div class="funding lg:w-7/10 md:w-9/10 sm:w-9/10">
+      <a id="funding"></a>
+      <h3 id="funding" class="mt-2 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Funding Ideas <a class="anchor" href="#funding">#</a></h3>
+      <ul class="disc ">
+        <li><strong>I'd love to work on CiteIt full-time</strong> if I can get funding.  Right now I'm considering applying to the <a class="underline" href="https://sloan.org/programs/digital-technology/universal-access-to-knowledge#:~:text=a%20series%20of%20major%20grants%20to,the%20largest%20encyclopedia%20in%20human%20history">Sloan Foundation</a> and the <a class="underline" href="https://knightfoundation.org/programs/journalism/#post-1002:~:text=.%20We%20invest%20in%20efforts%20that,increase%20access%20to%20accurate%2C%20reliable%20information">Knight Foundation</a>.</li>
+        <li>My goal is to <strong>start by "upgrading" Wikipedia's</strong> citations using Wikipedia's large volume of citation data to develop a <strong>test suite</strong>.  I would then like to bring contextual citations to <strong>Journalism</strong> and <strong>Academia</strong> once the needed feature set and bugs have been worked out.</li>
+        <li>I want CiteIt to stay <strong>open source</strong> so that, like Wikipedia, it can reach the most number of people possible and benefit from the <strong>innovation of open collaboration</strong>.  <a class="underline" href="https://www.openpolitics.com/tim/">Contact me</a> if you have ideas on how to make this happen.</li>
+      </ul>
+    
+    </div-->
+    
+
+    </main>
+
+<!--script>
+( function() {
+
+	var youtube = document.querySelectorAll( ".youtube" );
+	
+	for (var i = 0; i < youtube.length; i++) {
+		
+		var source = "https://img.youtube.com/vi/"+ youtube[i].dataset.embed +"/sddefault.jpg";
+		
+		var image = new Image();
+				image.src = source;
+				image.addEventListener( "load", function() {
+					youtube[ i ].appendChild( image );
+				}( i ) );
+		
+				youtube[i].addEventListener( "click", function() {
+
+					var iframe = document.createElement( "iframe" );
+
+							iframe.setAttribute( "frameborder", "0" );
+							iframe.setAttribute( "allowfullscreen", "" );
+							iframe.setAttribute( "src", "https://www.youtube.com/embed/"+ this.dataset.embed +"?rel=0&showinfo=0&autoplay=1" );
+
+							this.innerHTML = "";
+							this.appendChild( iframe );
+				} );	
+	};
+	
+} )();
+</script-->
+
+
+
+
+
+  <!--/div-->
+  <!--/div-->
+
+<!--/div-->
+
+
+
+<div id="nav_footer" class="nav">
+  <ul id="footer">
+    <li><a href="/">Home</a></li>  
+    <li><a href="/demo/">Demos</a></li>
+    <li><a href="/try">Try CiteIt!</a></li>
+    <li><a href="https://pages.citeit.net/  ">Blog</a></li>
+    <li><a href="/code/">Code</a></li>  
+    <li><a href="/code/?tab=volunteer">Volunteer</a></li>
+    <!--li><a href="/about/?tab=faq">FAQ</a></li-->
+    <li><a href="/about/">About</a></li>
+  </ul>
+</div>
+
+<div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
+
+<script>
+
+  // Default Base URL to current URL (www.citeit.net or localhost:8080 )
+  citing_url = document.getElementById('citing_url');
+  if(citing_url != null){
+    document.getElementById('citing_url').value = window.location.href;
+  }
+  
+  // Call CiteIt.net plugin on all q-tags and blockquotes:
+  jQuery(document).ready(function(){
+
+      jQuery('q, blockquote').quoteContext();
+
+  });
+
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-8064103-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-8064103-1');
+</script>
+
+
+
+
+  </body>
+</html>

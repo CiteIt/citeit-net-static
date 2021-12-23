@@ -1179,6 +1179,10 @@ blockquote.quote_text {
   padding: 25px 30px 25px 30px;
 }
 
+blockquote.quote_text p {
+  width: 95%;
+}
+
 div#submission-progress {
   padding-top: 5px;
 }
