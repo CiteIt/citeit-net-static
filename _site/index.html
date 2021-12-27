@@ -8,11 +8,11 @@
     
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
-    <link rel="stylesheet" href="/style.css?v=1640628756947"  />
+    <link rel="stylesheet" href="/style.css?v=1640629781313"  />
 
     <script src="/assets/js/citeit-main.js"></script>
     <link rel="shortcut icon" href="assets/images/favicon.png" />
-    <script src="/js/alpine.js?v=1640628756947"></script>
+    <script src="/js/alpine.js?v=1640629781313"></script>
 
       <!-- CiteIt Javascript Dependencies
       - jQuery: manipulate Dom: 
@@ -509,7 +509,13 @@ rather than a <strong>blanket &ldquo;stop and frisk&rdquo;</strong> policy that 
       <br /><br /><br />
     </div>
 
-   </main>
+    <script>
+      jQuery(document).ready(function(){
+        //jQuery("span.view_on_youtube").addClass("highlight");
+      });
+    </script>
+
+  </main>
 
 
 
@@ -540,6 +546,11 @@ rather than a <strong>blanket &ldquo;stop and frisk&rdquo;</strong> policy that 
   jQuery(document).ready(function(){
 
       jQuery('q, blockquote').quoteContext();
+
+      // Highlight YouTube Expansion
+      setTimeout(function(){
+        jQuery("span.view_on_youtube").addClass("highlight");
+      }, 500);
 
   });
 
