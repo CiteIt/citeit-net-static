@@ -44,8 +44,6 @@ title: Hello
   <ul class="nav">
     <li class="nav-one"><a href="#wordpress" class="current">WordPress</a></li>
     <li class="nav-two"><a href="#developers">Developers</a></li>
-    <li class="nav-three"><a href="#volunteer">Volunteer</a></li>
-    <li class="nav-four last"><a href="#license">Open Source License</a></li>
   </ul>
   <div class="list-wrap">
 
@@ -56,8 +54,10 @@ title: Hello
     <p>The CiteIt Wordpress plugin is the <strong>easiest way to start</strong> experimenting with CiteIt <strong>on your website</strong>.<p>
 
     <!--div class="resp-container"-->
-    <iframe width="853" height="505" src="https://www.youtube.com/embed/eIwlo7nQr0g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/eIwlo7nQr0g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
     <h4 class="mt-10 mb-2" style="font-size: 1.6em; font-weight: bold;">Installation</h4>
 
     <a href="https://download.citeit.net/quote-context/wordpress-plugin/CiteIt.net.zip" class="w-2/5 mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
@@ -155,7 +155,7 @@ rather than parent div</li>
   <div id="developers" class="hide">
     <h3 class="mt-8 mb-4" style="font-size: 1.6em; font-weight: bold;">Developers</h3>
 
-    <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">1) Frontend Sample Code: Basic Html &amp; Javascript</h4>
+    <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">Frontend Sample Code: Basic Html &amp; Javascript</h4>
 
     <p>See simple <strong><a class="underline nonblock" href="https://pages.citeit.net/sample-code/examples.html">sample code</a></strong> that marks up citations and calls the web service.</p>
 
@@ -171,152 +171,13 @@ rather than parent div</li>
       Get Sample Code on GitHub</a>
 
 
-    <br />
-    <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">2) Python API Webservice</h4>
-    <img style="float: right" src="/assets/images/python-logo-master-v3-TM.png" alt="Python logo" width="400" />
-
-    <p>This is the code for the <strong>API server that the javascript clients talk</strong> to when creating a new quote <a class="underline" href="https://read.citeit.net/quote/sha256/0.4/41/4174a04d8a3fc6b30596b940f5264e9a0dfe22cced9070c9cb9c644a17a451da.json">JSON file</a>.</p>
-
-    <p>This program accepts a URL “POST” request</p>
-    <ul class="disc">
-      <li>The program downloads the contents of the POSTED URL and looks for &lt;blockquote cite="URL1"&gt; and &lt;q cite="URL2"&gt; tags.</li>
-      <li>It then downloads the contents of each URL and calculates the context immediately prior and after the quote</li>
-      <li>It saves the results to a SQL-lite or PostgreSQL database (todo)</li>
-      <li>It saves a JSON file to the local filesystem</li>
-      <li>It (optionally) uploads the JSON file up to a Cloud Service</li>
-    </ul>
-
-    <h5 class="mt-10 mb-2" style="font-size: 1.25em; font-weight: bold;">2 Ways to run the webservice:</h5>
-
-    <h6 class="mt-10 mb-2 text-green-700" style="font-size: 1.5em; font-weight: bold;">A) Python</h6>
-    <p>The webservice is written in Python, using the <a class="underline nonblock" href="https://flask.palletsprojects.com/">Flask framework</a>.</p>
-     
-      <a href="https://github.com/CiteIt/citeit-webservice" target="_blank" class="w-1/3 mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
-      Get Python Code on GitHub
-      </a>
-
-     
-    <h6 class="mt-10 mb-2 text-green-700" style="font-size: 1.5em; font-weight: bold;">B) Docker</h6>
-    <div id="attachment_1186" style="width: 380px; float: right" class="wp-caption alignright"><img aria-describedby="caption-attachment-1186" loading="lazy" class="size-medium wp-image-1186" src="https://pages.citeit.net/wp-content/uploads/2019/12/Docker-logo-300x232.png" alt="Docker Logo" width="300" height="232" srcset="https://pages.citeit.net/wp-content/uploads/2019/12/Docker-logo-300x232.png 300w, https://pages.citeit.net/wp-content/uploads/2019/12/Docker-logo-768x594.png 768w, https://pages.citeit.net/wp-content/uploads/2019/12/Docker-logo.png 792w" sizes="(max-width: 300px) 100vw, 300px"><p id="caption-attachment-1186" class="wp-caption-text">Docker Image on <a class="underline nonblock" href="https://hub.docker.com/r/citeit/citeit_webservice">Docker Hub</a></p></div>
-
-    <p>If you don’t want to configure the Python code, you can run the Docker image instead:</p>
-    
-    <a href="https://hub.docker.com/r/citeit/citeit_webservice" target="_blank" class="mb-6 w-1/3 mb-3 flex items-center px-8 py-3 border border-transparent text-base font-medium text-white bg-green-500 hover:bg-blue-700 md:text-lg">
-      Get Docker Hub Image
-    </a>
-
-    <h7 class="mt-10 mb-2" style="font-size: 1.1em; font-weight: bold;">Note: Amazon S3 Dependency</h7>
-    <p>At this point the webservice <strong>uploads the JSON files to <a class="underline nonblock" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html">Amazon's S3 service</a></strong>.</p>
-    <p>If you want to abstract away this dependency on Amazon, I'd be happy for a <strong>contribution that provides alternatives</strong>.</p>
-    <p>(The python code involving Amazon S3 is part of the citation class's <a class="underline nonblock" target="_blank" href="https://github.com/CiteIt/citeit-webservice/blob/master/app/citation.py#LC189:~:text=def%20json_upload(self%2C%20debug%3DFalse)%3A,%23%20Upload%20json%20file%20to%20cloud">json_upload method</a>)</p>
-
-
+   
     <h6 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">Webservice Calls</h6>
     <ul class="disc">
       <li><a class="underline nonblock" href="https://pages.citeit.net/sample-code/">Submit a URL to be Indexed</a></li>
       <li><a class="underline nonblock" href="https://pages.citeit.net/sample-code/text-version.php">"Create Text Version" of HTML page &amp; YouTube transcripts</a></li>
     </ul>
 
-  </div>
-
-  <!-- Volunteer -->
-  <div id="volunteer" class="hide">
-    <h3 class="mb-3" style="font-size: 1.6em; font-weight: bold;">Volunteer</h3>
-
-      <p><a href="https://pages.citeit.net/">CiteIt.net</a> is an open-source project (<a class="underline nonblock" href="/code/?tab=license">MIT license</a>) whose mission to <strong>create a higher standard of citation</strong> is accelerated through the help of volunteers.</p>
-      <p>If you know how to code (especially in Python or Javascript) <a class="underline nonblock" href="https://www.openpolitics.com/tim/">contact Tim</a> to help out.</p>
-      <p><a href="https://trello.com/b/6ymtbpwg/citeit" class="underline">View Trello board</a></p>
-
-      <h4 class="mb-3 text-blue-600" style="font-size: 1.4em; font-weight: bold;">Top Tasks</h4>
-      <div class="wp-block-image">
-      
-      <figure class="alignright size-large is-resized"><img loading="lazy" class="wp-image-1578" src="https://pages.citeit.net/wp-content/uploads/2020/07/wordpress-gutenberg-logo-1024x512.png" alt="" width="256" height="128" srcset="https://pages.citeit.net/wp-content/uploads/2020/07/wordpress-gutenberg-logo-1024x512.png 1024w, https://pages.citeit.net/wp-content/uploads/2020/07/wordpress-gutenberg-logo-300x150.png 300w, https://pages.citeit.net/wp-content/uploads/2020/07/wordpress-gutenberg-logo-768x384.png 768w, https://pages.citeit.net/wp-content/uploads/2020/07/wordpress-gutenberg-logo.png 1280w" sizes="(max-width: 256px) 100vw, 256px"><figcaption>WordPress <a href="https://wordpress.org/gutenberg/">Gutenberg</a></figcaption></figure></div>
-      <p>Here are a few of the <strong>top-priority tasks</strong> you can help with:</p>
-
-      <ol class="num">
-        <li><a class="underline nonblock" href="https://github.com/CiteIt/citeit-wordpress/issues/5">Create WordPress <strong>Gutenberg Block Editor</strong></a> to Replace <a class="underline nonblock" href="https://pages.citeit.net/wordpress-plugin/">old WordPress v4 plugin</a>
-        <ul class="disc">
-            <li>Develop the ability to <a class="underline nonblock" href="https://github.com/CiteIt/citeit-wordpress/issues/5">add metadata</a> to quotes using <a class="underline nonblock" href="http://html5doctor.com/html5-custom-data-attributes/">custom Html attributes</a></li>
-        </ul>
-        </li>
-        <li>Verify Quote before allowing Citation: <strong>Enforce Rules or Flag Suspicious Quotes</strong> that do <strong>not exactly match</strong> the original version, allowing for structured variation:
-        <ul class="disc"><li>Modify Parsing to handle <strong>[C]apitalization:</strong>
-      <ul class="disc"><li>&ldquo;<strong>[T]</strong>his is a quote that was pulled from the middle of a sentence, but capitalized to fit with the new context&rdquo;</li>
-      </ul></li>
-      <li>Allow new <strong>[additional] words</strong> to be added if the word is surrounded by brackets.</li>
-      <li>Modify Parsing to handle <strong>Elipses ..</strong>
-        <ul class="disc"><li>&ldquo;The quote was pulled from a sentence .. and the middle was skipped. This was noted with an ellipse.&rdquo; It would be nice if the <strong>middle of the quote could be expanded.</strong></li>
-        </ul></li>
-      </ul></li>
-      <li><strong>Machine Learning:</strong> Create a script or machine learning program to <a class="underline" href="https://pages.citeit.net/2020/11/02/open-source-project-seeks-machine-learning-expertise-for-new-wikipedia-citation-feature/"><strong>&ldquo;upgrade&rdquo; existing Wikipedia quotes</strong></a> to Contextual Citations</li>
-      <li>Implement <a href="https://web.dev/text-fragments/" class="underline">Google Text fragments</a> in Python if necessary: Allow <strong>unique specification</strong> if phrase occurs multiple times in a document.
-      <ul class="disc"><li>This could be done by specifiying enough of the &ldquo;before&rdquo; and &ldquo;after&rdquo; text to make the phrase unique.</li>
-      </ul></li> 
-      
-      <li><strong>Javascript: Port <a class="underline" href="/code/?tab=developers">Python-based webservice</a> to Javascript</strong>.  The advantage of a javascript-based lookup service is that it could run in the browser and use <a href="https://web.dev/text-fragments/" class="underline">Google's Text-Fragment</a> to specify which instance of a quote to link to.</li>
-      <li>Design an <strong><a class="underline nonblock" href="https://github.com/CiteIt/citeit-webservice/issues/25">interface and Citation Structure for Nested Quotes</a></strong>:
-      <ul class="disc"><li>How does CiteIt have to be modified to allow quotations of quotations, nested multiple levels deep?</li>
-      </ul></li>
-      <li><img loading="lazy" class="wp-image-1581 alignright" src="https://pages.citeit.net/wp-content/uploads/2020/07/yt_logo_rgb_light.png" alt="YouTube Logo" width="199" height="45" srcset="https://pages.citeit.net/wp-content/uploads/2020/07/yt_logo_rgb_light.png 794w, https://pages.citeit.net/wp-content/uploads/2020/07/yt_logo_rgb_light-300x67.png 300w, https://pages.citeit.net/wp-content/uploads/2020/07/yt_logo_rgb_light-768x172.png 768w" sizes="(max-width: 199px) 100vw, 199px">
-      Make YouTube (and other) <strong>transcripts highlight the current word/s</strong> while the recording plays. This will likely require creating a format for an intermediate data structure which stores the start and end times for each word/phrase in the transcript.&nbsp; (<a href="https://github.com/CiteIt/transcript-to-time-mapping/blob/master/scripts/convert_Google_Speech_to_Text.py">example: YouTube Speech-Text API script</a>)</li>
-      <li><a class="underline nonblock" href="https://github.com/CiteIt/citeit-webservice/issues/2">Create a <strong>Standardized Text Version</strong></a> of Every Submitted page. The standardized text version is used to create the <a href="https://read.citeit.net/quote/sha256/0.3/e3/e304937a80d2778436eb2b0cf9f2a69dd036adb6914767c9f3d202aa234620dd.json">contextual JSON file</a> containing the 500 characters before and after the quote
-      <img style="float:right; padding-top: 20px;" src="/assets/images/pdf-logo.png" alt="PDF Support" width="150" />
-      
-      <ul class="disc"><li>from HTML</li>
-      <li>from PDF</li>
-      <li>from Word Doc</li>
-      <li>from Open Ofice</li>
-      <li>from PowerPoint</li>
-      <li>from Image</li>
-      </ul></li>
-      <li><a class="underline nonblock" href="https://github.com/CiteIt/citeit-webservice/issues/24">Modify Document class</a> to <strong>save a copy of the original file</strong> in its original encoding to S3-style storage
-      <ul class="disc"><li><a class="underline nonblock" href="https://github.com/CiteIt/citeit-webservice/issues/23">call archive.org API</a> to <strong>archive the citing and cited pages</strong> if the page is new or the hash has changed
-      <ul class="disc"><li>It would be nice if the archive process didn&rsquo;t slow down the citation process. Perhaps this means that the archive process (which could take several seconds) should be done asynchronously.</li>
-      </ul></li>
-      </ul></li>
-      <li><strong>Setup Tests</strong> to verify that changes to the web service do not break existing quotes.
-      <ul class="disc"><li>Setup CI Server to run tests before Github commits code</li>
-      </ul></li>
-      <li>Add Ability to <strong>Standardize Quotes on Canonical Sources</strong>
-      <ul class="disc"><li>The Bible has multiple versions and translations. Can quotation be done in a way that quotes from different versions and different websites are standardized?</li>
-      </ul></li>
-      <li>Create a streamlined process of uploading audio and <strong>creating transcripts from Google Speech-to-Text</strong>. See work already done in <a class="underline nonblock" href="https://github.com/CiteIt/transcript-to-time-mapping">Git Repo</a>. Example: <a class="underline nonblock" href="https://newbooksnetwork.com/jonathan-steinberg-bismarck-a-life-oxford-up-2011-3/">Otto von Bismark biography</a>. (<a class="underline nonblock" href="https://www.openpolitics.com/tag/transcribe/">Links</a>)</li>
-      <li>Develop a web interface to <strong>crowdsource</strong> the process of <strong>cleaning up auto-generated transcripts.</strong> Would a wiki be of use here?</li>
-      </ol>
-
-      <h4 class="mt-10 mb-2 text-blue-700" style="font-size: 1.5em; font-weight: bold;">Interested?</h4>
-      <p><strong><a class="underline nonblock" href="https://www.openpolitics.com/tim/">Contact Tim</a></strong> if you&rsquo;re interested in helping.</p>
-
-  </div>
-
-  <!-- Future Plans -->
-  <div id="license" class="hide">
-    <h3 class="mb-3" style="font-size: 1.8em; font-weight: bold;">Open Source License</h3>
-    <a class="underline" href="https://opensource.org/licenses/MIT"><img style="float: right" src="/assets/images/OSIApproved_1.png" alt="Open Source Initiative Approved License" width="250" /></a>
-
-    <p>I released the CiteIt client and server code under an <strong>open source license</strong> because I want 
-    the concept of <strong>Contextual Citations</strong> to <strong>spread as widely as possible</strong>.</p>
-
-    <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">What is the <a class="underline" href="https://opensource.org/licenses/MIT">MIT License</a>?</h4>
-    <strong>According to Wikipedia:</strong>
-    <blockquote cite="https://en.wikipedia.org/wiki/MIT_License">The MIT License is a <a class="underline" href="https://en.wikipedia.org/wiki/Permissive_free_software_license">permissive free software license</a> originating at the 
-    <a class="underline" href="https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology">Massachusetts Institute of Technology</a> (MIT) in the late 1980s. As a permissive license, it puts only very limited restriction on reuse and has, therefore, <a class="underline" href="https://en.wikipedia.org/wiki/License_compatibility">high license compatibility</a>.</blockquote>
-
-    <h4 class="mt-10 mb-2 text-blue-600" style="font-size: 1.5em; font-weight: bold;">Commercial-Friendly:</h4>
-    <p>Some people and companies are wary about using <strong>open source</strong> software because <strong><a class="underline nonblock" href="https://opensource.org/licenses/gpl-license">they do not like the GPL's requirement that they make their code revisions open source</a></strong>.</p>
-
-    <p>I wanted to remove this objection to adopting CiteIt, so I chose an <strong>open source</strong> license that <strong>does not require derivate works to be open-sourced</strong>.  Use it as you like.  <span class="">Feel free to sell your derivative works</span> without revealing your source code changes. &nbsp; Just don't sue me! &nbsp;&nbsp;  :-)</p>
-    
-    <h4 class="mt-10 mb-2 text-green-700" style="font-size: 1.5em; font-weight: bold;">The MIT License Text</h4>
-    
-    <p class="copyright mb-2 text-green-700">&copy; Copyright 2021 Tim Langeman</p>
-
-    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-
-    <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-
-    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
- 
   </div>
 
   </div> <!--list-wrap-->
