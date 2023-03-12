@@ -51,7 +51,7 @@ ol.num {
 }
 
 ol.num li.highlight {
-  background-color: yellow;
+  background-color: #edf5ba;
   color: #000;
   font-weight: 800;
 }
@@ -76,7 +76,7 @@ a.footnote {
 }
 
 .green {
-  background-color: #10b981;
+  background-color: #b0efce;
   padding: 3px;
 }
 

@@ -7,7 +7,7 @@
 
 ---
 
-[![JetBrains & PhpStorm](http://jquery.eisbehr.de/lazy/images/git_logo_jb_ps.png)](https://jetbrains.com/phpstorm)  
+[![JetBrains & PhpStorm](https://jquery.eisbehr.de/lazy/images/git_logo_jb_ps.png)](https://jetbrains.com/phpstorm)  
 _This project is friendly supported by [JetBrains](https://jetbrains.com) & [PhpStorm](https://jetbrains.com/phpstorm)!_
 
 ---
