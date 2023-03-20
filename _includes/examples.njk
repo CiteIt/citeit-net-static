@@ -1,4 +1,4 @@
-
+Expanding block
 
 <div class="mt-6 mx-auto max-w-7xl px-4 sm:px-6 ">
     <div class="lg:text-center">
@@ -62,10 +62,18 @@
 
 
 <a id="writing"></a>
-<h3 style="font-size: 1.6em; font-weight: bold;">Writing</h3>
+<h3 style="font-size: 1.6em; font-weight: bold;">1. Writing</h3>
 <br />
 
-<h4 style="font-size: 1.3em; font-weight: bold;">1. Expanding blockquote</h4>
+<h4 style="font-size: 1.3em; font-weight: bold;" class='text-green-bright' >A) Expanding blockquote:</h4>
+
+<h5 style="font-size:1.1em; font-weight: bold;" class='purple-grey'>When to Use:</h5>
+<p>Use Contextual blockquotes when:</p>
+<ul class="disc">  
+  <li><b><u>Larger blocks</u></b> of text are desired.</li>
+  <li>The block forms its <b><u>own paragraph/s</u></b>.</li>
+  <li><b><u>Emphasis</u></b> is desired through a <b><u>breakout</u></b> block quote</b></li>
+</ul><br />
 
 <p><strong class="highlight">Click on the blue arrows</strong> above and below the quote to <strong>expand the context</strong>:</p>
 
@@ -78,11 +86,11 @@
 <a id="rabbi-david-wolpe-caption" class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> 
 </figure></div>
 
-<p id="rabbi-david-wolpe-intro"><a class="underline mb-12" href="https://en.wikipedia.org/wiki/Tyler_Cowen">Tyler Cowen</a> interviewed <a class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> as part of his <a class="underline" href="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">Conversations with Tyler Series</a>.  Rabbi Wolpe said:</p>
+<p id="rabbi-david-wolpe-intro"><a class="underline mb-12" href="https://en.wikipedia.org/wiki/Tyler_Cowen">Tyler Cowen</a> interviewed <a class="underline" href="https://en.wikipedia.org/wiki/David_Wolpe">Rabbi David Wolpe</a> as part of his <a class="underline" href="<a href='https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d'>https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d</a>">Conversations with Tyler Series</a>.  Rabbi Wolpe said:</p>
 
 <blockquote cite="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d">I think that Judaism has the same problem that any thick civilization has in a world in which, as you say, <strong>context is stripped away</strong>. And not only is context stripped away, but attention to any one thing is scanter and less than it used to be. So, for example, a lot of Jewish commentary is based on your recognizing the reference that I make. Who recognizes references anymore? Because people don’t spend years studying books.<br /> <br /> </blockquote>
 
-<span class="code"><strong>HTML code:</strong></span> <div class="code"><strong>&lt;blockquote cite</strong>="https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d"&gt;<br />
+<span class="code"><strong>HTML code:</strong></span> <div class="code"><strong>&lt;blockquote cite</strong>="<a class="underline" href='https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d'>https://medium.com/conversations-with-tyler/rabbi-david-wolpe-leaders-religion-israel-identity-7c159c2ed2d</a>"&gt;<br />
 I think that Judaism has the same problem that any thick civilization has in a world in which, as you say, &lt;strong&gt;context is stripped away&lt;/strong&gt;. And not only is context stripped away, but attention to any one thing is scanter and less than it used to be. So, for example, a lot of Jewish commentary is based on your recognizing the reference that I make. Who recognizes references anymore? Because people don’t spend years studying books.<br />
 <strong>&lt;/blockquote&gt;</strong></div>
 
@@ -97,12 +105,21 @@ I think that Judaism has the same problem that any thick civilization has in a w
 
 <a href="/sample-code/examples.html">Learn More about the CiteIt javascript library</a> and <a href="/sample-code//">webservice</a> that looks up the quote context.
 
-<h4 class="mt-10" style="font-size: 1.3em; font-weight: bold;">2. Contextual Popup</h4>
+<h4 class="mt-10 text-green-bright" style="font-size: 1.3em; font-weight: bold;">B) Contextual Popup</h4>
+<h5 style="font-size:1.1em; font-weight: bold;" class='purple-grey'>When to Use:</h5>
+<p>Use Contextual Popups when:</p>
+<ul class="disc">
+  <li>The quote happens <b><u>within an existing paragraph</u></b>, rather than as its own paragraph.</li>
+  <li>The quote is often (although not always) <b><u>shorter</u></b> in length.</li>
+  <li><b><u>Emphasisis is not desired</u></b> in the form of a breakout block.</li>
+</ul><br />
+
+
 <p>Jane Austen&rsquo;s &ldquo;<a class="underline" href="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5">Pride and Prejudice</a>&rdquo; draws its title, in part from a line where the books&rsquo;s main character, Elizabeth says:&nbsp;<q cite="https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5">&nbsp;I could easily forgive&nbsp;<i>his</i>&nbsp;pride, if he had not mortified&nbsp;<i>mine.</i></q>&nbsp; &nbsp;
 
-<br /><br /><p><span class="highlight">Click on blue-grey quote above:</span> ("I could easily forgive his pride ..")</p>
+<br /><br /><p><span class="highlight">&uarr; Click on blue-grey quote above:</span> ("I could easily forgive his pride ..")</p>
 <br />
-<span class="code"><strong>HTML code:</strong></span> <div class="code">..  Elizabeth says:&nbsp;<strong>&lt;q cite</strong> = "https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5" data-citeit-citing-url = "https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5/"&gt; &nbsp;I could easily forgive&nbsp;&lt;i&gt;his&lt;/i&gt;&nbsp;pride, if he had not mortified&nbsp;&lt;i&gt;mine.&lt;/i&gt;<strong>&lt;/q&gt;</strong>&nbsp; &nbsp;
+<span class="code"><strong>HTML code:</strong></span> <div class="code">..  Elizabeth says:&nbsp;<strong>&lt;q cite</strong> = "<a class='underline' href='https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5'>https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5</a>" data-citeit-citing-url = "https://en.wikisource.org/wiki/Pride_and_Prejudice/Chapter_5/"&gt; &nbsp;I could easily forgive&nbsp;&lt;i&gt;his&lt;/i&gt;&nbsp;pride, if he had not mortified&nbsp;&lt;i&gt;mine.&lt;/i&gt;<strong>&lt;/q&gt;</strong>&nbsp; &nbsp;
 </div>
 
 <br />
@@ -143,10 +160,11 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 <p>If you would like to volunteer to help add PDF and Docs support to the Docker image, check out the <a class="underline" href="/code/?tab=volunteer">Volunteer page</a> and send me an email.</p -->
 
 
+
 <a id="wikipedia"></a>
 <br /><br />
 
-<h3 class="mt-7" style="font-size: 1.8em; font-weight: bold;">Wikipedia Citations <a class="anchor" href="#wikipedia">#</a></h3><br />
+<h3 class="mt-7" style="font-size: 1.8em; font-weight: bold;">2. Wikipedia Citations <a class="anchor" href="#wikipedia">#</a></h3><br />
 
 <h4 style="font-size: 1.3em; font-weight: bold;">Article Popups</h4>
 <p>Wikimedia already has <strong>contextual popups</strong> which appear when a reader mouses over a linked article.</p>
@@ -160,7 +178,7 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 <strong>Example</strong>: <a class="underline" href="https://en.wikipedia.org/wiki/Los_Angeles_Lakers">popup used by Wikipedia article</a>
 <br /><br />
 
-<h4 style="font-size: 1.3em; font-weight: bold;">Contextual Popup</h4>
+<h4 style="font-size: 1.3em; font-weight: bold;" class='text-green-bright'>Contextual Popup</h4>
 <p>Below is a <strong>screenshot</strong> of the <strong><a class="underline" target="_blank" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Ruth_Bader_Ginsburg#start">Ruth Bader Ginsburg article</a></strong> mockup which shows the <strong>CiteIt Contextual Popup</strong> that appears when a reader clicks on the light grey-blue text of a contextual quotation, in this case: “<strong>Ginsburg precedent</strong>“.</p>
 <picture>
     <source srcset="/assets/images/Wikipedia-article-RBG-screenshot-1-644x1195.webp" type="image/webp">
@@ -168,11 +186,14 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
     <img class="thin-border lazyload" src="/assets/images/Wikipedia-article-RBG-screenshot-1-644x1195.png" alt="Wikipedia: Article Popup" width="644" height="1195" />
 </picture>
 
-<strong>Example</strong>: Proposed <a class="underline" target="_blank" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Ruth_Bader_Ginsburg">Ruth Bader Gingsburg Wikipedia article</a> with CiteIt Contextual Popup
+
 <a id="wikipedia-samples"></a>
 <br />
 <br />
 <h4 style="font-size: 1.6em; font-weight: bold;">Sample Wikipedia Articles <a class="anchor" href="#wikipedia-samples">#</a></h4>
+<strong>Example</strong>: Proposed <a class="underline highlight" target="_blank" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Ruth_Bader_Ginsburg">Ruth Bader Gingsburg Wikipedia article &darr;</a> with CiteIt Contextual Popup<br /><br />
+
+
 <p>Click on an image below to view <strong>sample Wikipedia articles</strong> that feature contextual quotations.</p>
 <br />
 <div class="feature">
@@ -192,7 +213,7 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
       <source srcset="/assets/images/Ruth_Bader_Ginsburg_2016_portrait.jpg" type="image/jpeg">
       <img src="/assets/images/Ruth_Bader_Ginsburg_2016_portrait.jpg" class="wiki-photo lazyload" alt="Ruth Bader Ginsburg Portrait" height="225" width="180" />
   </picture></a>
-  <a class="underline" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Ruth_Bader_Ginsburg" target="_blank">Ruth Bader Ginsburg</a>
+  <a class="underline highlight" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Ruth_Bader_Ginsburg" target="_blank">Ruth Bader Ginsburg</a>
 </div>
 
 <div class="feature">
@@ -256,12 +277,37 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
   <a class="underline" href="http://demo-sites.citeit.net/en.wikipedia.org/wiki/Syphilis" target="_blank">Syphilis</a>
 </div>
 
+
+
+
+<a name="substack"></a>
+<br style="clear:both" />
+<br /><br />
+
+<h3 style="font-size: 1.8em; font-weight: bold;">3. Substack <a class="anchor" href="#substack">#</a></h3>
+<p><b>Mockups of what <a class="underline" href="https://substack.com/">Substack</a> articles would look like</b> if they were using CiteIt.net:</p>
+
+	<ul class="disc">
+		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/www.slowboring.com/p/martin-luther-king-jrs-push-for-material">
+			Matthew Yglesias</a> (Vox) <span class="highlight">&larr; Click to view 	example</span>
+		</li>
+		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/heathercoxrichardson.substack.com/p/february-4-2023">
+			Heather Cox Richardson, </a> Boston College (History Professor)
+		</li>
+		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/">Matt Taibbi</a> Racket News <span class="green">&larr; multiple video citations</span> </li>
+		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/www.thefp.com/p/amazons-woke-smokescreen">Bari Weiss</a> The Free Press</li>
+		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/marytrump.substack.com/p/the-spirit-of-the-season">Mary L. Trump</a> (Author, Psychologist, Trump's Neice)</li>
+    <li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/morningshots.thebulwark.com/p/why-is-the-right-losing-the-young">Charlie Sykes</a> (The Bulwark)</li>
+	</ul>
+
+
+
 <br style="clear:both" />
 <!--p class="mt-7"><strong><a class="underline highlight" href="https://pages.citeit.net/2020/11/02/open-source-project-seeks-machine-learning-expertise-for-new-wikipedia-citation-feature/">Machine Learning Volunteer Wanted</a></strong> to help convert existing Wikipedia footnotes to contextual citations.</p-->
 <a id="youtube"></a>
 <br /><br />
 
-<h3 style="font-size: 1.8em; font-weight: bold;">YouTube Citations <a class="anchor" href="#youtube">#</a></h3>
+<h3 style="font-size: 1.8em; font-weight: bold;">4. YouTube Citations <a class="anchor" href="#youtube">#</a></h3>
 <br />
 <!--div class="wp-block-image"><figure class="alignright size-large is-resized">
 <picture>
@@ -286,8 +332,10 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 <h4 style="font-size: 1.3em; font-weight: bold;">Malcolm Gladwell Interview: "Westerns"</h4>
 
 <p>Consider how adding the video's YouTube URL to the blockquote's cite tag allows the <a class="underline" href="/code/developers/">CiteIt.net javascript library</a> to 
-<strong>automatically embed</strong> the video and <strong class="highlight">lookup the surrounding transcript</strong> (if a <strong>matching transcript</strong> is found).  &nbsp;&nbsp;<br /><span class="highlight">↓ Click: "Expand: Show Video Clip" ↓</span></p>
-<br />
+<strong>automatically embed</strong> the video and <strong class="highlight">lookup the surrounding transcript</strong> (if a <strong>matching transcript</strong> is found).  
+
+
+<br /><br /><br /><span class="highlight">↓ Click: "Expand: Show Video Clip" ↓</span></p>
 
 <p class="mt-8">Here is a quotation from Joe Rogan's interview with <strong>Malcolm Gladwell</strong>.</p>
 
@@ -313,7 +361,7 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 <p><strong>HTML Formatting</strong> (such as bold and italics)<strong> is allowed</strong> within a citation, so long as the <strong>plain-text version matches the original</strong> quote's plain-text version.</p>
 <br /><span class="code"><strong>HTML code:</strong></span>
 <div class="code">
-<strong>&lt;blockquote cite="https://youtu.be/OnEjzmR9Hvw?t=231"&gt;</strong><br />
+<strong>&lt;blockquote cite</strong>="<a class='underline' href='https://youtu.be/OnEjzmR9Hvw?t=231'>https://youtu.be/OnEjzmR9Hvw?t=231</a>"&gt;<br />
 &lt;ol class="num"&gt;<br />
 &lt;li&gt;a &lt;b&gt;Western&lt;/b&gt; is where is conceptually a world in which &lt;b&gt;there is no law and order&lt;/b> and a man shows up and &lt;b>imposes personally law and order on the territory&lt;/b&gt; the community right <br />
 &lt;li&gt;so there is also a &lt;b&gt;eastern&lt;/b&gt; what is in Eastern and Eastern is a place where by contrast is a story where they're like I got this straight it was four types the Eastern is where there is law and order there is so &lt;b&gt;there are institutions of Justice&lt;/b&gt; but they are have been &lt;b&gt;subverted by people from within&lt;/b&gt; so an Eastern would be the Serpico is an Eastern it's a &lt;b&gt;crooked cop&lt;/b&gt; who is it's the bad apple who has you know screwed up there there's lots of tons and tons of of Hollywood movies are Easterns&lt;/li&gt;<br />
@@ -323,10 +371,92 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 <strong>&lt;/blockquote&gt;</strong><br />
 </div>
 
+<a id="audio"></a>
+<br /><br />
+<h3 style="font-size: 1.8em; font-weight: bold;">5. Audio/Podcasts <a class="anchor" href="#audio">#</a></h3>
+
+<br /><p>I would like to add support for audio-citations, especially for <strong><a class="underline" target="_blank" href="https://www.openpolitics.com/tag/transcribe/" title="List of Resources about Transcription">transcription</a> of podcasts and radio</strong>.</p><br />
+
+<strong>Potential Sample Podcasts:</strong>
+<ul class="disc">
+  <li><a class="underline" href="https://open.spotify.com/episode/7vPVmqFCFxBZJpStDAHl2n">The Crime Machine: Part 1</a> (Reply-All)</li>
+  <li><a class="underline" href="https://open.spotify.com/episode/7vPVmqFCFxBZJpStDAHl2n">The Crime Machine: Part 2</a> (Reply-All)</li>
+</ul>
+
+
+<a id="pdfs"></a>
+<br style="clear:both" />
+<br /><br />
+
+
+
+<h3 style="font-size: 1.8em; font-weight: bold;">6. PDFs <a class="anchor" href="#audio">#</a></h3>
+<p>The hosted CiteIt Webservice does not current support PDFs, but this functionality is available if the application is self-hosted:</p>
+
+<h4 style="font-size: 1.4em; font-weight: bold;">Electronically-Produced PDFs</h3>
+
+<p><a class="underline" href="http://download.citeit.net/media/pdf/voelkel-brandt-the-effect-of-ideological-identificaation-on-the-dendorsement-of-moral-values-depends-on-the-target-group.pdf">Digitally created PDFs</a>.<br /><br /></p> 
+
+
+<h4 style="font-size: 1.25em; font-weight: bold;">1) Children's Book (Pdf)</h4>
+  
+<p>Hammy said: <q cite="https://cdn.shopify.com/s/files/1/2081/8163/files/007-HAMMY-THE-HAMSTER-Free-Childrens-Book-By-Monkey-Pen.pdf">we are very careful so we aren't caught.</q>&nbsp;&nbsp; (page 6)</p>
+<br />
+<div class="code">
+&lt;p>Hammy said: <b>&lt;q cite</b>="<a class="underline" href="https://cdn.shopify.com/s/files/1/2081/8163/files/007-HAMMY-THE-HAMSTER-Free-Childrens-Book-By-Monkey-Pen.pdf">https://cdn.shopify.com/s/files/1/2081/8163/files/007-HAMMY-THE-HAMSTER-Free-Childrens-Book-By-Monkey-Pen.pdf</a>&gt;we are very careful so we aren't caught.<b>&lt;/q&gt;</b>&lt;/p&gt;
+</div>
+<br /><br />
+
+
+<iframe src="https://cdn.shopify.com/s/files/1/2081/8163/files/007-HAMMY-THE-HAMSTER-Free-Childrens-Book-By-Monkey-Pen.pdf?v=1589846896" width="600" height="900" ></iframe>
+<br /><br />
+
+
+<h4 style="font-size: 1.25em; font-weight: bold;">2) Digital Journal Article: (Pdf)</h4>
+<blockquote cite="http://download.citeit.net/media/pdf/voelkel-brandt-the-effect-of-ideological-identificaation-on-the-dendorsement-of-moral-values-depends-on-the-target-group.pdf">
+For example, the typical finding that conservatives endorse
+the moral value of respect for authorities could be an artifact
+of the tendency for participants to assume that authorities are
+conservative. When responding to the value of obeying lib-
+eral authorities, it appears that liberals are more likely to
+endorse the moral value of authority than are conservatives
+</blockquote>
+<br /><br />
+
+<div class="code">
+<b>&lt;blockquote cite</b>="<<a class="underline" href='http://download.citeit.net/media/pdf/voelkel-brandt-the-effect-of-ideological-identificaation-on-the-dendorsement-of-moral-values-depends-on-the-target-group.pdf'>http://download.citeit.net/media/pdf/voelkel-brandt-the-effect-of-ideological-identificaation-on-the-dendorsement-of-moral-values-depends-on-the-target-group.pdf</a>"&gt;
+For example, the typical finding that conservatives endorse
+the moral value of respect for authorities could be an artifact
+of the tendency for participants to assume that authorities are
+conservative. When responding to the value of obeying lib-
+eral authorities, it appears that liberals are more likely to
+endorse the moral value of authority than are conservatives
+&lt;<b>/blockquote</b>&gt;</div>
+<br /><br />
+
+
+<iframe src="http://download.citeit.net/media/pdf/voelkel-brandt-the-effect-of-ideological-identificaation-on-the-dendorsement-of-moral-values-depends-on-the-target-group.pdf"  width="600" height="900" ></iframe>
+<br /><br />
+<h4 style="font-size: 1.25em; font-weight: bold;">3) Scanned Book (OCR Pdf)</h4>
+<br />
+ 
+<p>&gt;&gt; Prince Andrew said: <q cite="http://download.citeit.net/media/pdf/samples/war-and-peace-pages-76-77.pdf">I don't like your Mademoiselle Bourienne at all</q></p>
+<br />
+<div class="code">&lt;p&gt;Prince Andrew said: <b>&lt;q cite</b>="<a class="underline" href="http://download.citeit.net/media/pdf/samples/war-and-peace-pages-76-77.pdf">http://download.citeit.net/media/pdf/samples/war-and-peace-pages-76-77.pdf</a>"&gt;I don't like your Mademoiselle Bourienne at all<b>&lt;/q</b>&gt;&lt;/p&gt;</div>
+<br />
+<p>Notice that this page contains two columns: <a class="underline" href="http://download.citeit.net/media/pdf/samples/war-and-peace-pages-76-77.pdf">War &amp; Peace</a> | (<a class="underline" href="http://download.citeit.net/media/pdf/samples/war-and-peace-full.pdf">full</a>) from archive.org</p>
+<br />
+
+<br />
+<iframe src="http://download.citeit.net/media/pdf/samples/war-and-peace-pages-76-77.pdf" width="600" height="900" alt="War &amp; Peace"></iframe>
+<br />
+
+<a id="try"></a>
+<br /><br />
 
 <a id="twitter"></a>
 <br /><br />
-<h3 style="font-size: 1.8em; font-weight: bold;">Twitter <a class="anchor" href="#twitter">#</a></h3>
+<h3 style="font-size: 1.8em; font-weight: bold;">7. Twitter <a class="anchor" href="#twitter">#</a></h3>
 <br /><p>Here is an a example of what <strong>twitter</strong> could look like <strong>if a quote were linked to its source</strong> with a contextual popup.</p>
 
 <div class="tweet sm:w-full md:w-2/3 lg:w-2/3">
@@ -344,56 +474,6 @@ Harvard Professor Laurel Thatcher Ulrich‘s comment that <strong>&lt;q cite= "h
 </div><!--tweet-->
 
 <p class="tweet_caption text-justify-center sm:w-full md:w-2/3 lg:w-2/3"><span class="highlight">&uarr;	 Click grey-blue text to view contextual popup &uarr;</span></p>
-<br /><br />
-
-<a id="audio"></a>
-<br /><br />
-<h3 style="font-size: 1.8em; font-weight: bold;">Audio <a class="anchor" href="#audio">#</a></h3>
-
-<br /><p>I would like to add support for audio-citations, especially for <strong><a class="underline" target="_blank" href="https://www.openpolitics.com/tag/transcribe/" title="List of Resources about Transcription">transcription</a> of podcasts and radio</strong>.</p><br />
-
-
-<a id="try"></a>
-
-<br />
-<a name="substack"></a>
-<br />
-
-<h3 style="font-size: 1.8em; font-weight: bold;">Substack <a class="anchor" href="#substack">#</a></h3>
-<p><b>Mockups of what sites would look like</b> if they were using CiteIt.net:</p>
-
-	<ul class="disc">
-		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/www.slowboring.com/p/martin-luther-king-jrs-push-for-material">
-			Matthew Yglesias</a> (Vox) <span class="highlight">&larr; Click to view 	example</span>
-		</li>
-		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/heathercoxrichardson.substack.com/p/february-4-2023">
-			Heather Cox Richardson, </a> Boston College (History Professor)
-		</li>
-		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/">Matt Taibbi</a> Racket News <span class="green">&larr; multiple video citations</span> </li>
-		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/www.thefp.com/p/amazons-woke-smokescreen">Bari Weiss</a> The Free Press</li>
-		<li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/marytrump.substack.com/p/the-spirit-of-the-season">Mary L. Trump</a> (Author, Psychologist, Trump's Neice)</li>
-    <li><a class="underline" target="_blank" href="https://demo-sites.citeit.net/morningshots.thebulwark.com/p/why-is-the-right-losing-the-young">Charlie Sykes</a> (The Bulwark)</li>
-	</ul>
-
-<br /><br />
-
-<div class="try homeWidth">
-  <h3 style="font-size: 1.8em; font-weight: bold;">Try the WordPress Plugin <a class="anchor" href="#try">#</a> </h3>
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/eojuAKkFmGg" 
-        frameborder="0" 
-        allowfullscreen="allowfullscreen">
-    </iframe>
-  </div>
-
-  <br />
-  <form action="https://demo.citeit.net/wp-login.php" method="post">
-    <input type="hidden" id="user_login" value="public" />
-    <input type="hidden" id="password" value="" />
-
-    <input type="submit" class="myButton" value="Test-Drive on Demo Site" />    
-  </form>
-</div>
 
 
 <a name="sample-code"></a>

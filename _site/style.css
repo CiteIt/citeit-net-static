@@ -1159,6 +1159,10 @@ ul.unindent {
   margin-bottom: 20px;
 }
 
+.purple-grey {
+  color: #2666bb !important;
+}
+
 span.code {
   color: #2666bb;
   font-weight: 400;
