@@ -147,7 +147,7 @@
 			<b>enables web authors to demonstrate the context</b> of their citations.
 		</p>
 		<p><b>Who:</b> CiteIt.net allows journalists, academics and web authors who want to set a higher standard of discourse.</p>
-		<p><b>How:</b> CiteIt.net is an <a href="https://www.citeit.net/code/">open source program</a> which 
+		<p><b>How:</b> CiteIt.net is an <a href="/code/">open source program</a> which 
 			can be added to a website with a WordPress plugin or a bit of custom code.
 		</p>
 	</div>
