@@ -82,6 +82,19 @@
         font-style: italic;
     }
 
+    .text-icon {
+        margin-bottom: 4px !important;
+        height: 16px;
+        width: 16px;
+    }
+
+    .youtube-icon {
+        display: inline !important;
+        margin-bottom: -7px !important;
+    }
+      
+
+
 
     /*********************************************** Classify Citation Errors based on Type ****************************************/
 
