@@ -1,0 +1,556 @@
+---
+title: Hello
+---
+
+{% extends "../../../_includes/default-pages.njk" %}
+
+{% block title %}CiteIt - Building trust in media{% endblock %}
+
+
+<!--XXXTRUSTXXXX-->
+
+{% block content %}
+
+
+
+{% include "../../../_includes/nav.njk" %}
+
+
+
+
+    <main class="mt-4 mx-auto max-w-7xl px-4 sm:px-6 ">
+
+      <div class="top_pic_slogan  lg:grid lg:grid-cols-12 lg:gap-8">
+
+        <div id="building-trust" class="md:mx-left lg:col-span-12 lg:text-left">
+          <h1>
+            <span class="mt-1 block text-4xl tracking-tight font-extrabold sm:text-5xl">
+              <span class="block font-header text-gray-900">Building trust in media</span>
+            </span>
+          </h1>
+          <p id="citeit-description" class="mt-3 mb-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+            CiteIt is developing new <span class="text-green-bright font-extrabold">digital tools</span> that help <span class="text-red-light font-extrabold">combat misinformation</span> and <span class="text-red-light font-extrabold">selective quotations</span>.
+            These tools show the context surrounding the quoted media in order to build trust and understanding.
+          </p>
+
+            
+        </div>
+
+      </div>
+
+
+
+
+<style>
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button,
+.entry-content .button {
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	box-shadow: none;
+	color: #fff;
+	cursor: pointer;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	padding: 16px 24px;
+	text-transform: uppercase;
+	width: auto;
+}
+
+.myButton {
+  background-color:#44c767;
+  border-radius:28px;
+  border:1px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:17px;
+  padding:16px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #2f6627;
+}
+
+.myButton:hover, div.entry-content input.myButton:hover {
+  background-color:#5cbf2a;
+}
+
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+
+div#navtop {
+  margin-top: -10px;
+  margin-bottom:  25px;
+}
+
+#demo-button {
+   margin-top: 40px !important;
+}
+
+p#margin-zero {
+   margin: 0 0 0 0px;
+}
+
+h4.widget_text widget-wrap, h4 {
+   font-size: 18px;
+}
+
+li.footnote {
+    margin: 0 0 20px 50px;
+    list-style: number;
+}
+
+ol.num {
+    list-style: number;
+    margin-left: 50px;
+}
+
+
+ol.disc {
+    list-style: disc;
+    margin-left: 50px;
+}
+
+a.underline {
+    text-decoration: underline;
+}
+
+p {
+    margin-top: 10px;
+}
+</style>
+
+
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+	<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+	}
+</style>
+	<link rel="icon" href="https://pages.citeit.net/wp-content/uploads/2018/05/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://pages.citeit.net/wp-content/uploads/2018/05/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://pages.citeit.net/wp-content/uploads/2018/05/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://pages.citeit.net/wp-content/uploads/2018/05/cropped-favicon-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+.site-header {
+  z-index: 999;	
+}
+
+
+h3 {
+  margin: 35px 0 10px 0 !important;
+}
+
+h4.widget_text widget-wrap, h4 {
+ margin: 20px 0 10px 0 !important;
+}
+
+div.summary_block {
+	background-color: #eee;
+	border: 1px solid #ddd;
+	padding: 3% 5% 2% 5%;
+	margin: 0 7% 7% 0%;
+}
+
+.alignright.padding_top {
+	padding-top: 60px;
+}
+
+blockquote.quote_context {
+	margin-top: 0px;
+}
+
+blockquote, blockquote::before {
+	color: #999;
+}
+
+blockquote.quote_context {
+	color: #666;
+}
+
+blockquote {
+	margin: 0 25px 10px 25px;
+/*	margin: 15px 40px 40px 40px; */
+}
+
+blockquote.quote_text {
+	color: #333;
+	background-color: #d6e8ec;
+	padding: 25px 30px 5px 30px;
+	margin: 0 0 15px 0;
+}
+
+blockquote.quote_context {
+  padding: 15px 30px 15px 35px;
+	margin-bottom: 0 80px 5px 80px;
+}
+
+blockquote.quote_text:before {
+    content: "\201C";
+    color: #999;
+	  margin-top: -5px;
+		vertical-align: -0.4em;
+}
+
+blockquote.quote_text:after {
+	content: "\201D";
+	color: #999;
+	margin-top: -5px;
+	text-align: right;
+	margin-left: -15px;
+	font-size: 175%;
+}
+
+iframe.youtube {
+	margin-bottom: 10px;
+}
+
+img#jefferson_memorial {
+	padding: 10px;
+}
+
+div.image_illustration {
+	float: right; 
+	padding: 0px 20px 10px 20px;
+}
+
+.ui-dialog .ui-dialog-content {
+	z-index: 999999;
+}
+
+.wp-block-code {
+	line-height: 1;
+}
+
+
+/******** Custom Button ***********/
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 7px 10px 7px 10px;
+  text-decoration: none;
+  width: 360px;
+  display: block;
+  text-align: center;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+  color: #fff;
+}
+
+  div.video_caption {
+     font-size: 80%;
+		 margin-top: -30px;
+     margin-bottom: 45px;
+  }
+
+div.byline {
+	color: #999;
+	font-size: 17px;
+	margin-bottom: 25px;
+}
+
+span.byline {
+	color: #999;
+}
+
+ul.nav_side li {
+	list-style-type: disc;
+}
+
+span.blue {
+	color: #0ebfe9;
+}
+
+span.highlight {
+	color: #000;
+	background-color: #fff200;
+	padding: 0px 2px;
+
+}
+
+/* This element defines the size the iframe will take.
+   In this example we want to have a ratio of 25:14 
+
+Credit: https://stackoverflow.com/questions/25302836/responsive-video-iframes-keeping-aspect-ratio-with-only-css
+*/
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56%; /* The height of the item will now be 56% of the width. */
+}
+
+/* Adjust the iframe so it's rendered in the outer-width and outer-height of it's parent */
+.aspect-ratio iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+div.video_caption {
+	margin-top: 0px;
+}
+
+div.custom_widget {
+  margin-top: 50px;
+}
+
+/* The built-in custom html widget needs to be styled: Navbar */
+h4.widget_text widget-wrap, h4 {
+	font-size: 20px;
+  font-family: 'Roboto Slab', serif;
+	font-weight: 400;
+	line-height: 1.2;
+  margin: 0 0 15px;
+}
+
+.widget-title {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+.widget-title::first-letter {text-transform:uppercase
+}
+
+img.feature_border {
+	border: 1px solid #bbb;
+}
+
+/* Upper Case heading: About */
+.post-15 header.entry-header h1.entry-title::first-letter {text-transform:uppercase;
+}
+
+img#youtube_mini {
+	margin-bottom: -5px;
+	margin-right: 4px;
+}
+
+/* Whitespace heading: About */
+.post-15 header.entry-header h1.entry-title {
+	margin-bottom: 50px;
+}
+
+
+/* Mailchimp Newsletter: Confirmation: Navbar */
+.mc4wp-alert, mc4wp-alert mc4wp-success p{
+	  margin-top: 70px;
+		color: #0ebfe9;
+		font-weight: 800;
+}
+
+p.mission {
+	width:75%;
+	font-size:15px;
+	margin: 25px auto 25px auto;
+	
+}
+
+.img-border-1 {
+	border: 1px solid #aaa;
+}
+
+/* Home Page (post-18) */
+div#cherries {
+	margin-top: -10px;
+}
+
+.post-18 h1 {
+	font-size: 27px;
+}
+
+.post-18 h2 {
+	font-size: 21px;
+}
+
+.post-18 h3 {
+	font-size: 19px;
+}
+
+.wp-image-436 size-medium  {
+	margin-top: 15px;
+}
+
+.try-demo {
+	font-weight: 400;
+	color: #000;
+}
+a.try-demo {
+	font-weight: 800;
+	color: #0ebfe9;
+}
+.border-1 {
+	border:1px solid #ccc;
+}
+
+@media only screen and (max-width: 1179px){
+	
+	div.site-tagline {
+		margin-top: 0px;
+	}
+	
+}
+
+@media only screen and (max-width: 500px){
+	
+	div.site-tagline {
+		margin-top: 0px;
+	}
+	
+	p.site-description {
+		font-size: 150%;
+		margin: 0 5% 0 5%;
+	}
+	
+}		
+</style>
+
+<h2 class="mt-7 mb-3 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">How Substack Writers can Address the Crisis of Trust in Media</h2>
+
+<div class="mb-10 sm:text-2l"><a class="underline" href="/demo/substack/">Demo</a> &gt; <a class="underline" href="/demo/substack">Substack</a> &gt;  <strong>Video Transcipt</strong>   </div>
+
+<h4 class="mt-7 mb-3 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Featuring article and video by Matt Taibbi and Matt Orfalea</h4>
+
+<p id="margin-zero">
+    <iframe title="YouTube video player" src="https://www.youtube.com/embed/NSZyKYitC3M" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+  </p>
+
+<div id="navbar">
+  <h4><a class="underline" href="/demo/substack/">Substack Pitch: Main</a>&nbsp; |&nbsp; <strong>Video Transcript</strong></h4>
+</div>
+
+<div id="demo-button"><a href="https://www.citeit.net/demo/substack/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/" target="_blank" rel="noopener">
+   <input class="myButton" type="submit" value="View Demo: Who Blew Up Nord Stream Pipelines?"></a></div>
+  
+  <p class="mt-1">&nbsp;</p>  
+  
+<h2 class="mt-5 mb-8 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-4xl">Video Transcript:</h2>
+
+<p>In an increasingly <b>polarized world,</b> how can independent media buck the trend of:</p>
+<ul class="disc">
+<li><strong>declining trust </strong>and</li>
+<li><strong>establishment gatekeeping</strong>?</li>
+</ul>
+<p>Take for example, this <a href="https://www.citeit.net/demo/substack/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/">piece that Matt Taibbi and Matt Orfalea did</a> about the <strong>Nord Steam pipelines bombing</strong>. &mdash; a piece which <a href="https://en.wikipedia.org/wiki/Overton_window">challenges the Overton Window</a> (what is considered&nbsp;<strong>politically acceptable to say</strong>).&nbsp; When I shared this article with friends, I found that the less <strong>politically-aligned readers</strong> experienced barriers that prevented them from accepting Taibbi&rsquo;s thesis <a href="#footnote-1-3492" id="note-1-3492" rel="footnote">1</a><a href="#footnote-2-3492" id="note-2-3492" rel="footnote">2</a><a href="#footnote-3-3492" id="note-3-3492" rel="footnote">3</a><a href="#footnote-4-3492" id="note-4-3492" rel="footnote">4</a>.</p>
+<p>To help <strong>inform</strong> readers and <strong>build trust</strong>, I&rsquo;ve developed <a href="https://www.citeit.net/">CiteIt</a> &mdash; <strong>a citation app that looks up a quote&rsquo;s context</strong> when the quote has been <strong>linked to a web source</strong>.</p>
+<p>If you scroll down this page, you can click on the &ldquo;<strong>Majority Report&rsquo;s&rdquo;</strong> suggestion that <a href="https://youtu.be/DWKgHOMAH7w?t=1155"><strong>independent</strong> <strong>writers need editors</strong></a> so they can avoid the type of mistakes that <strong>gatekeepers</strong> like Mehdi Hassan have charged Taibbi with.</p>
+<p>Life is unfair.&nbsp; <strong>Typos are bound to happen, </strong>as are<strong> misrepresentations of mistakes</strong>&nbsp;and one can&rsquo;t always reach all subsequently misinformed partisans.<a href="#footnote-5-3492" id="note-5-3492" rel="footnote">5</a> A <strong>productive response is to innovate, </strong>defending one&rsquo;s record, <a href="#footnote-6-3492" id="note-6-3492" rel="footnote">6</a> and demonstrating a <strong>higher standard of transparency</strong> <a href="#footnote-7-3492" id="note-7-3492" rel="footnote">7</a> that<b>&nbsp;discloses</b> <b>conveniently </b>a quote&rsquo;s context in a way that is not possible in print or television, and which <strong>mainstream media will find difficult to match.</strong> <a href="#footnote-8-3492" id="note-8-3492" rel="footnote">8</a></p>
+<p>See what a demo of Taibbi&rsquo;s <a href="https://www.citeit.net/demo/substack/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/">Nord Stream article looks like</a> after I manually linked the sources, enabling CiteIt to look up the context, and pull from an auto-generated <strong>YouTube transcript</strong>.</p>
+<p>CiteIt is not a panacea. <a href="#footnote-9-3492" id="note-9-3492" rel="footnote">9</a> <strong>The potential of quotations to be taken </strong><strong>out of context</strong> constantly <strong>undermines authors</strong> seeking to use quotations to <strong>challenge and inform their readers</strong>.&nbsp; &nbsp;By using CiteIt&rsquo;s contextual citations, Substack could:</p>
+<ol class="disc">
+<li>give writers a tool to better <strong>inform</strong> readers</li>
+<li>help writers win over <strong>skeptical</strong> readers</li>
+<li>establish features that <strong>differentiate Substack from competitors</strong> like Twitter and Threads, and</li>
+<li><strong>build a positive reputation</strong> that helps <strong>combat critics and </strong><strong>gatekeepers.</strong></li>
+</ol>
+<p>I propose that Substack <strong>try</strong> <strong>CiteIt first with Long-form Articles</strong>, and if this is successful <strong>add the feature across the Substack product line</strong>:</p>
+<ol class="num">
+<li>Long-form Articles, <a href="#footnote-10-3492" id="note-10-3492" rel="footnote">10</a></li>
+<li>Notes, <a href="#footnote-11-3492" id="note-11-3492" rel="footnote">11</a></li>
+<li>Video, and. <a href="#footnote-12-3492" id="note-12-3492" rel="footnote">12</a></li>
+<li>Podcasts,&nbsp; <a href="#footnote-13-3492" id="note-13-3492" rel="footnote">13</a></li>
+</ol>
+<p>&nbsp;</p>
+<p>To see the <strong>Nord Stream Demo article</strong> for yourself, <a href="https://www.citeit.net/demo/substack/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/">click the green button</a> underneath the video.</p>
+<p>A <strong>footnoted transcript</strong> of this video is also available.</p>
+<p>&nbsp;</p>
+<h3 class="mt-5 mb-8 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Links:</h3>
+<ul class="disc">
+<li><a class="underline" href="https://pages.citeit.net/2023/07/19/how-substack-writers-can-address-the-crisis-of-trust/">Main Pitch</a> (back)</li>
+<li><a class="underline" href="https://www.citeit.net/demo/substack/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/">Demo Article: Nord Stream Pipeline&nbsp;</a></li>
+<li><a class="underline" href="https://www.citeit.net/assets/images/CiteIt-Substack-draft-next-steps.png" target="_blank" rel="noopener">Slide that outlines Proposed Next Steps</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+
+
+<h3 class="mt-7 mb-3 text-3xl leading-8 font-extrabold font-header tracking-tight text-gray-900 sm:text-2xl">Footnotes:</h3>
+
+<div class="footnotes"><hr /><ol><li id="footnote-1-3424" class="footnote"><p>In a world that is increasingly partisan and censorious.<a href="#note-1-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-1.footnote--><li id="footnote-2-3424" class="footnote"><p>By resistance I include <strong>resistance from non-subscribers</strong> who may experience cognitive dissonance with the work, resistance in the form of being <strong>too busy or dismissive to investigate</strong> the claims, and <strong>resistance from gatekeepers</strong>.<a href="#note-2-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-2.footnote--><li id="footnote-3-3424" class="footnote"><p>Sometimes <strong>skepticism</strong> is a <strong>rationalization</strong> when an article is shared with people who are <strong>non-aligned politically</strong>.&nbsp; The non-subscriber may face <strong>cognitive dissonance</strong> when their political views don&rsquo;t align with a work.<a href="#note-3-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-3.footnote--><li id="footnote-4-3424" class="footnote"><p>A friend of mine who I shared the <a href="https://www.citeit.net/demo/substack/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/">Nord Stream article</a> with, initially balked for partisan reasons because he had been told that Matt Taibbi was &ldquo;right-wing&rdquo; for associating with Elon Musk.<a href="#note-4-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-4.footnote--><li id="footnote-5-3424" class="footnote"><p><strong>I do not think CiteIt is a panacea</strong>, but it can be <strong>emphasized that the writer is referencing sources</strong> and has <strong>made it easy for readers to inspect them</strong>. <a href="#note-5-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-5.footnote--><li id="footnote-6-3424" class="footnote"><p>See <a href="https://youtu.be/a597e6Wv_xg">Mehdi Hassan&rsquo;s &ldquo;nitpicking&rdquo;</a>, which had the effect of <strong>gatekeeping for the &ldquo;CIC&rdquo; (Censorship Industrial Complex)</strong> over the <strong>Twitter Files</strong><a href="#note-6-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-6.footnote--><li id="footnote-7-3424" class="footnote"><p>In a hearing on the &ldquo;Weaponization of the Federal Government,&rdquo; <a href="https://youtu.be/c7VEbbwnI-4">Stacey Plaskett</a>, Virgin Island Democratic Delegate <strong>threatened Matt Taibbi</strong> with up to <strong>5 years in prison</strong> for <strong>&ldquo;perjury.&rdquo;</strong><a href="#note-7-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-7.footnote--><li id="footnote-8-3424" class="footnote"><p>I really like <strong>Matt Orfalea&rsquo;s video</strong>, which I recall preceded the article, but this video format is <strong>designed to tell a story</strong> and can&rsquo;t provide enough context to satisfy skeptics. <a href="https://pages.citeit.net/2023/04/13/usability-testing-citeit-first-series/">When I did a usability test</a> of my demo article, I found that a significant number of readers <strong>skipped the video and went straight to the article</strong>.&nbsp; That&rsquo;s why my demo <strong>integrated contextual video with the article</strong>.&nbsp; I know at this point, <strong>readers haven&rsquo;t been introduced to CiteIt</strong>, so they don&rsquo;t know what to expect, but <strong>my hope is that this becomes conventional</strong> for readers..<a href="#note-8-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-8.footnote--><li id="footnote-9-3424" class="footnote"><p>The WordPress implementation add a special button that writers use to link to their source<a href="#note-9-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-9.footnote--><li id="footnote-10-3424" class="footnote"><p>When an article is published, CiteIt follows the link and looks up the source&rsquo;s context<a href="#note-10-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-10.footnote--><li id="footnote-11-3424" class="footnote"><p>My goal is to make it <strong>as easy to create a contextual link</strong> as it is to create a standard link.<a href="#note-11-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-11.footnote--><li id="footnote-12-3424" class="footnote"><p>To be sure, it is currently possible to embed video in articles, but this <strong>takes up space</strong> and <strong>breaks up the flow of the article</strong>.&nbsp; The other option is to create a link that sends the reader to a new page.&nbsp; <strong>CiteIt keeps the reader within the article</strong> and <strong>automates</strong> the process of <strong>looking up and displaying the context</strong>.<a href="#note-12-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-12.footnote--><li id="footnote-13-3424" class="footnote"><p>You can see how contextual YouTube citations are <strong>implemented in HTML</strong> on the <a href="https://www.citeit.net/#how">homepage</a>.<a href="#note-13-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-13.footnote--><li id="footnote-14-3424" class="footnote"><p>Quotes, such as the FDR quote (above) about &ldquo;fear itself&rdquo; can <strong>convey much more information</strong> to the reader <strong>when context is added</strong>, particularly when videos are used.<a href="#note-14-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-14.footnote--><li id="footnote-15-3424" class="footnote"><p>Readers who can easily verify quotes are more like to understand and trust a writer that makes themselves more accountable to inspection.<a href="#note-15-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-15.footnote--><li id="footnote-16-3424" class="footnote"><p>I would anticipate that Substack writers could use CiteIt&rsquo;s contextual citations as a <strong>marketing point</strong> that <strong>demonstrates</strong> <strong>the higher standard of transparency</strong> that they employ, which the mainstream press will have a hard time matching.<a href="#note-16-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-16.footnote--><li id="footnote-17-3424" class="footnote"><p>I&rsquo;m using this term of &ldquo;<strong>contextual citations</strong>&rdquo; as a generic way to describe citations that show readers the context of a text, audio, or video, that <strong>doesn&rsquo;t require the reader to follow a link</strong> in which they <strong>leave the original work</strong>.<a href="#note-17-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-17.footnote--><li id="footnote-18-3424" class="footnote"><p>I hope readers recognize that <strong>innovation</strong> is coming via Substack and independent writers.&nbsp; Make sure to claim credit for it! <a href="#note-18-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-18.footnote--><li id="footnote-19-3424" class="footnote"><p>Or whatever you <strong>want to name the concept</strong> of quotes that do not show their context<a href="#note-19-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-19.footnote--><li id="footnote-20-3424" class="footnote"><p>The difference between a &ldquo;<strong>cherry picked</strong>&rdquo; quotation and a &ldquo;naked quote is that a <strong>cherry-picked quote is deliberately</strong> selected to be misrepresentative, while a &ldquo;<strong>naked quotation</strong>&rdquo; is a quotation that does not contain context.&nbsp; Naked quotations need not be deceptive. Rather they are <strong>opaque</strong> to the reader<a href="#note-20-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-20.footnote--><li id="footnote-21-3424" class="footnote"><p>Ideally, I would want to hear the concept of <strong>contextual citations</strong> associated with the <strong>entire Substack platform</strong>: including notes, podcasts, and video <a href="#note-21-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-21.footnote--><li id="footnote-22-3424" class="footnote"><p> I saved a copy of a <a href="https://www.citeit.net/assets/images/CiteIt-Substack-draft-next-steps.png" target="_blank" rel="noopener">Slide that outlines Proposed Next Steps</a> <a href="#note-22-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-22.footnote--><li id="footnote-23-3424" class="footnote"><p>CiteIt could help <strong>differentiate Substack Notes</strong> from <a href="https://twitter.com/home">Twittter</a> and <a href="https://about.instagram.com/blog/announcements/threads-instagram-text-feature">Threads</a> <a href="#note-23-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-23.footnote--><li id="footnote-24-3424" class="footnote"><p>CiteIt could make it easy for anyone on Substack to <strong>embed a contextual quote</strong> of a <strong>podcast</strong> or <strong>video</strong> <a href="#note-24-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-24.footnote--><li id="footnote-25-3424" class="footnote"><p>Adding CiteIt support for podcasts would require <strong>adding transcription support</strong>.<a href="#note-25-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-25.footnote--><li id="footnote-26-3424" class="footnote"><p>It appears that <a href="https://api.substack.com/feed/podcast/8079/private/7763ea6c-0ece-4290-a191-f25973d0be4e.rss">Substack podcasts have RSS Summaries, but are not completely transcribed</a>. (<a href="https://www.historicly.net/p/the-casualties-of-war-part-1-with#details">Historic.ly</a>)<br>
+<a href="#note-26-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-26.footnote--><li id="footnote-27-3424" class="footnote"><p><strong>CiteIt currently supports YouTube</strong>, but could be expanded to support Substack Video, Vimeo, and other formats if it added <strong>transcription support</strong>.<a href="#note-27-3424" class="footnote-return">&#8617;</a></p></li><!--/#footnote-27.footnote--></ol></div><!--/#footnotes--><!--<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="https://pages.citeit.net/2023/07/19/how-substack-writers-can-address-the-crisis-of-trust/"
+    dc:identifier="https://pages.citeit.net/2023/07/19/how-substack-writers-can-address-the-crisis-of-trust/"
+    dc:title="How Substack Writers can Address the Crisis of Trust in Media"
+    trackback:ping="https://pages.citeit.net/2023/07/19/how-substack-writers-can-address-the-crisis-of-trust/trackback/" />
+</rdf:RDF>-->
+</div>
+
+
+    <script type='text/javascript'>
+	    // Call plugin on all blockquotes:
+        	jQuery('q, blockquote').quoteContext();
+    </script>		
+
+    <style type="text/css">
+        .bigfoot-footnote__button  {
+            background-color:  !important;
+        }
+        .bigfoot-footnote__button:after {
+            color:  !important;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+<link rel='stylesheet' id='wp-bigfoot-public-css' href='https://pages.citeit.net/wp-content/plugins/wp-bigfoot/public/css/wp-bigfoot-public.css?ver=2.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-bigfoot-style-css' href='https://pages.citeit.net/wp-content/plugins/wp-bigfoot/public/css/bigfoot-default.css?ver=2.0.0' type='text/css' media='all' />
+
+<script type='text/javascript' src='https://pages.citeit.net/wp-content/plugins/wp-bigfoot/public/js/bigfoot.min.js?ver=2.0.0' id='wp-bigfoot-min-js'></script>
+<script type='text/javascript' src='https://pages.citeit.net/wp-content/plugins/wp-bigfoot/public/js/wp-bigfoot.js?ver=2.0.0' id='wp-bigfoot-wp-bigfoot-js'></script>
+<script type='text/javascript' src='https://pages.citeit.net/wp-content/themes/minimum-pro/js/responsive-menu.js?ver=1.0.0' id='minimum-responsive-menu-js'></script>
+<script type='text/javascript' id='icwp-wpsf-shield-notbot-js-extra'>
+/* <![CDATA[ */
+var shield_vars_notbotjs = {"ajax":{"not_bot":{"action":"shield_action","ex":"capture_not_bot","exnonce":"7566e7b1ce"},"not_bot_nonce":{"action":"shield_action","ex":"capture_not_bot_nonce"}},"flags":{"run":true},"vars":{"ajaxurl":"https:\/\/pages.citeit.net\/wp-admin\/admin-ajax.php"}};
+/* ]]> */
+</script>
+
+
+    <br /><br />
+    </main>
+
+
+
+
+{% endblock %} 

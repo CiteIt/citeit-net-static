@@ -375,11 +375,11 @@
 <h3>This is a Mockup of Substack using <a href="https://www.citeit.net/">CiteIt.net</a></h3>
 <ul><li>
 	<a href="/">CiteIt.net home</a> | 
-	<a href="https://demo-sites.citeit.net/substack/">Substack</a> |  
+	<a href="/demo/substack/">Substack</a> |  
 	<a href="/#wikipedia-samples">Wikipedia</a> |  
 	<a href="/code/">Code</a> | 
 	<a href="/about/">About</a> | 
-	<a href="https://demo-sites.citeit.net/morningshots.thebulwark.com/p/biden-misreads-his-mandate">original article</a>
+	<a href="/demo/morningshots.thebulwark.com/p/biden-misreads-his-mandate">original article</a>
 	</li></ul>
 </div>
 
@@ -428,7 +428,7 @@ password: demo22
 <ul>
 	<li><a href="https://www.citeit.net/">CiteIt Homepage</a></li>
 	<li><a href="https://www.citeit.net/demo/">More CiteIt Examples</a></li>
-	<li><a href="https://demo-sites.citeit.net/substack/">CiteIt Substack Examples</a></li>
+	<li><a href="/demo/substack/">CiteIt Substack Examples</a></li>
 </ul>
 <br /><br />
 
