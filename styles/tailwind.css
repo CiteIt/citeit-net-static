@@ -539,9 +539,16 @@ div.code {
   background-color: #f9fbe5;
   border: 1px solid #dae380;
   padding: 25px 25px 25px 30px;
-  width: 70%;
-  max-width: 70%;
+  width: 77%;
+  max-width: 80%;
 }
+
+div.code .code {
+  border: 1px solid #d8e7f2;
+  background-color: #eaf0f2;
+}
+
+
 .highlight {
   background-color: #f8ff7a;  
 }
