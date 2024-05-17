@@ -220,6 +220,7 @@
                 float: right;
                 text-align: right;
                 width: 260px;
+                margin-right: 15px;
             }
 
             .naked-photo img {
@@ -229,7 +230,7 @@
 
             .notes-videos {
                 float: right;
-                padding: 20px 0 15px 15px;
+                padding: 20px 15px 35px 15px;
                 text-align: center;
             }
 
@@ -656,6 +657,10 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 
 
 
+.youtube-video { 
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
 
 
 @media only screen and (max-width: 1179px){
@@ -677,6 +682,27 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 		margin: 0 5% 0 5%;
 	}
 	
+
+    .naked-photo {
+        width: 175px;
+    }
+
+    .naked-photo img {
+        width: 150px;
+    }
+
+    body {
+        margin-right: % !important;
+    }
+
+    #examples-submitted {
+        display: none;
+    }
+
+    .youtube-video { 
+        width: 95%;   
+    }
+
 }		
 </style>
 
@@ -983,12 +1009,14 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
             <p>See a demonstration of the CiteIt WordPress plugin with <a href="/demo/substack/kenklippenstein.com/p/biden-takes-swipe-at-campus-protesters-snubbing-youth-support/" target="_blank">Ken Klippenstein article</a>:  &nbsp;
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div></div></div></p>
                         
-            <iframe src="https://www.youtube.com/embed/eojuAKkFmGg?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" gesture="media" allow="autoplay; fullscreen" allowautoplay="true" allowfullscreen="true" width="728" height="409"></iframe>
+            <iframe class="youtube-video" src="https://www.youtube.com/embed/eojuAKkFmGg?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" gesture="media" allow="autoplay; fullscreen" allowautoplay="true" allowfullscreen="true" width="728" height="409"></iframe>
                 <div class="float-right"><a href="https://demo.citeit.net/" rel="nofollow ugc noopener">Written Instructions</a></div>
             
             <span>Documentation: how to use the WordPress plugin</span></p>
 
-            <form action="https://demo.CiteIt.net/wp-login.php" method="GET"><input id="try-wordpress-demo" type="submit" value="Login: Try WordPress Demo">  &nbsp; | &nbsp; <a href="https://demo.citeit.net/2024/">Examples Submitted</a> </form>  
+            <form action="https://demo.CiteIt.net/wp-login.php" method="GET"><input id="try-wordpress-demo" type="submit" value="Login: Try WordPress Demo">  &nbsp; | &nbsp; 
+            
+                <a id="examples-submitted" href="https://demo.citeit.net/2024/">Examples Submitted</a> </form>  
 
             <pre><code><strong>
   username</strong><span>: public
