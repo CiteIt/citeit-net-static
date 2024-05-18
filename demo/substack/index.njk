@@ -258,9 +258,9 @@ input[type="reset"],
 input[type="submit"],
 .button,
 .entry-content .button {
-	background-color:#44c767;
+	background-color:#aaa;
 	border-radius:28px;
-	border:1px solid #18ab29;
+	border:1px solid #ccc;
 	box-shadow: none;
 	color: #fff;
 	cursor: pointer;
@@ -272,12 +272,12 @@ input[type="submit"],
 }
 
 .myButton {
-  background-color:#44c767 !important;
+  background-color:#aaa !important;
   border-radius:28px !important;
-  border:1px solid #18ab29 !important;
+  border:1px solid ##aaa !important;
   display:inline-block;
   cursor:pointer !important;
-  color:#ffffff !immportant;
+  color:#555 !important;
   font-family:Arial !important;
   font-size:17px !important;
   padding:16px 31px !important;
@@ -632,6 +632,12 @@ a.try-demo {
 	border:1px solid #ccc;
 }
 
+.before-after {
+    margin-left: 70px;
+    margin-bottom: 25px;
+    font-size: 90%;
+}
+
 #notes-videos {
     margin-top: 20px;
 }
@@ -644,7 +650,7 @@ a.try-demo {
 button, input[type="button"], input[type="reset"], input[type="submit"], .button, .entry-content .button, button, input[type="button"], input[type="reset"], input[type="submit"], .button, .entry-content .button {
     background-color: #44c767;
     border-radius: 28px !important;
-    border: 1px solid #18ab29;
+    border: 1px solid #999;
     box-shadow: none !important;
     color: #fff !important;
     cursor: pointer !important;
@@ -700,7 +706,8 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
     }
 
     .youtube-video { 
-        width: 95%;   
+        width: 95%;  
+        height: 230px;
     }
 
 }		
@@ -930,12 +937,16 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
                         <span> containing what I call “</span><strong>
                         <a href="https://www.openpolitics.com/2020/09/23/naked-quotations/"  target="_blank">naked quotations</a></strong><span>” — 
                         quotations that are <strong>not clothed</strong> with <strong>any surrounding context</strong>.</span>  
-                        <ul><li>
-                        ( <a href="https://www.racket.news/p/who-blew-up-the-nord-stream-pipelines" target="_blank">before</a> and 
-                        <a href="https://www.citeit.net/demo/substack/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/" target="_blank">after</a> )
-                        </li></ul>
-                        </p>
-                        <p><span>These type of unsubstantiated or opaque quotations are rightly regarded with suspicion by </span><strong>non-aligned readers who have not yet subscribed</strong>,
+                        </p>                       
+
+                        <div class="before-after">
+                                <a href="https://www.racket.news/p/who-blew-up-the-nord-stream-pipelines">
+                                <input class="myButton" type="submit" value='Before' /></a>
+
+                                <a href="/demo/substack/www.racket.news/p/who-blew-up-the-nord-stream-pipelines/">
+                                <input class="myButton" type="submit" value='After' /></a>
+                        </div>
+                        <p><span>These types of unsubstantiated or opaque quotations are rightly regarded with suspicion by </span><strong>non-aligned readers who have not yet subscribed</strong>,
                         but solving this problem could buttress writers' and Substack's reputation and subscriber base.    
                         </p>
                 </div>
@@ -1006,7 +1017,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 
             <div id="§watch-demo-a-writers-view" class="header-anchor-widget offset-top"><div class="header-anchor-widget-button-container">
             <div href="/demo/substack//i/135446848/watch-demo-a-writers-view" class="header-anchor-widget-button">
-            <p>See a demonstration of the CiteIt WordPress plugin with <a href="/demo/substack/kenklippenstein.com/p/biden-takes-swipe-at-campus-protesters-snubbing-youth-support/" target="_blank">Ken Klippenstein article</a>:  &nbsp;
+            <p>See a demonstration of the CiteIt WordPress plugin with a <a href="/demo/substack/kenklippenstein.com/p/biden-takes-swipe-at-campus-protesters-snubbing-youth-support/" target="_blank">Ken Klippenstein article</a>:  &nbsp;
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div></div></div></p>
                         
             <iframe class="youtube-video" src="https://www.youtube.com/embed/eojuAKkFmGg?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" gesture="media" allow="autoplay; fullscreen" allowautoplay="true" allowfullscreen="true" width="728" height="409"></iframe>
@@ -1064,18 +1075,11 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
         <a href="/demo/">Demos</a><span> ∙ </span>
         <a href="/demo/substack/" target="__blank">Substack</a><span> ∙ </span>
         <a href="/try/" target="__blank">Try CiteIt!</a><span> ∙ </span>
-        <a href="https://pages.citeit.com/" target="__blank">FAQ</a><span> ∙ </span>
         <a href="/code/">Code</a><span> ∙ </span>
         <a href="/about/?tab=faq">FAQ</a><span> ∙ </span>
         <a href="/about/">About</a>
         
         </div></div>
-        <div class="footer-buttons"><a native href="https://your.substack.com/publish" class="footer-substack-cta start-publishing"><svg role="img" width="1000" height="1000" viewBox="0 0 1000 1000" fill="#FF6719" stroke-width="1.8" stroke="none" xmlns="http://www.w3.org/2000/svg"><g><title></title><path d="M764.166 348.371H236.319V419.402H764.166V348.371Z"></path><path d="M236.319 483.752V813.999L500.231 666.512L764.19 813.999V483.752H236.319Z"></path><path d="M764.166 213H236.319V284.019H764.166V213Z"></path></g></svg> 
-            Start Writing</a><a native href="https://substack.com/app/app-store-redirect?utm_campaign=app-marketing&amp;utm_content=web-footer-button" class="footer-substack-cta get-the-app no-icon">
-            Get the app</a></div><div class="footer-slogan-blurb"><a href="https://substack.com" native>
-            Substack</a> is the home for great writing</div></div></div></div></div>
-            <div style="transform: translateY(0px);" class="tw-fixed tw-bottom-2.5 tw-right-2.5 tw-left-2.5 md:tw-left-auto md:tw-bottom-5 md:tw-right-5 md:tw-pl-4 tw-z-40"></div><div></div>
-        </div>
 
         
             <script src='https://js.sentry-cdn.com/c41771aeccbb43fbbffbc4755e65c9be.min.js' crossorigin="anonymous"></script>
