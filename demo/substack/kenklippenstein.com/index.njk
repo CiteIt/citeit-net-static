@@ -1,0 +1,128 @@
+{% extends "_includes/default.njk" %}
+
+{% block title %}CiteIt - Building trust in media{% endblock %}
+
+{% block content %}
+{% include "_includes/nav.njk" %}
+
+<style>
+    ol.examples {
+        font-size: 120%;
+        list-style: bullet;
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+
+    ol.examples li {
+        padding-bottom: 10px;
+    }
+
+
+    ol.examples a {
+        text-decoration: underline 3px solid lightskyblue;
+    }
+
+    ol.li {
+        text-padding: 7px bottom;
+        font-size: 110%;
+    }
+
+    p.interview {
+        font-size: 120%;
+    }
+
+    ul.contact {
+        font-size: 115%;
+    }
+
+    ul.contact li a {
+        text-decoration: underline 3px solid lightskyblue;
+    }
+
+    ul.contact li a:hover {
+        text-decoration: underline 3px solid lightskyblue;
+    }
+
+
+</style>
+
+
+
+<main class="mt-4 mx-auto max-w-7xl px-4 sm:px-6 ">
+        
+    <div class="top_pic_slogan  lg:grid lg:grid-cols-12 lg:gap-8">
+
+        <div id="building-trust" class="md:mx-left lg:col-span-12 lg:text-left">
+            <h1>
+            <span class="mt-1 block text-4xl tracking-tight font-extrabold sm:text-5xl">
+                <span class="block font-header text-gray-900">Building trust in media</span>
+            </span>
+            </h1>
+            <p id="citeit-description" class="mt-3 mb-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+            CiteIt is developing new <span class="text-green-bright font-extrabold">digital tools</span> that help <span class="text-red-light font-extrabold">combat misinformation</span> and <span class="text-red-light font-extrabold">selective quotations</span>.
+            These tools show the context surrounding the quoted media in order to build trust and understanding.
+            </p>
+
+            <div class="video-caption" >(Watch our video to learn more)</div>
+        </div>
+
+        </div>
+        
+
+        <div class="video-container">
+        <iframe 
+            id="iframe_video" class="iframe_video"
+            src="https://www.youtube.com/embed/GtqfxQyg3_M"
+            title="Ken Klippenstein Interview Request"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+        </div>
+        
+        <br /><br />
+
+        <h2>
+          <span class="mt-1 block text-4xl tracking-tight font-extrabold sm:text-4xl">
+            <span class="block font-header text-gray-900">Ken Klippenstein Examples</span>
+          </span>
+        </h2>
+        <ol class="examples">
+            <li><a target="_blank" href="/demo/substack/kenklippenstein.com/p/jd-vance-on-war-and-peace/">JD Vance on War and Peace</a> &nbsp;</li>
+            <li><a target="_blank" href="/demo/substack/kenklippenstein.com/p/biden-takes-swipe-at-campus-protesters-snubbing-youth-support/">Biden Takes Swipe at Campus Protesters, Snubbing Youth Support</a></li>
+            <li><a target="_blank" href="/demo/substack/kenklippenstein.com/p/us-not-israel-shot-down-most-iran-drones-and-missiles/">White House Falsely Declared it Warned Iraq of Impending Airstrikes</a></li>
+            <!--li><a target="_blank" href="/demo/substack/kenklippenstein.com/p/biden-admin-working-with-social-media/">Biden Admin Working With Social Media Companies to Limit Pro-Palestinian Content</a></li-->
+        </ol>
+        
+        <br /><br />
+        <h2>
+            <span class="mt-1 block text-4xl tracking-tight font-extrabold sm:text-3xl">
+              <span class="text-green-bright font-extrabold">Interview Request?</span>
+            </span>
+        </h2>
+
+        <p class="interview">Would you be willing to do a brief <strong>interview to help me assess the App's fit</strong> with journalists, particularly writers like you who have an editorial process?</p>
+
+        <br />
+        <h2 class="mt-5">
+            <span class="mt-1 block text-4xl tracking-tight font-extrabold sm:text-2xl">
+              <span class="block font-header text-gray-900"><a href="https://www.openpolitics.com/tim">Tim Langeman</a></span>
+            </span>
+
+            <img src="https://www.openpolitics.com/wp-content/uploads/2018/06/tim-photo-don-ziegler.jpg" width="225" alt="Tim Langeman" />
+        </h2>
+
+        <ul class="mt-2 contact">
+            <li><strong>Homepage</strong>: <a target="_blank" title="Homepage: Tim Langeman" href="https://www.openpolitics.com/tim">www.openpolitics.com/tim</a></li>
+            <li><strong>Email</strong>: <a target="_blank" title="Email" href="mailto:timlangeman@gmail.com">timlangeman@gmail.com</a></li>
+            <li><strong>Phone</strong>: 717-723-9898</li>
+        </ul>
+
+        <br /><br />
+    </div>
+
+</main>
+
+{% include "_includes/footer.njk" %}
+
+{% endblock %}
+
+
