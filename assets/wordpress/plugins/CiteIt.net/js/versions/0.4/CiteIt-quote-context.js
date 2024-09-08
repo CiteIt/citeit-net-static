@@ -257,7 +257,7 @@ function expandPopup(tag, hidden_popup_id, popup_width=375) {
         closeText: "hide",
         draggableType: true,
         resizable: true,
-        width: 375,
+        width: 380,
         modal: false,
         title: "Quote Context by CiteIt.net",
         hide: {
@@ -268,7 +268,7 @@ function expandPopup(tag, hidden_popup_id, popup_width=375) {
             effect: "scale",
             duration: 400
         },
-    });
+    }).addClass("dialogue_box");
 
     // Add centering and other settings
     jQuery("#" + hidden_popup_id).dialog("option",
