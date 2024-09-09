@@ -348,8 +348,10 @@ function escapeQuote(str) {
     // * https://github.com/CiteIt/citeit-webservice/blob/master/app/settings-default.py
     //   - TEXT_ESCAPE_CODE_POINTS
 
+    str = str.replaceAll(`"`, ``);  // Fix: double quotes are not caught by the following unicode replace_char code points
+
     var replace_chars = new Set([
-        2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 39, 96, 160, 173, 699, 700, 701, 702, 703, 712, 713, 714, 715, 716, 717, 718, 719, 732, 733, 750, 757, 8211, 8212, 8213, 8216, 8217, 8219, 8220, 8221, 8226, 8203, 8204, 8205, 65279, 8232, 8233, 133 , 5760, 6158, 8192, 8193, 8194, 8195, 8196, 8197, 8198, 8199, 8200, 8201, 8202, 8239, 8287, 8288, 12288
+        2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 34, 39, 96, 160, 173, 699, 700, 701, 702, 703, 712, 713, 714, 715, 716, 717, 718, 719, 732, 733, 750, 757, 8211, 8212, 8213, 8216, 8217, 8219, 8220, 8221, 8222, 8223, 8226, 8229, 8203, 8204, 8205, 65279, 8232, 8233, 133 , 5760, 6158, 8192, 8193, 8194, 8195, 8196, 8197, 8198, 8199, 8200, 8201, 8202, 8239, 8287, 8288, 12288
     ]);
 
     return normalizeText(str, replace_chars);
@@ -368,6 +370,8 @@ function normalizeText(str, escape_code_points) {
     var input_code_point = -1;
     var str_array = stringToArray(str); // convert string to array
 
+    str_return = str_return.replaceAll(`"`, ``);      // fix: missed double quotation mark
+
     for (idx in str_array) {
         // Get Unicode Code Point of Current Character
         chr = str_array[idx];
@@ -380,7 +384,7 @@ function normalizeText(str, escape_code_points) {
             str_return += chr; // Add this character
         }
     }
-
+    
     return str_return;
 }
 
