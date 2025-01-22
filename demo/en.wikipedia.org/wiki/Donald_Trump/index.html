@@ -85,7 +85,7 @@
 	<div id="siteNotice" class="mw-body-content"><!-- CentralNotice --></div>
 	<div class="mw-indicators mw-body-content">
 	<div id="mw-indicator-pp-default" class="mw-indicator"><a href="https://en.wikipedia.org/wiki/Wikipedia:Protection_policy#extended" title="This article is extended-confirmed protected"><img alt="Extended-protected article" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Extended-protection-shackle.svg/20px-Extended-protection-shackle.svg.png" decoding="async" width="20" height="20" srcset="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Extended-protection-shackle.svg/30px-Extended-protection-shackle.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Extended-protection-shackle.svg/40px-Extended-protection-shackle.svg.png 2x" data-file-width="512" data-file-height="512" /></a></div>
-	</div>
+ 	</div>
 	<h1 id="firstHeading" class="firstHeading" lang="en">Donald Trump</h1>
 	<div id="bodyContent" class="mw-body-content">
 		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
@@ -3539,7 +3539,7 @@ Transclusion expansion time report (%,ms,calls,template)
 		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q22686#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
 	</div>
 </nav>
-
+ 
 </div>
 
 </div>
@@ -3571,20 +3571,25 @@ additional terms may apply.  By using this site, you agree to the <a href="https
 <script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Donald Trump","url":"https:\/\/en.wikipedia.org\/wiki\/Donald_Trump","sameAs":"http:\/\/www.wikidata.org\/entity\/Q22686","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q22686","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-01-09T03:00:24Z","dateModified":"2020-09-27T22:43:28Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/56\/Donald_Trump_official_portrait.jpg","headline":"45th and current president of the United States"}</script>
 <script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":283,"wgHostname":"mw2305"});});</script>
 
+
 <!-- ################ Begin: CiteIt.net Dependencies ############# -->
-  <div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
-  <script>
-	// Call CiteIt.net plugin on all q-tags and blockquotes:
-	$( document ).ready(function() {
-		jQuery('q, blockquote').quoteContext();
+<div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
+<script>
+  // Call CiteIt.net plugin on all q-tags and blockquotes:
+  $( document ).ready(function() {
+	  $('q, blockquote').quoteContext();
+  });
 
-        // Show Stylesheet: Citation Errors -->
-        $("a#show_citation_errors").click(function() {
-		  $('head').append('<link id="citeit-wikipedia-show-errors" rel="stylesheet" type="text/css" href="https://pages.citeit.net/wp-content/plugins/CiteIt.net/css/citeit-wikipedia-show-errors.css">');
-        });
+  $( document ).tooltip(
+   { tooltipClass: "citeit_tooltip", }
+  ); 
 
-	});
-  </script>
-<!-- ############### End: CiteIt.net Dependencies ############## -->
+  // Show Stylesheet: Citation Errors -->
+  $("a#show_citation_errors").click(function() {
+	$('head').append('<link id="citeit-wikipedia-show-errors" rel="stylesheet" type="text/css" href="https://static.citeit.net/wp-content/plugins/CiteIt.net/css/citeit-wikipedia-show-errors.css">');
+  });
 
-</body></html>
+  // Hide follow-up
+  $('#follow-up').toggle();
+</script>
+<!-- ############### End: CiteIt.net Dependencies ############## --></body></html>

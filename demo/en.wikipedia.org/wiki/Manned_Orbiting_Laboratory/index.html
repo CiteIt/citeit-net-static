@@ -991,15 +991,24 @@ additional terms may apply.  By using this site, you agree to the <a href="https
 
 <!-- script -->
 
-
 <!-- ################ Begin: CiteIt.net Dependencies ############# -->
-  <div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
-  <script>
-	// Call CiteIt.net plugin on all q-tags and blockquotes:
-	$( document ).ready(function() {
-		jQuery('q, blockquote').quoteContext();
-	});
-  </script>
-<!-- ############### End: CiteIt.net Dependencies ############## -->
+<div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
+<script>
+  // Call CiteIt.net plugin on all q-tags and blockquotes:
+  $( document ).ready(function() {
+	  $('q, blockquote').quoteContext();
+  });
 
-</body></html>
+  $( document ).tooltip(
+   { tooltipClass: "citeit_tooltip", }
+  ); 
+
+  // Show Stylesheet: Citation Errors -->
+  $("a#show_citation_errors").click(function() {
+	$('head').append('<link id="citeit-wikipedia-show-errors" rel="stylesheet" type="text/css" href="https://static.citeit.net/wp-content/plugins/CiteIt.net/css/citeit-wikipedia-show-errors.css">');
+  });
+
+  // Hide follow-up
+  $('#follow-up').toggle();
+</script>
+<!-- ############### End: CiteIt.net Dependencies ############## --></body></html>
