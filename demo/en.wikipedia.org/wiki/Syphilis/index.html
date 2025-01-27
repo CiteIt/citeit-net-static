@@ -1080,8 +1080,9 @@ additional terms may apply.  By using this site, you agree to the <a href="https
 <!-- ################ Begin: CiteIt.net Dependencies ############# -->
 <div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
 <script>
+  jQuery.noConflict();
   // Call CiteIt.net plugin on all q-tags and blockquotes:
-  $( document ).ready(function() {
+  jQuery( document ).ready(function() {
 	jQuery('q, blockquote').quoteContext();
   });
 </script>

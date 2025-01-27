@@ -1696,7 +1696,8 @@ additional terms may apply.  By using this site, you agree to the <a href="https
 <div id='citeit_container'><!-- CiteIt-quote-context.js injects data returned from lookup in this hidden div --></div>
 <script>
   // Call CiteIt.net plugin on all q-tags and blockquotes:
-  $( document ).ready(function() {
+  jQuery.noConflict();
+  jQuery( document ).ready(function() {
 	  jQuery('q, blockquote').quoteContext();
   });
 </script>
