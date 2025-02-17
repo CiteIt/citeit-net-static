@@ -103,10 +103,10 @@ jQuery.fn.quoteContext = function() {
 
                     // Set a different popup width for Phones vs Desktop
                     if (window.screen.availWidth <= 320){
-                        popup_width = 800;
+                        popup_width = 300;
                     }
                     else if (window.screen.availWidth <= 480) {
-                        popup_width = 800;
+                        popup_width = 340;
                     }
                     else if (window.screen.availWidth <= 640) {
                         popup_width = 640;
@@ -270,11 +270,20 @@ function expandPopup(tag, hidden_popup_id, popup_width=375) {
         },
     }).addClass("dialogue_box");
 
+    // Set Popup Window Relative to Tag or Window
+    if (window.screen.availWidth < 700) {
+        var window_or_tag = window;
+    }
+    else {
+        var window_or_tag = tag;
+    }
+
     // Add centering and other settings
     jQuery("#" + hidden_popup_id).dialog("option",
         "position", {
-            at: "center center",
-            of: tag
+            at: "center center-200",
+            of: window_or_tag,
+            collision: "fit"
         }
     ).dialog("option", "hide", {
         effect: "size",
